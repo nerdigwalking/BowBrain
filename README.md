@@ -1,8 +1,8 @@
 # BowBrain
 Your archery companion
 
-Tracks your progress as an archer.
 
+Developed by archers for archers.
 
 Features:
 
