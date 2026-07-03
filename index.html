@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BowBrain – Your Archery Companion</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -242,7 +243,7 @@ textarea{min-height:70px;resize:vertical}
     </div>
     <button class="btn bp" style="width:100%;justify-content:center;padding:10px" onclick="doRegister()">Konto erstellen &middot; Create Account</button>
   </div>
-  <div class="lver">v0.1.7.8 &middot; &ldquo;An San&rdquo;</div>
+  <div class="lver">v0.1.7.9 &middot; &ldquo;Marcus D&rsquo;Almeida&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -277,7 +278,7 @@ textarea{min-height:70px;resize:vertical}
     <div class="tbt" id="tbt">Dashboard</div>
     <span class="tbb" id="tbb">Recurve &middot; 28"</span>
     <button class="mb" id="mob-toggle" onclick="toggleMobMode()" title="Ansicht wechseln" style="margin-left:4px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></button>
-    <select id="lang-topbar" onchange="chLTopbar(this.value)" style="background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--text2);font-weight:500;cursor:pointer;outline:none;font-family:'Inter',sans-serif;transition:border .15s" title="Language / Sprache">
+    <select id="lang-topbar" onchange="chLTopbar(this.value)" style="width:auto;flex:none;margin-left:auto;background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--text2);font-weight:500;cursor:pointer;outline:none;font-family:'Inter',sans-serif;transition:border .15s" title="Language / Sprache">
       <option value="de">🇩🇪 DE</option>
       <option value="en">🇬🇧 EN</option>
     </select>
@@ -285,7 +286,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag">v0.1.7.8 &middot; © T. Weinzierl</div>
+<div class="vtag">v0.1.7.9 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -324,7 +325,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='0.1.7.8',VNAME='An San';
+const VER='0.1.7.9',VNAME="Marcus D\'Almeida";
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -334,14 +335,15 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v0.1.7.8 · "An San"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v0.1.7.8 · "An San"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v0.1.7.9 · "Marcus D\'Almeida"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v0.1.7.9 · "Marcus D\'Almeida"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   maintenance:{active:false,msg_de:'🔧 BowBrain wird gerade gewartet. Bitte versuche es später erneut. Der Administrator arbeitet an einem Update.',msg_en:'🔧 BowBrain is currently under maintenance. Please try again later. The administrator is working on an update.'},
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'0.1.7.9',name:"Marcus D\'Almeida",changes:['Admin-Analytics: KPIs, Anmeldungen & Nutzungszeit als Diagramme','Nutzertabelle mit letztem Login, Login-Anzahl und Nutzungszeit','Sprachauswahl in der Topbar kompakter dargestellt','Browser-Tab-Titel gesetzt (BowBrain – Your Archery Companion)']},
   {ver:'0.1.7.8',name:'An San',changes:['Änderungshistorie durch Admin editierbar (hinzufügen/bearbeiten/löschen)','Startseite: Slogan „Your Archery Companion" unter dem Logo','Startseite: Versionsanzeige an den unteren Rand verschoben','Unterstützen: Klartext-E-Mail entfernt, nur noch PayPal-Button']},
   {ver:'0.1.7.7',name:'Lim Sihyeon',changes:['Versions-Codenamen jetzt auch mit Recurve-Schützinnen der Weltrangliste','Unterstützen: PayPal-Spendenbutton auf offiziellen Spenden-Link aktualisiert']},
   {ver:'0.1.7.6',name:'Lee Woo-seok',changes:['Startseite: Hinweis zur Vereins-Datenbank entfernt (App für öffentliche Nutzer)','Unterstützen-Bereich: nur noch PayPal (an tmaz@gmx.de), Ko-fi entfernt']},
@@ -398,6 +400,7 @@ async function bootstrapUser(session){
     tuning_notes:(tuningR.data&&tuningR.data.notes)||'',
     tuning_photos:(photosR.data||[]).map(p=>({id:p.id,dataUrl:p.data_url,date:p.date,comment:p.comment}))
   };
+  try{sbc.from('profiles').update({last_login:new Date().toISOString(),login_count:((prof&&prof.login_count)||0)+1}).eq('id',uid).then(()=>{},e=>console.warn('login track',e));}catch(e){}
   await loadShared();
 }
 async function loadShared(){
@@ -449,7 +452,26 @@ function toggleMobMode(){forceMobile=!forceMobile;applyMobile();}
 function applyMobile(){document.getElementById('main')?.classList.toggle('exp',!sbOpen&&!isMobile());const btn=document.getElementById('mob-toggle');if(btn)btn.style.color=forceMobile?'var(--accent)':'var(--text2)';}
 let ADMIN_USERS=[],ADMIN_STATS=null;
 function getRealStats(){return ADMIN_STATS||{totalUsers:'…',activeUsers:'…',totalScores:'…',totalArrows:'…',totalSetups:'…',totalFeedback:SHARED.feedback.length};}
-async function loadAdminData(){try{const {data:profs}=await sbc.from('profiles').select('*');ADMIN_USERS=profs||[];let arrows=0,scores=0,setups=0;const sr=await sbc.from('scores').select('arrows');if(sr.data){scores=sr.data.length;arrows=sr.data.reduce((a,x)=>a+(+x.arrows||0),0);}const su=await sbc.from('setups').select('id',{count:'exact',head:true});setups=su.count||0;ADMIN_STATS={totalUsers:ADMIN_USERS.length,activeUsers:ADMIN_USERS.length,totalScores:scores,totalArrows:arrows,totalSetups:setups,totalFeedback:SHARED.feedback.length};if(currentPage==='admin'){const el=document.getElementById('content');if(el)el.innerHTML=rAdmin();}}catch(e){console.error('loadAdminData',e);toast('Admin-Daten: '+e.message);}}
+let ADMIN_SIGNUPS=[],ADMIN_USAGE=[],ADMIN_USAGE_BY_USER={};
+async function loadAdminData(){try{
+  const {data:profs}=await sbc.from('profiles').select('*');ADMIN_USERS=profs||[];
+  let arrows=0,scores=0,setups=0;
+  const sr=await sbc.from('scores').select('arrows');if(sr.data){scores=sr.data.length;arrows=sr.data.reduce((a,x)=>a+(+x.arrows||0),0);}
+  const su=await sbc.from('setups').select('id',{count:'exact',head:true});setups=su.count||0;
+  let activity=[];const ar=await sbc.from('activity_log').select('*');if(ar&&ar.data)activity=ar.data;
+  ADMIN_USAGE_BY_USER={};activity.forEach(a=>{ADMIN_USAGE_BY_USER[a.user_id]=(ADMIN_USAGE_BY_USER[a.user_id]||0)+(+a.seconds||0);});
+  const dayKey=d=>d.toISOString().slice(0,10);const today=new Date();
+  const days=[];for(let i=13;i>=0;i--){const d=new Date(today);d.setDate(d.getDate()-i);days.push(dayKey(d));}
+  const signMap={};(profs||[]).forEach(p=>{if(p.created_at){const k=p.created_at.slice(0,10);signMap[k]=(signMap[k]||0)+1;}});
+  ADMIN_SIGNUPS=days.map(k=>({day:k,count:signMap[k]||0}));
+  const useMap={};activity.forEach(a=>{useMap[a.day]=(useMap[a.day]||0)+(+a.seconds||0);});
+  ADMIN_USAGE=days.map(k=>({day:k,seconds:useMap[k]||0}));
+  const now=Date.now(),d7=now-7*864e5,d30=now-30*864e5,newer=(ts,s)=>ts&&new Date(ts).getTime()>=s;
+  const newW=(profs||[]).filter(p=>newer(p.created_at,d7)).length,newM=(profs||[]).filter(p=>newer(p.created_at,d30)).length;
+  const actW=(profs||[]).filter(p=>newer(p.last_login,d7)).length,actM=(profs||[]).filter(p=>newer(p.last_login,d30)).length;
+  ADMIN_STATS={totalUsers:ADMIN_USERS.length,newW,newM,actW,actM,activeUsers:actW,totalScores:scores,totalArrows:arrows,totalSetups:setups,totalFeedback:SHARED.feedback.length};
+  if(currentPage==='admin'){const el=document.getElementById('content');if(el)el.innerHTML=rAdmin();}
+}catch(e){console.error('loadAdminData',e);toast('Admin-Daten: '+e.message);}}
 const SETUP_ICONS=['🏹','🎯','💪','🪶','⚡','🌊','🔥','❄️','🏆','🥇','⚙️','🛡️','🌟','💎','🦅','🐉','🎖️','🔭','🧠','🎪'];
 function getSetupEmoji(s){return s.icon||'🏹';}
 function arrowSVG(nc,fc,sz){sz=sz||56;const nockFill=(nc==='#00000000'||!nc)?'rgba(200,200,200,0.4)':nc;const fletchFill=(fc==='#00000000'||!fc)?'rgba(200,200,200,0.4)':fc;return`<svg width="${sz}" height="${sz}" viewBox="0 0 56 56" style="flex-shrink:0;display:block"><line x1="9" y1="28" x2="46" y2="28" stroke="rgba(180,180,180,0.7)" stroke-width="2.5" stroke-linecap="round"/><polygon points="46,28 40,24 40,32" fill="#aaa"/><rect x="7" y="25.5" width="5" height="5" rx="1.5" fill="${nockFill}" stroke="rgba(255,255,255,0.25)" stroke-width="0.7"/><line x1="7" y1="28" x2="4" y2="25" stroke="${nockFill}" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="28" x2="4" y2="31" stroke="${nockFill}" stroke-width="1.5" stroke-linecap="round"/><path d="M15,28 L11,20 L20,25 Z" fill="${fletchFill}" opacity="0.9"/><path d="M15,28 L11,36 L20,31 Z" fill="${fletchFill}" opacity="0.75"/><path d="M15,28 L9,28 L13,23 Z" fill="${fletchFill}" opacity="0.6"/></svg>`;}
@@ -478,6 +500,9 @@ async function doRegister(){
   if(!data.session){lsuc(lang==='de'?'Fast fertig! Bitte bestätige den Link in deiner E-Mail und melde dich dann an.':'Almost done! Please confirm the link in your email, then sign in.');return;}
   await afterAuth(data.session,true);
 }
+let _hb=null;
+function startHeartbeat(){if(_hb||!sbc)return;_hb=setInterval(()=>{if(document.visibilityState==='visible'&&CU){sbc.rpc('add_activity',{secs:60}).then(()=>{},e=>console.warn('hb',e));}},60000);}
+function stopHeartbeat(){if(_hb){clearInterval(_hb);_hb=null;}}
 async function afterAuth(session,showOnboard){
   try{await bootstrapUser(session);}catch(e){console.error('bootstrap',e);toast((lang==='de'?'Ladefehler: ':'Load error: ')+e.message);}
   if(!CU){lerr(lang==='de'?'Profil konnte nicht geladen werden.':'Could not load profile.');return;}
@@ -490,10 +515,10 @@ async function afterAuth(session,showOnboard){
   const sel=document.getElementById('lang-topbar');if(sel)sel.value=lang;
   document.getElementById('login-page').style.display='none';
   document.getElementById('app-shell').style.display='';
-  buildNav();navigate('dashboard');
+  buildNav();navigate('dashboard');startHeartbeat();
   if(showOnboard)setTimeout(startOnboarding,400);
 }
-async function logout(){try{await sbc.auth.signOut();}catch(e){}CU=null;location.reload();}
+async function logout(){stopHeartbeat();try{await sbc.auth.signOut();}catch(e){}CU=null;location.reload();}
 function showForgot(){
   const isDE=lang==='de';
   document.body.insertAdjacentHTML('beforeend',`
@@ -947,9 +972,11 @@ async function togS(key){const s=getS();s[key]=!s[key];applySettings(s);navigate
 function chL(nl){lang=nl;buildNav();navigate('einstellungen');}
 
 // ─── ADMIN ────────────────────────────────────────────────────────────────
+function fmtDur(s){s=+s||0;if(s<60)return s+'s';if(s<3600)return Math.round(s/60)+'m';return (s/3600).toFixed(1)+'h';}
+function miniBars(data,key,fmt,color){const max=Math.max(1,...data.map(d=>+d[key]||0));return`<div style="display:flex;align-items:flex-end;gap:2px;height:96px;padding:8px 2px 0">${data.map(d=>{const v=+d[key]||0;const h=Math.max(2,Math.round(v/max*74));return`<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0"><div title="${d.day}: ${fmt(v)}" style="width:100%;max-width:18px;height:${h}px;background:${color};border-radius:3px 3px 0 0;opacity:${v?0.9:0.2}"></div><div style="font-size:8px;color:var(--text3)">${d.day.slice(8)}</div></div>`;}).join('')}</div>`;}
 function rAdmin(){if(!CU||CU.role!=='admin'){navigate('dashboard');return'';}
   const stats=getRealStats(),fb=SHARED.feedback,unread=fb.filter(f=>!f.read).length;
-  return`<div class="stitle">${t('admin')}</div><div class="g4" style="margin-bottom:14px">${[[stats.totalUsers,lang==='de'?'Registrierte User':'Users','var(--text)'],[stats.activeUsers,lang==='de'?'Aktive Sitzungen':'Active sessions','var(--green)'],[stats.totalScores+' ('+stats.totalArrows+' 🏹)',lang==='de'?'Einträge / Pfeile':'Entries / Arrows','var(--blue)'],[stats.totalFeedback,lang==='de'?'Feedback':'Feedback','var(--accent)']].map(([n,l,c])=>`<div class="card-sm" style="text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:${c};line-height:1.2">${n}</div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;margin-top:2px">${l}</div></div>`).join('')}</div>
+  return`<div class="stitle">${t('admin')}</div><div class="g3" style="margin-bottom:14px">${[[stats.totalUsers,lang==='de'?'Nutzer gesamt':'Total users','var(--text)'],[stats.newW,lang==='de'?'Neu (7 T.)':'New (7d)','var(--green)'],[stats.actW,lang==='de'?'Aktiv (7 T.)':'Active (7d)','var(--blue)'],[stats.newM,lang==='de'?'Neu (30 T.)':'New (30d)','var(--green)'],[stats.totalArrows,lang==='de'?'Pfeile ges.':'Total arrows','var(--accent)'],[stats.totalFeedback,'Feedback','var(--accent)']].map(([n,l,c])=>`<div class="card-sm" style="text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:26px;color:${c};line-height:1.2">${n}</div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;margin-top:2px">${l}</div></div>`).join('')}</div><div class="g2" style="margin-bottom:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Neuanmeldungen (14 T.)':'Signups (14d)'}</div></div>${miniBars(ADMIN_SIGNUPS,'count',v=>v,'var(--green)')}</div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Nutzungszeit/Tag (14 T.)':'Usage/day (14d)'}</div></div>${miniBars(ADMIN_USAGE,'seconds',fmtDur,'var(--blue)')}</div></div>
   <div class="card" style="margin-bottom:14px;border:1px solid ${SHARED.maintenance&&SHARED.maintenance.active?'var(--accent)':'var(--border)'}"><div class="ch"><div class="ct">🔧 ${lang==='de'?'Wartungsmodus':'Maintenance Mode'}</div><div class="toggle ${SHARED.maintenance&&SHARED.maintenance.active?'on':''}" onclick="toggleMaintenance()"></div></div>
     <p style="font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.6">${SHARED.maintenance&&SHARED.maintenance.active?(lang==='de'?'<b style="color:var(--accent)">Aktiv</b> – normale Nutzer können sich nicht einloggen und sehen den Hinweis unten. Nur Admins haben Zugriff.':'<b style="color:var(--accent)">Active</b> – regular users cannot log in and see the notice below. Only admins have access.'):(lang==='de'?'Inaktiv – alle Nutzer haben normalen Zugriff.':'Inactive – all users have normal access.')}</p>
     <div class="fg"><label>${lang==='de'?'Hinweistext (Deutsch)':'Notice text (German)'}</label><textarea id="maint-de" style="min-height:60px">${(SHARED.maintenance&&SHARED.maintenance.msg_de)||''}</textarea></div>
@@ -957,7 +984,7 @@ function rAdmin(){if(!CU||CU.role!=='admin'){navigate('dashboard');return'';}
     <button class="btn bp btn-sm" onclick="saveMaintMsg()">${lang==='de'?'Hinweistext speichern':'Save notice text'}</button>
   </div>
   <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">💬 ${t('feedback')} ${unread>0?`<span class="badge brd">${unread} neu</span>`:''}</div><button class="btn bg btn-sm" onclick="markAllFbRead()">${lang==='de'?'Alle gelesen':'Mark all read'}</button></div>${fb.length===0?`<div style="color:var(--text3);font-size:13px">${lang==='de'?'Noch kein Feedback.':'No feedback yet.'}</div>`:fb.slice().reverse().map(f=>`<div style="padding:10px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="badge ${f.type==='bug'?'brd':f.type==='feature'?'bbl':'bgr'}">${f.type==='bug'?'🐛 Bug':f.type==='feature'?'💡 Feature':'💬'}</span><span style="font-size:11px;color:var(--text3)">${f.date} · ${f.userName}</span>${!f.read?'<span class="badge brd">neu</span>':''}</div><div style="font-size:13px;color:var(--text2)">${f.text}</div></div>`).join('')}</div>
-  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div><button class="btn bg btn-sm" onclick="loadAdminData()">↻</button></div><table class="table"><thead><tr><th>${t('name')}</th><th>${t('email')}</th><th>${t('role')}</th><th>${t('actions')}</th></tr></thead><tbody>${ADMIN_USERS.length?ADMIN_USERS.map(u=>`<tr><td style="font-weight:600;color:var(--text)">${u.name||'—'}</td><td>${u.email||'—'}</td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role||'user'}</span></td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal('${u.id}')">✏️ ${t('edit')}</button><button class="btn bg btn-sm" onclick="adminResetPw('${u.id}')" title="${lang==='de'?'Reset-Mail senden':'Send reset email'}">🔑</button></div></td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--text3)">${lang==='de'?'Lade Nutzer…':'Loading users…'}</td></tr>`}</tbody></table></div>`;}
+  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div><button class="btn bg btn-sm" onclick="loadAdminData()">↻</button></div><div style="overflow-x:auto"><table class="table"><thead><tr><th>${t('name')}</th><th>${t('role')}</th><th>${lang==='de'?'Dabei seit':'Member since'}</th><th>${lang==='de'?'Letzter Login':'Last login'}</th><th>${lang==='de'?'Logins':'Logins'}</th><th>${lang==='de'?'Nutzung':'Usage'}</th><th>${t('actions')}</th></tr></thead><tbody>${ADMIN_USERS.length?ADMIN_USERS.map(u=>{const ll=u.last_login?new Date(u.last_login).toLocaleDateString(lang==='de'?'de-DE':'en-GB')+' '+new Date(u.last_login).toLocaleTimeString(lang==='de'?'de-DE':'en-GB',{hour:'2-digit',minute:'2-digit'}):(lang==='de'?'nie':'never');const ms=u.created_at?new Date(u.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'—';const use=fmtDur(ADMIN_USAGE_BY_USER[u.id]||0);return`<tr><td style="font-weight:600;color:var(--text)">${u.name||'—'}<div style="font-size:11px;color:var(--text3);font-weight:400">${u.email||''}</div></td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role||'user'}</span></td><td style="color:var(--text3);white-space:nowrap">${ms}</td><td style="color:var(--text2);white-space:nowrap;font-size:12px">${ll}</td><td style="text-align:center">${u.login_count||0}</td><td style="color:var(--blue);font-weight:600">${use}</td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal('${u.id}')">✏️</button><button class="btn bg btn-sm" onclick="adminResetPw('${u.id}')" title="${lang==='de'?'Reset-Mail senden':'Send reset email'}">🔑</button></div></td></tr>`;}).join(''):`<tr><td colspan="7" style="color:var(--text3)">${lang==='de'?'Lade Nutzer…':'Loading users…'}</td></tr>`}</tbody></table></div></div>`;}
 function editUserModal(uid){const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;const isDE=lang==='de';document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="eu-mo" onclick="closeMo(event,'eu-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">${t('edit')}: ${u.name||u.email}</div><button class="btn bg btn-sm" onclick="document.getElementById('eu-mo').remove()">✕</button></div><div class="fg"><label>${t('name')}</label><input id="eu-name" value="${u.name||''}"></div><div class="fg"><label>${t('email')}</label><input value="${u.email||''}" disabled style="opacity:0.6"></div><div class="fg"><label>${isDE?'Rolle':'Role'}</label><select id="eu-role"><option value="user"${u.role==='user'?' selected':''}>User</option><option value="admin"${u.role==='admin'?' selected':''}>Admin</option></select></div><div style="background:#4a9eff12;border:1px solid #4a9eff30;border-radius:8px;padding:9px 12px;font-size:12px;color:var(--text2)">ℹ️ ${isDE?'E-Mail und Passwort verwaltet Supabase Auth. Zum Passwort-Reset den 🔑-Button nutzen (Reset-Mail an den Nutzer).':'Email and password are managed by Supabase Auth. Use the 🔑 button to send a reset email.'}</div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn bg" onclick="document.getElementById('eu-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveUserEdit('${uid}')">${t('save')}</button></div></div></div>`);}
 function adminResetPw(uid){
   const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;
