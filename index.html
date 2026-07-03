@@ -32,7 +32,8 @@ body{background:var(--bg);color:var(--text);min-height:100vh}
 .lico{width:44px;height:44px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .lico svg{width:28px;height:28px}
 .ltit{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:2px;color:var(--accent)}
-.lver{font-size:11px;color:var(--text3);text-align:center;margin:-4px 0 16px;letter-spacing:0.5px}
+.lslogan{font-size:13px;color:var(--text2);text-align:center;margin:-2px 0 18px;letter-spacing:0.5px;font-style:italic}
+.lver{font-size:11px;color:var(--text3);text-align:center;margin:18px 0 0;letter-spacing:0.5px}
 .lerr{background:#e8505018;border:1px solid #e8505040;color:var(--red);border-radius:8px;padding:9px 12px;font-size:13px;margin-bottom:12px;display:none}
 .lsuc{background:#2dd4a018;border:1px solid #2dd4a040;color:var(--green);border-radius:8px;padding:9px 12px;font-size:13px;margin-bottom:12px;display:none}
 .ldemo{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-top:12px}
@@ -203,7 +204,8 @@ textarea{min-height:70px;resize:vertical}
     </div>
     <div class="ltit">BowBrain</div>
   </div>
-  <div class="lver">v0.1.7.1 &middot; &ldquo;Quick Draw&rdquo;</div>
+  <div class="lslogan">Your Archery Companion</div>
+  <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div class="ltabs">
     <button class="ltab active" id="lt-login" onclick="swLTab('login')">Anmelden</button>
     <button class="ltab" id="lt-reg" onclick="swLTab('reg')">Registrieren</button>
@@ -216,12 +218,7 @@ textarea{min-height:70px;resize:vertical}
     <div class="fg"><label>Passwort</label><input id="l-pw" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <button class="btn bp" style="width:100%;justify-content:center;padding:10px;margin-top:4px" onclick="doLogin()">Anmelden &middot; Login</button>
     <div style="text-align:center;margin-top:10px"><button class="btn bg btn-sm" onclick="showForgot()" style="font-size:12px;border:none;background:none;color:var(--text3);cursor:pointer;text-decoration:underline">Passwort vergessen?</button></div>
-    <div class="ldemo">
-      <div style="font-weight:600;margin-bottom:6px;color:var(--text2);font-size:12px">Demo-Zugänge – direkt klicken:</div>
-      <div class="demo-btn" onclick="fillLogin('thomas@bowbrain.app','admin')"><div><b style="color:var(--text)">Thomas Weinzierl</b> <span class="badge ba" style="font-size:10px">Admin</span></div><div style="font-size:11px;color:var(--text3)">thomas@bowbrain.app</div></div>
-      <div class="demo-btn" onclick="fillLogin('lisa@bowbrain.app','user')"><div><b style="color:var(--text)">Lisa Müller</b> <span class="badge bgr" style="font-size:10px">User</span></div><div style="font-size:11px;color:var(--text3)">lisa@bowbrain.app</div></div>
-      <div class="demo-btn" onclick="fillLogin('max@bowbrain.app','user')"><div><b style="color:var(--text)">Max Berger</b> <span class="badge bgr" style="font-size:10px">User</span></div><div style="font-size:11px;color:var(--text3)">max@bowbrain.app</div></div>
-    </div>
+
   </div>
   <!-- REGISTER FORM -->
   <div id="lf-reg" style="display:none">
@@ -230,7 +227,7 @@ textarea{min-height:70px;resize:vertical}
       <div class="fg"><label>E-Mail *</label><input id="r-email" type="email" placeholder="max@example.com"></div>
     </div>
     <div class="g2" style="gap:10px">
-      <div class="fg"><label>Passwort *</label><input id="r-pw" type="password" placeholder="Mindestens 4 Zeichen"></div>
+      <div class="fg"><label>Passwort *</label><input id="r-pw" type="password" placeholder="Mindestens 6 Zeichen"></div>
       <div class="fg"><label>Bogenklasse</label>
         <select id="r-bow">
           <option>Recurve</option><option>Compound</option><option>Blankbogen</option><option>Traditionell</option>
@@ -245,6 +242,7 @@ textarea{min-height:70px;resize:vertical}
     </div>
     <button class="btn bp" style="width:100%;justify-content:center;padding:10px" onclick="doRegister()">Konto erstellen &middot; Create Account</button>
   </div>
+  <div class="lver">v0.1.7.8 &middot; &ldquo;An San&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -262,7 +260,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver">v0.1.7.1 &middot; &ldquo;Quick Draw&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver">v0.1.7.7 &middot; &ldquo;Lim Sihyeon&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -287,7 +285,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag">v0.1.7.1 &middot; © T. Weinzierl</div>
+<div class="vtag">v0.1.7.8 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -324,15 +322,10 @@ textarea{min-height:70px;resize:vertical}
 </div>
 </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='0.1.7.1',VNAME='Quick Draw';
-// ─── USERS (mutable for registration) ─────────────────────────────────────
-const USERS=[
-  {id:1,name:'Thomas Weinzierl',email:'thomas@bowbrain.app',pw:'admin',role:'admin',bow_class:'Recurve',draw_length:28,handedness:'right',isNew:false},
-  {id:2,name:'Lisa Müller',email:'lisa@bowbrain.app',pw:'user',role:'user',bow_class:'Recurve',draw_length:26.5,handedness:'right',isNew:false},
-  {id:3,name:'Max Berger',email:'max@bowbrain.app',pw:'user',role:'user',bow_class:'Compound',draw_length:29,handedness:'right',isNew:false},
-];
-let nextUID=4;
+const VER='0.1.7.8',VNAME='An San';
+// Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
 const COLOR_NAMES=['Weiß','Hellgrau','Silber','Dunkelgrau','Schwarz','Rot','Orange','Gelb','Hellgrün','Grün','Türkis','Hellblau','Blau','Lila','Pink','Gold','Braun','Transparent'];
@@ -341,19 +334,29 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v0.1.7.1 · "Quick Draw"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Alle Daten verbleiben lokal auf dem Gerät. Keine Übertragung an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v0.1.7.1 · "Quick Draw"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: All data remains locally on your device. No external transmission.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v0.1.7.8 · "An San"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v0.1.7.8 · "An San"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
+  maintenance:{active:false,msg_de:'🔧 BowBrain wird gerade gewartet. Bitte versuche es später erneut. Der Administrator arbeitet an einem Update.',msg_en:'🔧 BowBrain is currently under maintenance. Please try again later. The administrator is working on an update.'},
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'0.1.7.8',name:'An San',changes:['Änderungshistorie durch Admin editierbar (hinzufügen/bearbeiten/löschen)','Startseite: Slogan „Your Archery Companion" unter dem Logo','Startseite: Versionsanzeige an den unteren Rand verschoben','Unterstützen: Klartext-E-Mail entfernt, nur noch PayPal-Button']},
+  {ver:'0.1.7.7',name:'Lim Sihyeon',changes:['Versions-Codenamen jetzt auch mit Recurve-Schützinnen der Weltrangliste','Unterstützen: PayPal-Spendenbutton auf offiziellen Spenden-Link aktualisiert']},
+  {ver:'0.1.7.6',name:'Lee Woo-seok',changes:['Startseite: Hinweis zur Vereins-Datenbank entfernt (App für öffentliche Nutzer)','Unterstützen-Bereich: nur noch PayPal (an tmaz@gmx.de), Ko-fi entfernt']},
+  {ver:'0.1.7.5',name:'Kim Je-deok',changes:['Demo-Zugänge von der Startseite entfernt (Login nur noch über echte Konten)','Startseite: Hinweis zum Registrieren statt Demo-Buttons']},
+  {ver:'0.1.7.4',name:'Mete Gazoz',changes:['Wartungsmodus: Admin kann die App für normale Nutzer sperren','Bei aktivem Wartungsmodus sehen Nutzer einen Hinweis auf der Startseite','Admin kann sich auch im Wartungsmodus einloggen','Wartungs-Hinweistext (DE/EN) im Admin-Bereich pflegbar']},
+  {ver:'0.1.7.3',name:'Kim Woojin',changes:['Zentrale Datenspeicherung über Supabase (geräteübergreifend)','Echte Registrierung & Login über Supabase Auth','Funktionierender Passwort-Reset per E-Mail','Alle Daten (Setups, Ergebnisse, Visier, Profil) zentral gespeichert','FAQ/Impressum/Glossar/Roadmap zentral für alle Nutzer','Admin: echte Nutzerliste & Kennzahlen aus der Datenbank','Admin kann Reset-Mail für Nutzer auslösen']},
+  {ver:'0.1.7.2',name:'Brady Ellison',changes:['Datenpersistenz: Speicherung im Browser (localStorage), übersteht Reload','Admin kann Passwörter zurücksetzen (neues PW generieren/setzen)','Passwort-Reset-Dialog überarbeitet (Backend-Hinweis)','Vorbereitung zentrale Speicherung: Datenzugriff über Speicher-Layer gekapselt','Codename-Schema: bekannte Recurve-Weltranglisten-Schützen']},
   {ver:'0.1.7.1',name:'Quick Draw',changes:['© T. Weinzierl in Statusleiste','Sprachauswahl in Topbar','Tuning: korrekte Großschreibung & Legenden ohne Überlagerung','Glossar durch Admin pflegbar','Setup-Icon-Auswahl (20 Symbole)','Stilisierter Pfeil mit Nocken/Federn-Farbe','Mobile Menü ohne Überlagerung']},
   {ver:'0.1.7.0',name:'Sharp Mind',changes:['Logo 2 "Target Neural"','Mobile-responsive Layout (Auto-Erkennung + Toggle)','Registrierung für neue User inkl. Sprachauswahl','Onboarding-Dialog nach erster Registrierung','Passwort-Vergessen-Funktion','Admin: Nutzer editierbar, echte Kennzahlen','Dashboard: Liniendiagramm (statt Balken), keine Legendenüberlagerung','Dashboard: Max-Punktzahl immer mit angezeigt','Tuning: Abbildungen für Blankschaft (inkl. Nockpunkt), Walkback, Paper','Visiereinstellungen: Klickwert-Vorhersage für neue Distanzen','Ergebnisse: Podiumsplatz-Medaillen-Animation','Setups: Spine-Balken farbig (grün/orange/blau), dynamische Icons','Einstellungen: Benachrichtigungen als geplantes Feature ausgegraut','UI-Animationen (Fade-in, Hover-Effekte)']},
   {ver:'0.1.6.0',name:'Full Quiver',changes:['Demo-User im Login direkt anklickbar','Profilfoto-Upload','Setups: Farbpalette, Equipment-Fotos','Visiereinstellungen: Multi-Visier, DE-Übersetzung','Pfeile ohne Punkte, Ort, Turnierplatz, Teilnehmerzahl','Dashboard: Pfeile/Woche & /Monat, Balken-Chart','Admin: FAQ & Impressum & Tuning-Texte editierbar','Feedback, Spenden, Roadmap']},
   {ver:'0.5.0',name:'True Flight',changes:['Login mit Rollentrennung','Korrigierter Spine-Rechner','WA-Formate, Ø pro Pfeil, Flugkurve, Tiller']},
   {ver:'0.4.0',name:'Precision Draw',changes:['Datenpersistenz, DE/EN-Übersetzung, funktionierende Modals']}
 ];
+SHARED.changelog=CHANGELOG;  // default; overridden by DB (admin-editable)
+
 const L={
   de:{dashboard:'Dashboard',setups:'Setups',sight:'Visiereinstellungen',scores:'Ergebnisse',tuning:'Tuning',glossar:'Glossar',profil:'Profil',einstellungen:'Einstellungen',admin:'Admin',hilfe:'Hilfe & Support',nav_main:'Hauptmenü',nav_acc:'Konto',save:'Speichern',cancel:'Abbrechen',edit:'Bearbeiten',del:'Löschen',active:'Aktiv',bow:'Bogen / Mittelstück',limbs:'Wurfarme',dw:'Zuggewicht (lbs)',string:'Sehne',am:'Pfeilmodell',spine:'Spine',tip:'Spitzengewicht (Grain)',dl:'Auszuglänge (Zoll)',nock:'Nockenfarbe',fletch:'Federfarbe',setup_name:'Setup-Name',brace:'Standhöhe (Zoll)',tiller_u:'Oberer Tiller (mm)',tiller_l:'Unterer Tiller (mm)',new_setup:'Neues Setup',new_score:'Ergebnis eintragen',new_sight:'Einstellung hinzufügen',dist:'Distanz (m)',click:'Klick-Wert',notes:'Notizen',setup:'Setup',date:'Datum',type:'Typ',points:'Punkte',arrows:'Pfeile',avg_arrow:'Ø pro Pfeil',total_arrows:'Pfeile gesamt',best_score:'Beste Punktzahl',trainings:'Trainings',tournaments:'Turniere',active_setup:'Aktives Setup',last_act:'Letzte Aktivitäten',all:'Alle',stats:'Statistik',timeline:'Zeitleiste',rh:'Rechtshänder',lh:'Linkshänder',bow_class:'Bogenklasse',cc:'Wettkampfklasse',personal:'Persönliche Daten',archer:'Bogenschützen-Einstellungen',name:'Name',email:'E-Mail',club:'Verein',country:'Land / Region',language:'Sprache',dark_mode:'Dark Mode',animations:'Animationen',compact:'Kompaktansicht',large_font:'Große Schrift',faq:'Häufig gestellte Fragen',imprint:'Impressum',role:'Rolle',status:'Status',last_seen:'Letzte Aktivität',actions:'Aktionen',flight_diagram:'Flugkurven-Diagramm',sight_by_dist:'Einstellungen nach Distanz',spine_calc:'Spine-Rechner',spine_rec:'Empfohlener Spine',no_setups:'Noch keine Setups.',no_scores:'Noch keine Ergebnisse.',no_sight:'Noch keine Visiereinstellungen.',confirm_del:'Wirklich löschen?',set_active:'Als aktiv setzen',tuning_notes:'Tuning-Notizen',tuning_photos:'Fotos',add_photo:'Foto hochladen',spine_compat:'Spine-Kompatibilität',visier:'Visier',location:'Ort (optional)',placement:'Platz',participants:'Teilnehmer',bezeichnung:'Bezeichnung',arrows_only:'Nur Pfeile (kein Score)',per_week:'Pfeile diese Woche',per_month:'Pfeile diesen Monat',score_chart:'Ergebnis-Verlauf',feedback:'Feedback & Vorschläge',roadmap:'Roadmap',donate:'Unterstützen',changelog:'Änderungshistorie',send:'Absenden',feature_req:'Funktionswunsch',bug_rep:'Fehler melden',predict:'Vorschlag basierend auf Flugkurve',user_mgmt:'Nutzerverwaltung'},
   en:{dashboard:'Dashboard',setups:'Setups',sight:'Sight Settings',scores:'Results',tuning:'Tuning',glossar:'Glossary',profil:'Profile',einstellungen:'Settings',admin:'Admin',hilfe:'Help & Support',nav_main:'Main Menu',nav_acc:'Account',save:'Save',cancel:'Cancel',edit:'Edit',del:'Delete',active:'Active',bow:'Bow / Riser',limbs:'Limbs',dw:'Draw Weight (lbs)',string:'String',am:'Arrow Model',spine:'Spine',tip:'Point Weight (Grain)',dl:'Draw Length (in)',nock:'Nock Color',fletch:'Fletching Color',setup_name:'Setup Name',brace:'Brace Height (in)',tiller_u:'Upper Tiller (mm)',tiller_l:'Lower Tiller (mm)',new_setup:'New Setup',new_score:'Add Result',new_sight:'Add Setting',dist:'Distance (m)',click:'Click Value',notes:'Notes',setup:'Setup',date:'Date',type:'Type',points:'Points',arrows:'Arrows',avg_arrow:'Avg per Arrow',total_arrows:'Total Arrows',best_score:'Best Score',trainings:'Trainings',tournaments:'Tournaments',active_setup:'Active Setup',last_act:'Recent Activity',all:'All',stats:'Statistics',timeline:'Timeline',rh:'Right-handed',lh:'Left-handed',bow_class:'Bow Class',cc:'Competition Class',personal:'Personal Data',archer:'Archer Settings',name:'Name',email:'E-Mail',club:'Club',country:'Country / Region',language:'Language',dark_mode:'Dark Mode',animations:'Animations',compact:'Compact View',large_font:'Large Font',faq:'Frequently Asked Questions',imprint:'Imprint / Legal',role:'Role',status:'Status',last_seen:'Last Active',actions:'Actions',flight_diagram:'Arrow Flight Diagram',sight_by_dist:'Settings by Distance',spine_calc:'Spine Calculator',spine_rec:'Recommended Spine',no_setups:'No setups yet.',no_scores:'No results yet.',no_sight:'No sight settings yet.',confirm_del:'Really delete?',set_active:'Set as Active',tuning_notes:'Tuning Notes',tuning_photos:'Photos',add_photo:'Upload Photo',spine_compat:'Spine Compatibility',visier:'Sight Unit',location:'Location (optional)',placement:'Placement',participants:'Participants',bezeichnung:'Description',arrows_only:'Arrows only (no score)',per_week:'Arrows this week',per_month:'Arrows this month',score_chart:'Score Progress',feedback:'Feedback & Suggestions',roadmap:'Roadmap',donate:'Support',changelog:'Changelog',send:'Submit',feature_req:'Feature Request',bug_rep:'Report Bug',predict:'Suggested by trajectory',user_mgmt:'User Management'}
@@ -361,20 +364,70 @@ const L={
 // ─── STATE ────────────────────────────────────────────────────────────────
 let CU=null,lang='en',sbOpen=true,currentPage='dashboard',forceMobile=false;
 const DATA={},SETTINGS={},PREFS={};
-function initUser(u){
-  if(!DATA[u.id]){
-    DATA[u.id]={setups:[],scores:[],sight:[],tuning_notes:'',tuning_photos:[]};
-    if(u.id===1)seedAdmin();
-    SETTINGS[u.id]={dark_mode:true,animations:true,compact:false,large_font:false};
-    PREFS[u.id]={name:u.name,email:u.email,club:u.id===1?'BSV Musterburg e.V.':'',handedness:u.handedness||'right',draw_length:u.draw_length||28,bow_class:u.bow_class||'Recurve',cc:u.id===1?'Recurve Herren A':'',country:u.id===1?'Bayern, Deutschland':'',avatar_url:null};
-  }
+// ─── SUPABASE CLIENT ──────────────────────────────────────────────────────
+const SUPABASE_URL='https://vpbucrdmexnmaznikevw.supabase.co';
+const SUPABASE_KEY='sb_publishable_WdJ1GFigVVfl6t0ATAjQAA_jV-h2ov2';
+let sbc=null;
+try{sbc=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);}catch(e){console.error('Supabase init failed:',e);}
+function toast(msg,ok){const d=document.createElement('div');d.style.cssText='position:fixed;bottom:76px;left:50%;transform:translateX(-50%);background:'+(ok?'#2dd4a0':'#e85050')+';color:#fff;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,0.35);max-width:92vw;text-align:center';d.textContent=msg;document.body.appendChild(d);setTimeout(()=>{d.style.transition='opacity .4s';d.style.opacity='0';setTimeout(()=>d.remove(),400);},3400);}
+// DB helpers (return null / log+toast on error)
+async function dbIns(table,row){const {data,error}=await sbc.from(table).insert(row).select().single();if(error){console.error('insert '+table,error);toast(error.message);return null;}return data;}
+async function dbUpd(table,id,row){const {error}=await sbc.from(table).update(row).eq('id',id);if(error){console.error('update '+table,error);toast(error.message);return false;}return true;}
+async function dbDel(table,id){const {error}=await sbc.from(table).delete().eq('id',id);if(error){console.error('delete '+table,error);toast(error.message);return false;}return true;}
+// ── Data bootstrap after auth ──
+async function bootstrapUser(session){
+  const uid=session.user.id, email=session.user.email;
+  let {data:prof}=await sbc.from('profiles').select('*').eq('id',uid).maybeSingle();
+  if(!prof){await sbc.from('profiles').insert({id:uid,email,name:email.split('@')[0]});const r=await sbc.from('profiles').select('*').eq('id',uid).maybeSingle();prof=r.data;}
+  CU={id:uid,email,role:(prof&&prof.role)||'user'};
+  if(prof&&prof.lang)lang=prof.lang;
+  PREFS[uid]={name:(prof&&prof.name)||email.split('@')[0],email:(prof&&prof.email)||email,club:(prof&&prof.club)||'',handedness:(prof&&prof.handedness)||'right',draw_length:(prof&&prof.draw_length)||28,bow_class:(prof&&prof.bow_class)||'Recurve',cc:(prof&&prof.cc)||'',country:(prof&&prof.country)||'',avatar_url:(prof&&prof.avatar_url)||null};
+  let {data:st}=await sbc.from('user_settings').select('*').eq('user_id',uid).maybeSingle();
+  SETTINGS[uid]={dark_mode:st?st.dark_mode:true,animations:st?st.animations:true,compact:st?st.compact:false,large_font:st?st.large_font:false};
+  const [setupsR,scoresR,sightR,tuningR,photosR]=await Promise.all([
+    sbc.from('setups').select('*').eq('user_id',uid).order('id'),
+    sbc.from('scores').select('*').eq('user_id',uid).order('date'),
+    sbc.from('sight_settings').select('*').eq('user_id',uid).order('id'),
+    sbc.from('tuning').select('*').eq('user_id',uid).maybeSingle(),
+    sbc.from('tuning_photos').select('*').eq('user_id',uid).order('id')
+  ]);
+  DATA[uid]={
+    setups:(setupsR.data||[]),
+    scores:(scoresR.data||[]),
+    sight:(sightR.data||[]),
+    tuning_notes:(tuningR.data&&tuningR.data.notes)||'',
+    tuning_photos:(photosR.data||[]).map(p=>({id:p.id,dataUrl:p.data_url,date:p.date,comment:p.comment}))
+  };
+  await loadShared();
 }
-function dAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString().split('T')[0];}
-function seedAdmin(){
-  const d=DATA[1];
-  d.setups=[{id:1,prefix:'Turnier',bow:'Hoyt Formula XI',limbs:'Hoyt Velos 36#',dw:36,string:'BCY 8190',am:'Easton X10',spine:600,tip:100,dl:28,nock_color:'#FFFFFF',fletch_color:'#2060D0',brace:8.75,tiller_u:10,tiller_l:8,active:true,photo_url:null},{id:2,prefix:'Training',bow:'Win&Win WIAWIS',limbs:'Win&Win AIR 34#',dw:34,string:'Avalon Tec X',am:'Gold Tip Kinetic',spine:400,tip:125,dl:27.5,nock_color:'#F07020',fletch_color:'#F07020',brace:9.0,tiller_u:9,tiller_l:7,active:false,photo_url:null}];
-  d.scores=[{id:1,date:dAgo(185),type:'wa720',name:'LM Bayern 2025',points:583,arrows:72,setup_id:1,notes:'Windig',location:'München',placement:3,participants:48,no_points:false},{id:2,date:dAgo(155),type:'training',name:'Training 50m',points:340,arrows:36,setup_id:1,notes:'',location:'',placement:null,participants:null,no_points:false},{id:3,date:dAgo(120),type:'training',name:'Training 18m',points:276,arrows:30,setup_id:2,notes:'',location:'',placement:null,participants:null,no_points:false},{id:4,date:dAgo(90),type:'wa720',name:'Gauliga September',points:571,arrows:72,setup_id:1,notes:'PB!',location:'Rosenheim',placement:5,participants:32,no_points:false},{id:5,date:dAgo(60),type:'wa600',name:'Indoor Pokal',points:489,arrows:60,setup_id:1,notes:'',location:'München',placement:2,participants:24,no_points:false},{id:6,date:dAgo(30),type:'training',name:'Mengstraining',points:0,arrows:60,setup_id:1,notes:'',location:'',placement:null,participants:null,no_points:true},{id:7,date:dAgo(14),type:'training',name:'Training 50m',points:358,arrows:36,setup_id:1,notes:'',location:'',placement:null,participants:null,no_points:false},{id:8,date:dAgo(5),type:'wa720',name:'Gauliga Mai',points:598,arrows:72,setup_id:1,notes:'Neues PB!',location:'Miesbach',placement:1,participants:36,no_points:false}];
-  d.sight=[{id:1,setup_id:1,dist:18,click:80,notes:'',visier:'Beiter Standard'},{id:2,setup_id:1,dist:25,click:95,notes:'',visier:'Beiter Standard'},{id:3,setup_id:1,dist:30,click:110,notes:'',visier:'Beiter Standard'},{id:4,setup_id:1,dist:50,click:145,notes:'',visier:'Beiter Standard'},{id:5,setup_id:1,dist:70,click:190,notes:'',visier:'Beiter Standard'},{id:6,setup_id:1,dist:18,click:82,notes:'Backup',visier:'Spigarelli Pro'},{id:7,setup_id:1,dist:50,click:148,notes:'',visier:'Spigarelli Pro'}];
+async function loadShared(){
+  try{
+    const {data:sc}=await sbc.from('shared_content').select('content').eq('id',1).maybeSingle();
+    if(sc&&sc.content){const x=sc.content;if(x.faq)SHARED.faq=x.faq;if(x.impressum_de)SHARED.impressum_de=x.impressum_de;if(x.impressum_en)SHARED.impressum_en=x.impressum_en;if(x.tuning)SHARED.tuning=x.tuning;if(x.roadmap)SHARED.roadmap=x.roadmap;if(x.glossary){if(x.glossary.de)GL.de=x.glossary.de;if(x.glossary.en)GL.en=x.glossary.en;}if(x.maintenance)SHARED.maintenance=x.maintenance;if(Array.isArray(x.changelog)){SHARED.changelog=x.changelog;if(!x.changelog.some(e=>e.ver===VER)){const cur=CHANGELOG.find(e=>e.ver===VER);if(cur)SHARED.changelog=[cur,...x.changelog];}}}
+    else if(CU&&CU.role==='admin'){await saveShared();}
+    const {data:fb}=await sbc.from('feedback').select('*').order('id');
+    if(fb)SHARED.feedback=fb.map(f=>({id:f.id,type:f.type,text:f.text,userName:f.user_name,date:f.created_at?new Date(f.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'',read:f.read}));
+  }catch(e){console.error('loadShared',e);}
+}
+async function saveShared(){
+  const content={faq:SHARED.faq,impressum_de:SHARED.impressum_de,impressum_en:SHARED.impressum_en,tuning:SHARED.tuning,roadmap:SHARED.roadmap,glossary:{de:GL.de,en:GL.en},maintenance:SHARED.maintenance,changelog:SHARED.changelog};
+  const {error}=await sbc.from('shared_content').upsert({id:1,content});
+  if(error){console.error('saveShared',error);toast(error.message);}
+}
+async function checkMaintenance(){
+  try{
+    const {data}=await sbc.from('shared_content').select('content').eq('id',1).maybeSingle();
+    const m=data&&data.content&&data.content.maintenance;
+    if(m)SHARED.maintenance=m;
+    renderMaintBanner();
+    return m&&m.active;
+  }catch(e){console.error('checkMaintenance',e);return false;}
+}
+function renderMaintBanner(){
+  const el=document.getElementById('maint-banner');if(!el)return;
+  const m=SHARED.maintenance;
+  if(m&&m.active){el.style.display='';el.innerHTML=(lang==='de'?m.msg_de:m.msg_en)||'🔧 Wartungsmodus';}
+  else{el.style.display='none';}
 }
 const t=k=>(L[lang][k]||L.de[k]||k);
 const getD=()=>DATA[CU.id];const getS=()=>SETTINGS[CU.id];const getP=()=>PREFS[CU.id];
@@ -394,18 +447,99 @@ function predictClick(newDist,pts){if(pts.length<2)return null;const n=pts.lengt
 function isMobile(){return forceMobile||window.innerWidth<768;}
 function toggleMobMode(){forceMobile=!forceMobile;applyMobile();}
 function applyMobile(){document.getElementById('main')?.classList.toggle('exp',!sbOpen&&!isMobile());const btn=document.getElementById('mob-toggle');if(btn)btn.style.color=forceMobile?'var(--accent)':'var(--text2)';}
-function getRealStats(){const ids=Object.keys(DATA).map(Number);return{totalUsers:USERS.length,activeUsers:ids.length,totalScores:ids.reduce((s,id)=>s+(DATA[id]?.scores?.length||0),0),totalArrows:ids.reduce((s,id)=>s+(DATA[id]?.scores||[]).reduce((a,sc)=>a+(+sc.arrows||0),0),0),totalSetups:ids.reduce((s,id)=>s+(DATA[id]?.setups?.length||0),0),totalFeedback:SHARED.feedback.length};}
+let ADMIN_USERS=[],ADMIN_STATS=null;
+function getRealStats(){return ADMIN_STATS||{totalUsers:'…',activeUsers:'…',totalScores:'…',totalArrows:'…',totalSetups:'…',totalFeedback:SHARED.feedback.length};}
+async function loadAdminData(){try{const {data:profs}=await sbc.from('profiles').select('*');ADMIN_USERS=profs||[];let arrows=0,scores=0,setups=0;const sr=await sbc.from('scores').select('arrows');if(sr.data){scores=sr.data.length;arrows=sr.data.reduce((a,x)=>a+(+x.arrows||0),0);}const su=await sbc.from('setups').select('id',{count:'exact',head:true});setups=su.count||0;ADMIN_STATS={totalUsers:ADMIN_USERS.length,activeUsers:ADMIN_USERS.length,totalScores:scores,totalArrows:arrows,totalSetups:setups,totalFeedback:SHARED.feedback.length};if(currentPage==='admin'){const el=document.getElementById('content');if(el)el.innerHTML=rAdmin();}}catch(e){console.error('loadAdminData',e);toast('Admin-Daten: '+e.message);}}
 const SETUP_ICONS=['🏹','🎯','💪','🪶','⚡','🌊','🔥','❄️','🏆','🥇','⚙️','🛡️','🌟','💎','🦅','🐉','🎖️','🔭','🧠','🎪'];
 function getSetupEmoji(s){return s.icon||'🏹';}
 function arrowSVG(nc,fc,sz){sz=sz||56;const nockFill=(nc==='#00000000'||!nc)?'rgba(200,200,200,0.4)':nc;const fletchFill=(fc==='#00000000'||!fc)?'rgba(200,200,200,0.4)':fc;return`<svg width="${sz}" height="${sz}" viewBox="0 0 56 56" style="flex-shrink:0;display:block"><line x1="9" y1="28" x2="46" y2="28" stroke="rgba(180,180,180,0.7)" stroke-width="2.5" stroke-linecap="round"/><polygon points="46,28 40,24 40,32" fill="#aaa"/><rect x="7" y="25.5" width="5" height="5" rx="1.5" fill="${nockFill}" stroke="rgba(255,255,255,0.25)" stroke-width="0.7"/><line x1="7" y1="28" x2="4" y2="25" stroke="${nockFill}" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="28" x2="4" y2="31" stroke="${nockFill}" stroke-width="1.5" stroke-linecap="round"/><path d="M15,28 L11,20 L20,25 Z" fill="${fletchFill}" opacity="0.9"/><path d="M15,28 L11,36 L20,31 Z" fill="${fletchFill}" opacity="0.75"/><path d="M15,28 L9,28 L13,23 Z" fill="${fletchFill}" opacity="0.6"/></svg>`;}
 // ─── AUTH ─────────────────────────────────────────────────────────────────
 function swLTab(tab){document.getElementById('lt-login').classList.toggle('active',tab==='login');document.getElementById('lt-reg').classList.toggle('active',tab==='reg');document.getElementById('lf-login').style.display=tab==='login'?'':'none';document.getElementById('lf-reg').style.display=tab==='reg'?'':'none';document.getElementById('lerr').style.display='none';document.getElementById('lsuc').style.display='none';}
-function fillLogin(em,pw){document.getElementById('l-email').value=em;document.getElementById('l-pw').value=pw;setTimeout(doLogin,80);}
-function doLogin(){const em=document.getElementById('l-email').value.trim().toLowerCase(),pw=document.getElementById('l-pw').value,u=USERS.find(x=>x.email.toLowerCase()===em&&x.pw===pw),err=document.getElementById('lerr');if(!u){err.style.display='block';err.textContent=lang==='de'?'Ungültige Zugangsdaten':'Invalid credentials';return;}err.style.display='none';launchApp(u,false);}
-function doRegister(){const nm=document.getElementById('r-name').value.trim(),em=document.getElementById('r-email').value.trim().toLowerCase(),pw=document.getElementById('r-pw').value,bc=document.getElementById('r-bow').value,rl=document.getElementById('r-lang').value,err=document.getElementById('lerr');if(!nm||!em||pw.length<4){err.style.display='block';err.textContent=lang==='de'?'Bitte alle Pflichtfelder ausfüllen (Passwort mind. 4 Zeichen).':'Please fill all required fields (password min. 4 characters).';return;}if(USERS.find(x=>x.email.toLowerCase()===em)){err.style.display='block';err.textContent=lang==='de'?'Diese E-Mail ist bereits registriert.':'This email is already registered.';return;}const newU={id:nextUID++,name:nm,email:em,pw,role:'user',bow_class:bc,draw_length:28,handedness:'right',isNew:true};USERS.push(newU);lang=rl;launchApp(newU,true);}
-function launchApp(u,showOnboard){CU=u;initUser(u);lang=lang||'en';applySettings(getS());document.getElementById('login-page').style.display='none';document.getElementById('app-shell').style.display='';buildNav();navigate('dashboard');if(showOnboard||u.isNew){u.isNew=false;setTimeout(startOnboarding,400);}}
-function logout(){CU=null;document.getElementById('login-page').style.display='';document.getElementById('app-shell').style.display='none';document.getElementById('l-email').value='';document.getElementById('l-pw').value='';}
-function showForgot(){const em=prompt(lang==='de'?'Deine registrierte E-Mail-Adresse:':'Your registered email address:');if(!em)return;const u=USERS.find(x=>x.email.toLowerCase()===em.trim().toLowerCase());const suc=document.getElementById('lsuc'),err=document.getElementById('lerr');if(u){suc.style.display='block';suc.textContent=lang==='de'?`Passwort-Link würde an ${u.email} gesendet. (Demo: Passwort ist "${u.pw}")`:`Password link would be sent to ${u.email}. (Demo: password is "${u.pw}")`;}else{err.style.display='block';err.textContent=lang==='de'?'E-Mail nicht gefunden.':'Email not found.';}}
+function fillLogin(em,pw){document.getElementById('l-email').value=em;document.getElementById('l-pw').value=pw;}
+function lerr(m){const el=document.getElementById('lerr');if(el){el.style.display='block';el.textContent=m;}const su=document.getElementById('lsuc');if(su)su.style.display='none';}
+function lsuc(m){const el=document.getElementById('lsuc');if(el){el.style.display='block';el.textContent=m;}const er=document.getElementById('lerr');if(er)er.style.display='none';}
+async function doLogin(){
+  const em=document.getElementById('l-email').value.trim().toLowerCase(),pw=document.getElementById('l-pw').value;
+  if(!em||!pw){lerr(lang==='de'?'Bitte E-Mail und Passwort eingeben.':'Please enter email and password.');return;}
+  if(!sbc){lerr('Supabase nicht geladen. Internetverbindung prüfen.');return;}
+  lsuc(lang==='de'?'Anmeldung läuft…':'Signing in…');
+  const {data,error}=await sbc.auth.signInWithPassword({email:em,password:pw});
+  if(error){lerr(error.message);return;}
+  await afterAuth(data.session,false);
+}
+async function doRegister(){
+  const nm=document.getElementById('r-name').value.trim(),em=document.getElementById('r-email').value.trim().toLowerCase(),pw=document.getElementById('r-pw').value,bc=document.getElementById('r-bow').value,rl=document.getElementById('r-lang').value;
+  if(!nm||!em||pw.length<6){lerr(lang==='de'?'Bitte alle Pflichtfelder ausfüllen (Passwort mind. 6 Zeichen).':'Please fill all required fields (password min. 6 characters).');return;}
+  if(!sbc){lerr('Supabase nicht geladen.');return;}
+  lsuc(lang==='de'?'Konto wird erstellt…':'Creating account…');
+  const {data,error}=await sbc.auth.signUp({email:em,password:pw,options:{data:{name:nm,lang:rl,bow_class:bc}}});
+  if(error){lerr(error.message);return;}
+  lang=rl;
+  if(!data.session){lsuc(lang==='de'?'Fast fertig! Bitte bestätige den Link in deiner E-Mail und melde dich dann an.':'Almost done! Please confirm the link in your email, then sign in.');return;}
+  await afterAuth(data.session,true);
+}
+async function afterAuth(session,showOnboard){
+  try{await bootstrapUser(session);}catch(e){console.error('bootstrap',e);toast((lang==='de'?'Ladefehler: ':'Load error: ')+e.message);}
+  if(!CU){lerr(lang==='de'?'Profil konnte nicht geladen werden.':'Could not load profile.');return;}
+  if(SHARED.maintenance&&SHARED.maintenance.active&&CU.role!=='admin'){
+    await sbc.auth.signOut();CU=null;renderMaintBanner();
+    lerr(lang==='de'?'Wartungsmodus aktiv – Login derzeit nur für Administratoren möglich.':'Maintenance mode active – login currently restricted to administrators.');
+    return;
+  }
+  applySettings(getS());
+  const sel=document.getElementById('lang-topbar');if(sel)sel.value=lang;
+  document.getElementById('login-page').style.display='none';
+  document.getElementById('app-shell').style.display='';
+  buildNav();navigate('dashboard');
+  if(showOnboard)setTimeout(startOnboarding,400);
+}
+async function logout(){try{await sbc.auth.signOut();}catch(e){}CU=null;location.reload();}
+function showForgot(){
+  const isDE=lang==='de';
+  document.body.insertAdjacentHTML('beforeend',`
+  <div class="mo" id="fp-mo" onclick="closeMo(event,'fp-mo')"><div class="md" style="width:420px">
+    <div class="mh"><div class="mt2">🔑 ${isDE?'Passwort vergessen':'Forgot Password'}</div><button class="btn bg btn-sm" onclick="document.getElementById('fp-mo').remove()">✕</button></div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6">${isDE?'Gib deine registrierte E-Mail-Adresse ein. Ein Link zum Zurücksetzen wird an genau diese Adresse gesendet.':'Enter your registered email. A reset link will be sent to that address.'}</p>
+    <div class="fg"><label>${isDE?'E-Mail':'Email'}</label><input id="fp-email" type="email" placeholder="deine@email.com"></div>
+    <div id="fp-msg" style="font-size:12px;margin-bottom:8px"></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn bg" onclick="document.getElementById('fp-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="sendResetLink()">${isDE?'Link senden':'Send link'}</button></div>
+  </div></div>`);
+}
+async function sendResetLink(){
+  const isDE=lang==='de';
+  const em=document.getElementById('fp-email')?.value?.trim().toLowerCase();
+  const msg=document.getElementById('fp-msg');
+  if(!em){if(msg){msg.style.color='var(--red)';msg.textContent=isDE?'Bitte E-Mail eingeben.':'Please enter an email.';}return;}
+  if(!sbc){if(msg){msg.style.color='var(--red)';msg.textContent='Supabase nicht geladen.';}return;}
+  const redirect=window.location.href.split('#')[0];
+  const {error}=await sbc.auth.resetPasswordForEmail(em,{redirectTo:redirect});
+  if(msg){msg.style.color='var(--green)';msg.textContent=isDE?'Falls diese E-Mail registriert ist, wurde ein Reset-Link gesendet. Bitte Postfach prüfen.':'If this email is registered, a reset link has been sent. Please check your inbox.';}
+  if(error)console.error('resetPassword',error);
+}
+// Password-recovery landing (when user clicks the email link)
+function showSetNewPassword(){
+  const isDE=lang==='de';
+  if(document.getElementById('snp-mo'))return;
+  document.getElementById('login-page').style.display='';
+  document.body.insertAdjacentHTML('beforeend',`
+  <div class="mo" id="snp-mo"><div class="md" style="width:420px">
+    <div class="mh"><div class="mt2">🔑 ${isDE?'Neues Passwort setzen':'Set New Password'}</div></div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6">${isDE?'Gib dein neues Passwort ein (mind. 6 Zeichen).':'Enter your new password (min. 6 characters).'}</p>
+    <div class="fg"><label>${isDE?'Neues Passwort':'New password'}</label><input id="snp-pw" type="password"></div>
+    <div id="snp-msg" style="font-size:12px;margin-bottom:8px"></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn bp" onclick="submitNewPassword()">${isDE?'Speichern':'Save'}</button></div>
+  </div></div>`);
+}
+async function submitNewPassword(){
+  const isDE=lang==='de';
+  const pw=document.getElementById('snp-pw')?.value;
+  const msg=document.getElementById('snp-msg');
+  if(!pw||pw.length<6){if(msg){msg.style.color='var(--red)';msg.textContent=isDE?'Mind. 6 Zeichen.':'Min. 6 characters.';}return;}
+  const {error}=await sbc.auth.updateUser({password:pw});
+  if(error){if(msg){msg.style.color='var(--red)';msg.textContent=error.message;}return;}
+  document.getElementById('snp-mo')?.remove();
+  toast(isDE?'Passwort geändert. Bitte neu anmelden.':'Password changed. Please sign in.',true);
+}
 // ─── ONBOARDING ───────────────────────────────────────────────────────────
 let obCurStep=1;
 const OB_STEPS=2;
@@ -429,7 +563,7 @@ function startOnboarding(){
 function updateObProg(){const c=document.getElementById('ob-prog');c.innerHTML='';for(let i=1;i<=OB_STEPS;i++)c.innerHTML+=`<div class="ob-dot${i<=obCurStep?' done':''}"></div>`;for(let i=1;i<=OB_STEPS;i++){const el=document.getElementById('ob-step-'+i);if(el)el.classList.toggle('active',i===obCurStep);}const back=document.getElementById('ob-back');if(back)back.style.display=obCurStep>1?'':'none';const next=document.getElementById('ob-next');if(next)next.textContent=obCurStep<OB_STEPS?(lang==='de'?'Weiter →':'Next →'):(lang==='de'?'Fertig ✓':'Done ✓');}
 function obNext(){if(obCurStep<OB_STEPS){obCurStep++;updateObProg();}else{saveOnboarding();}}
 function obBack(){if(obCurStep>1){obCurStep--;updateObProg();}}
-function saveOnboarding(){const p2=getP();PREFS[CU.id]={...p2,club:document.getElementById('ob-club').value||p2.club,country:document.getElementById('ob-country').value||p2.country,handedness:document.getElementById('ob-hand').value,draw_length:parseFloat(document.getElementById('ob-dl').value)||28,bow_class:document.getElementById('ob-bc').value,cc:document.getElementById('ob-cc').value||p2.cc};skipOnboarding();}
+async function saveOnboarding(){const p2=getP();const row={club:document.getElementById('ob-club').value||p2.club,country:document.getElementById('ob-country').value||p2.country,handedness:document.getElementById('ob-hand').value,draw_length:parseFloat(document.getElementById('ob-dl').value)||28,bow_class:document.getElementById('ob-bc').value,cc:document.getElementById('ob-cc').value||p2.cc};PREFS[CU.id]={...p2,...row};skipOnboarding();const {error}=await sbc.from('profiles').update(row).eq('id',CU.id);if(error)toast(error.message);}
 function skipOnboarding(){document.getElementById('onboarding-mo').style.display='none';buildNav();}
 // ─── NAV ─────────────────────────────────────────────────────────────────
 function buildNav(){
@@ -441,9 +575,9 @@ function buildNav(){
   const svg=ic=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${ic}</svg>`;
   const item=p=>`<div class="nav-item${currentPage===p.id?' active':''}" onclick="navigate('${p.id}')">${svg(p.ic)}<span>${t(p.id)}</span>${p.notif?'<span class="ndot"></span>':''}</div>`;
   const p2=getP(),as=getAS();
-  const init=(p2.name||CU.name).split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+  const init=(p2.name||CU.email).split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
   document.getElementById('sb-av').innerHTML=p2.avatar_url?`<img src="${p2.avatar_url}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`:`<span>${init}</span>`;
-  document.getElementById('sb-name').textContent=p2.name||CU.name;
+  document.getElementById('sb-name').textContent=p2.name||CU.email;
   document.getElementById('sb-role').textContent=CU.role==='admin'?'Admin':'Nutzer';
   document.getElementById('tbt').textContent=t(currentPage||'dashboard');
   document.getElementById('tbb').textContent=as?`${p2.bow_class||'Recurve'} · ${as.dl||p2.draw_length||28}"`:'—';
@@ -458,6 +592,7 @@ function navigate(page){
   if(page==='setups')calcSpineAuto();
   if(page==='sight')setTimeout(drawSightChart,50);
   if(page==='dashboard')setTimeout(drawLineChart,50);
+  if(page==='admin')setTimeout(loadAdminData,10);
 }
 function toggleSB(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('main').classList.toggle('exp',!sbOpen&&!isMobile());}
 function closeMo(e,id){if(e.target.id===id)document.getElementById(id)?.remove();}
@@ -473,7 +608,7 @@ function rDash(){
   const recent=scores.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
   const sc=as?spineChk(as.spine,as.dw,as.dl,as.tip):{c:'var(--text3)',tx:'—'};
   const p2=getP();
-  return`<div class="stitle">${lang==='de'?'Hallo, ':'Hello, '}${(p2.name||CU.name).split(' ')[0]}! 👋</div>
+  return`<div class="stitle">${lang==='de'?'Hallo, ':'Hello, '}${(p2.name||CU.email).split(' ')[0]}! 👋</div>
   <div class="ssub">${lang==='de'?'Deine Trainingsübersicht':'Your training overview'}</div>
   <div class="g4" style="margin-bottom:16px">
     <div class="card-sm"><div class="ct">${t('total_arrows')}</div><div class="cv">${totalArrows}</div></div>
@@ -546,8 +681,8 @@ function rSetups(){
   <div class="card"><div class="ch"><div class="ct">🔢 ${t('spine_calc')}</div></div><div class="g3"><div class="fg"><label>${t('dw')}</label><input type="number" id="sc-dw" value="36" min="12" max="70" oninput="calcSpineAuto()"></div><div class="fg"><label>${t('dl')}</label><input type="number" id="sc-dl" value="28" min="22" max="34" step="0.5" oninput="calcSpineAuto()"></div><div class="fg"><label>${t('tip')}</label><input type="number" id="sc-tip" value="100" min="50" max="250" step="5" oninput="calcSpineAuto()"></div></div><div id="spine-res"></div></div>`;
 }
 function calcSpineAuto(){const dw=parseFloat(document.getElementById('sc-dw')?.value||36),dl=parseFloat(document.getElementById('sc-dl')?.value||28),tip=parseFloat(document.getElementById('sc-tip')?.value||100),rec=recSpine(dw,dl,tip),el=document.getElementById('spine-res');if(!el)return;const sc=spineChk(rec,dw,dl,tip);el.innerHTML=`<div style="padding:9px 12px;border-radius:8px;background:${sc.c}15;border:1px solid ${sc.c}35;color:${sc.c};font-size:13px;font-weight:600">${t('spine_rec')}: <strong>${rec}</strong> (±50) · ${lang==='de'?'bei':'at'} ${dw} lbs / ${dl}" / ${tip} Gr.</div>`;}
-function setAS(id){getD().setups=getD().setups.map(s=>({...s,active:s.id===id}));navigate('setups');}
-function delSetup(id){if(!confirm(t('confirm_del')))return;getD().setups=getD().setups.filter(s=>s.id!==id);navigate('setups');}
+async function setAS(id){const uid=CU.id;await sbc.from('setups').update({active:false}).eq('user_id',uid);await dbUpd('setups',id,{active:true});getD().setups=getD().setups.map(s=>({...s,active:s.id===id}));navigate('setups');}
+async function delSetup(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('setups',id))return;getD().setups=getD().setups.filter(s=>s.id!==id);navigate('setups');}
 function openSetupModal(id){
   const ex=id?getD().setups.find(s=>s.id===id):null;
   const v=ex||{prefix:'',bow:'',limbs:'',dw:36,string:'BCY 8190',am:'',spine:600,tip:100,dl:28,nock_color:'#FFFFFF',fletch_color:'#2060D0',brace:8.75,tiller_u:10,tiller_l:8,photo_url:null};
@@ -562,7 +697,7 @@ function openSetupModal(id){
 function setSetupPhoto(input){if(!input.files||!input.files[0])return;const reader=new FileReader();reader.onload=e=>{const eu=document.getElementById('sm-photo-url');if(eu)eu.value=e.target.result;const prev=document.getElementById('sm-pprev');if(prev)prev.innerHTML=`<img src="${e.target.result}" style="width:80px;height:60px;object-fit:cover;border-radius:6px;border:1px solid var(--border);margin-bottom:6px;display:block">`;};reader.readAsDataURL(input.files[0]);}
 function selIcon(ic){const el=document.getElementById('sm-icon');if(el)el.value=ic;document.querySelectorAll('#icon-picker div[onclick]').forEach(d=>{const dIc=d.textContent;d.style.border=`2px solid ${dIc===ic?'var(--accent)':'transparent'}`;});}
 function updateSugName(){const n=document.getElementById('sm-name');if(!n)return;n.value=[document.getElementById('sm-pre')?.value,document.getElementById('sm-bow')?.value,(document.getElementById('sm-dw')?.value||'')+'#',document.getElementById('sm-am')?.value,document.getElementById('sm-spine')?.value].filter(Boolean).join(' · ');}
-function saveSetup(id){const nm=document.getElementById('sm-name')?.value?.trim();if(!nm)return;const d=getD();const e={id:id||nextId(d.setups),prefix:document.getElementById('sm-pre')?.value||'',bow:document.getElementById('sm-bow')?.value||'',limbs:document.getElementById('sm-limbs')?.value||'',dw:parseFloat(document.getElementById('sm-dw')?.value)||36,string:document.getElementById('sm-string')?.value||'',icon:document.getElementById('sm-icon')?.value||'🏹',dl:parseFloat(document.getElementById('sm-dl')?.value)||28,am:document.getElementById('sm-am')?.value||'',spine:parseInt(document.getElementById('sm-spine')?.value)||600,tip:parseInt(document.getElementById('sm-tip')?.value)||100,brace:parseFloat(document.getElementById('sm-brace')?.value)||8.75,tiller_u:parseFloat(document.getElementById('sm-tu')?.value)||10,tiller_l:parseFloat(document.getElementById('sm-tl')?.value)||8,nock_color:document.getElementById('sm-nock-val')?.value||'#FFFFFF',fletch_color:document.getElementById('sm-fletch-val')?.value||'#FFFFFF',photo_url:document.getElementById('sm-photo-url')?.value||null,active:id?d.setups.find(s=>s.id===id)?.active||false:d.setups.length===0};if(id){d.setups=d.setups.map(s=>s.id===id?e:s);}else{d.setups.push(e);}document.getElementById('setup-mo').remove();navigate('setups');}
+async function saveSetup(id){const nm=document.getElementById('sm-name')?.value?.trim();if(!nm)return;const d=getD();const e={id:id||0,prefix:document.getElementById('sm-pre')?.value||'',bow:document.getElementById('sm-bow')?.value||'',limbs:document.getElementById('sm-limbs')?.value||'',dw:parseFloat(document.getElementById('sm-dw')?.value)||36,string:document.getElementById('sm-string')?.value||'',icon:document.getElementById('sm-icon')?.value||'🏹',dl:parseFloat(document.getElementById('sm-dl')?.value)||28,am:document.getElementById('sm-am')?.value||'',spine:parseInt(document.getElementById('sm-spine')?.value)||600,tip:parseInt(document.getElementById('sm-tip')?.value)||100,brace:parseFloat(document.getElementById('sm-brace')?.value)||8.75,tiller_u:parseFloat(document.getElementById('sm-tu')?.value)||10,tiller_l:parseFloat(document.getElementById('sm-tl')?.value)||8,nock_color:document.getElementById('sm-nock-val')?.value||'#FFFFFF',fletch_color:document.getElementById('sm-fletch-val')?.value||'#FFFFFF',photo_url:document.getElementById('sm-photo-url')?.value||null,active:id?d.setups.find(s=>s.id===id)?.active||false:d.setups.length===0};const row={user_id:CU.id,prefix:e.prefix,bow:e.bow,limbs:e.limbs,dw:e.dw,string:e.string,icon:e.icon,dl:e.dl,am:e.am,spine:e.spine,tip:e.tip,brace:e.brace,tiller_u:e.tiller_u,tiller_l:e.tiller_l,nock_color:e.nock_color,fletch_color:e.fletch_color,photo_url:e.photo_url,active:e.active};document.getElementById('setup-mo').remove();if(id){if(!await dbUpd('setups',id,row))return;d.setups=d.setups.map(s=>s.id===id?{...e,id}:s);}else{const rec=await dbIns('setups',row);if(!rec)return;d.setups.push(rec);}navigate('setups');}
 // ─── SIGHT ────────────────────────────────────────────────────────────────
 function rSight(){
   const d=getD(),setups=d.setups,as=getAS();
@@ -582,8 +717,8 @@ function updateQuickPred(){
   if(el&&pred&&pts.length>=2){el.textContent=`💡 ${t('predict')}: ${pred}`;el.style.display='';document.getElementById('qi-click').value=pred;}
   else if(el)el.style.display='none';
 }
-function quickAddSight(){const d=getD();d.sight.push({id:nextId(d.sight),setup_id:parseInt(document.getElementById('qi-setup')?.value)||1,dist:parseInt(document.getElementById('qi-dist')?.value)||18,click:parseInt(document.getElementById('qi-click')?.value)||80,notes:document.getElementById('qi-notes')?.value||'',visier:document.getElementById('qi-vis')?.value||'Standard'});navigate('sight');}
-function delSight(id){if(!confirm(t('confirm_del')))return;getD().sight=getD().sight.filter(s=>s.id!==id);navigate('sight');}
+async function quickAddSight(){const row={user_id:CU.id,setup_id:parseInt(document.getElementById('qi-setup')?.value)||1,dist:parseInt(document.getElementById('qi-dist')?.value)||18,click:parseInt(document.getElementById('qi-click')?.value)||80,notes:document.getElementById('qi-notes')?.value||'',visier:document.getElementById('qi-vis')?.value||'Standard'};const rec=await dbIns('sight_settings',row);if(!rec)return;getD().sight.push(rec);navigate('sight');}
+async function delSight(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('sight_settings',id))return;getD().sight=getD().sight.filter(s=>s.id!==id);navigate('sight');}
 function openSightModal(id){
   const ex=id?getD().sight.find(s=>s.id===id):null,as=getAS(),setups=getD().setups;
   const v=ex||{setup_id:as?.id||1,dist:18,click:80,notes:'',visier:'Standard'};
@@ -599,7 +734,7 @@ function onSiChange(){
   if(el&&pred&&pts.length>=2){el.textContent=`💡 ${t('predict')}: ${pred}`;el.style.display='';document.getElementById('si-c').value=pred;}
   else if(el)el.style.display='none';
 }
-function saveSight(id){const d=getD();const e={id:id||nextId(d.sight),setup_id:parseInt(document.getElementById('si-su')?.value)||1,dist:parseInt(document.getElementById('si-d')?.value)||18,click:parseInt(document.getElementById('si-c')?.value)||80,notes:document.getElementById('si-n')?.value||'',visier:document.getElementById('si-vis')?.value||'Standard'};if(id){d.sight=d.sight.map(s=>s.id===id?e:s);}else{d.sight.push(e);}document.getElementById('sight-mo').remove();navigate('sight');}
+async function saveSight(id){const d=getD();const row={user_id:CU.id,setup_id:parseInt(document.getElementById('si-su')?.value)||1,dist:parseInt(document.getElementById('si-d')?.value)||18,click:parseInt(document.getElementById('si-c')?.value)||80,notes:document.getElementById('si-n')?.value||'',visier:document.getElementById('si-vis')?.value||'Standard'};document.getElementById('sight-mo').remove();if(id){if(!await dbUpd('sight_settings',id,row))return;d.sight=d.sight.map(s=>s.id===id?{...row,id}:s);}else{const rec=await dbIns('sight_settings',row);if(!rec)return;d.sight.push(rec);}navigate('sight');}
 function drawSightChart(){
   const cv=document.getElementById('sight-canvas');if(!cv)return;
   const as=getAS(),pts=as?getD().sight.filter(s=>s.setup_id===as.id).sort((a,b)=>a.dist-b.dist):[];
@@ -644,7 +779,7 @@ function rScores(){
   <div class="card"><div class="ch"><div class="ct">${t('timeline')}</div></div>${scores.length===0?`<div class="empty"><div class="ei">📊</div><div>${t('no_scores')}</div><button class="btn bp" style="margin-top:10px" onclick="openScoreModal()">${t('new_score')}</button></div>`
   :`<div class="tl">${scores.map(s=>{const isT=s.type!=='training',tt2=TT[s.type]||TT.training,mx=maxScore(s.type),pct=mx&&!s.no_points?` <span style="font-size:11px;color:var(--text3)">(${Math.round(s.points/mx*100)}% / ${mx})</span>`:'',plc=s.placement?` ${medal(s.placement)}${s.participants?` / ${s.participants} ${lang==='de'?'TN':'part.'}`:''}`:'';return`<div class="ti"><div class="tdot ${isT?'dg':'dgr'}"></div><div class="tc"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--text3);margin-bottom:2px">${fd(s.date)} · <span class="badge ${isT?'ba':'bgr'}">${isT?'🏆 '+tt2[lang]:'Training'}</span>${plc}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.location?` <span style="font-size:12px;font-weight:400;color:var(--text3)">· ${s.location}</span>`:''}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${s.no_points?`<span class="badge bbl">${lang==='de'?'Nur Pfeile':'Arrows only'}</span> ${s.arrows} ${t('arrows')}`:`${s.points}${mx?`/${mx}`:''}${pct} · ${s.arrows} ${t('arrows')} · ⌀ ${avgArr(s.points,s.arrows)}`} · ${getSName(s.setup_id)}${s.notes?` · <em style="color:var(--text3)">"${s.notes}"</em>`:''}</div></div><div style="display:flex;align-items:center;gap:6px;flex-shrink:0">${!s.no_points?`<div style="font-family:Bebas Neue,sans-serif;font-size:24px;color:${isT?'var(--accent)':'var(--green)'}">${s.points}</div>`:`<div style="font-size:20px">${s.arrows}🏹</div>`}<div style="display:flex;flex-direction:column;gap:4px"><button class="btn bg btn-sm" onclick="openScoreModal(${s.id})">✏️</button><button class="btn bd btn-sm" onclick="delScore(${s.id})">🗑</button></div></div></div></div></div>`;}).join('')}</div>`}</div>`;
 }
-function delScore(id){if(!confirm(t('confirm_del')))return;getD().scores=getD().scores.filter(s=>s.id!==id);navigate('scores');}
+async function delScore(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('scores',id))return;getD().scores=getD().scores.filter(s=>s.id!==id);navigate('scores');}
 function openScoreModal(id){
   const ex=id?getD().scores.find(s=>s.id===id):null,today2=new Date().toISOString().split('T')[0];
   const v=ex||{date:today2,type:'training',name:'',points:300,arrows:36,setup_id:getAS()?.id||1,notes:'',location:'',placement:null,participants:null,no_points:false};
@@ -655,7 +790,7 @@ function openScoreModal(id){
 }
 function onNoP(){const nop=document.getElementById('sco-nop')?.checked;if(document.getElementById('sco-pts-row'))document.getElementById('sco-pts-row').style.display=nop?'none':'';if(document.getElementById('sco-arr-only'))document.getElementById('sco-arr-only').style.display=nop?'':'none';}
 function onTTC(){const el=document.getElementById('sco-type');if(!el)return;const tt2=TT[el.value],info=document.getElementById('sco-info'),arrEl=document.getElementById('sco-arr'),isTr=el.value==='training';if(document.getElementById('sco-tourn-x'))document.getElementById('sco-tourn-x').style.display=isTr?'none':'';if(tt2&&tt2.arrows){if(arrEl)arrEl.value=tt2.arrows;if(info)info.textContent=lang==='de'?`📋 ${tt2.arrows} Pfeile · Max. ${tt2.max} Punkte`:`📋 ${tt2.arrows} arrows · Max. ${tt2.max} points`;}else if(info)info.textContent='';}
-function saveScore(id){const nm=document.getElementById('sco-name')?.value?.trim();if(!nm)return;const nop=document.getElementById('sco-nop')?.checked||false,arrVal=nop?parseInt(document.getElementById('sco-arr2')?.value||36):parseInt(document.getElementById('sco-arr')?.value||36),place=parseInt(document.getElementById('sco-place')?.value)||null,d=getD();const e={id:id||nextId(d.scores),type:document.getElementById('sco-type')?.value,date:document.getElementById('sco-date')?.value,name:nm,points:nop?0:parseInt(document.getElementById('sco-pts')?.value||0),arrows:arrVal,setup_id:parseInt(document.getElementById('sco-setup')?.value)||1,notes:document.getElementById('sco-notes')?.value||'',location:document.getElementById('sco-loc')?.value||'',placement:place,participants:parseInt(document.getElementById('sco-partic')?.value)||null,no_points:nop};if(id){d.scores=d.scores.map(s=>s.id===id?e:s);}else{d.scores.push(e);}document.getElementById('score-mo').remove();if(place&&place<=3)showMedalAnim(place);navigate('scores');}
+async function saveScore(id){const nm=document.getElementById('sco-name')?.value?.trim();if(!nm)return;const nop=document.getElementById('sco-nop')?.checked||false,arrVal=nop?parseInt(document.getElementById('sco-arr2')?.value||36):parseInt(document.getElementById('sco-arr')?.value||36),place=parseInt(document.getElementById('sco-place')?.value)||null,d=getD();const e={id:id||0,type:document.getElementById('sco-type')?.value,date:document.getElementById('sco-date')?.value,name:nm,points:nop?0:parseInt(document.getElementById('sco-pts')?.value||0),arrows:arrVal,setup_id:parseInt(document.getElementById('sco-setup')?.value)||1,notes:document.getElementById('sco-notes')?.value||'',location:document.getElementById('sco-loc')?.value||'',placement:place,participants:parseInt(document.getElementById('sco-partic')?.value)||null,no_points:nop};const row={user_id:CU.id,type:e.type,date:e.date,name:e.name,points:e.points,arrows:e.arrows,setup_id:e.setup_id,notes:e.notes,location:e.location,placement:e.placement,participants:e.participants,no_points:e.no_points};document.getElementById('score-mo').remove();if(id){if(!await dbUpd('scores',id,row))return;d.scores=d.scores.map(s=>s.id===id?{...e,id}:s);}else{const rec=await dbIns('scores',row);if(!rec)return;d.scores.push(rec);}if(place&&place<=3)showMedalAnim(place);navigate('scores');}
 // ─── TUNING ───────────────────────────────────────────────────────────────
 function rTuning(){
   const p2=getP(),isLeft=p2.handedness==='left',d=getD(),photos=d.tuning_photos||[],isAdmin=CU&&CU.role==='admin';
@@ -732,10 +867,10 @@ function rTuning(){
 }
 function swT(id){['bs','wb','pp','nt','ph'].forEach(k=>{const el=document.getElementById('tc-'+k);if(el)el.style.display=k===id?'':'none';const tab=document.getElementById('tab-'+k);if(tab)tab.classList.toggle('active',k===id);});}
 function editTT(tab){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="tt-mo" onclick="closeMo(event,'tt-mo')"><div class="md" style="width:500px"><div class="mh"><div class="mt2">${lang==='de'?'Text bearbeiten':'Edit Text'}</div><button class="btn bg btn-sm" onclick="document.getElementById('tt-mo').remove()">✕</button></div><div class="fg"><label>Deutsch</label><textarea id="tt-de" style="min-height:80px">${SHARED.tuning[tab+'_de']}</textarea></div><div class="fg"><label>English</label><textarea id="tt-en" style="min-height:80px">${SHARED.tuning[tab+'_en']}</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn bg" onclick="document.getElementById('tt-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveTT('${tab}')">${t('save')}</button></div></div></div>`);}
-function saveTT(tab){SHARED.tuning[tab+'_de']=document.getElementById('tt-de')?.value;SHARED.tuning[tab+'_en']=document.getElementById('tt-en')?.value;document.getElementById('tt-mo').remove();navigate('tuning');setTimeout(()=>swT(tab),50);}
-function saveTN(){const el=document.getElementById('tn-ta');if(!el)return;getD().tuning_notes=el.value;const btn=document.querySelector('[onclick="saveTN()"]');if(btn){btn.textContent='✅';setTimeout(()=>{btn.textContent=t('save')},1500);}}
-function addPhoto(input){if(!input.files||!input.files[0])return;const comment=document.getElementById('ph-comment')?.value||'';const reader=new FileReader();reader.onload=e=>{const photos=getD().tuning_photos;photos.push({id:nextId(photos),dataUrl:e.target.result,date:new Date().toLocaleDateString(lang==='de'?'de-DE':'en-GB'),comment});document.getElementById('ph-comment').value='';navigate('tuning');setTimeout(()=>swT('ph'),50);};reader.readAsDataURL(input.files[0]);}
-function delPhoto(id){if(!confirm(t('confirm_del')))return;getD().tuning_photos=getD().tuning_photos.filter(p=>p.id!==id);navigate('tuning');setTimeout(()=>swT('ph'),50);}
+async function saveTT(tab){SHARED.tuning[tab+'_de']=document.getElementById('tt-de')?.value;SHARED.tuning[tab+'_en']=document.getElementById('tt-en')?.value;document.getElementById('tt-mo').remove();navigate('tuning');setTimeout(()=>swT(tab),50);saveShared();}
+async function saveTN(){const el=document.getElementById('tn-ta');if(!el)return;getD().tuning_notes=el.value;const {error}=await sbc.from('tuning').upsert({user_id:CU.id,notes:el.value},{onConflict:'user_id'});if(error){toast(error.message);return;}const btn=document.querySelector('[onclick="saveTN()"]');if(btn){btn.textContent='✅';setTimeout(()=>{btn.textContent=t('save')},1500);}}
+function addPhoto(input){if(!input.files||!input.files[0])return;const comment=document.getElementById('ph-comment')?.value||'';const reader=new FileReader();reader.onload=async e=>{const date=new Date().toLocaleDateString(lang==='de'?'de-DE':'en-GB');const rec=await dbIns('tuning_photos',{user_id:CU.id,data_url:e.target.result,date,comment});if(!rec)return;getD().tuning_photos.push({id:rec.id,dataUrl:rec.data_url,date:rec.date,comment:rec.comment});const ci=document.getElementById('ph-comment');if(ci)ci.value='';navigate('tuning');setTimeout(()=>swT('ph'),50);};reader.readAsDataURL(input.files[0]);}
+async function delPhoto(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('tuning_photos',id))return;getD().tuning_photos=getD().tuning_photos.filter(p=>p.id!==id);navigate('tuning');setTimeout(()=>swT('ph'),50);}
 function chLTopbar(nl){lang=nl;const sel=document.getElementById('lang-topbar');if(sel)sel.value=nl;buildNav();navigate(currentPage);}
 // ─── GLOSSAR DATA (mutable) ───────────────────────────────────────────────
 const GL={de:[{id:1,t:'Spine',d:'Maß für Biegsamkeit. Niedrigerer Wert = steiferer Pfeil.'},{id:2,t:'Auszuglänge',d:'Distanz, die der Schütze den Bogen auszieht, in Zoll.'},{id:3,t:'Blankschaft-Tuning',d:'Unbefiederte Pfeile: Links/Rechts = Spine; Oben/Unten = Nockpunkt.'},{id:4,t:'Walkback-Tuning',d:'Pfeile auf senkrechten Streifen aus verschiedenen Entfernungen.'},{id:5,t:'Paper Tuning',d:'Pfeil durch Papier – Rissbild zeigt Korrekturen.'},{id:6,t:'Nockpunkt',d:'Punkt auf der Sehne, wo der Pfeil eingenocht wird.'},{id:7,t:'Standhöhe (Brace Height)',d:'Abstand Sehne–Griffstück. Typisch 8–9,5 Zoll.'},{id:8,t:'Tiller',d:'Abstand Wurfarmende–Sehne. Oberer Tiller typisch 2–4mm größer.'},{id:9,t:'Clicker',d:'Metallblättchen: klickt bei optimaler Auszuglänge.'},{id:10,t:'WA 720',d:'Outdoor-Format. 72 Pfeile, max. 720 Punkte (50m+30m).'},{id:11,t:'WA 600',d:'Indoor-Format. 60 Pfeile, max. 600 Punkte auf 18m oder 25m.'}],en:[{id:1,t:'Spine',d:'Measure of arrow stiffness. Lower = stiffer arrow.'},{id:2,t:'Draw Length',d:'Distance the archer draws the bow, in inches.'},{id:3,t:'Bare Shaft Tuning',d:'Bare shafts: Left/Right = spine; Up/Down = nocking point.'},{id:4,t:'Walkback Tuning',d:'Arrows on a vertical strip from different distances.'},{id:5,t:'Paper Tuning',d:'Arrow through paper – tear pattern shows corrections.'},{id:6,t:'Nocking Point',d:'Point on string where arrow is nocked.'},{id:7,t:'Brace Height',d:'String to grip distance. Typical 8–9.5 inches.'},{id:8,t:'Tiller',d:'Limb tip to string distance. Upper typically 2–4mm larger.'},{id:9,t:'Clicker',d:'Metal blade: clicks at optimal draw length.'},{id:10,t:'WA 720',d:'Outdoor format. 72 arrows, max 720 points (50m+30m).'},{id:11,t:'WA 600',d:'Indoor format. 60 arrows, max 600 points at 18m/25m.'}]};
@@ -779,7 +914,7 @@ function editGlossarItem(id){
     </div>
   </div></div>`);
 }
-function saveGlossarItem(id){
+async function saveGlossarItem(id){
   const deT=document.getElementById('gl-de-t')?.value?.trim();const deD=document.getElementById('gl-de-d')?.value?.trim();
   const enT=document.getElementById('gl-en-t')?.value?.trim();const enD=document.getElementById('gl-en-d')?.value?.trim();
   if(!deT||!deD)return;
@@ -791,34 +926,49 @@ function saveGlossarItem(id){
     GL.de.push({id:nid,t:deT,d:deD});
     GL.en.push({id:nid,t:enT||deT,d:enD||deD});
   }
-  document.getElementById('gl-mo').remove();navigate('glossar');
+  document.getElementById('gl-mo').remove();navigate('glossar');saveShared();
 }
-function delGlossarItem(id){
+async function delGlossarItem(id){
   if(!confirm(t('confirm_del')))return;
   GL.de=GL.de.filter(g=>g.id!==id);GL.en=GL.en.filter(g=>g.id!==id);
-  navigate('glossar');
+  navigate('glossar');saveShared();
 }
 
 // ─── PROFIL ───────────────────────────────────────────────────────────────
-function rProfil(){const p2=getP(),init=(p2.name||CU.name).split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
-return`<div class="stitle">${t('profil')}</div><div class="g2" style="gap:16px"><div class="card" style="text-align:center"><div style="width:80px;height:80px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#0f1117;margin:0 auto 10px;overflow:hidden" id="prof-av-big">${p2.avatar_url?`<img src="${p2.avatar_url}" style="width:100%;height:100%;object-fit:cover">`:`<span>${init}</span>`}</div><label class="btn bg btn-sm" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;margin-bottom:10px">📷 ${lang==='de'?'Foto':'Photo'}<input type="file" accept="image/*" style="display:none" onchange="uploadAv(this)"></label><div style="font-size:17px;font-weight:700;color:var(--text)">${p2.name||CU.name}</div><div style="font-size:13px;color:var(--text3);margin-top:2px">${CU.role==='admin'?'Admin':'Nutzer'} · ${p2.bow_class||'Recurve'}</div></div><div class="card"><div class="ch"><div class="ct">${t('personal')}</div></div><div class="fg"><label>${t('name')}</label><input id="p-name" value="${p2.name||''}"></div><div class="fg"><label>${t('email')}</label><input id="p-email" type="email" value="${p2.email||''}"></div><div class="fg"><label>${t('club')}</label><input id="p-club" value="${p2.club||''}"></div><button class="btn bp btn-sm" onclick="saveP()">${t('save')}</button></div></div><div class="card" style="margin-top:14px"><div class="ch"><div class="ct">${t('archer')}</div></div><div class="g3"><div class="fg"><label>${lang==='de'?'Händigkeit':'Handedness'}</label><select id="p-hand"><option value="right"${p2.handedness==='right'?' selected':''}>${t('rh')}</option><option value="left"${p2.handedness==='left'?' selected':''}>${t('lh')}</option></select></div><div class="fg"><label>${t('dl')}</label><input id="p-dl" type="number" value="${p2.draw_length||28}" min="22" max="34" step="0.5"></div><div class="fg"><label>${t('bow_class')}</label><select id="p-bow">${['Recurve','Compound','Blankbogen','Traditionell'].map(c=>`<option${p2.bow_class===c?' selected':''}>${c}</option>`).join('')}</select></div><div class="fg"><label>${t('cc')}</label><input id="p-cc" value="${p2.cc||''}"></div><div class="fg"><label>${t('country')}</label><input id="p-country" value="${p2.country||''}"></div></div><button class="btn bp" onclick="saveAP()">${t('save')}</button></div>`;}
-function uploadAv(input){if(!input.files||!input.files[0])return;const reader=new FileReader();reader.onload=e=>{PREFS[CU.id].avatar_url=e.target.result;const big=document.getElementById('prof-av-big');if(big)big.innerHTML=`<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover">`;buildNav();};reader.readAsDataURL(input.files[0]);}
-function saveP(){const p2=getP();PREFS[CU.id]={...p2,name:document.getElementById('p-name')?.value||p2.name,email:document.getElementById('p-email')?.value||p2.email,club:document.getElementById('p-club')?.value||p2.club};navigate('profil');}
-function saveAP(){const p2=getP();PREFS[CU.id]={...p2,handedness:document.getElementById('p-hand')?.value,draw_length:parseFloat(document.getElementById('p-dl')?.value)||28,bow_class:document.getElementById('p-bow')?.value,cc:document.getElementById('p-cc')?.value||p2.cc,country:document.getElementById('p-country')?.value||p2.country};navigate('profil');}
+function rProfil(){const p2=getP(),init=(p2.name||CU.email).split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+return`<div class="stitle">${t('profil')}</div><div class="g2" style="gap:16px"><div class="card" style="text-align:center"><div style="width:80px;height:80px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#0f1117;margin:0 auto 10px;overflow:hidden" id="prof-av-big">${p2.avatar_url?`<img src="${p2.avatar_url}" style="width:100%;height:100%;object-fit:cover">`:`<span>${init}</span>`}</div><label class="btn bg btn-sm" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;margin-bottom:10px">📷 ${lang==='de'?'Foto':'Photo'}<input type="file" accept="image/*" style="display:none" onchange="uploadAv(this)"></label><div style="font-size:17px;font-weight:700;color:var(--text)">${p2.name||CU.email}</div><div style="font-size:13px;color:var(--text3);margin-top:2px">${CU.role==='admin'?'Admin':'Nutzer'} · ${p2.bow_class||'Recurve'}</div></div><div class="card"><div class="ch"><div class="ct">${t('personal')}</div></div><div class="fg"><label>${t('name')}</label><input id="p-name" value="${p2.name||''}"></div><div class="fg"><label>${t('email')}</label><input id="p-email" type="email" value="${p2.email||''}"></div><div class="fg"><label>${t('club')}</label><input id="p-club" value="${p2.club||''}"></div><button class="btn bp btn-sm" onclick="saveP()">${t('save')}</button></div></div><div class="card" style="margin-top:14px"><div class="ch"><div class="ct">${t('archer')}</div></div><div class="g3"><div class="fg"><label>${lang==='de'?'Händigkeit':'Handedness'}</label><select id="p-hand"><option value="right"${p2.handedness==='right'?' selected':''}>${t('rh')}</option><option value="left"${p2.handedness==='left'?' selected':''}>${t('lh')}</option></select></div><div class="fg"><label>${t('dl')}</label><input id="p-dl" type="number" value="${p2.draw_length||28}" min="22" max="34" step="0.5"></div><div class="fg"><label>${t('bow_class')}</label><select id="p-bow">${['Recurve','Compound','Blankbogen','Traditionell'].map(c=>`<option${p2.bow_class===c?' selected':''}>${c}</option>`).join('')}</select></div><div class="fg"><label>${t('cc')}</label><input id="p-cc" value="${p2.cc||''}"></div><div class="fg"><label>${t('country')}</label><input id="p-country" value="${p2.country||''}"></div></div><button class="btn bp" onclick="saveAP()">${t('save')}</button></div>`;}
+function uploadAv(input){if(!input.files||!input.files[0])return;const reader=new FileReader();reader.onload=async e=>{PREFS[CU.id].avatar_url=e.target.result;const big=document.getElementById('prof-av-big');if(big)big.innerHTML=`<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover">`;buildNav();const {error}=await sbc.from('profiles').update({avatar_url:e.target.result}).eq('id',CU.id);if(error)toast(error.message);};reader.readAsDataURL(input.files[0]);}
+async function saveP(){const p2=getP();const nm=document.getElementById('p-name')?.value||p2.name,cl=document.getElementById('p-club')?.value||p2.club;PREFS[CU.id]={...p2,name:nm,club:cl};const {error}=await sbc.from('profiles').update({name:nm,club:cl}).eq('id',CU.id);if(error){toast(error.message);return;}toast(lang==='de'?'Profil gespeichert.':'Profile saved.',true);navigate('profil');}
+async function saveAP(){const p2=getP();const row={handedness:document.getElementById('p-hand')?.value,draw_length:parseFloat(document.getElementById('p-dl')?.value)||28,bow_class:document.getElementById('p-bow')?.value,cc:document.getElementById('p-cc')?.value||p2.cc,country:document.getElementById('p-country')?.value||p2.country};PREFS[CU.id]={...p2,...row};const {error}=await sbc.from('profiles').update(row).eq('id',CU.id);if(error){toast(error.message);return;}toast(lang==='de'?'Gespeichert.':'Saved.',true);navigate('profil');}
 
 // ─── SETTINGS ─────────────────────────────────────────────────────────────
 function rSettings(){const s=getS();return`<div class="stitle">${t('einstellungen')}</div><div class="g2" style="gap:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Design & Darstellung':'Design & Display'}</div></div>${[['dark_mode',t('dark_mode'),lang==='de'?'Dunkles Design':'Dark theme'],['animations',t('animations'),lang==='de'?'UI-Animationen':'UI animations'],['compact',t('compact'),lang==='de'?'Reduzierte Abstände':'Reduced spacing'],['large_font',t('large_font'),lang==='de'?'Größere Schrift':'Larger text']].map(([k,n,d2])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--text3);margin-top:1px">${d2}</div></div><div class="toggle ${s[k]?'on':''}" onclick="togS('${k}')"></div></div>`).join('')}<div class="fg" style="margin-top:14px"><label>${t('language')}</label><select onchange="chL(this.value)"><option value="de"${lang==='de'?' selected':''}>🇩🇪 Deutsch</option><option value="en"${lang==='en'?' selected':''}>🇬🇧 English</option></select></div></div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Einheiten & Sonstiges':'Units & Other'}</div></div><div class="fg"><label>${lang==='de'?'Entfernungseinheit':'Distance Unit'}</label><select><option>${lang==='de'?'Meter (m)':'Meters (m)'}</option><option>Yards (yd)</option></select></div><div class="fg"><label>${lang==='de'?'Gewichtseinheit':'Weight Unit'}</label><select><option>${lang==='de'?'Pfund (lbs)':'Pounds (lbs)'}</option><option>Kilogramm (kg)</option></select></div><div style="margin-top:14px;border:1px dashed var(--border);border-radius:10px;padding:12px"><div class="notif-planned">${[['training_remind',lang==='de'?'Training-Erinnerungen':'Training Reminders'],['tournament_hints',lang==='de'?'Turnier-Hinweise':'Tournament Alerts']].map(([k,n])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div></div><div class="toggle ${s[k]?'on':''}"></div></div>`).join('')}</div><div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:6px"><span>🔮</span> ${lang==='de'?'Benachrichtigungen – geplantes Feature':'Notifications – planned feature'}</div></div></div></div><div style="margin-top:12px;font-size:12px;color:var(--text3)">💡 ${lang==='de'?'Alle Schalter wirken sofort.':'All toggles apply immediately.'}</div>`;}
-function togS(key){const s=getS();s[key]=!s[key];applySettings(s);navigate('einstellungen');}
+async function togS(key){const s=getS();s[key]=!s[key];applySettings(s);navigate('einstellungen');const {error}=await sbc.from('user_settings').upsert({user_id:CU.id,dark_mode:s.dark_mode,animations:s.animations,compact:s.compact,large_font:s.large_font},{onConflict:'user_id'});if(error)toast(error.message);}
 function chL(nl){lang=nl;buildNav();navigate('einstellungen');}
 
 // ─── ADMIN ────────────────────────────────────────────────────────────────
 function rAdmin(){if(!CU||CU.role!=='admin'){navigate('dashboard');return'';}
   const stats=getRealStats(),fb=SHARED.feedback,unread=fb.filter(f=>!f.read).length;
   return`<div class="stitle">${t('admin')}</div><div class="g4" style="margin-bottom:14px">${[[stats.totalUsers,lang==='de'?'Registrierte User':'Users','var(--text)'],[stats.activeUsers,lang==='de'?'Aktive Sitzungen':'Active sessions','var(--green)'],[stats.totalScores+' ('+stats.totalArrows+' 🏹)',lang==='de'?'Einträge / Pfeile':'Entries / Arrows','var(--blue)'],[stats.totalFeedback,lang==='de'?'Feedback':'Feedback','var(--accent)']].map(([n,l,c])=>`<div class="card-sm" style="text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:${c};line-height:1.2">${n}</div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;margin-top:2px">${l}</div></div>`).join('')}</div>
-  <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">💬 ${t('feedback')} ${unread>0?`<span class="badge brd">${unread} neu</span>`:''}</div><button class="btn bg btn-sm" onclick="SHARED.feedback.forEach(f=>f.read=true);navigate('admin')">${lang==='de'?'Alle gelesen':'Mark all read'}</button></div>${fb.length===0?`<div style="color:var(--text3);font-size:13px">${lang==='de'?'Noch kein Feedback.':'No feedback yet.'}</div>`:fb.slice().reverse().map(f=>`<div style="padding:10px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="badge ${f.type==='bug'?'brd':f.type==='feature'?'bbl':'bgr'}">${f.type==='bug'?'🐛 Bug':f.type==='feature'?'💡 Feature':'💬'}</span><span style="font-size:11px;color:var(--text3)">${f.date} · ${f.userName}</span>${!f.read?'<span class="badge brd">neu</span>':''}</div><div style="font-size:13px;color:var(--text2)">${f.text}</div></div>`).join('')}</div>
-  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div></div><table class="table"><thead><tr><th>${t('name')}</th><th>${t('email')}</th><th>${t('role')}</th><th>${t('last_seen')}</th><th>${t('actions')}</th></tr></thead><tbody>${USERS.map(u=>{const pr=PREFS[u.id];return`<tr><td style="font-weight:600;color:var(--text)">${pr?.name||u.name}</td><td>${pr?.email||u.email}</td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role}</span></td><td style="color:var(--text3)">${DATA[u.id]?lang==='de'?'Aktiv':'Active':lang==='de'?'Noch nicht aktiv':'Not yet active'}</td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal(${u.id})">✏️ ${t('edit')}</button></div></td></tr>`;}).join('')}</tbody></table></div>`;}
-function editUserModal(uid){const u=USERS.find(x=>x.id===uid);const pr=PREFS[uid]||{};if(!u)return;document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="eu-mo" onclick="closeMo(event,'eu-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">${t('edit')}: ${u.name}</div><button class="btn bg btn-sm" onclick="document.getElementById('eu-mo').remove()">✕</button></div><div class="fg"><label>${t('name')}</label><input id="eu-name" value="${pr.name||u.name}"></div><div class="fg"><label>${t('email')}</label><input id="eu-email" value="${pr.email||u.email}"></div><div class="fg"><label>${lang==='de'?'Neues Passwort (leer = unverändert)':'New password (empty = unchanged)'}</label><input id="eu-pw" type="password" placeholder=""></div><div class="fg"><label>${lang==='de'?'Rolle':'Role'}</label><select id="eu-role"><option value="user"${u.role==='user'?' selected':''}>User</option><option value="admin"${u.role==='admin'?' selected':''}>Admin</option></select></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('eu-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveUserEdit(${uid})">${t('save')}</button></div></div></div>`);}
-function saveUserEdit(uid){const u=USERS.find(x=>x.id===uid);if(!u)return;const nm=document.getElementById('eu-name')?.value?.trim(),em=document.getElementById('eu-email')?.value?.trim(),pw=document.getElementById('eu-pw')?.value,role=document.getElementById('eu-role')?.value;if(nm&&PREFS[uid])PREFS[uid].name=nm;if(em&&PREFS[uid])PREFS[uid].email=em;if(em)u.email=em;if(pw&&pw.length>=4)u.pw=pw;if(role)u.role=role;document.getElementById('eu-mo').remove();navigate('admin');}
+  <div class="card" style="margin-bottom:14px;border:1px solid ${SHARED.maintenance&&SHARED.maintenance.active?'var(--accent)':'var(--border)'}"><div class="ch"><div class="ct">🔧 ${lang==='de'?'Wartungsmodus':'Maintenance Mode'}</div><div class="toggle ${SHARED.maintenance&&SHARED.maintenance.active?'on':''}" onclick="toggleMaintenance()"></div></div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.6">${SHARED.maintenance&&SHARED.maintenance.active?(lang==='de'?'<b style="color:var(--accent)">Aktiv</b> – normale Nutzer können sich nicht einloggen und sehen den Hinweis unten. Nur Admins haben Zugriff.':'<b style="color:var(--accent)">Active</b> – regular users cannot log in and see the notice below. Only admins have access.'):(lang==='de'?'Inaktiv – alle Nutzer haben normalen Zugriff.':'Inactive – all users have normal access.')}</p>
+    <div class="fg"><label>${lang==='de'?'Hinweistext (Deutsch)':'Notice text (German)'}</label><textarea id="maint-de" style="min-height:60px">${(SHARED.maintenance&&SHARED.maintenance.msg_de)||''}</textarea></div>
+    <div class="fg"><label>${lang==='de'?'Hinweistext (Englisch)':'Notice text (English)'}</label><textarea id="maint-en" style="min-height:60px">${(SHARED.maintenance&&SHARED.maintenance.msg_en)||''}</textarea></div>
+    <button class="btn bp btn-sm" onclick="saveMaintMsg()">${lang==='de'?'Hinweistext speichern':'Save notice text'}</button>
+  </div>
+  <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">💬 ${t('feedback')} ${unread>0?`<span class="badge brd">${unread} neu</span>`:''}</div><button class="btn bg btn-sm" onclick="markAllFbRead()">${lang==='de'?'Alle gelesen':'Mark all read'}</button></div>${fb.length===0?`<div style="color:var(--text3);font-size:13px">${lang==='de'?'Noch kein Feedback.':'No feedback yet.'}</div>`:fb.slice().reverse().map(f=>`<div style="padding:10px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="badge ${f.type==='bug'?'brd':f.type==='feature'?'bbl':'bgr'}">${f.type==='bug'?'🐛 Bug':f.type==='feature'?'💡 Feature':'💬'}</span><span style="font-size:11px;color:var(--text3)">${f.date} · ${f.userName}</span>${!f.read?'<span class="badge brd">neu</span>':''}</div><div style="font-size:13px;color:var(--text2)">${f.text}</div></div>`).join('')}</div>
+  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div><button class="btn bg btn-sm" onclick="loadAdminData()">↻</button></div><table class="table"><thead><tr><th>${t('name')}</th><th>${t('email')}</th><th>${t('role')}</th><th>${t('actions')}</th></tr></thead><tbody>${ADMIN_USERS.length?ADMIN_USERS.map(u=>`<tr><td style="font-weight:600;color:var(--text)">${u.name||'—'}</td><td>${u.email||'—'}</td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role||'user'}</span></td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal('${u.id}')">✏️ ${t('edit')}</button><button class="btn bg btn-sm" onclick="adminResetPw('${u.id}')" title="${lang==='de'?'Reset-Mail senden':'Send reset email'}">🔑</button></div></td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--text3)">${lang==='de'?'Lade Nutzer…':'Loading users…'}</td></tr>`}</tbody></table></div>`;}
+function editUserModal(uid){const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;const isDE=lang==='de';document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="eu-mo" onclick="closeMo(event,'eu-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">${t('edit')}: ${u.name||u.email}</div><button class="btn bg btn-sm" onclick="document.getElementById('eu-mo').remove()">✕</button></div><div class="fg"><label>${t('name')}</label><input id="eu-name" value="${u.name||''}"></div><div class="fg"><label>${t('email')}</label><input value="${u.email||''}" disabled style="opacity:0.6"></div><div class="fg"><label>${isDE?'Rolle':'Role'}</label><select id="eu-role"><option value="user"${u.role==='user'?' selected':''}>User</option><option value="admin"${u.role==='admin'?' selected':''}>Admin</option></select></div><div style="background:#4a9eff12;border:1px solid #4a9eff30;border-radius:8px;padding:9px 12px;font-size:12px;color:var(--text2)">ℹ️ ${isDE?'E-Mail und Passwort verwaltet Supabase Auth. Zum Passwort-Reset den 🔑-Button nutzen (Reset-Mail an den Nutzer).':'Email and password are managed by Supabase Auth. Use the 🔑 button to send a reset email.'}</div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn bg" onclick="document.getElementById('eu-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveUserEdit('${uid}')">${t('save')}</button></div></div></div>`);}
+function adminResetPw(uid){
+  const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;
+  const isDE=lang==='de';
+  if(!confirm(isDE?`Reset-Mail an ${u.email} senden?`:`Send reset email to ${u.email}?`))return;
+  sbc.auth.resetPasswordForEmail(u.email,{redirectTo:window.location.href.split('#')[0]}).then(({error})=>{
+    if(error){toast(error.message);}
+    else{toast(isDE?`Reset-Mail an ${u.email} gesendet.`:`Reset email sent to ${u.email}.`,true);}
+  });
+}
+async function saveUserEdit(uid){const nm=document.getElementById('eu-name')?.value?.trim(),role=document.getElementById('eu-role')?.value;const {error}=await sbc.from('profiles').update({name:nm,role}).eq('id',uid);if(error){toast(error.message);return;}document.getElementById('eu-mo').remove();toast(lang==='de'?'Gespeichert.':'Saved.',true);loadAdminData();}
 // ─── HELP ─────────────────────────────────────────────────────────────────
 function rHelp(){
   const isAdmin=CU&&CU.role==='admin',faqItems=SHARED.faq[lang]||SHARED.faq.de;
@@ -829,22 +979,88 @@ function rHelp(){
   <div id="hc-faq"><div class="card"><div class="ch"><div class="ct">${t('faq')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="addFAQ()">+</button>`:''}</div>${faqItems.map(f=>`<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">${f.q}${isAdmin?`<div style="display:flex;gap:5px;flex-shrink:0;margin-right:6px" onclick="event.stopPropagation()"><button class="btn bg btn-sm" onclick="editFAQ(${f.id})" style="padding:2px 6px">✏️</button><button class="btn bd btn-sm" onclick="delFAQ(${f.id})" style="padding:2px 6px">🗑</button></div>`:''}<span class="fq">▾</span></div><div class="faq-a">${f.a}</div></div>`).join('')}</div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:12px;margin-top:10px;font-size:13px;color:var(--text2)">📬 <a href="mailto:sportleiter@bogenschiessen-hoehenkirchen.de" style="color:var(--accent)">sportleiter@bogenschiessen-hoehenkirchen.de</a></div></div>
   <div id="hc-fb" style="display:none"><div class="card"><div class="ch"><div class="ct">💬 ${t('feedback')}</div></div><p style="font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6">${lang==='de'?'Feedback, Fehler oder Funktionswunsch? Thomas liest alle Nachrichten.':'Feedback, bug or feature request? Thomas reads all messages.'}</p><div class="fg"><label>${lang==='de'?'Typ':'Type'}</label><select id="fb-type"><option value="feedback">💬 Feedback</option><option value="feature">💡 ${t('feature_req')}</option><option value="bug">🐛 ${t('bug_rep')}</option></select></div><div class="fg"><label>${lang==='de'?'Nachricht':'Message'}</label><textarea id="fb-text" style="min-height:110px" placeholder="${lang==='de'?'Deine Nachricht...':'Your message...'}"></textarea></div><button class="btn bp" onclick="submitFB()">${t('send')}</button></div></div>
   <div id="hc-rm" style="display:none"><div class="card"><div class="ch"><div class="ct">🗺 ${t('roadmap')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="addRM()">+</button>`:''}</div>${SHARED.roadmap.map(item=>`<div class="roadmap-item"><div class="rm-dot" style="background:${rmS[item.status]||'var(--text3)'}"></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;${item.status==='done'?'text-decoration:line-through;opacity:0.6':''}">${item.title}</div><div style="font-size:12px;color:var(--text2)">${item.desc}</div></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="badge" style="background:${rmS[item.status]||'var(--text3)'}18;color:${rmS[item.status]||'var(--text3)'};border:1px solid ${rmS[item.status]||'var(--text3)'}35">${rmL[item.status]||item.status}</span>${isAdmin?`<button class="btn bg btn-sm" onclick="editRM(${item.id})" style="padding:2px 7px">✏️</button>`:''}</div></div>`).join('')}</div></div>
-  <div id="hc-do" style="display:none"><div class="card" style="text-align:center;padding:32px 24px"><div style="font-size:52px;margin-bottom:12px">☕</div><div style="font-family:Bebas Neue,sans-serif;font-size:24px;letter-spacing:1px;color:var(--text);margin-bottom:10px">${lang==='de'?'BowBrain Unterstützen':'Support BowBrain'}</div><p style="font-size:14px;color:var(--text2);margin-bottom:20px;max-width:340px;margin-left:auto;margin-right:auto;line-height:1.7">${lang==='de'?'BowBrain ist kostenlos und wird in der Freizeit von Thomas Weinzierl entwickelt. Ein virtueller Kaffee ist immer willkommen! ☕':'BowBrain is free and developed in spare time by Thomas Weinzierl. A virtual coffee is always welcome! ☕'}</p><a href="https://ko-fi.com" target="_blank" class="btn bp" style="font-size:15px;padding:12px 28px;text-decoration:none">☕ Buy me a coffee</a><div style="margin-top:14px;font-size:12px;color:var(--text3)">${lang==='de'?'Oder per':'Or via'} <a href="https://paypal.me" target="_blank" style="color:var(--accent)">PayPal</a> · ${lang==='de'?'Vielen Dank! 🏹':'Thank you! 🏹'}</div></div></div>
-  <div id="hc-cl" style="display:none"><div class="card"><div class="ch"><div class="ct">${t('changelog')}</div></div>${CHANGELOG.map((c,i)=>`<div class="changelog-item"><div style="display:flex;align-items:baseline;gap:6px;margin-bottom:8px"><span class="cl-ver">v${c.ver}</span><span class="badge ${i===0?'ba':'bbl'}">"${c.name}"</span>${i===0?`<span class="badge bgr">${lang==='de'?'Aktuell':'Current'}</span>`:''}</div><ul style="list-style:none;padding:0">${c.changes.map(ch=>`<li style="font-size:12px;color:var(--text2);padding:2px 0;display:flex;gap:8px"><span style="color:var(--accent);flex-shrink:0">→</span>${ch}</li>`).join('')}</ul></div>`).join('')}</div></div>
+  <div id="hc-do" style="display:none"><div class="card" style="text-align:center;padding:32px 24px"><div style="font-size:52px;margin-bottom:12px">💙</div><div style="font-family:Bebas Neue,sans-serif;font-size:24px;letter-spacing:1px;color:var(--text);margin-bottom:10px">${lang==='de'?'BowBrain Unterstützen':'Support BowBrain'}</div><p style="font-size:14px;color:var(--text2);margin-bottom:20px;max-width:360px;margin-left:auto;margin-right:auto;line-height:1.7">${lang==='de'?'BowBrain ist kostenlos und wird in der Freizeit entwickelt. Wenn dir die App gefällt, freue ich mich über eine kleine Unterstützung per PayPal. 🏹':'BowBrain is free and developed in spare time. If you like the app, a small contribution via PayPal is always welcome. 🏹'}</p><a href="https://www.paypal.com/donate/?hosted_button_id=KFCJ7JMCMR33N" target="_blank" rel="noopener" class="btn bp" style="font-size:15px;padding:12px 28px;text-decoration:none;display:inline-flex;align-items:center;gap:8px">💙 ${lang==='de'?'Mit PayPal unterstützen':'Support via PayPal'}</a><div style="margin-top:14px;font-size:12px;color:var(--text3)">${lang==='de'?'Vielen Dank! 🙏':'Thank you! 🙏'}</div></div></div>
+  <div id="hc-cl" style="display:none"><div class="card"><div class="ch"><div class="ct">${t('changelog')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="editCLModal(null)">+</button>`:''}</div>${(SHARED.changelog||[]).map((c,i)=>`<div class="changelog-item"><div style="display:flex;align-items:baseline;gap:6px;margin-bottom:8px;flex-wrap:wrap"><span class="cl-ver">v${c.ver}</span><span class="badge ${i===0?'ba':'bbl'}">"${c.name}"</span>${i===0?`<span class="badge bgr">${lang==='de'?'Aktuell':'Current'}</span>`:''}${isAdmin?`<span style="margin-left:auto;display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editCLModal('${c.ver}')" style="padding:2px 7px">✏️</button><button class="btn bd btn-sm" onclick="delCL('${c.ver}')" style="padding:2px 7px">🗑</button></span>`:''}</div><ul style="list-style:none;padding:0">${c.changes.map(ch=>`<li style="font-size:12px;color:var(--text2);padding:2px 0;display:flex;gap:8px"><span style="color:var(--accent);flex-shrink:0">→</span>${ch}</li>`).join('')}</ul></div>`).join('')}</div></div>
   <div id="hc-im" style="display:none"><div class="card">${isAdmin?`<div style="margin-bottom:12px"><button class="btn bg btn-sm" onclick="editImp()">✏️ ${lang==='de'?'Impressum bearbeiten':'Edit Imprint'}</button></div>`:''}<pre style="font-size:13px;color:var(--text2);line-height:1.9;white-space:pre-wrap;font-family:'Inter',sans-serif">${SHARED[lang==='en'?'impressum_en':'impressum_de']}</pre></div></div>`;
 }
 function swH(id){['faq','fb','rm','do','cl','im'].forEach(k=>{const el=document.getElementById('hc-'+k);if(el)el.style.display=k===id?'':'none';const tab=document.getElementById('ht-'+k);if(tab)tab.classList.toggle('active',k===id);});}
-function submitFB(){const text=document.getElementById('fb-text')?.value?.trim();if(!text)return;const type=document.getElementById('fb-type')?.value||'feedback';SHARED.feedback.push({id:SHARED.feedback.length+1,type,text,userName:getP().name||CU.name,date:new Date().toLocaleDateString(lang==='de'?'de-DE':'en-GB'),read:false});document.getElementById('fb-text').value='';const btn=document.querySelector('[onclick="submitFB()"]');if(btn){btn.textContent='✅ '+t('send');setTimeout(()=>{btn.textContent=t('send')},2000);}buildNav();}
+async function toggleMaintenance(){
+  if(!SHARED.maintenance)SHARED.maintenance={active:false,msg_de:'',msg_en:''};
+  const willActivate=!SHARED.maintenance.active;
+  const isDE=lang==='de';
+  if(willActivate&&!confirm(isDE?'Wartungsmodus aktivieren? Normale Nutzer können sich dann nicht mehr einloggen.':'Activate maintenance mode? Regular users will no longer be able to log in.'))return;
+  SHARED.maintenance.active=willActivate;
+  await saveShared();
+  toast(willActivate?(isDE?'Wartungsmodus aktiviert.':'Maintenance mode activated.'):(isDE?'Wartungsmodus deaktiviert.':'Maintenance mode deactivated.'),!willActivate);
+  navigate('admin');
+}
+async function saveMaintMsg(){
+  if(!SHARED.maintenance)SHARED.maintenance={active:false,msg_de:'',msg_en:''};
+  SHARED.maintenance.msg_de=document.getElementById('maint-de')?.value||'';
+  SHARED.maintenance.msg_en=document.getElementById('maint-en')?.value||'';
+  await saveShared();
+  toast(lang==='de'?'Hinweistext gespeichert.':'Notice text saved.',true);
+}
+async function markAllFbRead(){SHARED.feedback.forEach(f=>f.read=true);navigate('admin');const {error}=await sbc.from('feedback').update({read:true}).eq('read',false);if(error)toast(error.message);}
+async function submitFB(){const text=document.getElementById('fb-text')?.value?.trim();if(!text)return;const type=document.getElementById('fb-type')?.value||'feedback';const uname=getP().name||CU.email;const rec=await dbIns('feedback',{user_id:CU.id,user_name:uname,type,text,read:false});if(!rec){return;}SHARED.feedback.push({id:rec.id,type,text,userName:uname,date:new Date().toLocaleDateString(lang==='de'?'de-DE':'en-GB'),read:false});const ta=document.getElementById('fb-text');if(ta)ta.value='';const btn=document.querySelector('[onclick="submitFB()"]');if(btn){btn.textContent='✅ '+t('send');setTimeout(()=>{btn.textContent=t('send')},2000);}buildNav();}
 function addFAQ(){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="faq-mo" onclick="closeMo(event,'faq-mo')"><div class="md" style="width:480px"><div class="mh"><div class="mt2">FAQ</div><button class="btn bg btn-sm" onclick="document.getElementById('faq-mo').remove()">✕</button></div><div class="fg"><label>Deutsch – Frage</label><input id="fq-qde"></div><div class="fg"><label>Deutsch – Antwort</label><textarea id="fq-ade"></textarea></div><div class="fg"><label>English – Question</label><input id="fq-qen"></div><div class="fg"><label>English – Answer</label><textarea id="fq-aen"></textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('faq-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveFAQ(null)">${t('save')}</button></div></div></div>`);}
 function editFAQ(id){const de=SHARED.faq.de.find(f=>f.id===id),en=SHARED.faq.en.find(f=>f.id===id);document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="faq-mo" onclick="closeMo(event,'faq-mo')"><div class="md" style="width:480px"><div class="mh"><div class="mt2">FAQ</div><button class="btn bg btn-sm" onclick="document.getElementById('faq-mo').remove()">✕</button></div><div class="fg"><label>Deutsch – Frage</label><input id="fq-qde" value="${de?.q||''}"></div><div class="fg"><label>Deutsch – Antwort</label><textarea id="fq-ade">${de?.a||''}</textarea></div><div class="fg"><label>English – Question</label><input id="fq-qen" value="${en?.q||''}"></div><div class="fg"><label>English – Answer</label><textarea id="fq-aen">${en?.a||''}</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('faq-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveFAQ(${id})">${t('save')}</button></div></div></div>`);}
-function saveFAQ(id){const qde=document.getElementById('fq-qde')?.value||'',ade=document.getElementById('fq-ade')?.value||'',qen=document.getElementById('fq-qen')?.value||qde,aen=document.getElementById('fq-aen')?.value||ade;if(id){SHARED.faq.de=SHARED.faq.de.map(f=>f.id===id?{...f,q:qde,a:ade}:f);SHARED.faq.en=SHARED.faq.en.map(f=>f.id===id?{...f,q:qen,a:aen}:f);}else{const nid=Math.max(...SHARED.faq.de.map(f=>f.id),0)+1;SHARED.faq.de.push({id:nid,q:qde,a:ade});SHARED.faq.en.push({id:nid,q:qen,a:aen});}document.getElementById('faq-mo').remove();navigate('hilfe');setTimeout(()=>swH('faq'),50);}
-function delFAQ(id){if(!confirm(t('confirm_del')))return;SHARED.faq.de=SHARED.faq.de.filter(f=>f.id!==id);SHARED.faq.en=SHARED.faq.en.filter(f=>f.id!==id);navigate('hilfe');setTimeout(()=>swH('faq'),50);}
+async function saveFAQ(id){const qde=document.getElementById('fq-qde')?.value||'',ade=document.getElementById('fq-ade')?.value||'',qen=document.getElementById('fq-qen')?.value||qde,aen=document.getElementById('fq-aen')?.value||ade;if(id){SHARED.faq.de=SHARED.faq.de.map(f=>f.id===id?{...f,q:qde,a:ade}:f);SHARED.faq.en=SHARED.faq.en.map(f=>f.id===id?{...f,q:qen,a:aen}:f);}else{const nid=Math.max(...SHARED.faq.de.map(f=>f.id),0)+1;SHARED.faq.de.push({id:nid,q:qde,a:ade});SHARED.faq.en.push({id:nid,q:qen,a:aen});}document.getElementById('faq-mo').remove();navigate('hilfe');setTimeout(()=>swH('faq'),50);saveShared();}
+async function delFAQ(id){if(!confirm(t('confirm_del')))return;SHARED.faq.de=SHARED.faq.de.filter(f=>f.id!==id);SHARED.faq.en=SHARED.faq.en.filter(f=>f.id!==id);navigate('hilfe');setTimeout(()=>swH('faq'),50);saveShared();}
 function editImp(){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="imp-mo" onclick="closeMo(event,'imp-mo')"><div class="md" style="width:500px"><div class="mh"><div class="mt2">Impressum</div><button class="btn bg btn-sm" onclick="document.getElementById('imp-mo').remove()">✕</button></div><div class="fg"><label>Deutsch</label><textarea id="imp-de" style="min-height:150px">${SHARED.impressum_de}</textarea></div><div class="fg"><label>English</label><textarea id="imp-en" style="min-height:150px">${SHARED.impressum_en}</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('imp-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveImp()">${t('save')}</button></div></div></div>`);}
-function saveImp(){SHARED.impressum_de=document.getElementById('imp-de')?.value;SHARED.impressum_en=document.getElementById('imp-en')?.value;document.getElementById('imp-mo').remove();navigate('hilfe');setTimeout(()=>swH('im'),50);}
+async function saveImp(){SHARED.impressum_de=document.getElementById('imp-de')?.value;SHARED.impressum_en=document.getElementById('imp-en')?.value;document.getElementById('imp-mo').remove();navigate('hilfe');setTimeout(()=>swH('im'),50);saveShared();}
 function addRM(){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="rm-mo" onclick="closeMo(event,'rm-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">Roadmap</div><button class="btn bg btn-sm" onclick="document.getElementById('rm-mo').remove()">✕</button></div><div class="fg"><label>${lang==='de'?'Titel':'Title'}</label><input id="rm-ti"></div><div class="fg"><label>${lang==='de'?'Beschreibung':'Description'}</label><textarea id="rm-desc" style="min-height:70px"></textarea></div><div class="fg"><label>Status</label><select id="rm-st"><option value="planned">${lang==='de'?'Geplant':'Planned'}</option><option value="in_progress">${lang==='de'?'In Entwicklung':'In Progress'}</option><option value="done">${lang==='de'?'Fertig':'Done'}</option></select></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('rm-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveRM(null)">${t('save')}</button></div></div></div>`);}
 function editRM(id){const item=SHARED.roadmap.find(r=>r.id===id);if(!item)return;document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="rm-mo" onclick="closeMo(event,'rm-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">Roadmap</div><button class="btn bg btn-sm" onclick="document.getElementById('rm-mo').remove()">✕</button></div><div class="fg"><label>${lang==='de'?'Titel':'Title'}</label><input id="rm-ti" value="${item.title}"></div><div class="fg"><label>${lang==='de'?'Beschreibung':'Description'}</label><textarea id="rm-desc" style="min-height:70px">${item.desc}</textarea></div><div class="fg"><label>Status</label><select id="rm-st"><option value="planned"${item.status==='planned'?' selected':''}>${lang==='de'?'Geplant':'Planned'}</option><option value="in_progress"${item.status==='in_progress'?' selected':''}>${lang==='de'?'In Entwicklung':'In Progress'}</option><option value="done"${item.status==='done'?' selected':''}>${lang==='de'?'Fertig':'Done'}</option></select></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bd btn-sm" onclick="delRM(${id})">${t('del')}</button><button class="btn bg" onclick="document.getElementById('rm-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveRM(${id})">${t('save')}</button></div></div></div>`);}
-function saveRM(id){const title=document.getElementById('rm-ti')?.value?.trim();if(!title)return;const desc=document.getElementById('rm-desc')?.value||'',status=document.getElementById('rm-st')?.value||'planned';if(id){SHARED.roadmap=SHARED.roadmap.map(r=>r.id===id?{...r,title,desc,status}:r);}else{SHARED.roadmap.push({id:Math.max(...SHARED.roadmap.map(r=>r.id),0)+1,title,desc,status});}document.getElementById('rm-mo').remove();navigate('hilfe');setTimeout(()=>swH('rm'),50);}
-function delRM(id){if(!confirm(t('confirm_del')))return;SHARED.roadmap=SHARED.roadmap.filter(r=>r.id!==id);document.getElementById('rm-mo')?.remove();navigate('hilfe');setTimeout(()=>swH('rm'),50);}
+async function saveRM(id){const title=document.getElementById('rm-ti')?.value?.trim();if(!title)return;const desc=document.getElementById('rm-desc')?.value||'',status=document.getElementById('rm-st')?.value||'planned';if(id){SHARED.roadmap=SHARED.roadmap.map(r=>r.id===id?{...r,title,desc,status}:r);}else{SHARED.roadmap.push({id:Math.max(...SHARED.roadmap.map(r=>r.id),0)+1,title,desc,status});}document.getElementById('rm-mo').remove();navigate('hilfe');setTimeout(()=>swH('rm'),50);saveShared();}
+async function delRM(id){if(!confirm(t('confirm_del')))return;SHARED.roadmap=SHARED.roadmap.filter(r=>r.id!==id);document.getElementById('rm-mo')?.remove();navigate('hilfe');setTimeout(()=>swH('rm'),50);saveShared();}
+function editCLModal(ver){
+  const isDE=lang==='de';
+  const e=ver?(SHARED.changelog||[]).find(x=>x.ver===ver):null;
+  const changesText=e?e.changes.join('\n'):'';
+  document.body.insertAdjacentHTML('beforeend',`
+  <div class="mo" id="cl-mo" onclick="closeMo(event,'cl-mo')"><div class="md" style="width:480px">
+    <div class="mh"><div class="mt2">${ver?(isDE?'Eintrag bearbeiten':'Edit Entry'):(isDE?'Neuer Changelog-Eintrag':'New Changelog Entry')}</div><button class="btn bg btn-sm" onclick="document.getElementById('cl-mo').remove()">✕</button></div>
+    <div class="g2" style="gap:10px"><div class="fg"><label>${isDE?'Version':'Version'}</label><input id="cl-ver" value="${e?e.ver:''}" placeholder="0.1.7.9"></div><div class="fg"><label>${isDE?'Spitzname':'Codename'}</label><input id="cl-name" value="${e?e.name:''}" placeholder="An San"></div></div>
+    <div class="fg"><label>${isDE?'Änderungen (eine pro Zeile)':'Changes (one per line)'}</label><textarea id="cl-changes" style="min-height:120px">${changesText}</textarea></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('cl-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveCL(${ver?`'${ver}'`:'null'})">${t('save')}</button></div>
+  </div></div>`);
+}
+async function saveCL(origVer){
+  const ver=document.getElementById('cl-ver')?.value?.trim();
+  const name=document.getElementById('cl-name')?.value?.trim()||'';
+  const changes=(document.getElementById('cl-changes')?.value||'').split('\n').map(s=>s.trim()).filter(Boolean);
+  if(!ver){toast(lang==='de'?'Bitte Version angeben.':'Please enter a version.');return;}
+  if(!SHARED.changelog)SHARED.changelog=[];
+  if(origVer){SHARED.changelog=SHARED.changelog.map(e=>e.ver===origVer?{ver,name,changes}:e);}
+  else{SHARED.changelog=[{ver,name,changes},...SHARED.changelog];}
+  document.getElementById('cl-mo')?.remove();
+  await saveShared();
+  navigate('hilfe');setTimeout(()=>swH('cl'),50);
+}
+async function delCL(ver){
+  if(!confirm(t('confirm_del')))return;
+  SHARED.changelog=(SHARED.changelog||[]).filter(e=>e.ver!==ver);
+  await saveShared();
+  navigate('hilfe');setTimeout(()=>swH('cl'),50);
+}
+// ── Session bootstrap + password-recovery handling ──
+let _recovering=false;
+if(sbc){
+  sbc.auth.onAuthStateChange((event,session)=>{
+    if(event==='PASSWORD_RECOVERY'){_recovering=true;showSetNewPassword();}
+  });
+  (async()=>{
+    try{
+      // If arriving via recovery link, the hash contains type=recovery
+      if(location.hash.includes('type=recovery')){_recovering=true;showSetNewPassword();return;}
+      await checkMaintenance();
+      const {data}=await sbc.auth.getSession();
+      if(data&&data.session){await afterAuth(data.session,false);}
+    }catch(e){console.error('session init',e);}
+  })();
+}else{
+  const er=document.getElementById('lerr');if(er){er.style.display='block';er.textContent='Supabase-SDK konnte nicht geladen werden. Internetverbindung prüfen.';}
+}
 </script>
 </body>
 </html>
