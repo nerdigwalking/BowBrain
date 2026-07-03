@@ -243,7 +243,7 @@ textarea{min-height:70px;resize:vertical}
     </div>
     <button class="btn bp" style="width:100%;justify-content:center;padding:10px" onclick="doRegister()">Konto erstellen &middot; Create Account</button>
   </div>
-  <div class="lver">v0.1.7.9 &middot; &ldquo;Marcus D&rsquo;Almeida&rdquo;</div>
+  <div class="lver">v0.1.7.10 &middot; &ldquo;Deepika Kumari&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -286,7 +286,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag">v0.1.7.9 &middot; © T. Weinzierl</div>
+<div class="vtag">v0.1.7.10 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -325,7 +325,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='0.1.7.9',VNAME="Marcus D\'Almeida";
+const VER='0.1.7.10',VNAME='Deepika Kumari';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -335,14 +335,15 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v0.1.7.9 · "Marcus D\'Almeida"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v0.1.7.9 · "Marcus D\'Almeida"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v0.1.7.10 · "Deepika Kumari"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v0.1.7.10 · "Deepika Kumari"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   maintenance:{active:false,msg_de:'🔧 BowBrain wird gerade gewartet. Bitte versuche es später erneut. Der Administrator arbeitet an einem Update.',msg_en:'🔧 BowBrain is currently under maintenance. Please try again later. The administrator is working on an update.'},
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'0.1.7.10',name:'Deepika Kumari',changes:['Neuer Bereich „World Archery": Weltrangliste live aus der World-Archery-API','Athletenprofile mit Foto, Ranking, Karrierestatistik und letzten Ergebnissen','Filter nach Kategorie (Recurve/Compound, m/w) und Nation, Suche & Sortierung','Im BowBrain-Design integriert (Stufe 1 von 2 – Wettkämpfe & Rekorde folgen)']},
   {ver:'0.1.7.9',name:"Marcus D\'Almeida",changes:['Admin-Analytics: KPIs, Anmeldungen & Nutzungszeit als Diagramme','Nutzertabelle mit letztem Login, Login-Anzahl und Nutzungszeit','Sprachauswahl in der Topbar kompakter dargestellt','Browser-Tab-Titel gesetzt (BowBrain – Your Archery Companion)']},
   {ver:'0.1.7.8',name:'An San',changes:['Änderungshistorie durch Admin editierbar (hinzufügen/bearbeiten/löschen)','Startseite: Slogan „Your Archery Companion" unter dem Logo','Startseite: Versionsanzeige an den unteren Rand verschoben','Unterstützen: Klartext-E-Mail entfernt, nur noch PayPal-Button']},
   {ver:'0.1.7.7',name:'Lim Sihyeon',changes:['Versions-Codenamen jetzt auch mit Recurve-Schützinnen der Weltrangliste','Unterstützen: PayPal-Spendenbutton auf offiziellen Spenden-Link aktualisiert']},
@@ -360,8 +361,8 @@ const CHANGELOG=[
 SHARED.changelog=CHANGELOG;  // default; overridden by DB (admin-editable)
 
 const L={
-  de:{dashboard:'Dashboard',setups:'Setups',sight:'Visiereinstellungen',scores:'Ergebnisse',tuning:'Tuning',glossar:'Glossar',profil:'Profil',einstellungen:'Einstellungen',admin:'Admin',hilfe:'Hilfe & Support',nav_main:'Hauptmenü',nav_acc:'Konto',save:'Speichern',cancel:'Abbrechen',edit:'Bearbeiten',del:'Löschen',active:'Aktiv',bow:'Bogen / Mittelstück',limbs:'Wurfarme',dw:'Zuggewicht (lbs)',string:'Sehne',am:'Pfeilmodell',spine:'Spine',tip:'Spitzengewicht (Grain)',dl:'Auszuglänge (Zoll)',nock:'Nockenfarbe',fletch:'Federfarbe',setup_name:'Setup-Name',brace:'Standhöhe (Zoll)',tiller_u:'Oberer Tiller (mm)',tiller_l:'Unterer Tiller (mm)',new_setup:'Neues Setup',new_score:'Ergebnis eintragen',new_sight:'Einstellung hinzufügen',dist:'Distanz (m)',click:'Klick-Wert',notes:'Notizen',setup:'Setup',date:'Datum',type:'Typ',points:'Punkte',arrows:'Pfeile',avg_arrow:'Ø pro Pfeil',total_arrows:'Pfeile gesamt',best_score:'Beste Punktzahl',trainings:'Trainings',tournaments:'Turniere',active_setup:'Aktives Setup',last_act:'Letzte Aktivitäten',all:'Alle',stats:'Statistik',timeline:'Zeitleiste',rh:'Rechtshänder',lh:'Linkshänder',bow_class:'Bogenklasse',cc:'Wettkampfklasse',personal:'Persönliche Daten',archer:'Bogenschützen-Einstellungen',name:'Name',email:'E-Mail',club:'Verein',country:'Land / Region',language:'Sprache',dark_mode:'Dark Mode',animations:'Animationen',compact:'Kompaktansicht',large_font:'Große Schrift',faq:'Häufig gestellte Fragen',imprint:'Impressum',role:'Rolle',status:'Status',last_seen:'Letzte Aktivität',actions:'Aktionen',flight_diagram:'Flugkurven-Diagramm',sight_by_dist:'Einstellungen nach Distanz',spine_calc:'Spine-Rechner',spine_rec:'Empfohlener Spine',no_setups:'Noch keine Setups.',no_scores:'Noch keine Ergebnisse.',no_sight:'Noch keine Visiereinstellungen.',confirm_del:'Wirklich löschen?',set_active:'Als aktiv setzen',tuning_notes:'Tuning-Notizen',tuning_photos:'Fotos',add_photo:'Foto hochladen',spine_compat:'Spine-Kompatibilität',visier:'Visier',location:'Ort (optional)',placement:'Platz',participants:'Teilnehmer',bezeichnung:'Bezeichnung',arrows_only:'Nur Pfeile (kein Score)',per_week:'Pfeile diese Woche',per_month:'Pfeile diesen Monat',score_chart:'Ergebnis-Verlauf',feedback:'Feedback & Vorschläge',roadmap:'Roadmap',donate:'Unterstützen',changelog:'Änderungshistorie',send:'Absenden',feature_req:'Funktionswunsch',bug_rep:'Fehler melden',predict:'Vorschlag basierend auf Flugkurve',user_mgmt:'Nutzerverwaltung'},
-  en:{dashboard:'Dashboard',setups:'Setups',sight:'Sight Settings',scores:'Results',tuning:'Tuning',glossar:'Glossary',profil:'Profile',einstellungen:'Settings',admin:'Admin',hilfe:'Help & Support',nav_main:'Main Menu',nav_acc:'Account',save:'Save',cancel:'Cancel',edit:'Edit',del:'Delete',active:'Active',bow:'Bow / Riser',limbs:'Limbs',dw:'Draw Weight (lbs)',string:'String',am:'Arrow Model',spine:'Spine',tip:'Point Weight (Grain)',dl:'Draw Length (in)',nock:'Nock Color',fletch:'Fletching Color',setup_name:'Setup Name',brace:'Brace Height (in)',tiller_u:'Upper Tiller (mm)',tiller_l:'Lower Tiller (mm)',new_setup:'New Setup',new_score:'Add Result',new_sight:'Add Setting',dist:'Distance (m)',click:'Click Value',notes:'Notes',setup:'Setup',date:'Date',type:'Type',points:'Points',arrows:'Arrows',avg_arrow:'Avg per Arrow',total_arrows:'Total Arrows',best_score:'Best Score',trainings:'Trainings',tournaments:'Tournaments',active_setup:'Active Setup',last_act:'Recent Activity',all:'All',stats:'Statistics',timeline:'Timeline',rh:'Right-handed',lh:'Left-handed',bow_class:'Bow Class',cc:'Competition Class',personal:'Personal Data',archer:'Archer Settings',name:'Name',email:'E-Mail',club:'Club',country:'Country / Region',language:'Language',dark_mode:'Dark Mode',animations:'Animations',compact:'Compact View',large_font:'Large Font',faq:'Frequently Asked Questions',imprint:'Imprint / Legal',role:'Role',status:'Status',last_seen:'Last Active',actions:'Actions',flight_diagram:'Arrow Flight Diagram',sight_by_dist:'Settings by Distance',spine_calc:'Spine Calculator',spine_rec:'Recommended Spine',no_setups:'No setups yet.',no_scores:'No results yet.',no_sight:'No sight settings yet.',confirm_del:'Really delete?',set_active:'Set as Active',tuning_notes:'Tuning Notes',tuning_photos:'Photos',add_photo:'Upload Photo',spine_compat:'Spine Compatibility',visier:'Sight Unit',location:'Location (optional)',placement:'Placement',participants:'Participants',bezeichnung:'Description',arrows_only:'Arrows only (no score)',per_week:'Arrows this week',per_month:'Arrows this month',score_chart:'Score Progress',feedback:'Feedback & Suggestions',roadmap:'Roadmap',donate:'Support',changelog:'Changelog',send:'Submit',feature_req:'Feature Request',bug_rep:'Report Bug',predict:'Suggested by trajectory',user_mgmt:'User Management'}
+  de:{dashboard:'Dashboard',setups:'Setups',sight:'Visiereinstellungen',scores:'Ergebnisse',tuning:'Tuning',glossar:'Glossar',wa:'World Archery',profil:'Profil',einstellungen:'Einstellungen',admin:'Admin',hilfe:'Hilfe & Support',nav_main:'Hauptmenü',nav_acc:'Konto',save:'Speichern',cancel:'Abbrechen',edit:'Bearbeiten',del:'Löschen',active:'Aktiv',bow:'Bogen / Mittelstück',limbs:'Wurfarme',dw:'Zuggewicht (lbs)',string:'Sehne',am:'Pfeilmodell',spine:'Spine',tip:'Spitzengewicht (Grain)',dl:'Auszuglänge (Zoll)',nock:'Nockenfarbe',fletch:'Federfarbe',setup_name:'Setup-Name',brace:'Standhöhe (Zoll)',tiller_u:'Oberer Tiller (mm)',tiller_l:'Unterer Tiller (mm)',new_setup:'Neues Setup',new_score:'Ergebnis eintragen',new_sight:'Einstellung hinzufügen',dist:'Distanz (m)',click:'Klick-Wert',notes:'Notizen',setup:'Setup',date:'Datum',type:'Typ',points:'Punkte',arrows:'Pfeile',avg_arrow:'Ø pro Pfeil',total_arrows:'Pfeile gesamt',best_score:'Beste Punktzahl',trainings:'Trainings',tournaments:'Turniere',active_setup:'Aktives Setup',last_act:'Letzte Aktivitäten',all:'Alle',stats:'Statistik',timeline:'Zeitleiste',rh:'Rechtshänder',lh:'Linkshänder',bow_class:'Bogenklasse',cc:'Wettkampfklasse',personal:'Persönliche Daten',archer:'Bogenschützen-Einstellungen',name:'Name',email:'E-Mail',club:'Verein',country:'Land / Region',language:'Sprache',dark_mode:'Dark Mode',animations:'Animationen',compact:'Kompaktansicht',large_font:'Große Schrift',faq:'Häufig gestellte Fragen',imprint:'Impressum',role:'Rolle',status:'Status',last_seen:'Letzte Aktivität',actions:'Aktionen',flight_diagram:'Flugkurven-Diagramm',sight_by_dist:'Einstellungen nach Distanz',spine_calc:'Spine-Rechner',spine_rec:'Empfohlener Spine',no_setups:'Noch keine Setups.',no_scores:'Noch keine Ergebnisse.',no_sight:'Noch keine Visiereinstellungen.',confirm_del:'Wirklich löschen?',set_active:'Als aktiv setzen',tuning_notes:'Tuning-Notizen',tuning_photos:'Fotos',add_photo:'Foto hochladen',spine_compat:'Spine-Kompatibilität',visier:'Visier',location:'Ort (optional)',placement:'Platz',participants:'Teilnehmer',bezeichnung:'Bezeichnung',arrows_only:'Nur Pfeile (kein Score)',per_week:'Pfeile diese Woche',per_month:'Pfeile diesen Monat',score_chart:'Ergebnis-Verlauf',feedback:'Feedback & Vorschläge',roadmap:'Roadmap',donate:'Unterstützen',changelog:'Änderungshistorie',send:'Absenden',feature_req:'Funktionswunsch',bug_rep:'Fehler melden',predict:'Vorschlag basierend auf Flugkurve',user_mgmt:'Nutzerverwaltung'},
+  en:{dashboard:'Dashboard',setups:'Setups',sight:'Sight Settings',scores:'Results',tuning:'Tuning',glossar:'Glossary',wa:'World Archery',profil:'Profile',einstellungen:'Settings',admin:'Admin',hilfe:'Help & Support',nav_main:'Main Menu',nav_acc:'Account',save:'Save',cancel:'Cancel',edit:'Edit',del:'Delete',active:'Active',bow:'Bow / Riser',limbs:'Limbs',dw:'Draw Weight (lbs)',string:'String',am:'Arrow Model',spine:'Spine',tip:'Point Weight (Grain)',dl:'Draw Length (in)',nock:'Nock Color',fletch:'Fletching Color',setup_name:'Setup Name',brace:'Brace Height (in)',tiller_u:'Upper Tiller (mm)',tiller_l:'Lower Tiller (mm)',new_setup:'New Setup',new_score:'Add Result',new_sight:'Add Setting',dist:'Distance (m)',click:'Click Value',notes:'Notes',setup:'Setup',date:'Date',type:'Type',points:'Points',arrows:'Arrows',avg_arrow:'Avg per Arrow',total_arrows:'Total Arrows',best_score:'Best Score',trainings:'Trainings',tournaments:'Tournaments',active_setup:'Active Setup',last_act:'Recent Activity',all:'All',stats:'Statistics',timeline:'Timeline',rh:'Right-handed',lh:'Left-handed',bow_class:'Bow Class',cc:'Competition Class',personal:'Personal Data',archer:'Archer Settings',name:'Name',email:'E-Mail',club:'Club',country:'Country / Region',language:'Language',dark_mode:'Dark Mode',animations:'Animations',compact:'Compact View',large_font:'Large Font',faq:'Frequently Asked Questions',imprint:'Imprint / Legal',role:'Role',status:'Status',last_seen:'Last Active',actions:'Actions',flight_diagram:'Arrow Flight Diagram',sight_by_dist:'Settings by Distance',spine_calc:'Spine Calculator',spine_rec:'Recommended Spine',no_setups:'No setups yet.',no_scores:'No results yet.',no_sight:'No sight settings yet.',confirm_del:'Really delete?',set_active:'Set as Active',tuning_notes:'Tuning Notes',tuning_photos:'Photos',add_photo:'Upload Photo',spine_compat:'Spine Compatibility',visier:'Sight Unit',location:'Location (optional)',placement:'Placement',participants:'Participants',bezeichnung:'Description',arrows_only:'Arrows only (no score)',per_week:'Arrows this week',per_month:'Arrows this month',score_chart:'Score Progress',feedback:'Feedback & Suggestions',roadmap:'Roadmap',donate:'Support',changelog:'Changelog',send:'Submit',feature_req:'Feature Request',bug_rep:'Report Bug',predict:'Suggested by trajectory',user_mgmt:'User Management'}
 };
 // ─── STATE ────────────────────────────────────────────────────────────────
 let CU=null,lang='en',sbOpen=true,currentPage='dashboard',forceMobile=false;
@@ -592,7 +593,7 @@ async function saveOnboarding(){const p2=getP();const row={club:document.getElem
 function skipOnboarding(){document.getElementById('onboarding-mo').style.display='none';buildNav();}
 // ─── NAV ─────────────────────────────────────────────────────────────────
 function buildNav(){
-  const pages=[{id:'dashboard',ic:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},{id:'setups',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="3" x2="12" y2="10"/><line x1="12" y1="14" x2="12" y2="21"/>'},{id:'sight',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/>'},{id:'scores',ic:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},{id:'tuning',ic:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'},{id:'glossar',ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'}];
+  const pages=[{id:'dashboard',ic:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},{id:'setups',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="3" x2="12" y2="10"/><line x1="12" y1="14" x2="12" y2="21"/>'},{id:'sight',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/>'},{id:'scores',ic:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},{id:'tuning',ic:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'},{id:'glossar',ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'},{id:'wa',ic:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'}];
   const acct=[{id:'profil',ic:'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'},{id:'einstellungen',ic:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>'}];
   const unread=SHARED.feedback.filter(f=>!f.read).length;
   if(CU&&CU.role==='admin')acct.push({id:'admin',ic:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',notif:unread>0});
@@ -612,12 +613,13 @@ function buildNav(){
 function navigate(page){
   currentPage=page;buildNav();
   const el=document.getElementById('content');
-  el.innerHTML=(({dashboard:rDash,setups:rSetups,sight:rSight,scores:rScores,tuning:rTuning,glossar:rGlossar,profil:rProfil,einstellungen:rSettings,admin:rAdmin,hilfe:rHelp})[page]||rDash)();
+  el.innerHTML=(({dashboard:rDash,setups:rSetups,sight:rSight,scores:rScores,tuning:rTuning,glossar:rGlossar,wa:rWA,profil:rProfil,einstellungen:rSettings,admin:rAdmin,hilfe:rHelp})[page]||rDash)();
   el.querySelectorAll('.card,.card-sm,.stitle,.ti').forEach((c,i)=>{c.style.animationDelay=`${i*0.03}s`;c.classList.add('fade-in');});
   if(page==='setups')calcSpineAuto();
   if(page==='sight')setTimeout(drawSightChart,50);
   if(page==='dashboard')setTimeout(drawLineChart,50);
   if(page==='admin')setTimeout(loadAdminData,10);
+  if(page==='wa')setTimeout(waEnter,30);
 }
 function toggleSB(){sbOpen=!sbOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sbOpen);document.getElementById('main').classList.toggle('exp',!sbOpen&&!isMobile());}
 function closeMo(e,id){if(e.target.id===id)document.getElementById(id)?.remove();}
@@ -1070,6 +1072,135 @@ async function delCL(ver){
   await saveShared();
   navigate('hilfe');setTimeout(()=>swH('cl'),50);
 }
+
+// ═══════════════════════ WORLD ARCHERY (live API) ═══════════════════════
+const WA_RANK='https://api.worldarchery.org/v3/WORLDRANKINGS/';
+const WA_BIO ='https://api.worldarchery.org/v3/ATHLETEBIOGRAPHY/';
+const WA_ARES='https://api.worldarchery.org/v3/ATHLETERESULTS/';
+const WA_PHOTO='https://extranet.worldarchery.org/ProfilePictures/?Id=';
+const WA_CATS=[['RM','Recurve Men'],['RW','Recurve Women'],['CM','Compound Men'],['CW','Compound Women'],['BM','Barebow Men'],['BW','Barebow Women'],['RU21M','Recurve U21 Men'],['RU21W','Recurve U21 Women'],['CU21M','Compound U21 Men'],['CU21W','Compound U21 Women']];
+const WA_NOC=[['KOR','South Korea'],['USA','United States'],['FRA','France'],['ITA','Italy'],['GER','Germany'],['NED','Netherlands'],['GBR','Great Britain'],['IND','India'],['TUR','Turkey'],['MEX','Mexico'],['JPN','Japan'],['CHN','China'],['TPE','Chinese Taipei'],['ESP','Spain'],['CAN','Canada'],['AUS','Australia'],['DEN','Denmark'],['SWE','Sweden'],['POL','Poland'],['UKR','Ukraine'],['BEL','Belgium'],['AUT','Austria'],['SUI','Switzerland'],['CZE','Czechia'],['SVK','Slovakia'],['SLO','Slovenia'],['FIN','Finland'],['NOR','Norway'],['BRA','Brazil'],['COL','Colombia'],['IRI','Iran'],['KAZ','Kazakhstan'],['MGL','Mongolia'],['MAS','Malaysia'],['INA','Indonesia'],['THA','Thailand'],['NZL','New Zealand'],['ISR','Israel']];
+const WA_STATE={cat:'RM',sortAsc:true,rbp:15,page:1,total:0,loaded:false};
+function waName(a){if(!a)return '—';return a.WNameOrd?(a.FName+' '+a.GName):(a.GName+' '+a.FName);}
+function waIni(a){if(!a)return '?';return waName(a).split(' ').map(p=>p[0]||'').join('').slice(0,2).toUpperCase();}
+function waFmtDate(d){if(!d)return '—';return new Date(d).toLocaleDateString(lang==='de'?'de-DE':'en-GB',{day:'2-digit',month:'short',year:'numeric'});}
+function waRankChg(r,ro){if(!ro||ro===r)return '<span style="color:var(--text3);font-size:11px">→</span>';if(r<ro)return '<span style="color:var(--green);font-size:11px;font-weight:700">▲'+(ro-r)+'</span>';return '<span style="color:var(--red);font-size:11px;font-weight:700">▼'+(r-ro)+'</span>';}
+function waMedal(r){return r===1?'🥇':r===2?'🥈':r===3?'🥉':'';}
+function waPick(o){for(let i=1;i<arguments.length;i++){const k=arguments[i];if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='')return o[k];}return undefined;}
+function rWA(){
+  const catOpts=WA_CATS.map(([v,l])=>`<option value="${v}"${WA_STATE.cat===v?' selected':''}>${l} (${v})</option>`).join('');
+  return`<div class="stitle">World Archery</div>
+  <div class="ssub" style="margin-top:-14px">${lang==='de'?'Weltrangliste & Athletenprofile – live aus der World-Archery-API':'World rankings & athlete profiles – live from the World Archery API'}</div>
+  <div class="card" style="margin-bottom:14px"><div class="g4" style="gap:10px">
+    <div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Kategorie':'Category'}</label><select id="wa-cat" onchange="waFetch(1)">${catOpts}</select></div>
+    <div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Nation':'Country'}</label><select id="wa-country" onchange="waFetch(1)"></select></div>
+    <div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Suche (Name)':'Search (name)'}</label><input type="text" id="wa-search" placeholder="${lang==='de'?'Name…':'Name…'}" onkeydown="if(event.key==='Enter')waFetch(1)"></div>
+    <div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Pro Seite':'Per page'}</label><select id="wa-perpage" onchange="waFetch(1)"><option>15</option><option>30</option><option>50</option></select></div>
+  </div><button class="btn bp btn-sm" style="margin-top:10px" onclick="waFetch(1)">${lang==='de'?'Suchen':'Search'}</button></div>
+  <div id="wa-notice" style="display:none;background:#e8a02012;border:1px solid #e8a02040;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:13px;color:var(--text2);line-height:1.6"></div>
+  <div class="card"><div class="ch"><div class="ct">${lang==='de'?'Weltrangliste':'World Rankings'}</div><div style="display:flex;align-items:center;gap:10px"><button class="btn bg btn-sm" onclick="waToggleSort()" id="wa-sortbtn">${WA_STATE.sortAsc?'#1 → oben ↓':'#1 → unten ↑'}</button><span class="badge bbl" id="wa-count">—</span></div></div>
+  <div id="wa-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px"></div>
+  <div id="wa-pag" style="display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-top:14px"></div></div>`;
+}
+function waEnter(){const sel=document.getElementById('wa-country');if(sel&&!sel.options.length){sel.innerHTML='<option value="">'+(lang==='de'?'Alle Nationen':'All countries')+'</option>'+[...WA_NOC].sort((a,b)=>a[1].localeCompare(b[1])).map(([code,name])=>`<option value="${code}">${name} (${code})</option>`).join('');}waFetch(WA_STATE.page||1);}
+function waToggleSort(){WA_STATE.sortAsc=!WA_STATE.sortAsc;const b=document.getElementById('wa-sortbtn');if(b)b.textContent=WA_STATE.sortAsc?'#1 → oben ↓':'#1 → unten ↑';waFetch(1);}
+function waFetch(page){
+  page=page||1;WA_STATE.page=page;
+  const grid=document.getElementById('wa-grid');if(!grid)return;
+  const cat=document.getElementById('wa-cat')?.value||'RM';WA_STATE.cat=cat;
+  const rbp=parseInt(document.getElementById('wa-perpage')?.value||15,10)||15;WA_STATE.rbp=rbp;
+  const search=(document.getElementById('wa-search')?.value||'').trim();
+  const country=(document.getElementById('wa-country')?.value||'').toUpperCase();
+  const notice=document.getElementById('wa-notice');if(notice)notice.style.display='none';
+  grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:28px;color:var(--text3)">⏳ ${lang==='de'?'Lade Weltrangliste…':'Loading world rankings…'}</div>`;
+  const p=new URLSearchParams();p.set('CatCode',cat);if(search)p.set('fText',search);if(country)p.set('Country',country);p.set('SortBy',WA_STATE.sortAsc?'RANKING':'-RANKING');p.set('RBP',rbp);p.set('Page',page-1);
+  fetch(WA_RANK+'?'+p.toString()).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
+    let items=data.items||[];WA_STATE.total=(data.pageInfo&&data.pageInfo.totalResults)||items.length;
+    if(!WA_STATE.sortAsc)items=[...items].sort((a,b)=>(b.Rnk||0)-(a.Rnk||0));
+    const cnt=document.getElementById('wa-count');if(cnt)cnt.textContent=WA_STATE.total.toLocaleString(lang==='de'?'de-DE':'en')+' · '+cat;
+    grid.innerHTML=items.length?items.map(waCard).join(''):`<div style="grid-column:1/-1;color:var(--text3);padding:18px">${lang==='de'?'Keine Athleten gefunden.':'No athletes found.'}</div>`;
+    waPag(WA_STATE.total,page,rbp);
+  }).catch(e=>{grid.innerHTML='';const n=document.getElementById('wa-notice');if(n){n.style.display='block';n.innerHTML='<strong>'+(lang==='de'?'Hinweis:':'Note:')+'</strong> '+(lang==='de'?'Die Weltrangliste konnte nicht geladen werden':'Could not load rankings')+' ('+e.message+'). '+(lang==='de'?'Falls das dauerhaft auftritt, blockiert evtl. der Browser den API-Zugriff (CORS) – dann bauen wir einen kleinen Proxy ein.':'If this persists, the browser may block API access (CORS) – we would then add a small proxy.');}console.error('WA fetch',e);});
+}
+function waCard(r){
+  const a=r.Athlete,name=waName(a),ini=waIni(a),chg=waRankChg(r.Rnk,r.RnkOld),md=waMedal(r.Rnk);
+  return`<div class="card card-hover" style="cursor:pointer;padding:13px;margin:0" onclick="waOpenAthlete('${a.Id}','${name.replace(/'/g,"\\'")}','${a.NOC}')">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--text2);flex-shrink:0"><img src="${WA_PHOTO}${a.Id}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.textContent='${ini}'" loading="lazy"/></div>
+      <div style="min-width:0"><div style="font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${md} ${name}</div><div style="font-size:11px;color:var(--text3)">${a.NOC} ${chg}</div></div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <div style="flex:1;background:var(--bg3);border-radius:7px;padding:6px 8px;text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:20px;color:var(--accent);line-height:1">#${r.Rnk}</div><div style="font-size:9px;color:var(--text3);text-transform:uppercase">${lang==='de'?'Weltrang':'World rank'}</div></div>
+      <div style="flex:1;background:var(--bg3);border-radius:7px;padding:6px 8px;text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:20px;color:var(--text);line-height:1">${r.Points}</div><div style="font-size:9px;color:var(--text3);text-transform:uppercase">${lang==='de'?'Punkte':'Points'}</div></div>
+    </div>
+    ${r.RnkDtIssued?`<div style="font-size:10px;color:var(--text3);margin-top:8px">${lang==='de'?'Stand':'As of'}: ${waFmtDate(r.RnkDtIssued)}</div>`:''}
+  </div>`;
+}
+function waPag(total,page,rbp){
+  const pag=document.getElementById('wa-pag');if(!pag)return;const pages=Math.ceil(total/rbp);
+  if(pages<=1){pag.innerHTML='';return;}
+  const btn=(lbl,pg,dis,act)=>`<button class="btn ${act?'bp':'bg'} btn-sm" ${dis?'disabled':''} onclick="waFetch(${pg})" style="min-width:34px">${lbl}</button>`;
+  let h=btn('←',page-1,page<=1,false);
+  const s=Math.max(1,page-2),e=Math.min(pages,page+2);
+  if(s>1)h+=btn('1',1,false,false)+(s>2?'<span style="color:var(--text3);padding:0 2px">…</span>':'');
+  for(let i=s;i<=e;i++)h+=btn(i,i,false,i===page);
+  if(e<pages)h+=(e<pages-1?'<span style="color:var(--text3);padding:0 2px">…</span>':'')+btn(pages,pages,false,false);
+  h+=btn('→',page+1,page>=pages,false);
+  pag.innerHTML=h;
+}
+function waTile(val,lbl,sub){return (val!==undefined&&val!==null&&val!==''&&val!=='—')?`<div style="background:var(--bg3);border-radius:8px;padding:9px 10px;text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:var(--accent);line-height:1.1">${val}</div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-top:2px">${lbl}</div>${sub?`<div style="font-size:10px;color:var(--text3);margin-top:1px">${sub}</div>`:''}</div>`:'';}
+function waSecTitle(t){return `<div style="font-size:12px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 8px">${t}</div>`;}
+async function waOpenAthlete(id,name,noc){
+  document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="wa-mo" onclick="closeMo(event,'wa-mo')"><div class="md" style="width:560px;max-height:88vh;overflow-y:auto"><div class="mh"><div class="mt2">${name}</div><button class="btn bg btn-sm" onclick="document.getElementById('wa-mo').remove()">✕</button></div><div id="wa-panel"><div style="text-align:center;padding:34px;color:var(--text3)">⏳ ${lang==='de'?'Lade Athletendaten…':'Loading athlete data…'}</div></div></div></div>`);
+  const pc=document.getElementById('wa-panel');
+  try{
+    const [bioRes,rankRes,resRes]=await Promise.all([
+      fetch(WA_BIO+'?Id='+id+'&Detailed=true'),
+      fetch(WA_RANK+'?Id='+id+'&SortBy=RANKING&Detailed=true&RBP=20'),
+      fetch(WA_ARES+'?Id='+id+'&SortBy=-DATE&RBP=15')
+    ]);
+    const bio=bioRes.ok?((await bioRes.json()).items||[])[0]||{}:{};
+    const rankData=rankRes.ok?await rankRes.json():{items:[]};
+    const resData=resRes.ok?await resRes.json():{items:[]};
+    const ranks=rankData.items||[],results=resData.items||[];
+    const career=((bio.Stats&&bio.Stats.Career)||[])[0]||{};
+    const best=((bio.WorldRankings&&bio.WorldRankings.Best)||[])[0]||{};
+    const ranked=results.filter(r=>typeof r.Rnk==='number');
+    const golds=ranked.filter(r=>r.Rnk===1).length,podiums=ranked.filter(r=>r.Rnk<=3).length;
+    const bestQ=results.reduce((m,r)=>{const q=r.QuScore;return (typeof q==='number'&&q>m)?q:m;},0);
+    const ini=(''+id).slice(0,2).toUpperCase();
+    const countryName=bio.CountryName||'';
+    const birth=bio.DBirth||bio.BirthDate||bio.DateOfBirth;
+    const age=birth?Math.floor((Date.now()-new Date(birth))/(365.25*24*3600*1000)):null;
+    const careerTiles=[
+      waTile(career.MatchTot,lang==='de'?'Matches':'Matches'),
+      career.MatchWinPercentage!==undefined?waTile(Math.round(career.MatchWinPercentage)+'%',lang==='de'?'Match-Siege %':'Match win %',(career.MatchWin||0)+' / '+(career.MatchTot||0)):'',
+      waTile(career.QBest,lang==='de'?'Beste Quali':'Best qual.'),
+      career.AverageArr!==undefined?waTile(Number(career.AverageArr).toFixed(2),lang==='de'?'Ø / Pfeil':'Avg/arrow'):'',
+      career.TBTot!==undefined?waTile((career.TBWinPercentage!==undefined?Math.round(career.TBWinPercentage)+'%':career.TBWin),lang==='de'?'Shoot-off %':'Shoot-off %',(career.TBWin||0)+' / '+(career.TBTot||0)):''
+    ].filter(Boolean).join('');
+    pc.innerHTML=`
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:6px">
+        <div style="width:64px;height:64px;border-radius:12px;overflow:hidden;background:var(--bg4);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text2);flex-shrink:0"><img src="${WA_PHOTO}${id}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.textContent='${ini}'"/></div>
+        <div><div style="font-size:17px;font-weight:700;color:var(--text)">${name}</div><div style="font-size:12px;color:var(--text2)">${noc}${countryName?' · '+countryName:''}</div><div style="font-size:11px;color:var(--text3);margin-top:2px">WA-ID ${id}${age?' · '+(lang==='de'?'Alter':'Age')+' '+age:''}${bio.Hand?' · '+bio.Hand:''}</div></div>
+      </div>
+      ${ranks.length?waSecTitle(lang==='de'?'Aktuelle Weltrangliste':'Current World Ranking')+`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px">${ranks.map(r=>`<div style="background:var(--bg3);border-radius:8px;padding:8px;text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:var(--accent);line-height:1">#${r.Rnk}</div><div style="font-size:10px;color:var(--text2);font-weight:600">${r.Cat}</div><div style="font-size:10px;color:var(--text3)">${r.Points} pts</div></div>`).join('')}</div>`:''}
+      ${best.Rnk!==undefined?`<div style="margin-top:10px;font-size:13px;color:var(--text2)"><span style="color:var(--accent);font-weight:700">${lang==='de'?'Karriere-Bestrang':'Career-best rank'}: #${best.Rnk}</span>${best.CatCode?' · '+best.CatCode:''}${best.RnkDtIssued?' ('+waFmtDate(best.RnkDtIssued)+')':''}</div>`:''}
+      ${careerTiles?waSecTitle(lang==='de'?'Karriere-Statistik':'Career Statistics')+`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px">${careerTiles}</div>`:''}
+      ${(podiums||bestQ)?waSecTitle((lang==='de'?'Aktuelle Form (letzte ':'Recent form (last ')+results.length+(lang==='de'?' Events)':' events)'))+`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px">${waTile(golds,lang==='de'?'Siege':'Wins')}${waTile(podiums,lang==='de'?'Podien':'Podiums')}${bestQ?waTile(bestQ,lang==='de'?'Beste Quali':'Best qual.'):''}</div>`:''}
+      ${results.length?waSecTitle(lang==='de'?'Letzte Ergebnisse':'Recent Results')+`<div style="display:flex;flex-direction:column;gap:6px">${results.map(r=>{
+          const compName=(typeof r.Name==='object'&&r.Name)?(r.Name.Name||r.Name.Descr||'—'):(r.Name||r.NameShort||r.CompName||'—');
+          const place=waPick(r,'Place','Location','City','Country');const lvl=waPick(r,'ComLevelDescr','LevelDescr','Level');
+          const cat=(typeof r.Cat==='object'&&r.Cat)?(r.Cat.Code||r.Cat.Cat||''):(r.Cat||r.CatCode||'');
+          const rnk=waPick(r,'Rnk','Rank','Position');const qs=waPick(r,'QuScore','QScore');const dt=waPick(r,'DFrom','Date','DateFrom');
+          const meta=[dt?waFmtDate(dt):null,lvl,place].filter(Boolean).join(' · ');
+          const mcol=rnk===1?'var(--accent)':rnk<=3?'var(--green)':'var(--bg4)';const mtc=rnk<=3?'#0f1117':'var(--text2)';
+          return `<div style="display:flex;align-items:center;gap:10px;background:var(--bg3);border-radius:8px;padding:8px 10px"><div style="width:30px;height:30px;border-radius:7px;background:${mcol};color:${mtc};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">${rnk!==undefined?rnk:'—'}</div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--text)">${compName}</div>${meta?`<div style="font-size:11px;color:var(--text3)">${meta}</div>`:''}${qs!==undefined?`<div style="font-size:11px;color:var(--text3)">${lang==='de'?'Quali':'Qual'}: ${qs}</div>`:''}</div>${cat?`<span class="badge bbl" style="flex-shrink:0">${cat}</span>`:''}</div>`;
+        }).join('')}</div>`:`<div style="color:var(--text3);font-size:13px;margin-top:12px">${lang==='de'?'Keine Ergebnisse gefunden.':'No results found.'}</div>`}
+      <div style="height:12px"></div>`;
+  }catch(e){pc.innerHTML=`<div style="color:var(--text3);padding:20px">${lang==='de'?'Fehler beim Laden':'Error loading data'}: ${e.message}</div>`;console.error('WA athlete',e);}
+}
+
 // ── Session bootstrap + password-recovery handling ──
 let _recovering=false;
 if(sbc){
