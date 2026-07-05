@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -208,43 +208,8 @@ textarea{min-height:70px;resize:vertical}
   </div>
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
-  <div class="ltabs">
-    <button class="ltab active" id="lt-login" onclick="swLTab('login')">Anmelden</button>
-    <button class="ltab" id="lt-reg" onclick="swLTab('reg')">Registrieren</button>
-  </div>
-  <div class="lerr" id="lerr"></div>
-  <div class="lsuc" id="lsuc"></div>
-  <!-- LOGIN FORM -->
-  <div id="lf-login">
-    <div class="fg"><label>E-Mail</label><input id="l-email" type="email" placeholder="deine@email.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
-    <div class="fg"><label>Passwort</label><input id="l-pw" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
-    <button class="btn bp" style="width:100%;justify-content:center;padding:10px;margin-top:4px" onclick="doLogin()">Anmelden &middot; Login</button>
-    <div style="text-align:center;margin-top:10px"><button class="btn bg btn-sm" onclick="showForgot()" style="font-size:12px;border:none;background:none;color:var(--text3);cursor:pointer;text-decoration:underline">Passwort vergessen?</button></div>
-
-  </div>
-  <!-- REGISTER FORM -->
-  <div id="lf-reg" style="display:none">
-    <div class="g2" style="gap:10px">
-      <div class="fg"><label>Name *</label><input id="r-name" type="text" placeholder="Max Mustermann"></div>
-      <div class="fg"><label>E-Mail *</label><input id="r-email" type="email" placeholder="max@example.com"></div>
-    </div>
-    <div class="g2" style="gap:10px">
-      <div class="fg"><label>Passwort *</label><input id="r-pw" type="password" placeholder="Mindestens 6 Zeichen"></div>
-      <div class="fg"><label>Bogenklasse</label>
-        <select id="r-bow">
-          <option>Recurve</option><option>Compound</option><option>Blankbogen</option><option>Traditionell</option>
-        </select>
-      </div>
-    </div>
-    <div class="fg"><label>Sprache / Language</label>
-      <select id="r-lang">
-        <option value="en" selected>🇬🇧 English (default)</option>
-        <option value="de">🇩🇪 Deutsch</option>
-      </select>
-    </div>
-    <button class="btn bp" style="width:100%;justify-content:center;padding:10px" onclick="doRegister()">Konto erstellen &middot; Create Account</button>
-  </div>
-  <div class="lver">v0.1.7.13 &middot; &ldquo;Kang Chae-young&rdquo;</div>
+  <div id="login-body"></div>
+  <div class="lver">v0.1.7.14 &middot; &ldquo;Ku Bonchan&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -287,7 +252,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag">v0.1.7.13 &middot; © T. Weinzierl</div>
+<div class="vtag">v0.1.7.14 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -326,7 +291,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='0.1.7.13',VNAME='Kang Chae-young';
+const VER='0.1.7.14',VNAME='Ku Bonchan';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -336,14 +301,17 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v0.1.7.13 · "Kang Chae-young"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v0.1.7.13 · "Kang Chae-young"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v0.1.7.14 · "Ku Bonchan"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v0.1.7.14 · "Ku Bonchan"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   maintenance:{active:false,msg_de:'🔧 BowBrain wird gerade gewartet. Bitte versuche es später erneut. Der Administrator arbeitet an einem Update.',msg_en:'🔧 BowBrain is currently under maintenance. Please try again later. The administrator is working on an update.'},
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'0.1.7.14',name:'Ku Bonchan',
+    de:['Login-/Registrierungsseite jetzt zweisprachig, Standard Englisch','Sprachumschalter (EN/DE) direkt auf der Startseite'],
+    en:['Login/registration page now bilingual, English by default','Language switch (EN/DE) right on the start page']},
   {ver:'0.1.7.13',name:'Kang Chae-young',
     de:['Visiereinstellungen: ganzes Visier per Knopf umbenennen (alle Distanzen auf einmal)','Visiereinstellungen: ganzes Visier mit allen Distanzen löschen'],
     en:['Sight settings: rename a whole sight with one button (all distances at once)','Sight settings: delete a whole sight incl. all its distances']},
@@ -519,7 +487,41 @@ const SETUP_ICONS=['🏹','🎯','💪','🪶','⚡','🌊','🔥','❄️','�
 function getSetupEmoji(s){return s.icon||'🏹';}
 function arrowSVG(nc,fc,sz){sz=sz||56;const nockFill=(nc==='#00000000'||!nc)?'rgba(200,200,200,0.4)':nc;const fletchFill=(fc==='#00000000'||!fc)?'rgba(200,200,200,0.4)':fc;return`<svg width="${sz}" height="${sz}" viewBox="0 0 56 56" style="flex-shrink:0;display:block"><line x1="9" y1="28" x2="46" y2="28" stroke="rgba(180,180,180,0.7)" stroke-width="2.5" stroke-linecap="round"/><polygon points="46,28 40,24 40,32" fill="#aaa"/><rect x="7" y="25.5" width="5" height="5" rx="1.5" fill="${nockFill}" stroke="rgba(255,255,255,0.25)" stroke-width="0.7"/><line x1="7" y1="28" x2="4" y2="25" stroke="${nockFill}" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="28" x2="4" y2="31" stroke="${nockFill}" stroke-width="1.5" stroke-linecap="round"/><path d="M15,28 L11,20 L20,25 Z" fill="${fletchFill}" opacity="0.9"/><path d="M15,28 L11,36 L20,31 Z" fill="${fletchFill}" opacity="0.75"/><path d="M15,28 L9,28 L13,23 Z" fill="${fletchFill}" opacity="0.6"/></svg>`;}
 // ─── AUTH ─────────────────────────────────────────────────────────────────
-function swLTab(tab){document.getElementById('lt-login').classList.toggle('active',tab==='login');document.getElementById('lt-reg').classList.toggle('active',tab==='reg');document.getElementById('lf-login').style.display=tab==='login'?'':'none';document.getElementById('lf-reg').style.display=tab==='reg'?'':'none';document.getElementById('lerr').style.display='none';document.getElementById('lsuc').style.display='none';}
+function swLTab(tab){loginTab=tab;document.getElementById('lt-login').classList.toggle('active',tab==='login');document.getElementById('lt-reg').classList.toggle('active',tab==='reg');document.getElementById('lf-login').style.display=tab==='login'?'':'none';document.getElementById('lf-reg').style.display=tab==='reg'?'':'none';document.getElementById('lerr').style.display='none';document.getElementById('lsuc').style.display='none';}
+let loginTab='login';
+function loginBodyHTML(){
+  const de=lang==='de';
+  return`<div style="display:flex;justify-content:center;gap:5px;margin-bottom:14px">
+    <button class="btn ${lang==='en'?'bp':'bg'} btn-sm" onclick="setLoginLang('en')" style="padding:4px 12px">🇬🇧 EN</button>
+    <button class="btn ${lang==='de'?'bp':'bg'} btn-sm" onclick="setLoginLang('de')" style="padding:4px 12px">🇩🇪 DE</button>
+  </div>
+  <div class="ltabs">
+    <button class="ltab${loginTab==='login'?' active':''}" id="lt-login" onclick="swLTab('login')">${de?'Anmelden':'Log in'}</button>
+    <button class="ltab${loginTab==='reg'?' active':''}" id="lt-reg" onclick="swLTab('reg')">${de?'Registrieren':'Register'}</button>
+  </div>
+  <div class="lerr" id="lerr"></div>
+  <div class="lsuc" id="lsuc"></div>
+  <div id="lf-login" style="${loginTab==='login'?'':'display:none'}">
+    <div class="fg"><label>${de?'E-Mail':'Email'}</label><input id="l-email" type="email" placeholder="${de?'deine@email.com':'you@email.com'}" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="fg"><label>${de?'Passwort':'Password'}</label><input id="l-pw" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <button class="btn bp" style="width:100%;justify-content:center;padding:10px;margin-top:4px" onclick="doLogin()">${de?'Anmelden':'Log in'}</button>
+    <div style="text-align:center;margin-top:10px"><button class="btn bg btn-sm" onclick="showForgot()" style="font-size:12px;border:none;background:none;color:var(--text3);cursor:pointer;text-decoration:underline">${de?'Passwort vergessen?':'Forgot password?'}</button></div>
+  </div>
+  <div id="lf-reg" style="${loginTab==='reg'?'':'display:none'}">
+    <div class="g2" style="gap:10px">
+      <div class="fg"><label>${de?'Name *':'Name *'}</label><input id="r-name" type="text" placeholder="${de?'Max Mustermann':'John Doe'}"></div>
+      <div class="fg"><label>${de?'E-Mail *':'Email *'}</label><input id="r-email" type="email" placeholder="john@example.com"></div>
+    </div>
+    <div class="g2" style="gap:10px">
+      <div class="fg"><label>${de?'Passwort *':'Password *'}</label><input id="r-pw" type="password" placeholder="${de?'Mindestens 6 Zeichen':'At least 6 characters'}"></div>
+      <div class="fg"><label>${de?'Bogenklasse':'Bow class'}</label><select id="r-bow"><option>Recurve</option><option>Compound</option><option>${de?'Blankbogen':'Barebow'}</option><option>${de?'Traditionell':'Traditional'}</option></select></div>
+    </div>
+    <div class="fg"><label>Sprache / Language</label><select id="r-lang"><option value="en"${lang==='en'?' selected':''}>🇬🇧 English</option><option value="de"${lang==='de'?' selected':''}>🇩🇪 Deutsch</option></select></div>
+    <button class="btn bp" style="width:100%;justify-content:center;padding:10px" onclick="doRegister()">${de?'Konto erstellen':'Create account'}</button>
+  </div>`;
+}
+function renderLoginBody(){const el=document.getElementById('login-body');if(el)el.innerHTML=loginBodyHTML();}
+function setLoginLang(l){lang=l;renderLoginBody();renderMaintBanner();}
 function fillLogin(em,pw){document.getElementById('l-email').value=em;document.getElementById('l-pw').value=pw;}
 function lerr(m){const el=document.getElementById('lerr');if(el){el.style.display='block';el.textContent=m;}const su=document.getElementById('lsuc');if(su)su.style.display='none';}
 function lsuc(m){const el=document.getElementById('lsuc');if(el){el.style.display='block';el.textContent=m;}const er=document.getElementById('lerr');if(er)er.style.display='none';}
@@ -1310,6 +1312,7 @@ function waFetchNationalRecords(){const noc=(document.getElementById('nr-noc')?.
 
 // ── Session bootstrap + password-recovery handling ──
 let _recovering=false;
+renderLoginBody();
 if(sbc){
   sbc.auth.onAuthStateChange((event,session)=>{
     if(event==='PASSWORD_RECOVERY'){_recovering=true;showSetNewPassword();}
