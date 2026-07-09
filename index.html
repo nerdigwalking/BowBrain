@@ -212,7 +212,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.5 &middot; &ldquo;Eric Peters&rdquo;</div>
+  <div class="lver">v1.0.0.7 &middot; &ldquo;Penny Healey&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -256,7 +256,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.5 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.0.7 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -295,7 +295,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.5',VNAME='Eric Peters';
+const VER='1.0.0.7',VNAME='Penny Healey';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -305,8 +305,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.5 · "Eric Peters"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.5 · "Eric Peters"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.0.7 · "Penny Healey"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.0.7 · "Penny Healey"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   contact_email:'sportleiter@bogenschiessen-hoehenkirchen.de',
@@ -316,6 +316,12 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.0.7',name:'Penny Healey',
+    de:['Weltrekorde: „National Record" aus der Level-Auswahl entfernt (eigener Tab vorhanden)','Nationalrekorde: Nation darf leer bleiben – dann ist eine Event-Art verpflichtend','Nationalrekorde: mindestens Nation oder Event-Art muss gewählt sein','Nationalrekorde: Event-Art-Filter wirkt auch länderübergreifend'],
+    en:['World records: "National Record" removed from the level selector (it has its own tab)','National records: country may be left empty – an event type is then required','National records: at least a country or an event type must be selected','National records: event-type filter also works across countries']},
+  {ver:'1.0.0.6',name:'Jean-Charles Valladont',
+    de:['Rekorde: Filter nach Event-Art (z. B. 70m-Runde, 72 Pfeile)','Rekorde: Sortierung nach Datum (neu/alt) oder Punktzahl','Nationalrekorde: Nation wählbar, Filter wirken auch hier','Aktuell gültige Rekorde werden hervorgehoben, überholte abgesetzt dargestellt'],
+    en:['Records: filter by event type (e.g. 70m round, 72 arrows)','Records: sort by date (newest/oldest) or score','National records: country selectable, filters apply here too','Currently standing records are highlighted, superseded ones dimmed']},
   {ver:'1.0.0.5',name:'Eric Peters',
     de:['Kontakt-E-Mail vom FAQ ins Impressum verschoben (weiterhin admin-pflegbar)','Admin: Nutzertabelle nach Name, Rolle, Login, Logins oder Nutzungszeit sortierbar','Dashboard: Diagramm umschaltbar zwischen Punkten, Pfeilen oder beidem','Dashboard: Trainings ohne Punkte (nur Pfeile) erscheinen jetzt im Diagramm','Mobile Ansicht: BowBrain-Logo in der Kopfzeile sichtbar'],
     en:['Contact email moved from FAQ to the imprint (still admin-editable)','Admin: user table sortable by name, role, last login, logins or usage time','Dashboard: chart switchable between points, arrows or both','Dashboard: trainings without points (arrows only) now appear in the chart','Mobile view: BowBrain logo visible in the header']},
@@ -1318,7 +1324,9 @@ let WA_FAVS=[];
 const WA_PHOTO='https://extranet.worldarchery.org/ProfilePictures/?Id=';
 const WA_CATS=[['RM','Recurve Men'],['RW','Recurve Women'],['CM','Compound Men'],['CW','Compound Women'],['BM','Barebow Men'],['BW','Barebow Women'],['RU21M','Recurve U21 Men'],['RU21W','Recurve U21 Women'],['CU21M','Compound U21 Men'],['CU21W','Compound U21 Women']];
 const WA_NOC=[['KOR','South Korea'],['USA','United States'],['FRA','France'],['ITA','Italy'],['GER','Germany'],['NED','Netherlands'],['GBR','Great Britain'],['IND','India'],['TUR','Turkey'],['MEX','Mexico'],['JPN','Japan'],['CHN','China'],['TPE','Chinese Taipei'],['ESP','Spain'],['CAN','Canada'],['AUS','Australia'],['DEN','Denmark'],['SWE','Sweden'],['POL','Poland'],['UKR','Ukraine'],['BEL','Belgium'],['AUT','Austria'],['SUI','Switzerland'],['CZE','Czechia'],['SVK','Slovakia'],['SLO','Slovenia'],['FIN','Finland'],['NOR','Norway'],['BRA','Brazil'],['COL','Colombia'],['IRI','Iran'],['KAZ','Kazakhstan'],['MGL','Mongolia'],['MAS','Malaysia'],['INA','Indonesia'],['THA','Thailand'],['NZL','New Zealand'],['ISR','Israel']];
-const WA_STATE={cat:'RM',sortAsc:true,rbp:15,page:1,total:0,loaded:false,tab:'rank',recMode:'world'};
+const WA_STATE={cat:'RM',sortAsc:true,rbp:15,page:1,total:0,loaded:false,tab:'rank',recMode:'world',recEvent:'',recSort:'score',recTitle:''};
+let WA_REC_ITEMS=[];
+let WA_REC_EVENT_CACHE=[];
 function waName(a){if(!a)return '—';return a.WNameOrd?(a.FName+' '+a.GName):(a.GName+' '+a.FName);}
 function waIni(a){if(!a)return '?';return waName(a).split(' ').map(p=>p[0]||'').join('').slice(0,2).toUpperCase();}
 function waFmtDate(d){if(!d)return '—';return new Date(d).toLocaleDateString(lang==='de'?'de-DE':'en-GB',{day:'2-digit',month:'short',year:'numeric'});}
@@ -1478,16 +1486,107 @@ function waFmtArcher(a){if(!a)return '';const fn=a.FName||'',gn=a.GName||'';if(f
 function waRecHolders(r){const ar=r.Archers;if(Array.isArray(ar))return ar.map(waFmtArcher).filter(Boolean).join(' / ')||'—';if(ar&&typeof ar==='object')return waFmtArcher(ar)||'—';return '—';}
 function waRecEvent(r){return [r.RecordName||'',r.RecordSubName||''].filter(Boolean).join(' · ')||'—';}
 function waRecComp(r){const c=r.Competition;if(c&&typeof c==='object'){const nm=c.Name||'',loc=[c.Place,c.Country].filter(Boolean).join(', ');return [nm,loc].filter(Boolean).join(' · ')||'—';}return '—';}
-function waGroupRecords(items){const g={};items.forEach(r=>{const disc=waDiscLabel(r.RecordDiscipline),cat=r.Cat||'',key=disc+'||'+cat;if(!g[key])g[key]={cat,label:waCatLabel(cat),items:[]};g[key].items.push(r);});Object.values(g).forEach(x=>x.items.sort((a,b)=>(b.Points||0)-(a.Points||0)));return Object.values(g).sort((a,b)=>String(a.label).localeCompare(b.label));}
-function waRecRows(items){return items.map(r=>{const ev=waRecEvent(r),sc=(r.Points!=null?r.Points:'—'),xs=(r.Xs>0?` <span style="font-size:10px;color:var(--text3)">(${r.Xs}X)</span>`:''),hold=waRecHolders(r),noc=r.NOC||'',comp=waRecComp(r),date=r.Date?waFmtDate(r.Date):'—',sup=r.RecordStanding?'':' <span title="superseded" style="color:var(--red)">⚠</span>';return `<tr><td style="font-weight:600;color:var(--text)">${ev}</td><td style="font-family:Bebas Neue,sans-serif;font-size:16px;color:var(--accent)">${sc}${xs}</td><td>${hold}${sup}</td><td style="color:var(--text3)">${noc}</td><td style="color:var(--text3);font-size:12px">${comp}</td><td style="color:var(--text3);white-space:nowrap">${date}</td></tr>`;}).join('');}
+function waRecSortFn(){const s=WA_STATE.recSort;
+  if(s==='date_desc')return (a,b)=>new Date(b.Date||0)-new Date(a.Date||0);
+  if(s==='date_asc')return (a,b)=>new Date(a.Date||0)-new Date(b.Date||0);
+  return (a,b)=>{if(!!b.RecordStanding!==!!a.RecordStanding)return (b.RecordStanding?1:0)-(a.RecordStanding?1:0);return (b.Points||0)-(a.Points||0);};}
+function waGroupRecords(items){const g={};items.forEach(r=>{const disc=waDiscLabel(r.RecordDiscipline),cat=r.Cat||'',key=disc+'||'+cat;if(!g[key])g[key]={cat,label:waCatLabel(cat),items:[]};g[key].items.push(r);});const sf=waRecSortFn();Object.values(g).forEach(x=>x.items.sort(sf));return Object.values(g).sort((a,b)=>String(a.label).localeCompare(b.label));}
+function waRecRows(items){return items.map(r=>{
+  const ev=waRecEvent(r),sc=(r.Points!=null?r.Points:'—'),xs=(r.Xs>0?` <span style="font-size:10px;color:var(--text3)">(${r.Xs}X)</span>`:''),hold=waRecHolders(r),noc=r.NOC||'',comp=waRecComp(r),date=r.Date?waFmtDate(r.Date):'—';
+  const standing=!!r.RecordStanding;
+  const rowStyle=standing
+    ? 'background:linear-gradient(90deg,rgba(232,160,32,0.14),rgba(232,160,32,0.04));border-left:3px solid var(--accent)'
+    : 'opacity:0.62';
+  const badge=standing
+    ? `<span class="badge ba" style="font-size:10px;margin-left:6px">${lang==='de'?'aktuell':'standing'}</span>`
+    : `<span class="badge" style="font-size:10px;margin-left:6px;background:var(--bg4);color:var(--text3);border:1px solid var(--border)" title="${lang==='de'?'überholt':'superseded'}">${lang==='de'?'überholt':'superseded'}</span>`;
+  return `<tr style="${rowStyle}"><td style="font-weight:600;color:var(--text)">${ev}${badge}</td><td style="font-family:Bebas Neue,sans-serif;font-size:16px;color:${standing?'var(--accent)':'var(--text2)'}">${sc}${xs}</td><td>${hold}</td><td style="color:var(--text3)">${noc}</td><td style="color:var(--text3);font-size:12px">${comp}</td><td style="color:var(--text3);white-space:nowrap">${date}</td></tr>`;}).join('');}
 function waRenderRecGroups(groups){return groups.map(g=>`<div style="margin-bottom:16px"><div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px">${g.label||g.cat||'Records'}${g.cat&&g.cat!==g.label?` <span style="color:var(--text3);font-weight:400;font-size:11px">(${g.cat})</span>`:''}</div><div style="overflow-x:auto"><table class="table"><thead><tr><th>Event</th><th>Score</th><th>${lang==='de'?'Athlet(en)':'Athlete(s)'}</th><th>NOC</th><th>${lang==='de'?'Wettkampf':'Competition'}</th><th>${lang==='de'?'Datum':'Date'}</th></tr></thead><tbody>${waRecRows(g.items)}</tbody></table></div></div>`).join('');}
 function waRenderRecTable(items,title){const indiv=items.filter(r=>r.IsTeam!==true),team=items.filter(r=>r.IsTeam===true);const ig=waGroupRecords(indiv),tg=waGroupRecords(team);return `<div class="card"><div class="ch"><div class="ct">${title}</div><span class="badge bbl">${items.length}</span></div>${ig.length?`<div style="font-size:12px;font-weight:700;color:var(--text2);margin:6px 0 10px">🎯 ${lang==='de'?'Einzel':'Individual'} (${indiv.length})</div>${waRenderRecGroups(ig)}`:''}${tg.length?`<div style="font-size:12px;font-weight:700;color:var(--text2);margin:16px 0 10px">👥 Team (${team.length})</div>${waRenderRecGroups(tg)}`:''}</div>`;}
-function waRecControls(){const mode=WA_STATE.recMode||'world';const catOpts='<option value="">'+(lang==='de'?'Alle Kategorien':'All categories')+'</option>'+Object.entries(WA_CAT_LABELS).map(([k,v])=>`<option value="${k}">${v} (${k})</option>`).join('');const lvlOpts=Object.entries(WA_REC_LEVELS).map(([k,v])=>`<option value="${k}"${k==='1'?' selected':''}>${v}</option>`).join('');const nocOpts='<option value="">'+(lang==='de'?'Nation wählen…':'Select country…')+'</option>'+[...WA_NOC].sort((a,b)=>a[1].localeCompare(b[1])).map(([code,name])=>`<option value="${code}">${name} (${code})</option>`).join('');return`<div class="tabs" style="margin-bottom:12px"><div class="tab${mode==='world'?' active':''}" onclick="waRecSwitchMode('world')">${lang==='de'?'Weltrekorde':'World records'}</div><div class="tab${mode==='national'?' active':''}" onclick="waRecSwitchMode('national')">${lang==='de'?'Nationalrekorde':'National records'}</div></div><div class="card" style="margin-bottom:14px">${mode==='world'?`<div class="g2" style="gap:10px"><div class="fg" style="margin-bottom:0"><label>Level</label><select id="wr-level">${lvlOpts}</select></div><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Kategorie':'Category'}</label><select id="wr-cat">${catOpts}</select></div></div><button class="btn bp btn-sm" style="margin-top:10px" onclick="waFetchWorldRecords()">${lang==='de'?'Anzeigen':'Show'}</button>`:`<div class="g2" style="gap:10px"><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Nation':'Country'}</label><select id="nr-noc">${nocOpts}</select></div><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Kategorie':'Category'}</label><select id="nr-cat">${catOpts}</select></div></div><button class="btn bp btn-sm" style="margin-top:10px" onclick="waFetchNationalRecords()">${lang==='de'?'Anzeigen':'Show'}</button>`}</div>`;}
-function waRecInit(){if((WA_STATE.recMode||'world')==='world')waFetchWorldRecords();}
+function waRecControls(){const mode=WA_STATE.recMode||'world';const catOpts='<option value="">'+(lang==='de'?'Alle Kategorien':'All categories')+'</option>'+Object.entries(WA_CAT_LABELS).map(([k,v])=>`<option value="${k}">${v} (${k})</option>`).join('');const lvlOpts=Object.entries(WA_REC_LEVELS).filter(([k])=>k!=='4').map(([k,v])=>`<option value="${k}"${k==='1'?' selected':''}>${v}</option>`).join('');const nocOpts='<option value="">'+(lang==='de'?'Alle Nationen':'All countries')+'</option>'+[...WA_NOC].sort((a,b)=>a[1].localeCompare(b[1])).map(([code,name])=>`<option value="${code}">${name} (${code})</option>`).join('');return`<div class="tabs" style="margin-bottom:12px"><div class="tab${mode==='world'?' active':''}" onclick="waRecSwitchMode('world')">${lang==='de'?'Weltrekorde':'World records'}</div><div class="tab${mode==='national'?' active':''}" onclick="waRecSwitchMode('national')">${lang==='de'?'Nationalrekorde':'National records'}</div></div><div class="card" style="margin-bottom:14px">${mode==='world'?`<div class="g2" style="gap:10px"><div class="fg" style="margin-bottom:0"><label>Level</label><select id="wr-level">${lvlOpts}</select></div><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Kategorie':'Category'}</label><select id="wr-cat">${catOpts}</select></div></div><button class="btn bp btn-sm" style="margin-top:10px" onclick="waFetchWorldRecords()">${lang==='de'?'Anzeigen':'Show'}</button>`:`<div class="g3" style="gap:10px"><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Nation':'Country'}</label><select id="nr-noc" onchange="waNrCountryChanged()">${nocOpts}</select></div><div class="fg" style="margin-bottom:0"><label id="nr-event-lbl">${lang==='de'?'Event-Art':'Event type'}</label><select id="nr-event"><option value="">${lang==='de'?'Alle Event-Arten':'All event types'}</option>${WA_REC_EVENT_CACHE.map(e=>`<option value="${e.replace(/"/g,'&quot;')}">${e}</option>`).join('')}</select></div><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Kategorie':'Category'}</label><select id="nr-cat">${catOpts}</select></div></div><div id="nr-hint" style="font-size:12px;color:var(--text3);margin-top:8px">${lang==='de'?'Wähle mindestens eine Nation oder eine Event-Art.':'Select at least a country or an event type.'}</div><button class="btn bp btn-sm" style="margin-top:10px" onclick="waFetchNationalRecords()">${lang==='de'?'Anzeigen':'Show'}</button>`}</div>`;}
+function waRecInit(){
+  if((WA_STATE.recMode||'world')==='world'){waFetchWorldRecords();}
+  else{waEnsureEventCatalogue();waNrCountryChanged();}
+}
+function waNrCountryChanged(){
+  const noc=(document.getElementById('nr-noc')?.value||'').trim();
+  const lbl=document.getElementById('nr-event-lbl'),hint=document.getElementById('nr-hint');
+  const required=!noc;
+  if(lbl)lbl.innerHTML=(lang==='de'?'Event-Art':'Event type')+(required?' <span style="color:var(--accent)">*</span>':'');
+  if(hint)hint.textContent=required
+    ? (lang==='de'?'Ohne Nation ist eine Event-Art erforderlich (sonst würden sehr viele Rekorde geladen).':'Without a country, an event type is required (otherwise a very large set would load).')
+    : (lang==='de'?'Event-Art ist optional.':'Event type is optional.');
+}
+function waEnsureEventCatalogue(){
+  if(WA_REC_EVENT_CACHE.length)return;
+  fetch(WA_REC+'?RecordLevelId=1&RBP=All').then(r=>r.ok?r.json():{items:[]}).then(data=>{
+    const set=new Set();(data.items||[]).forEach(r=>{const e=waRecEvent(r);if(e&&e!=='—')set.add(e);});
+    WA_REC_EVENT_CACHE=[...set].sort((a,b)=>a.localeCompare(b));
+    const sel=document.getElementById('nr-event');
+    if(sel&&WA_REC_EVENT_CACHE.length){const cur=sel.value;sel.innerHTML=`<option value="">${lang==='de'?'Alle Event-Arten':'All event types'}</option>`+WA_REC_EVENT_CACHE.map(e=>`<option value="${e.replace(/"/g,'&quot;')}">${e}</option>`).join('');sel.value=cur;}
+  }).catch(e=>console.warn('event catalogue',e));
+}
 function waRecSwitchMode(m){WA_STATE.recMode=m;navigate('wa');}
-function waFetchWorldRecords(){const level=document.getElementById('wr-level')?.value||'1',cat=document.getElementById('wr-cat')?.value||'';const area=document.getElementById('wr-area');if(!area)return;area.innerHTML=`<div class="card"><div style="text-align:center;padding:26px;color:var(--text3)">⏳ ${lang==='de'?'Lade Rekorde…':'Loading records…'}</div></div>`;const p=new URLSearchParams();p.set('RecordLevelId',level);p.set('RBP','All');if(cat)p.set('Cat',cat);fetch(WA_REC+'?'+p.toString()).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{let items=data.items||[];if(cat)items=items.filter(r=>String(r.Cat||'')===cat);area.innerHTML=items.length?waRenderRecTable(items,(WA_REC_LEVELS[level]||'Records')):`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Keine Rekorde gefunden.':'No records found.'}</div></div>`;}).catch(e=>{area.innerHTML=`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Fehler':'Error'}: ${e.message}</div></div>`;console.error('WR',e);});}
-function waFetchNationalRecords(){const noc=(document.getElementById('nr-noc')?.value||'').toUpperCase(),cat=document.getElementById('nr-cat')?.value||'';const area=document.getElementById('wr-area');if(!area)return;if(!noc){toast(lang==='de'?'Bitte Nation wählen.':'Please select a country.');return;}area.innerHTML=`<div class="card"><div style="text-align:center;padding:26px;color:var(--text3)">⏳ …</div></div>`;const p=new URLSearchParams();p.set('RecordLevelId','4');p.set('NOC',noc);p.set('RBP','All');if(cat)p.set('Cat',cat);fetch(WA_REC+'?'+p.toString()).then(r=>r.ok?r.json():{items:[]}).then(data=>{let items=data.items||[];let filtered=items.filter(r=>String(r.NOC||'').toUpperCase()===noc);if(cat)filtered=filtered.filter(r=>String(r.Cat||'')===cat);area.innerHTML=filtered.length?waRenderRecTable(filtered,(lang==='de'?'Nationalrekorde':'National records')+' — '+noc):`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Keine Nationalrekorde für ':'No national records for '}${noc}.</div></div>`;}).catch(e=>{area.innerHTML=`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Fehler':'Error'}: ${e.message}</div></div>`;console.error('NR',e);});}
-
+function waRecEventList(){const set=new Set();WA_REC_ITEMS.forEach(r=>{const e=waRecEvent(r);if(e&&e!=='—')set.add(e);});return [...set].sort((a,b)=>a.localeCompare(b));}
+function waSetRecEvent(v){WA_STATE.recEvent=v;waRenderRecArea();}
+function waSetRecSort(v){WA_STATE.recSort=v;waRenderRecArea();}
+function waRecFilterBar(){
+  const evs=waRecEventList();
+  const evOpts='<option value="">'+(lang==='de'?'Alle Event-Arten':'All event types')+'</option>'+evs.map(e=>`<option value="${e.replace(/"/g,'&quot;')}"${WA_STATE.recEvent===e?' selected':''}>${e}</option>`).join('');
+  const s=WA_STATE.recSort;
+  return`<div class="card" style="margin-bottom:12px"><div class="g2" style="gap:10px">
+    <div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Event-Art':'Event type'}</label><select onchange="waSetRecEvent(this.value)">${evOpts}</select></div>
+    <div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Sortierung':'Sort by'}</label><select onchange="waSetRecSort(this.value)">
+      <option value="score"${s==='score'?' selected':''}>${lang==='de'?'Punktzahl (gültige zuerst)':'Score (standing first)'}</option>
+      <option value="date_desc"${s==='date_desc'?' selected':''}>${lang==='de'?'Datum – neueste zuerst':'Date – newest first'}</option>
+      <option value="date_asc"${s==='date_asc'?' selected':''}>${lang==='de'?'Datum – älteste zuerst':'Date – oldest first'}</option>
+    </select></div>
+  </div></div>`;
+}
+function waRenderRecArea(){
+  const area=document.getElementById('wr-area');if(!area)return;
+  if(!WA_REC_ITEMS.length){area.innerHTML=`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Keine Rekorde gefunden.':'No records found.'}</div></div>`;return;}
+  let items=WA_REC_ITEMS;
+  if(WA_STATE.recEvent)items=items.filter(r=>waRecEvent(r)===WA_STATE.recEvent);
+  const hint=(!WA_STATE.recEvent&&items.length>300)?`<div style="background:#4a9eff12;border:1px solid #4a9eff30;border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:12.5px;color:var(--text2)">ℹ️ ${lang==='de'?`${items.length} Rekorde geladen. Wähle oben eine Event-Art (z. B. „70m Round · 72 arrows"), um die Liste einzugrenzen.`:`${items.length} records loaded. Pick an event type above (e.g. "70m Round · 72 arrows") to narrow the list.`}</div>`:'';
+  area.innerHTML=waRecFilterBar()+hint+(items.length?waRenderRecTable(items,WA_STATE.recTitle||'Records'):`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Keine Rekorde für diese Event-Art.':'No records for this event type.'}</div></div>`);
+}
+function waFetchWorldRecords(){
+  const level=document.getElementById('wr-level')?.value||'1',cat=document.getElementById('wr-cat')?.value||'';
+  const area=document.getElementById('wr-area');if(!area)return;
+  area.innerHTML=`<div class="card"><div style="text-align:center;padding:26px;color:var(--text3)">⏳ ${lang==='de'?'Lade Rekorde…':'Loading records…'}</div></div>`;
+  const p=new URLSearchParams();p.set('RecordLevelId',level);p.set('RBP','All');if(cat)p.set('Cat',cat);
+  fetch(WA_REC+'?'+p.toString()).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
+    let items=data.items||[];if(cat)items=items.filter(r=>String(r.Cat||'')===cat);
+    WA_REC_ITEMS=items;WA_STATE.recEvent='';WA_STATE.recTitle=(WA_REC_LEVELS[level]||'Records');
+    waRenderRecArea();
+  }).catch(e=>{area.innerHTML=`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Fehler':'Error'}: ${e.message}</div></div>`;console.error('WR',e);});
+}
+function waFetchNationalRecords(){
+  const noc=(document.getElementById('nr-noc')?.value||'').toUpperCase();
+  const cat=document.getElementById('nr-cat')?.value||'';
+  const ev=(document.getElementById('nr-event')?.value||'').trim();
+  const area=document.getElementById('wr-area');if(!area)return;
+  // Guard: without a country an event type is mandatory (avoids loading everything)
+  if(!noc&&!ev){
+    toast(lang==='de'?'Bitte eine Nation oder eine Event-Art wählen.':'Please select a country or an event type.');
+    const sel=document.getElementById('nr-event');if(sel){sel.style.borderColor='var(--accent)';setTimeout(()=>{sel.style.borderColor='';},1600);sel.focus();}
+    return;
+  }
+  area.innerHTML=`<div class="card"><div style="text-align:center;padding:26px;color:var(--text3)">⏳ ${lang==='de'?'Lade Rekorde…':'Loading records…'}</div></div>`;
+  const p=new URLSearchParams();p.set('RecordLevelId','4');p.set('RBP','All');if(noc)p.set('NOC',noc);if(cat)p.set('Cat',cat);
+  fetch(WA_REC+'?'+p.toString()).then(r=>r.ok?r.json():{items:[]}).then(data=>{
+    let items=data.items||[];
+    if(noc)items=items.filter(r=>String(r.NOC||'').toUpperCase()===noc);
+    if(cat)items=items.filter(r=>String(r.Cat||'')===cat);
+    if(ev)items=items.filter(r=>waRecEvent(r)===ev);
+    WA_REC_ITEMS=items;WA_STATE.recEvent=ev||'';
+    WA_STATE.recTitle=(lang==='de'?'Nationalrekorde':'National records')
+      +(noc?' — '+noc:(lang==='de'?' — alle Nationen':' — all countries'))
+      +(ev?' · '+ev:'');
+    waRenderRecArea();
+  }).catch(e=>{area.innerHTML=`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Fehler':'Error'}: ${e.message}</div></div>`;console.error('NR',e);});
+}
 
 // ── Session bootstrap + password-recovery handling ──
 let _recovering=false;
