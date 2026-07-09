@@ -67,6 +67,9 @@ body{background:var(--bg);color:var(--text);min-height:100vh}
 .avw img{width:100%;height:100%;object-fit:cover}
 .topbar{height:54px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:12px;position:sticky;top:0;z-index:50}
 .tbt{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--accent);flex:1}
+.tb-logo{display:none;width:28px;height:28px;border-radius:8px;background:var(--accent);padding:3px;flex-shrink:0}
+.tb-logo svg{width:100%;height:100%}
+@media(max-width:767px){.tb-logo{display:block}.tbt{font-size:17px}}
 .tbb{background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--text2);font-weight:500}
 .mb{background:none;border:none;color:var(--text2);cursor:pointer;padding:5px;border-radius:6px;display:flex;transition:background .15s}
 .mb:hover{background:var(--bg3);color:var(--text)}
@@ -209,7 +212,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.2 &middot; &ldquo;Jang Minhee&rdquo;</div>
+  <div class="lver">v1.0.0.5 &middot; &ldquo;Eric Peters&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -241,6 +244,7 @@ textarea{min-height:70px;resize:vertical}
 <div class="main" id="main">
   <div class="topbar">
     <button class="mb" onclick="toggleSB()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <div class="tb-logo" id="tb-logo" title="BowBrain"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#0f1117" stroke-width="1.8"/><circle cx="14" cy="14" r="7" stroke="#0f1117" stroke-width="1.4"/><circle cx="14" cy="14" r="3" stroke="#0f1117" stroke-width="1.3"/><path d="M14,4 Q17,9 14,14 Q11,9 14,4" fill="none" stroke="#0f1117" stroke-width="1.6"/><path d="M7,7 Q10,12 8,18" stroke="#0f1117" stroke-width="1" opacity="0.7"/><path d="M21,7 Q18,12 20,18" stroke="#0f1117" stroke-width="1" opacity="0.7"/></svg></div>
     <div class="tbt" id="tbt">Dashboard</div>
     <span class="tbb" id="tbb">Recurve &middot; 28"</span>
     <button class="mb" id="mob-toggle" onclick="toggleMobMode()" title="Ansicht wechseln" style="margin-left:4px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></button>
@@ -252,7 +256,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.2 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.0.5 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -291,7 +295,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.2',VNAME='Jang Minhee';
+const VER='1.0.0.5',VNAME='Eric Peters';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -301,14 +305,26 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.2 · "Jang Minhee"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.2 · "Jang Minhee"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.0.5 · "Eric Peters"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.0.5 · "Eric Peters"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
+  contact_email:'sportleiter@bogenschiessen-hoehenkirchen.de',
+  privacy_de:'Datenschutzerklärung\n\n(Dieser Text wurde noch nicht hinterlegt. Als Administrator kannst du ihn unter Hilfe & Support → Impressum → Datenschutzerklärung bearbeiten.)',
+  privacy_en:'Privacy Policy\n\n(This text has not been added yet. As an administrator you can edit it under Help & Support → Imprint → Privacy Policy.)',
   maintenance:{active:false,msg_de:'🔧 BowBrain wird gerade gewartet. Bitte versuche es später erneut. Der Administrator arbeitet an einem Update.',msg_en:'🔧 BowBrain is currently under maintenance. Please try again later. The administrator is working on an update.'},
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.0.5',name:'Eric Peters',
+    de:['Kontakt-E-Mail vom FAQ ins Impressum verschoben (weiterhin admin-pflegbar)','Admin: Nutzertabelle nach Name, Rolle, Login, Logins oder Nutzungszeit sortierbar','Dashboard: Diagramm umschaltbar zwischen Punkten, Pfeilen oder beidem','Dashboard: Trainings ohne Punkte (nur Pfeile) erscheinen jetzt im Diagramm','Mobile Ansicht: BowBrain-Logo in der Kopfzeile sichtbar'],
+    en:['Contact email moved from FAQ to the imprint (still admin-editable)','Admin: user table sortable by name, role, last login, logins or usage time','Dashboard: chart switchable between points, arrows or both','Dashboard: trainings without points (arrows only) now appear in the chart','Mobile view: BowBrain logo visible in the header']},
+  {ver:'1.0.0.4',name:'Baptiste Addis',
+    de:['Kontakt-E-Mail unter FAQ ist jetzt vom Admin pflegbar','Roadmap-Einträge können zweisprachig (DE/EN) erfasst werden'],
+    en:['Contact email under FAQ can now be edited by the admin','Roadmap entries can be entered bilingually (DE/EN)']},
+  {ver:'1.0.0.3',name:'Florian Unruh',
+    de:['Datenschutzerklärung als eigener, aufklappbarer Bereich unter dem Impressum','Datenschutztext (DE/EN) durch den Admin pflegbar'],
+    en:['Privacy policy as its own collapsible section below the imprint','Privacy text (DE/EN) editable by the admin']},
   {ver:'1.0.0.2',name:'Jang Minhee',
     de:['Admin kann die Reihenfolge der FAQ-Einträge per ▲▼ ändern (gilt für beide Sprachen)','Admin kann die Reihenfolge der Roadmap-Einträge per ▲▼ ändern'],
     en:['Admin can reorder FAQ entries with ▲▼ (applies to both languages)','Admin can reorder roadmap entries with ▲▼']},
@@ -438,14 +454,14 @@ async function bootstrapUser(session){
 async function loadShared(){
   try{
     const {data:sc}=await sbc.from('shared_content').select('content').eq('id',1).maybeSingle();
-    if(sc&&sc.content){const x=sc.content;if(x.faq)SHARED.faq=x.faq;if(x.impressum_de)SHARED.impressum_de=x.impressum_de;if(x.impressum_en)SHARED.impressum_en=x.impressum_en;if(x.tuning)SHARED.tuning=x.tuning;if(x.roadmap)SHARED.roadmap=x.roadmap;if(x.glossary){if(x.glossary.de)GL.de=x.glossary.de;if(x.glossary.en)GL.en=x.glossary.en;}if(x.maintenance)SHARED.maintenance=x.maintenance;if(Array.isArray(x.changelog)){SHARED.changelog=mergeChangelog(CHANGELOG,x.changelog);}}
+    if(sc&&sc.content){const x=sc.content;if(x.faq)SHARED.faq=x.faq;if(x.impressum_de)SHARED.impressum_de=x.impressum_de;if(x.impressum_en)SHARED.impressum_en=x.impressum_en;if(x.privacy_de)SHARED.privacy_de=x.privacy_de;if(x.privacy_en)SHARED.privacy_en=x.privacy_en;if(x.contact_email)SHARED.contact_email=x.contact_email;if(x.tuning)SHARED.tuning=x.tuning;if(x.roadmap)SHARED.roadmap=x.roadmap;if(x.glossary){if(x.glossary.de)GL.de=x.glossary.de;if(x.glossary.en)GL.en=x.glossary.en;}if(x.maintenance)SHARED.maintenance=x.maintenance;if(Array.isArray(x.changelog)){SHARED.changelog=mergeChangelog(CHANGELOG,x.changelog);}}
     else if(CU&&CU.role==='admin'){await saveShared();}
     const {data:fb}=await sbc.from('feedback').select('*').order('id');
     if(fb)SHARED.feedback=fb.map(f=>({id:f.id,type:f.type,text:f.text,userName:f.user_name,date:f.created_at?new Date(f.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'',read:f.read}));
   }catch(e){console.error('loadShared',e);}
 }
 async function saveShared(){
-  const content={faq:SHARED.faq,impressum_de:SHARED.impressum_de,impressum_en:SHARED.impressum_en,tuning:SHARED.tuning,roadmap:SHARED.roadmap,glossary:{de:GL.de,en:GL.en},maintenance:SHARED.maintenance,changelog:SHARED.changelog};
+  const content={faq:SHARED.faq,impressum_de:SHARED.impressum_de,impressum_en:SHARED.impressum_en,privacy_de:SHARED.privacy_de,privacy_en:SHARED.privacy_en,contact_email:SHARED.contact_email,tuning:SHARED.tuning,roadmap:SHARED.roadmap,glossary:{de:GL.de,en:GL.en},maintenance:SHARED.maintenance,changelog:SHARED.changelog};
   const {error}=await sbc.from('shared_content').upsert({id:1,content});
   if(error){console.error('saveShared',error);toast(error.message);}
 }
@@ -485,6 +501,22 @@ function applyMobile(){document.getElementById('main')?.classList.toggle('exp',!
 let ADMIN_USERS=[],ADMIN_STATS=null;
 function getRealStats(){return ADMIN_STATS||{totalUsers:'…',activeUsers:'…',totalScores:'…',totalArrows:'…',totalSetups:'…',totalFeedback:SHARED.feedback.length};}
 let ADMIN_SIGNUPS=[],ADMIN_USAGE=[],ADMIN_USAGE_BY_USER={};
+let ADMIN_SORT={key:'name',dir:1};
+function admSort(key){if(ADMIN_SORT.key===key)ADMIN_SORT.dir*=-1;else{ADMIN_SORT={key,dir:key==='name'||key==='role'?1:-1};}if(currentPage==='admin'){const el=document.getElementById('content');if(el)el.innerHTML=rAdmin();}}
+function admSorted(){
+  const k=ADMIN_SORT.key,d=ADMIN_SORT.dir;
+  const val=u=>{
+    if(k==='name')return (u.name||u.email||'').toLowerCase();
+    if(k==='role')return (u.role||'user');
+    if(k==='created')return u.created_at?new Date(u.created_at).getTime():0;
+    if(k==='last')return u.last_login?new Date(u.last_login).getTime():0;
+    if(k==='logins')return +u.login_count||0;
+    if(k==='usage')return +(ADMIN_USAGE_BY_USER[u.id]||0);
+    return 0;
+  };
+  return [...ADMIN_USERS].sort((a,b)=>{const va=val(a),vb=val(b);if(typeof va==='string')return d*va.localeCompare(vb);return d*(va-vb);});
+}
+function admTh(key,label){const act=ADMIN_SORT.key===key;const arrow=act?(ADMIN_SORT.dir===1?' ▲':' ▼'):'';return `<th onclick="admSort('${key}')" style="cursor:pointer;user-select:none;white-space:nowrap;color:${act?'var(--accent)':''}">${label}${arrow}</th>`;}
 async function loadAdminData(){try{
   const {data:profs}=await sbc.from('profiles').select('*');ADMIN_USERS=profs||[];
   let arrows=0,scores=0,setups=0;
@@ -699,6 +731,9 @@ function closeMo(e,id){if(e.target.id===id)document.getElementById(id)?.remove()
 
 // ─── DASHBOARD ────────────────────────────────────────────────────────────
 let DASH_DIST=null; // selected comparison group: '18' | 'none' | 'fmt:r900'
+let DASH_MODE='score'; // 'score' | 'arrows' | 'both'
+try{const _m=localStorage.getItem('bb_dash_mode');if(_m==='score'||_m==='arrows'||_m==='both')DASH_MODE=_m;}catch(e){}
+function setDashMode(v){DASH_MODE=v;try{localStorage.setItem('bb_dash_mode',v);}catch(e){}navigate('dashboard');}
 function isMultiDist(type){return !!(TT[type]&&TT[type].multi);}
 // Comparison group: multi-distance formats compare by FORMAT, others by distance
 function cmpGroup(s){if(isMultiDist(s.type))return 'fmt:'+s.type;return s.distance?String(s.distance):'none';}
@@ -707,7 +742,7 @@ function cmpGroupLabel(k){
   if(k==='none')return lang==='de'?'ohne Entfernung':'no distance';
   return k+' m';
 }
-function dashDistances(){const map={};getD().scores.filter(s=>!s.no_points&&s.points>0).forEach(s=>{const k=cmpGroup(s);map[k]=(map[k]||0)+1;});return map;}
+function dashDistances(){const map={};getD().scores.filter(s=>DASH_MODE==='score'?(!s.no_points&&s.points>0):((s.arrows||0)>0)).forEach(s=>{const k=cmpGroup(s);map[k]=(map[k]||0)+1;});return map;}
 function setDashDist(v){DASH_DIST=v;setTimeout(drawLineChart,10);}
 function rDash(){
   const d=getD(),scores=d.scores,as=getAS();
@@ -728,7 +763,7 @@ function rDash(){
     <div class="card-sm"><div class="ct">${t('best_score')}</div><div class="cv">${bestE?bestE.points:'—'}</div>${bestE?`<div class="cs">${medal(bestE.placement)||'🏆'} ${maxScore(bestE.type)?`${bestE.points}/${maxScore(bestE.type)} (${Math.round(bestE.points/maxScore(bestE.type)*100)}%)`:bestE.points} · ${fd(bestE.date)}</div>`:''}</div>
   </div>
   <div class="card" style="margin-bottom:14px">
-    <div class="ch"><div class="ct">${t('score_chart')}</div><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="display:flex;gap:12px;font-size:11px;color:var(--text3)"><span style="color:var(--accent)">●</span> ${lang==='de'?'Turnier':'Tourn.'} &nbsp;<span style="color:var(--green)">●</span> Training</div>${(function(){const m=dashDistances();const keys=Object.keys(m);if(!keys.length)return '';if(DASH_DIST===null){const best=keys.sort((a,b)=>m[b]-m[a])[0];DASH_DIST=best;}const rank=k=>k==='none'?2:(k.startsWith('fmt:')?1:0);
+    <div class="ch"><div class="ct">${t('score_chart')}</div><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="display:flex;gap:12px;font-size:11px;color:var(--text3)">${DASH_MODE!=='arrows'?`<span style="color:var(--accent)">●</span> ${lang==='de'?'Turnier':'Tourn.'} &nbsp;<span style="color:var(--green)">●</span> Training`:''}${DASH_MODE!=='score'?` &nbsp;<span style="color:var(--blue)">▬</span> ${lang==='de'?'Pfeile':'Arrows'}`:''}</div><select onchange="setDashMode(this.value)" style="width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:3px 9px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif"><option value="score"${DASH_MODE==='score'?' selected':''}>${lang==='de'?'Punkte':'Points'}</option><option value="arrows"${DASH_MODE==='arrows'?' selected':''}>${lang==='de'?'Pfeile':'Arrows'}</option><option value="both"${DASH_MODE==='both'?' selected':''}>${lang==='de'?'Punkte + Pfeile':'Points + arrows'}</option></select>${(function(){const m=dashDistances();const keys=Object.keys(m);if(!keys.length)return '';if(DASH_DIST===null){const best=keys.sort((a,b)=>m[b]-m[a])[0];DASH_DIST=best;}const rank=k=>k==='none'?2:(k.startsWith('fmt:')?1:0);
 const opts=keys.sort((a,b)=>{const ra=rank(a),rb=rank(b);if(ra!==rb)return ra-rb;if(ra===0)return (+a)-(+b);return a.localeCompare(b);}).map(k=>`<option value="${k}"${String(DASH_DIST)===k?' selected':''}>${cmpGroupLabel(k)} (${m[k]})</option>`).join('');return `<select onchange="setDashDist(this.value)" style="width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:3px 9px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif">${opts}</select>`;})()}</div></div>
     <div style="font-size:11px;color:var(--text3);margin:-2px 0 8px">${lang==='de'?'Verglichen werden nur Ergebnisse derselben Entfernung – Mehrdistanz-Turniere (z. B. 900er Runde) werden über das Format verglichen.':'Only results at the same distance are compared – multi-distance events (e.g. 900 Round) are compared by format.'}</div>
     <canvas id="score-canvas" height="150" style="width:100%;border-radius:8px;background:var(--bg3)"></canvas>
@@ -750,14 +785,36 @@ const opts=keys.sort((a,b)=>{const ra=rank(a),rb=rank(b);if(ra!==rb)return ra-rb
 function drawLineChart(){
   const cv=document.getElementById('score-canvas');if(!cv)return;
   const sel=DASH_DIST;
-  const all=getD().scores.filter(s=>!s.no_points&&s.points>0).filter(s=>sel===null?true:cmpGroup(s)===String(sel)).sort((a,b)=>a.date.localeCompare(b.date)).slice(-12);
-  const W=cv.offsetWidth||600,H=150;cv.width=W*2;cv.height=H*2;const ctx=cv.getContext('2d');ctx.scale(2,2);ctx.clearRect(0,0,W,H);
-  const ml=38,mr=16,mt=28,mb=22,cW=W-ml-mr,cH=H-mt-mb;
+  const inGroup=s=>sel===null?true:cmpGroup(s)===String(sel);
+  const showScore=DASH_MODE!=='arrows',showArr=DASH_MODE!=='score';
+  // entries: scored ones for the lines; all (incl. arrows-only) when arrows are shown
+  const pool=getD().scores.filter(s=>inGroup(s)).filter(s=>showArr?((s.arrows||0)>0):(!s.no_points&&s.points>0));
+  const all=pool.slice().sort((a,b)=>a.date.localeCompare(b.date)).slice(-12);
+  const W=cv.offsetWidth||600,H=150;cv.width=W*2;cv.height=H*2;const ctx=cv.getContext('2d');if(!ctx)return;ctx.scale(2,2);ctx.clearRect(0,0,W,H);
+  const ml=38,mr=showArr&&showScore?34:16,mt=28,mb=22,cW=W-ml-mr,cH=H-mt-mb;
   ctx.strokeStyle='rgba(255,255,255,0.05)';ctx.lineWidth=1;
-  for(let i=0;i<=4;i++){const y=mt+i*cH/4;ctx.beginPath();ctx.moveTo(ml,y);ctx.lineTo(W-mr,y);ctx.stroke();ctx.fillStyle='rgba(106,112,144,0.55)';ctx.font='9px Inter,sans-serif';ctx.textAlign='right';ctx.fillText((100-i*25)+'%',ml-3,y+3);}
+  for(let i=0;i<=4;i++){const y=mt+i*cH/4;ctx.beginPath();ctx.moveTo(ml,y);ctx.lineTo(W-mr,y);ctx.stroke();
+    if(showScore){ctx.fillStyle='rgba(106,112,144,0.55)';ctx.font='9px Inter,sans-serif';ctx.textAlign='right';ctx.fillText((100-i*25)+'%',ml-3,y+3);}}
   if(!all.length){ctx.fillStyle='rgba(106,112,144,0.6)';ctx.font='13px Inter,sans-serif';ctx.textAlign='center';ctx.fillText(lang==='de'?'Keine Ergebnisse in dieser Gruppe':'No results in this group',W/2,H/2);return;}
   const toX=idx=>ml+(idx/(Math.max(all.length-1,1)))*cW;
   const toY=pct=>mt+(1-pct)*cH;
+  // ── arrows as bars (own scale) ──
+  if(showArr){
+    const maxA=Math.max(1,...all.map(s=>+s.arrows||0));
+    const bw=Math.max(4,Math.min(20,cW/all.length*0.45));
+    all.forEach((s,i)=>{const a=+s.arrows||0;if(!a)return;const h=Math.max(2,(a/maxA)*cH);const x=toX(i)-bw/2,y=mt+cH-h;
+      ctx.fillStyle=s.no_points?'rgba(74,158,255,0.45)':'rgba(74,158,255,0.22)';
+      ctx.fillRect(x,y,bw,h);
+      ctx.fillStyle='rgba(74,158,255,0.9)';ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
+      if(!showScore||s.no_points)ctx.fillText(a,toX(i),y-3);
+    });
+    if(!showScore){ // arrows axis labels on the left
+      for(let i=0;i<=4;i++){const y=mt+i*cH/4;ctx.fillStyle='rgba(106,112,144,0.55)';ctx.font='9px Inter,sans-serif';ctx.textAlign='right';ctx.fillText(Math.round(maxA*(1-i/4)),ml-3,y+3);}
+    } else { // right-hand axis for arrows
+      for(let i=0;i<=4;i++){const y=mt+i*cH/4;ctx.fillStyle='rgba(74,158,255,0.5)';ctx.font='9px Inter,sans-serif';ctx.textAlign='left';ctx.fillText(Math.round(maxA*(1-i/4)),W-mr+3,y+3);}
+    }
+  }
+  // ── score lines ──
   function drawSeries(series,color){
     if(!series.length)return;
     const pts=series.map(s=>{const idx=all.findIndex(a=>a.id===s.id),mx=maxScore(s.type)||s.points;return{x:toX(idx),y:toY(Math.min(1,s.points/mx)),s};});
@@ -773,16 +830,18 @@ function drawLineChart(){
       ctx.fillStyle='rgba(240,240,240,0.9)';ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
       ctx.fillText(avgArr(p.s.points,p.s.arrows),p.x,p.y-9);
       if(p.s.placement&&p.s.placement<=3){ctx.font='10px Arial';ctx.fillText(medal(p.s.placement),p.x,p.y-19);}
-      const mx=maxScore(p.s.type);
-      if(mx){ctx.fillStyle=color;ctx.font='8px Inter,sans-serif';ctx.fillText(Math.round(p.s.points/mx*100)+'%',p.x,p.y+cH-toY(Math.min(1,p.s.points/mx))+2);}
     });
   }
-  drawSeries(all.filter(s=>s.type!=='training'),'#e8a020');
-  drawSeries(all.filter(s=>s.type==='training'),'#2dd4a0');
+  if(showScore){
+    const scored=all.filter(s=>!s.no_points&&s.points>0);
+    drawSeries(scored.filter(s=>s.type!=='training'),'#e8a020');
+    drawSeries(scored.filter(s=>s.type==='training'),'#2dd4a0');
+  }
   ctx.fillStyle='rgba(106,112,144,0.6)';ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
   all.forEach((s,i)=>ctx.fillText(fd(s.date).substring(0,5),toX(i),mt+cH+13));
   ctx.strokeStyle='rgba(255,255,255,0.1)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(ml,mt+cH);ctx.lineTo(W-mr,mt+cH);ctx.stroke();
 }
+
 // ─── SETUPS ───────────────────────────────────────────────────────────────
 function colorPickerHTML(fid,cur){return`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${ARROW_COLORS.map((h,i)=>`<div onclick="selC('${fid}','${h}')" title="${COLOR_NAMES[i]}" class="color-sw${cur===h?' sel':''}" style="background:${h==='#00000000'?'repeating-linear-gradient(45deg,#bbb,#bbb 3px,#fff 3px,#fff 6px)':h};border:2px solid ${cur===h?'var(--accent)':'transparent'}"></div>`).join('')}</div><input type="hidden" id="${fid}-val" value="${cur||'#FFFFFF'}">`;}
 function selC(fid,h){const el=document.getElementById(fid+'-val');if(el)el.value=h;document.querySelectorAll(`[onclick*="selC('${fid}"]`).forEach(sw=>{const swH=sw.getAttribute('onclick')?.match(/'([^']+)'[^']*$/)?.[1]||'';sw.style.border=`2px solid ${swH===h?'var(--accent)':'transparent'}`;sw.classList.toggle('sel',swH===h);});}
@@ -1092,7 +1151,7 @@ function rAdmin(){if(!CU||CU.role!=='admin'){navigate('dashboard');return'';}
     <button class="btn bp btn-sm" onclick="saveMaintMsg()">${lang==='de'?'Hinweistext speichern':'Save notice text'}</button>
   </div>
   <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">💬 ${t('feedback')} ${unread>0?`<span class="badge brd">${unread} neu</span>`:''}</div><button class="btn bg btn-sm" onclick="markAllFbRead()">${lang==='de'?'Alle gelesen':'Mark all read'}</button></div>${fb.length===0?`<div style="color:var(--text3);font-size:13px">${lang==='de'?'Noch kein Feedback.':'No feedback yet.'}</div>`:fb.slice().reverse().map(f=>`<div style="padding:10px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="badge ${f.type==='bug'?'brd':f.type==='feature'?'bbl':'bgr'}">${f.type==='bug'?'🐛 Bug':f.type==='feature'?'💡 Feature':'💬'}</span><span style="font-size:11px;color:var(--text3)">${f.date} · ${f.userName}</span>${!f.read?'<span class="badge brd">neu</span>':''}</div><div style="font-size:13px;color:var(--text2)">${f.text}</div></div>`).join('')}</div>
-  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div><button class="btn bg btn-sm" onclick="loadAdminData()">↻</button></div><div style="overflow-x:auto"><table class="table"><thead><tr><th>${t('name')}</th><th>${t('role')}</th><th>${lang==='de'?'Dabei seit':'Member since'}</th><th>${lang==='de'?'Letzter Login':'Last login'}</th><th>${lang==='de'?'Logins':'Logins'}</th><th>${lang==='de'?'Nutzung':'Usage'}</th><th>${t('actions')}</th></tr></thead><tbody>${ADMIN_USERS.length?ADMIN_USERS.map(u=>{const ll=u.last_login?new Date(u.last_login).toLocaleDateString(lang==='de'?'de-DE':'en-GB')+' '+new Date(u.last_login).toLocaleTimeString(lang==='de'?'de-DE':'en-GB',{hour:'2-digit',minute:'2-digit'}):(lang==='de'?'nie':'never');const ms=u.created_at?new Date(u.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'—';const use=fmtDur(ADMIN_USAGE_BY_USER[u.id]||0);return`<tr><td style="font-weight:600;color:var(--text)">${u.name||'—'}<div style="font-size:11px;color:var(--text3);font-weight:400">${u.email||''}</div></td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role||'user'}</span></td><td style="color:var(--text3);white-space:nowrap">${ms}</td><td style="color:var(--text2);white-space:nowrap;font-size:12px">${ll}</td><td style="text-align:center">${u.login_count||0}</td><td style="color:var(--blue);font-weight:600">${use}</td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal('${u.id}')">✏️</button><button class="btn bg btn-sm" onclick="adminResetPw('${u.id}')" title="${lang==='de'?'Reset-Mail senden':'Send reset email'}">🔑</button></div></td></tr>`;}).join(''):`<tr><td colspan="7" style="color:var(--text3)">${lang==='de'?'Lade Nutzer…':'Loading users…'}</td></tr>`}</tbody></table></div></div>`;}
+  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div><button class="btn bg btn-sm" onclick="loadAdminData()">↻</button></div><div style="overflow-x:auto"><table class="table"><thead><tr>${admTh('name',t('name'))}${admTh('role',t('role'))}${admTh('created',lang==='de'?'Dabei seit':'Member since')}${admTh('last',lang==='de'?'Letzter Login':'Last login')}${admTh('logins',lang==='de'?'Logins':'Logins')}${admTh('usage',lang==='de'?'Nutzung':'Usage')}<th>${t('actions')}</th></tr></thead><tbody>${ADMIN_USERS.length?admSorted().map(u=>{const ll=u.last_login?new Date(u.last_login).toLocaleDateString(lang==='de'?'de-DE':'en-GB')+' '+new Date(u.last_login).toLocaleTimeString(lang==='de'?'de-DE':'en-GB',{hour:'2-digit',minute:'2-digit'}):(lang==='de'?'nie':'never');const ms=u.created_at?new Date(u.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'—';const use=fmtDur(ADMIN_USAGE_BY_USER[u.id]||0);return`<tr><td style="font-weight:600;color:var(--text)">${u.name||'—'}<div style="font-size:11px;color:var(--text3);font-weight:400">${u.email||''}</div></td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role||'user'}</span></td><td style="color:var(--text3);white-space:nowrap">${ms}</td><td style="color:var(--text2);white-space:nowrap;font-size:12px">${ll}</td><td style="text-align:center">${u.login_count||0}</td><td style="color:var(--blue);font-weight:600">${use}</td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal('${u.id}')">✏️</button><button class="btn bg btn-sm" onclick="adminResetPw('${u.id}')" title="${lang==='de'?'Reset-Mail senden':'Send reset email'}">🔑</button></div></td></tr>`;}).join(''):`<tr><td colspan="7" style="color:var(--text3)">${lang==='de'?'Lade Nutzer…':'Loading users…'}</td></tr>`}</tbody></table></div></div>`;}
 function editUserModal(uid){const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;const isDE=lang==='de';document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="eu-mo" onclick="closeMo(event,'eu-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">${t('edit')}: ${u.name||u.email}</div><button class="btn bg btn-sm" onclick="document.getElementById('eu-mo').remove()">✕</button></div><div class="fg"><label>${t('name')}</label><input id="eu-name" value="${u.name||''}"></div><div class="fg"><label>${t('email')}</label><input value="${u.email||''}" disabled style="opacity:0.6"></div><div class="fg"><label>${isDE?'Rolle':'Role'}</label><select id="eu-role"><option value="user"${u.role==='user'?' selected':''}>User</option><option value="admin"${u.role==='admin'?' selected':''}>Admin</option></select></div><div style="background:#4a9eff12;border:1px solid #4a9eff30;border-radius:8px;padding:9px 12px;font-size:12px;color:var(--text2)">ℹ️ ${isDE?'E-Mail und Passwort verwaltet Supabase Auth. Zum Passwort-Reset den 🔑-Button nutzen (Reset-Mail an den Nutzer).':'Email and password are managed by Supabase Auth. Use the 🔑 button to send a reset email.'}</div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn bg" onclick="document.getElementById('eu-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveUserEdit('${uid}')">${t('save')}</button></div></div></div>`);}
 function adminResetPw(uid){
   const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;
@@ -1111,12 +1170,26 @@ function rHelp(){
   const rmL={planned:lang==='de'?'Geplant':'Planned',in_progress:lang==='de'?'In Entwicklung':'In Progress',done:lang==='de'?'Fertig':'Done'};
   return`<div class="stitle">${t('hilfe')}</div>
   <div class="tabs"><div class="tab active" id="ht-faq" onclick="swH('faq')">FAQ</div><div class="tab" id="ht-fb" onclick="swH('fb')">💬 ${t('feedback')}</div><div class="tab" id="ht-rm" onclick="swH('rm')">🗺 ${t('roadmap')}</div><div class="tab" id="ht-do" onclick="swH('do')">☕ ${t('donate')}</div><div class="tab" id="ht-cl" onclick="swH('cl')">${t('changelog')}</div><div class="tab" id="ht-im" onclick="swH('im')">${t('imprint')}</div></div>
-  <div id="hc-faq"><div class="card"><div class="ch"><div class="ct">${t('faq')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="addFAQ()">+</button>`:''}</div>${faqItems.map((f,i)=>`<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">${f.q}${isAdmin?`<div style="display:flex;gap:5px;flex-shrink:0;margin-right:6px" onclick="event.stopPropagation()"><button class="btn bg btn-sm" onclick="moveFAQ(${f.id},-1)" ${i===0?'disabled':''} title="${lang==='de'?'Nach oben':'Move up'}" style="padding:2px 6px">▲</button><button class="btn bg btn-sm" onclick="moveFAQ(${f.id},1)" ${i===faqItems.length-1?'disabled':''} title="${lang==='de'?'Nach unten':'Move down'}" style="padding:2px 6px">▼</button><button class="btn bg btn-sm" onclick="editFAQ(${f.id})" style="padding:2px 6px">✏️</button><button class="btn bd btn-sm" onclick="delFAQ(${f.id})" style="padding:2px 6px">🗑</button></div>`:''}<span class="fq">▾</span></div><div class="faq-a">${f.a}</div></div>`).join('')}</div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:12px;margin-top:10px;font-size:13px;color:var(--text2)">📬 <a href="mailto:sportleiter@bogenschiessen-hoehenkirchen.de" style="color:var(--accent)">sportleiter@bogenschiessen-hoehenkirchen.de</a></div></div>
+  <div id="hc-faq"><div class="card"><div class="ch"><div class="ct">${t('faq')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="addFAQ()">+</button>`:''}</div>${faqItems.map((f,i)=>`<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">${f.q}${isAdmin?`<div style="display:flex;gap:5px;flex-shrink:0;margin-right:6px" onclick="event.stopPropagation()"><button class="btn bg btn-sm" onclick="moveFAQ(${f.id},-1)" ${i===0?'disabled':''} title="${lang==='de'?'Nach oben':'Move up'}" style="padding:2px 6px">▲</button><button class="btn bg btn-sm" onclick="moveFAQ(${f.id},1)" ${i===faqItems.length-1?'disabled':''} title="${lang==='de'?'Nach unten':'Move down'}" style="padding:2px 6px">▼</button><button class="btn bg btn-sm" onclick="editFAQ(${f.id})" style="padding:2px 6px">✏️</button><button class="btn bd btn-sm" onclick="delFAQ(${f.id})" style="padding:2px 6px">🗑</button></div>`:''}<span class="fq">▾</span></div><div class="faq-a">${f.a}</div></div>`).join('')}</div></div>
   <div id="hc-fb" style="display:none"><div class="card"><div class="ch"><div class="ct">💬 ${t('feedback')}</div></div><p style="font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6">${lang==='de'?'Feedback, Fehler oder Funktionswunsch? Thomas liest alle Nachrichten.':'Feedback, bug or feature request? Thomas reads all messages.'}</p><div class="fg"><label>${lang==='de'?'Typ':'Type'}</label><select id="fb-type"><option value="feedback">💬 Feedback</option><option value="feature">💡 ${t('feature_req')}</option><option value="bug">🐛 ${t('bug_rep')}</option></select></div><div class="fg"><label>${lang==='de'?'Nachricht':'Message'}</label><textarea id="fb-text" style="min-height:110px" placeholder="${lang==='de'?'Deine Nachricht...':'Your message...'}"></textarea></div><button class="btn bp" onclick="submitFB()">${t('send')}</button></div></div>
-  <div id="hc-rm" style="display:none"><div class="card"><div class="ch"><div class="ct">🗺 ${t('roadmap')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="addRM()">+</button>`:''}</div>${SHARED.roadmap.map((item,i)=>`<div class="roadmap-item"><div class="rm-dot" style="background:${rmS[item.status]||'var(--text3)'}"></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;${item.status==='done'?'text-decoration:line-through;opacity:0.6':''}">${item.title}</div><div style="font-size:12px;color:var(--text2)">${item.desc}</div></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="badge" style="background:${rmS[item.status]||'var(--text3)'}18;color:${rmS[item.status]||'var(--text3)'};border:1px solid ${rmS[item.status]||'var(--text3)'}35">${rmL[item.status]||item.status}</span>${isAdmin?`<button class="btn bg btn-sm" onclick="moveRM(${item.id},-1)" ${i===0?'disabled':''} title="${lang==='de'?'Nach oben':'Move up'}" style="padding:2px 6px">▲</button><button class="btn bg btn-sm" onclick="moveRM(${item.id},1)" ${i===SHARED.roadmap.length-1?'disabled':''} title="${lang==='de'?'Nach unten':'Move down'}" style="padding:2px 6px">▼</button><button class="btn bg btn-sm" onclick="editRM(${item.id})" style="padding:2px 7px">✏️</button>`:''}</div></div>`).join('')}</div></div>
+  <div id="hc-rm" style="display:none"><div class="card"><div class="ch"><div class="ct">🗺 ${t('roadmap')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="addRM()">+</button>`:''}</div>${SHARED.roadmap.map((item,i)=>`<div class="roadmap-item"><div class="rm-dot" style="background:${rmS[item.status]||'var(--text3)'}"></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;${item.status==='done'?'text-decoration:line-through;opacity:0.6':''}">${rmTitle(item)}</div><div style="font-size:12px;color:var(--text2)">${rmDesc(item)}</div></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="badge" style="background:${rmS[item.status]||'var(--text3)'}18;color:${rmS[item.status]||'var(--text3)'};border:1px solid ${rmS[item.status]||'var(--text3)'}35">${rmL[item.status]||item.status}</span>${isAdmin?`<button class="btn bg btn-sm" onclick="moveRM(${item.id},-1)" ${i===0?'disabled':''} title="${lang==='de'?'Nach oben':'Move up'}" style="padding:2px 6px">▲</button><button class="btn bg btn-sm" onclick="moveRM(${item.id},1)" ${i===SHARED.roadmap.length-1?'disabled':''} title="${lang==='de'?'Nach unten':'Move down'}" style="padding:2px 6px">▼</button><button class="btn bg btn-sm" onclick="editRM(${item.id})" style="padding:2px 7px">✏️</button>`:''}</div></div>`).join('')}</div></div>
   <div id="hc-do" style="display:none"><div class="card" style="text-align:center;padding:32px 24px"><div style="font-size:52px;margin-bottom:12px">💙</div><div style="font-family:Bebas Neue,sans-serif;font-size:24px;letter-spacing:1px;color:var(--text);margin-bottom:10px">${lang==='de'?'BowBrain Unterstützen':'Support BowBrain'}</div><p style="font-size:14px;color:var(--text2);margin-bottom:20px;max-width:360px;margin-left:auto;margin-right:auto;line-height:1.7">${lang==='de'?'BowBrain ist kostenlos und wird in der Freizeit entwickelt. Wenn dir die App gefällt, freue ich mich über eine kleine Unterstützung per PayPal. 🏹':'BowBrain is free and developed in spare time. If you like the app, a small contribution via PayPal is always welcome. 🏹'}</p><a href="https://www.paypal.com/donate/?hosted_button_id=KFCJ7JMCMR33N" target="_blank" rel="noopener" class="btn bp" style="font-size:15px;padding:12px 28px;text-decoration:none;display:inline-flex;align-items:center;gap:8px">💙 ${lang==='de'?'Mit PayPal unterstützen':'Support via PayPal'}</a><div style="margin-top:14px;font-size:12px;color:var(--text3)">${lang==='de'?'Vielen Dank! 🙏':'Thank you! 🙏'}</div></div></div>
   <div id="hc-cl" style="display:none"><div class="card"><div class="ch"><div class="ct">${t('changelog')}</div>${isAdmin?`<button class="btn bp btn-sm" onclick="editCLModal(null)">+</button>`:''}</div>${(SHARED.changelog||[]).map((c,i)=>`<div class="changelog-item"><div style="display:flex;align-items:baseline;gap:6px;margin-bottom:8px;flex-wrap:wrap"><span class="cl-ver">v${c.ver}</span><span class="badge ${i===0?'ba':'bbl'}">"${c.name}"</span>${i===0?`<span class="badge bgr">${lang==='de'?'Aktuell':'Current'}</span>`:''}${isAdmin?`<span style="margin-left:auto;display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editCLModal('${c.ver}')" style="padding:2px 7px">✏️</button><button class="btn bd btn-sm" onclick="delCL('${c.ver}')" style="padding:2px 7px">🗑</button></span>`:''}</div><ul style="list-style:none;padding:0">${clArr(c).map(ch=>`<li style="font-size:12px;color:var(--text2);padding:2px 0;display:flex;gap:8px"><span style="color:var(--accent);flex-shrink:0">→</span>${ch}</li>`).join('')}</ul></div>`).join('')}</div></div>
-  <div id="hc-im" style="display:none"><div class="card">${isAdmin?`<div style="margin-bottom:12px"><button class="btn bg btn-sm" onclick="editImp()">✏️ ${lang==='de'?'Impressum bearbeiten':'Edit Imprint'}</button></div>`:''}<pre style="font-size:13px;color:var(--text2);line-height:1.9;white-space:pre-wrap;font-family:'Inter',sans-serif">${SHARED[lang==='en'?'impressum_en':'impressum_de']}</pre></div></div>`;
+  <div id="hc-im" style="display:none"><div class="card">${isAdmin?`<div style="margin-bottom:12px"><button class="btn bg btn-sm" onclick="editImp()">✏️ ${lang==='de'?'Impressum bearbeiten':'Edit Imprint'}</button></div>`:''}<pre style="font-size:13px;color:var(--text2);line-height:1.9;white-space:pre-wrap;font-family:'Inter',sans-serif">${SHARED[lang==='en'?'impressum_en':'impressum_de']}</pre>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:12px;margin-top:12px;font-size:13px;color:var(--text2);display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <span>📬 <span style="color:var(--text3)">${lang==='de'?'Kontakt':'Contact'}:</span> <a href="mailto:${SHARED.contact_email||''}" style="color:var(--accent)">${SHARED.contact_email||'—'}</a></span>
+      ${isAdmin?`<button class="btn bg btn-sm" onclick="editContact()" title="${lang==='de'?'Kontakt-E-Mail bearbeiten':'Edit contact email'}">✏️</button>`:''}
+    </div></div>
+  <div class="card" style="margin-top:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <button onclick="togglePrivacy()" style="background:none;border:none;cursor:pointer;color:var(--text2);font-size:13px;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:7px;padding:2px 0">
+        <span id="priv-caret" style="color:var(--text3);transition:transform .15s;display:inline-block">▸</span>
+        ${lang==='de'?'Datenschutzerklärung':'Privacy Policy'}
+      </button>
+      ${isAdmin?`<button class="btn bg btn-sm" onclick="editPrivacy()">✏️</button>`:''}
+    </div>
+    <pre id="priv-body" style="display:none;margin-top:10px;font-size:12.5px;color:var(--text2);line-height:1.8;white-space:pre-wrap;font-family:'Inter',sans-serif">${SHARED[lang==='en'?'privacy_en':'privacy_de']||''}</pre>
+  </div></div>`;
 }
 function swH(id){['faq','fb','rm','do','cl','im'].forEach(k=>{const el=document.getElementById('hc-'+k);if(el)el.style.display=k===id?'':'none';const tab=document.getElementById('ht-'+k);if(tab)tab.classList.toggle('active',k===id);});}
 async function toggleMaintenance(){
@@ -1158,10 +1231,44 @@ function editFAQ(id){const de=SHARED.faq.de.find(f=>f.id===id),en=SHARED.faq.en.
 async function saveFAQ(id){const qde=document.getElementById('fq-qde')?.value||'',ade=document.getElementById('fq-ade')?.value||'',qen=document.getElementById('fq-qen')?.value||qde,aen=document.getElementById('fq-aen')?.value||ade;if(id){SHARED.faq.de=SHARED.faq.de.map(f=>f.id===id?{...f,q:qde,a:ade}:f);SHARED.faq.en=SHARED.faq.en.map(f=>f.id===id?{...f,q:qen,a:aen}:f);}else{const nid=Math.max(...SHARED.faq.de.map(f=>f.id),0)+1;SHARED.faq.de.push({id:nid,q:qde,a:ade});SHARED.faq.en.push({id:nid,q:qen,a:aen});}document.getElementById('faq-mo').remove();navigate('hilfe');setTimeout(()=>swH('faq'),50);saveShared();}
 async function delFAQ(id){if(!confirm(t('confirm_del')))return;SHARED.faq.de=SHARED.faq.de.filter(f=>f.id!==id);SHARED.faq.en=SHARED.faq.en.filter(f=>f.id!==id);navigate('hilfe');setTimeout(()=>swH('faq'),50);saveShared();}
 function editImp(){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="imp-mo" onclick="closeMo(event,'imp-mo')"><div class="md" style="width:500px"><div class="mh"><div class="mt2">Impressum</div><button class="btn bg btn-sm" onclick="document.getElementById('imp-mo').remove()">✕</button></div><div class="fg"><label>Deutsch</label><textarea id="imp-de" style="min-height:150px">${SHARED.impressum_de}</textarea></div><div class="fg"><label>English</label><textarea id="imp-en" style="min-height:150px">${SHARED.impressum_en}</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('imp-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveImp()">${t('save')}</button></div></div></div>`);}
-async function saveImp(){SHARED.impressum_de=document.getElementById('imp-de')?.value;SHARED.impressum_en=document.getElementById('imp-en')?.value;document.getElementById('imp-mo').remove();navigate('hilfe');setTimeout(()=>swH('im'),50);saveShared();}
-function addRM(){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="rm-mo" onclick="closeMo(event,'rm-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">Roadmap</div><button class="btn bg btn-sm" onclick="document.getElementById('rm-mo').remove()">✕</button></div><div class="fg"><label>${lang==='de'?'Titel':'Title'}</label><input id="rm-ti"></div><div class="fg"><label>${lang==='de'?'Beschreibung':'Description'}</label><textarea id="rm-desc" style="min-height:70px"></textarea></div><div class="fg"><label>Status</label><select id="rm-st"><option value="planned">${lang==='de'?'Geplant':'Planned'}</option><option value="in_progress">${lang==='de'?'In Entwicklung':'In Progress'}</option><option value="done">${lang==='de'?'Fertig':'Done'}</option></select></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('rm-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveRM(null)">${t('save')}</button></div></div></div>`);}
-function editRM(id){const item=SHARED.roadmap.find(r=>r.id===id);if(!item)return;document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="rm-mo" onclick="closeMo(event,'rm-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">Roadmap</div><button class="btn bg btn-sm" onclick="document.getElementById('rm-mo').remove()">✕</button></div><div class="fg"><label>${lang==='de'?'Titel':'Title'}</label><input id="rm-ti" value="${item.title}"></div><div class="fg"><label>${lang==='de'?'Beschreibung':'Description'}</label><textarea id="rm-desc" style="min-height:70px">${item.desc}</textarea></div><div class="fg"><label>Status</label><select id="rm-st"><option value="planned"${item.status==='planned'?' selected':''}>${lang==='de'?'Geplant':'Planned'}</option><option value="in_progress"${item.status==='in_progress'?' selected':''}>${lang==='de'?'In Entwicklung':'In Progress'}</option><option value="done"${item.status==='done'?' selected':''}>${lang==='de'?'Fertig':'Done'}</option></select></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bd btn-sm" onclick="delRM(${id})">${t('del')}</button><button class="btn bg" onclick="document.getElementById('rm-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveRM(${id})">${t('save')}</button></div></div></div>`);}
-async function saveRM(id){const title=document.getElementById('rm-ti')?.value?.trim();if(!title)return;const desc=document.getElementById('rm-desc')?.value||'',status=document.getElementById('rm-st')?.value||'planned';if(id){SHARED.roadmap=SHARED.roadmap.map(r=>r.id===id?{...r,title,desc,status}:r);}else{SHARED.roadmap.push({id:Math.max(...SHARED.roadmap.map(r=>r.id),0)+1,title,desc,status});}document.getElementById('rm-mo').remove();navigate('hilfe');setTimeout(()=>swH('rm'),50);saveShared();}
+async function editContact(){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="ce-mo" onclick="closeMo(event,'ce-mo')"><div class="md" style="width:420px"><div class="mh"><div class="mt2">${lang==='de'?'Kontakt-E-Mail':'Contact email'}</div><button class="btn bg btn-sm" onclick="document.getElementById('ce-mo').remove()">✕</button></div><div class="fg"><label>${lang==='de'?'E-Mail-Adresse':'Email address'}</label><input id="ce-mail" type="email" value="${SHARED.contact_email||''}"></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('ce-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveContact()">${t('save')}</button></div></div></div>`);}
+async function saveContact(){const em=(document.getElementById('ce-mail')?.value||'').trim();if(!em||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){toast(lang==='de'?'Bitte eine gültige E-Mail-Adresse eingeben.':'Please enter a valid email address.');return;}SHARED.contact_email=em;document.getElementById('ce-mo')?.remove();await saveShared();toast(lang==='de'?'Kontakt-E-Mail gespeichert.':'Contact email saved.',true);navigate('hilfe');setTimeout(()=>swH('im'),50);}
+function rmTitle(it){return (lang==='en'?(it.title_en||it.title_de||it.title):(it.title_de||it.title||it.title_en))||'';}
+function rmDesc(it){return (lang==='en'?(it.desc_en||it.desc_de||it.desc):(it.desc_de||it.desc||it.desc_en))||'';}
+function togglePrivacy(){const b=document.getElementById('priv-body'),c2=document.getElementById('priv-caret');if(!b)return;const open=b.style.display==='none';b.style.display=open?'':'none';if(c2)c2.style.transform=open?'rotate(90deg)':'none';}
+function editPrivacy(){document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="priv-mo" onclick="closeMo(event,'priv-mo')"><div class="md" style="width:560px"><div class="mh"><div class="mt2">${lang==='de'?'Datenschutzerklärung bearbeiten':'Edit Privacy Policy'}</div><button class="btn bg btn-sm" onclick="document.getElementById('priv-mo').remove()">✕</button></div><div class="fg"><label>Deutsch</label><textarea id="priv-de" style="min-height:220px">${SHARED.privacy_de||''}</textarea></div><div class="fg"><label>English</label><textarea id="priv-en" style="min-height:220px">${SHARED.privacy_en||''}</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('priv-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="savePrivacy()">${t('save')}</button></div></div></div>`);}
+async function savePrivacy(){SHARED.privacy_de=document.getElementById('priv-de')?.value||'';SHARED.privacy_en=document.getElementById('priv-en')?.value||'';document.getElementById('priv-mo')?.remove();await saveShared();toast(lang==='de'?'Datenschutzerklärung gespeichert.':'Privacy policy saved.',true);navigate('hilfe');setTimeout(()=>{swH('im');},50);}
+function saveImp(){SHARED.impressum_de=document.getElementById('imp-de')?.value;SHARED.impressum_en=document.getElementById('imp-en')?.value;document.getElementById('imp-mo').remove();navigate('hilfe');setTimeout(()=>swH('im'),50);saveShared();}
+function rmModal(item){
+  const isDE=lang==='de',id=item?item.id:null;
+  const tde=item?(item.title_de||item.title||''):'',ten=item?(item.title_en||item.title||''):'';
+  const dde=item?(item.desc_de||item.desc||''):'',den=item?(item.desc_en||item.desc||''):'';
+  const st=item?item.status:'planned';
+  document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="rm-mo" onclick="closeMo(event,'rm-mo')"><div class="md" style="width:480px">
+    <div class="mh"><div class="mt2">Roadmap</div><button class="btn bg btn-sm" onclick="document.getElementById('rm-mo').remove()">✕</button></div>
+    <div class="fg"><label>${isDE?'Titel (Deutsch)':'Title (German)'}</label><input id="rm-ti-de" value="${tde}"></div>
+    <div class="fg"><label>${isDE?'Beschreibung (Deutsch)':'Description (German)'}</label><textarea id="rm-desc-de" style="min-height:60px">${dde}</textarea></div>
+    <div class="fg"><label>${isDE?'Titel (Englisch)':'Title (English)'}</label><input id="rm-ti-en" value="${ten}"></div>
+    <div class="fg"><label>${isDE?'Beschreibung (Englisch)':'Description (English)'}</label><textarea id="rm-desc-en" style="min-height:60px">${den}</textarea></div>
+    <div class="fg"><label>Status</label><select id="rm-st"><option value="planned"${st==='planned'?' selected':''}>${isDE?'Geplant':'Planned'}</option><option value="in_progress"${st==='in_progress'?' selected':''}>${isDE?'In Entwicklung':'In Progress'}</option><option value="done"${st==='done'?' selected':''}>${isDE?'Fertig':'Done'}</option></select></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px">${id?`<button class="btn bd btn-sm" onclick="delRM(${id})">${t('del')}</button>`:''}<button class="btn bg" onclick="document.getElementById('rm-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveRM(${id||'null'})">${t('save')}</button></div>
+  </div></div>`);
+}
+function addRM(){rmModal(null);}
+function editRM(id){const item=SHARED.roadmap.find(r=>r.id===id);if(!item)return;rmModal(item);}
+async function saveRM(id){
+  const tde=document.getElementById('rm-ti-de')?.value?.trim()||'';
+  const ten=document.getElementById('rm-ti-en')?.value?.trim()||'';
+  const dde=document.getElementById('rm-desc-de')?.value||'';
+  const den=document.getElementById('rm-desc-en')?.value||'';
+  const status=document.getElementById('rm-st')?.value||'planned';
+  if(!tde&&!ten){toast(lang==='de'?'Bitte einen Titel eingeben.':'Please enter a title.');return;}
+  const entry={title_de:tde||ten,title_en:ten||tde,desc_de:dde||den,desc_en:den||dde,status};
+  if(id){SHARED.roadmap=SHARED.roadmap.map(r=>r.id===id?{id,...entry}:r);}
+  else{SHARED.roadmap.push({id:Math.max(...SHARED.roadmap.map(r=>r.id),0)+1,...entry});}
+  document.getElementById('rm-mo')?.remove();
+  await saveShared();navigate('hilfe');setTimeout(()=>swH('rm'),50);
+}
 async function delRM(id){if(!confirm(t('confirm_del')))return;SHARED.roadmap=SHARED.roadmap.filter(r=>r.id!==id);document.getElementById('rm-mo')?.remove();navigate('hilfe');setTimeout(()=>swH('rm'),50);saveShared();}
 function editCLModal(ver){
   const isDE=lang==='de';
