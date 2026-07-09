@@ -209,7 +209,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.0 &middot; &ldquo;Nam Suhyeon&rdquo;</div>
+  <div class="lver">v1.0.0.1 &middot; &ldquo;Alejandra Valencia&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -252,7 +252,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.0 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.0.1 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -291,7 +291,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.0',VNAME='Nam Suhyeon';
+const VER='1.0.0.1',VNAME='Alejandra Valencia';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -301,14 +301,17 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.0 · "Nam Suhyeon"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.0 · "Nam Suhyeon"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.0.1 · "Alejandra Valencia"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.0.1 · "Alejandra Valencia"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   maintenance:{active:false,msg_de:'🔧 BowBrain wird gerade gewartet. Bitte versuche es später erneut. Der Administrator arbeitet an einem Update.',msg_en:'🔧 BowBrain is currently under maintenance. Please try again later. The administrator is working on an update.'},
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.0.1',name:'Alejandra Valencia',
+    de:['Sprachwahl wird dauerhaft im Profil gespeichert – kein Umschalten mehr bei jedem Login','Startseite merkt sich die zuletzt genutzte Sprache'],
+    en:['Language preference is now stored permanently in the profile – no more switching at every login','Start page remembers the last used language']},
   {ver:'1.0.0.0',name:'Nam Suhyeon',
     de:['🎉 Offizieller Launch – BowBrain ist live!','Erste stabile Version (1.0), Ende der Entwicklungsphase 0.x','Alle Kernfunktionen produktiv: Setups, Visiereinstellungen, Ergebnisse, Tuning, World-Archery-Daten','Zentrale Datenspeicherung, echte Anmeldung und Passwort-Reset per E-Mail'],
     en:['🎉 Official launch – BowBrain is live!','First stable release (1.0), end of the 0.x development phase','All core features in production: setups, sight settings, results, tuning, World Archery data','Central data storage, real authentication and password reset by email']},
@@ -407,7 +410,7 @@ async function bootstrapUser(session){
   let {data:prof}=await sbc.from('profiles').select('*').eq('id',uid).maybeSingle();
   if(!prof){await sbc.from('profiles').insert({id:uid,email,name:email.split('@')[0]});const r=await sbc.from('profiles').select('*').eq('id',uid).maybeSingle();prof=r.data;}
   CU={id:uid,email,role:(prof&&prof.role)||'user'};
-  if(prof&&prof.lang)lang=prof.lang;
+  if(prof&&prof.lang){lang=prof.lang;try{localStorage.setItem('bb_lang',prof.lang);}catch(e){}}
   PREFS[uid]={name:(prof&&prof.name)||email.split('@')[0],email:(prof&&prof.email)||email,club:(prof&&prof.club)||'',handedness:(prof&&prof.handedness)||'right',draw_length:(prof&&prof.draw_length)||28,bow_class:(prof&&prof.bow_class)||'Recurve',cc:(prof&&prof.cc)||'',country:(prof&&prof.country)||'',avatar_url:(prof&&prof.avatar_url)||null,disciplines:(prof&&prof.disciplines)||''};
   try{WA_FAVS=(prof&&Array.isArray(prof.wa_favorites))?prof.wa_favorites:JSON.parse(localStorage.getItem('bb_wa_favs')||'[]');}catch(e){WA_FAVS=[];}
   let {data:st}=await sbc.from('user_settings').select('*').eq('user_id',uid).maybeSingle();
@@ -536,7 +539,7 @@ function loginBodyHTML(){
   </div>`;
 }
 function renderLoginBody(){const el=document.getElementById('login-body');if(el)el.innerHTML=loginBodyHTML();}
-function setLoginLang(l){lang=l;renderLoginBody();renderMaintBanner();}
+function setLoginLang(l){lang=l;try{localStorage.setItem('bb_lang',l);}catch(e){}renderLoginBody();renderMaintBanner();}
 function fillLogin(em,pw){document.getElementById('l-email').value=em;document.getElementById('l-pw').value=pw;}
 function lerr(m){const el=document.getElementById('lerr');if(el){el.style.display='block';el.textContent=m;}const su=document.getElementById('lsuc');if(su)su.style.display='none';}
 function lsuc(m){const el=document.getElementById('lsuc');if(el){el.style.display='block';el.textContent=m;}const er=document.getElementById('lerr');if(er)er.style.display='none';}
@@ -556,7 +559,7 @@ async function doRegister(){
   lsuc(lang==='de'?'Konto wird erstellt…':'Creating account…');
   const {data,error}=await sbc.auth.signUp({email:em,password:pw,options:{data:{name:nm,lang:rl,bow_class:bc}}});
   if(error){lerr(error.message);return;}
-  lang=rl;
+  lang=rl;try{localStorage.setItem('bb_lang',rl);}catch(e){}
   if(!data.session){lsuc(lang==='de'?'Fast fertig! Bitte bestätige den Link in deiner E-Mail und melde dich dann an.':'Almost done! Please confirm the link in your email, then sign in.');return;}
   await afterAuth(data.session,true);
 }
@@ -994,7 +997,11 @@ async function saveTT(tab){SHARED.tuning[tab+'_de']=document.getElementById('tt-
 async function saveTN(){const el=document.getElementById('tn-ta');if(!el)return;getD().tuning_notes=el.value;const {error}=await sbc.from('tuning').upsert({user_id:CU.id,notes:el.value},{onConflict:'user_id'});if(error){toast(error.message);return;}const btn=document.querySelector('[onclick="saveTN()"]');if(btn){btn.textContent='✅';setTimeout(()=>{btn.textContent=t('save')},1500);}}
 function addPhoto(input){if(!input.files||!input.files[0])return;const comment=document.getElementById('ph-comment')?.value||'';const reader=new FileReader();reader.onload=async e=>{const date=new Date().toLocaleDateString(lang==='de'?'de-DE':'en-GB');const rec=await dbIns('tuning_photos',{user_id:CU.id,data_url:e.target.result,date,comment});if(!rec)return;getD().tuning_photos.push({id:rec.id,dataUrl:rec.data_url,date:rec.date,comment:rec.comment});const ci=document.getElementById('ph-comment');if(ci)ci.value='';navigate('tuning');setTimeout(()=>swT('ph'),50);};reader.readAsDataURL(input.files[0]);}
 async function delPhoto(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('tuning_photos',id))return;getD().tuning_photos=getD().tuning_photos.filter(p=>p.id!==id);navigate('tuning');setTimeout(()=>swT('ph'),50);}
-function chLTopbar(nl){lang=nl;const sel=document.getElementById('lang-topbar');if(sel)sel.value=nl;buildNav();navigate(currentPage);}
+function saveLangPref(l){
+  try{localStorage.setItem('bb_lang',l);}catch(e){}
+  if(sbc&&CU){sbc.from('profiles').update({lang:l}).eq('id',CU.id).then(({error})=>{if(error)console.warn('lang save',error);},e=>console.warn('lang save',e));}
+}
+function chLTopbar(nl){lang=nl;saveLangPref(nl);const sel=document.getElementById('lang-topbar');if(sel)sel.value=nl;buildNav();navigate(currentPage);}
 // ─── GLOSSAR DATA (mutable) ───────────────────────────────────────────────
 const GL={de:[{id:1,t:'Spine',d:'Maß für Biegsamkeit. Niedrigerer Wert = steiferer Pfeil.'},{id:2,t:'Auszuglänge',d:'Distanz, die der Schütze den Bogen auszieht, in Zoll.'},{id:3,t:'Blankschaft-Tuning',d:'Unbefiederte Pfeile: Links/Rechts = Spine; Oben/Unten = Nockpunkt.'},{id:4,t:'Walkback-Tuning',d:'Pfeile auf senkrechten Streifen aus verschiedenen Entfernungen.'},{id:5,t:'Paper Tuning',d:'Pfeil durch Papier – Rissbild zeigt Korrekturen.'},{id:6,t:'Nockpunkt',d:'Punkt auf der Sehne, wo der Pfeil eingenocht wird.'},{id:7,t:'Standhöhe (Brace Height)',d:'Abstand Sehne–Griffstück. Typisch 8–9,5 Zoll.'},{id:8,t:'Tiller',d:'Abstand Wurfarmende–Sehne. Oberer Tiller typisch 2–4mm größer.'},{id:9,t:'Clicker',d:'Metallblättchen: klickt bei optimaler Auszuglänge.'},{id:10,t:'WA 720',d:'Outdoor-Format. 72 Pfeile, max. 720 Punkte (50m+30m).'},{id:11,t:'WA 600',d:'Indoor-Format. 60 Pfeile, max. 600 Punkte auf 18m oder 25m.'}],en:[{id:1,t:'Spine',d:'Measure of arrow stiffness. Lower = stiffer arrow.'},{id:2,t:'Draw Length',d:'Distance the archer draws the bow, in inches.'},{id:3,t:'Bare Shaft Tuning',d:'Bare shafts: Left/Right = spine; Up/Down = nocking point.'},{id:4,t:'Walkback Tuning',d:'Arrows on a vertical strip from different distances.'},{id:5,t:'Paper Tuning',d:'Arrow through paper – tear pattern shows corrections.'},{id:6,t:'Nocking Point',d:'Point on string where arrow is nocked.'},{id:7,t:'Brace Height',d:'String to grip distance. Typical 8–9.5 inches.'},{id:8,t:'Tiller',d:'Limb tip to string distance. Upper typically 2–4mm larger.'},{id:9,t:'Clicker',d:'Metal blade: clicks at optimal draw length.'},{id:10,t:'WA 720',d:'Outdoor format. 72 arrows, max 720 points (50m+30m).'},{id:11,t:'WA 600',d:'Indoor format. 60 arrows, max 600 points at 18m/25m.'}]};
 function rGlossar(){
@@ -1067,7 +1074,7 @@ async function saveAP(){const p2=getP();const disc=['WA','Field','3D'].filter(d=
 // ─── SETTINGS ─────────────────────────────────────────────────────────────
 function rSettings(){const s=getS();return`<div class="stitle">${t('einstellungen')}</div><div class="g2" style="gap:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Design & Darstellung':'Design & Display'}</div></div>${[['dark_mode',t('dark_mode'),lang==='de'?'Dunkles Design':'Dark theme'],['animations',t('animations'),lang==='de'?'UI-Animationen':'UI animations'],['compact',t('compact'),lang==='de'?'Reduzierte Abstände':'Reduced spacing'],['large_font',t('large_font'),lang==='de'?'Größere Schrift':'Larger text']].map(([k,n,d2])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--text3);margin-top:1px">${d2}</div></div><div class="toggle ${s[k]?'on':''}" onclick="togS('${k}')"></div></div>`).join('')}<div class="fg" style="margin-top:14px"><label>${t('language')}</label><select onchange="chL(this.value)"><option value="de"${lang==='de'?' selected':''}>🇩🇪 Deutsch</option><option value="en"${lang==='en'?' selected':''}>🇬🇧 English</option></select></div></div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Einheiten & Sonstiges':'Units & Other'}</div></div><div class="fg"><label>${lang==='de'?'Entfernungseinheit':'Distance Unit'}</label><select><option>${lang==='de'?'Meter (m)':'Meters (m)'}</option><option>Yards (yd)</option></select></div><div class="fg"><label>${lang==='de'?'Gewichtseinheit':'Weight Unit'}</label><select><option>${lang==='de'?'Pfund (lbs)':'Pounds (lbs)'}</option><option>Kilogramm (kg)</option></select></div><div style="margin-top:14px;border:1px dashed var(--border);border-radius:10px;padding:12px"><div class="notif-planned">${[['training_remind',lang==='de'?'Training-Erinnerungen':'Training Reminders'],['tournament_hints',lang==='de'?'Turnier-Hinweise':'Tournament Alerts']].map(([k,n])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div></div><div class="toggle ${s[k]?'on':''}"></div></div>`).join('')}</div><div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:6px"><span>🔮</span> ${lang==='de'?'Benachrichtigungen – geplantes Feature':'Notifications – planned feature'}</div></div></div></div><div style="margin-top:12px;font-size:12px;color:var(--text3)">💡 ${lang==='de'?'Alle Schalter wirken sofort.':'All toggles apply immediately.'}</div>`;}
 async function togS(key){const s=getS();s[key]=!s[key];applySettings(s);navigate('einstellungen');const {error}=await sbc.from('user_settings').upsert({user_id:CU.id,dark_mode:s.dark_mode,animations:s.animations,compact:s.compact,large_font:s.large_font},{onConflict:'user_id'});if(error)toast(error.message);}
-function chL(nl){lang=nl;buildNav();navigate('einstellungen');}
+function chL(nl){lang=nl;saveLangPref(nl);buildNav();navigate('einstellungen');}
 
 // ─── ADMIN ────────────────────────────────────────────────────────────────
 function fmtDur(s){s=+s||0;if(s<60)return s+'s';if(s<3600)return Math.round(s/60)+'m';return (s/3600).toFixed(1)+'h';}
@@ -1359,6 +1366,7 @@ function waFetchNationalRecords(){const noc=(document.getElementById('nr-noc')?.
 
 // ── Session bootstrap + password-recovery handling ──
 let _recovering=false;
+try{const _l=localStorage.getItem('bb_lang');if(_l==='de'||_l==='en')lang=_l;}catch(e){}
 renderLoginBody();
 if(sbc){
   sbc.auth.onAuthStateChange((event,session)=>{
