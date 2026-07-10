@@ -325,8 +325,8 @@ const SHARED={
 };
 const CHANGELOG=[
   {ver:'1.0.0.9',name:'Sjef van den Berg',
-    de:['Glossar: Admin kann die Reihenfolge per ▲▼ ändern (beide Sprachen synchron)','Weltrekorde: pro Kategorie und Event ist nur noch der tatsächlich gültige Rekord als „aktuell" markiert','Weltrekorde: 70m/72 Pfeile ist der Standard-Filter','Weltrekorde: Kategorien nach Relevanz sortiert (Einzel → Team → Jugend → Para)','Tuning: Skizzen auf dem Handy deutlich größer und horizontal scrollbar','Mobile: Navigationsleiste bleibt fixiert und wird nicht mehr weggeschoben','Dashboard: Direkt-Links zum Anlegen von Ergebnis und Setup'],
-    en:['Glossary: admin can reorder entries with ▲▼ (both languages in sync)','World records: only the genuinely standing record per category and event is marked as current','World records: 70m/72 arrows is the default filter','World records: categories sorted by relevance (individual → team → youth → para)','Tuning: diagrams noticeably larger and horizontally scrollable on phones','Mobile: bottom navigation stays fixed and can no longer slide away','Dashboard: direct links to add a result or a setup']},
+    de:['Glossar: Admin kann die Reihenfolge per ▲▼ ändern (beide Sprachen synchron)','Weltrekorde: pro Kategorie und Event ist nur noch der tatsächlich gültige Rekord als „aktuell" markiert','Weltrekorde: 70m/72 Pfeile ist der Standard-Filter','Weltrekorde: Kategorien nach Relevanz sortiert (Einzel → Team → Jugend → Para)','Tuning: Skizzen auf dem Handy deutlich größer und horizontal scrollbar','Mobile: Navigationsleiste bleibt fixiert und wird nicht mehr weggeschoben','Dashboard: Direkt-Links zum Anlegen von Ergebnis und Setup','Dashboard: „Punkte + Pfeile" ist die Standardansicht','Dashboard: neue Auswahl „Alle Entfernungen" – zeigt alle Trainings und Wettkämpfe (Standardansicht)','Dashboard: Balken überlagern keine Beschriftungen mehr; Werte sitzen sauber im oder über dem Balken'],
+    en:['Glossary: admin can reorder entries with ▲▼ (both languages in sync)','World records: only the genuinely standing record per category and event is marked as current','World records: 70m/72 arrows is the default filter','World records: categories sorted by relevance (individual → team → youth → para)','Tuning: diagrams noticeably larger and horizontally scrollable on phones','Mobile: bottom navigation stays fixed and can no longer slide away','Dashboard: direct links to add a result or a setup','Dashboard: "Points + arrows" is the default view','Dashboard: new "All distances" option – shows all trainings and competitions (default view)','Dashboard: bars no longer overlap any labels; values sit cleanly inside or above the bar']},
   {ver:'1.0.0.8',name:'Choi Misun',
     de:['Favicon: BowBrain-Zielscheibe erscheint jetzt im Browser-Tab','Icon direkt in der HTML-Datei eingebettet (keine Zusatzdatei nötig)','Farbakzent für mobile Browserleiste gesetzt','Hilfe & Support: Roadmap und Änderungshistorie stehen jetzt nebeneinander in einem Tab','Dashboard: Balken überlagern die Skala nicht mehr und stehen bei wenigen Einträgen kompakt zusammen'],
     en:['Favicon: the BowBrain target now appears in the browser tab','Icon embedded directly in the HTML file (no extra file needed)','Theme colour set for mobile browser bars','Help & Support: roadmap and changelog now sit side by side in one tab','Dashboard: bars no longer overlap the axis and stay compact when few entries exist']},
@@ -751,7 +751,7 @@ function closeMo(e,id){if(e.target.id===id)document.getElementById(id)?.remove()
 
 // ─── DASHBOARD ────────────────────────────────────────────────────────────
 let DASH_DIST=null; // selected comparison group: '18' | 'none' | 'fmt:r900'
-let DASH_MODE='score'; // 'score' | 'arrows' | 'both'
+let DASH_MODE='both'; // 'score' | 'arrows' | 'both' – default: both
 try{const _m=localStorage.getItem('bb_dash_mode');if(_m==='score'||_m==='arrows'||_m==='both')DASH_MODE=_m;}catch(e){}
 function setDashMode(v){DASH_MODE=v;try{localStorage.setItem('bb_dash_mode',v);}catch(e){}navigate('dashboard');}
 function isMultiDist(type){return !!(TT[type]&&TT[type].multi);}
@@ -783,9 +783,11 @@ function rDash(){
     <div class="card-sm"><div class="ct">${t('best_score')}</div><div class="cv">${bestE?bestE.points:'—'}</div>${bestE?`<div class="cs">${medal(bestE.placement)||'🏆'} ${maxScore(bestE.type)?`${bestE.points}/${maxScore(bestE.type)} (${Math.round(bestE.points/maxScore(bestE.type)*100)}%)`:bestE.points} · ${fd(bestE.date)}</div>`:''}</div>
   </div>
   <div class="card" style="margin-bottom:14px">
-    <div class="ch"><div class="ct">${t('score_chart')}</div><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="display:flex;gap:12px;font-size:11px;color:var(--text3)">${DASH_MODE!=='arrows'?`<span style="color:var(--accent)">●</span> ${lang==='de'?'Turnier':'Tourn.'} &nbsp;<span style="color:var(--green)">●</span> Training`:''}${DASH_MODE!=='score'?` &nbsp;<span style="color:var(--blue)">▬</span> ${lang==='de'?'Pfeile':'Arrows'}`:''}</div><select onchange="setDashMode(this.value)" style="width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:3px 9px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif"><option value="score"${DASH_MODE==='score'?' selected':''}>${lang==='de'?'Punkte':'Points'}</option><option value="arrows"${DASH_MODE==='arrows'?' selected':''}>${lang==='de'?'Pfeile':'Arrows'}</option><option value="both"${DASH_MODE==='both'?' selected':''}>${lang==='de'?'Punkte + Pfeile':'Points + arrows'}</option></select>${(function(){const m=dashDistances();const keys=Object.keys(m);if(!keys.length)return '';if(DASH_DIST===null){const best=keys.sort((a,b)=>m[b]-m[a])[0];DASH_DIST=best;}const rank=k=>k==='none'?2:(k.startsWith('fmt:')?1:0);
-const opts=keys.sort((a,b)=>{const ra=rank(a),rb=rank(b);if(ra!==rb)return ra-rb;if(ra===0)return (+a)-(+b);return a.localeCompare(b);}).map(k=>`<option value="${k}"${String(DASH_DIST)===k?' selected':''}>${cmpGroupLabel(k)} (${m[k]})</option>`).join('');return `<select onchange="setDashDist(this.value)" style="width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:3px 9px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif">${opts}</select>`;})()}</div></div>
-    <div style="font-size:11px;color:var(--text3);margin:-2px 0 8px">${lang==='de'?'Verglichen werden nur Ergebnisse derselben Entfernung – Mehrdistanz-Turniere (z. B. 900er Runde) werden über das Format verglichen.':'Only results at the same distance are compared – multi-distance events (e.g. 900 Round) are compared by format.'}</div>
+    <div class="ch"><div class="ct">${t('score_chart')}</div><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="display:flex;gap:12px;font-size:11px;color:var(--text3)">${DASH_MODE!=='arrows'?`<span style="color:var(--accent)">●</span> ${lang==='de'?'Turnier':'Tourn.'} &nbsp;<span style="color:var(--green)">●</span> Training`:''}${DASH_MODE!=='score'?` &nbsp;<span style="color:var(--blue)">▬</span> ${lang==='de'?'Pfeile':'Arrows'}`:''}</div><select onchange="setDashMode(this.value)" style="width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:3px 9px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif"><option value="score"${DASH_MODE==='score'?' selected':''}>${lang==='de'?'Punkte':'Points'}</option><option value="arrows"${DASH_MODE==='arrows'?' selected':''}>${lang==='de'?'Pfeile':'Arrows'}</option><option value="both"${DASH_MODE==='both'?' selected':''}>${lang==='de'?'Punkte + Pfeile':'Points + arrows'}</option></select>${(function(){const m=dashDistances();const keys=Object.keys(m);if(!keys.length)return '';if(DASH_DIST===null)DASH_DIST='all';const rank=k=>k==='none'?2:(k.startsWith('fmt:')?1:0);
+const total=keys.reduce((a,k)=>a+(m[k]||0),0);
+const allOpt=`<option value="all"${DASH_DIST==='all'?' selected':''}>${lang==='de'?'Alle Entfernungen':'All distances'} (${total})</option>`;
+const opts=allOpt+keys.sort((a,b)=>{const ra=rank(a),rb=rank(b);if(ra!==rb)return ra-rb;if(ra===0)return (+a)-(+b);return a.localeCompare(b);}).map(k=>`<option value="${k}"${String(DASH_DIST)===k?' selected':''}>${cmpGroupLabel(k)} (${m[k]})</option>`).join('');return `<select onchange="setDashDist(this.value)" style="width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:3px 9px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif">${opts}</select>`;})()}</div></div>
+    <div style="font-size:11px;color:var(--text3);margin:-2px 0 8px">${DASH_DIST==='all'?(lang==='de'?'Alle Entfernungen und Formate – Punkte werden relativ zur Maximalpunktzahl (%) dargestellt, damit sie vergleichbar bleiben.':'All distances and formats – points are shown relative to the maximum score (%) so they stay comparable.'):(lang==='de'?'Verglichen werden nur Ergebnisse derselben Entfernung – Mehrdistanz-Turniere (z. B. 900er Runde) werden über das Format verglichen.':'Only results at the same distance are compared – multi-distance events (e.g. 900 Round) are compared by format.')}</div>
     <canvas id="score-canvas" height="150" style="width:100%;border-radius:8px;background:var(--bg3)"></canvas>
   </div>
   <div class="g2">
@@ -805,7 +807,7 @@ const opts=keys.sort((a,b)=>{const ra=rank(a),rb=rank(b);if(ra!==rb)return ra-rb
 function drawLineChart(){
   const cv=document.getElementById('score-canvas');if(!cv)return;
   const sel=DASH_DIST;
-  const inGroup=s=>sel===null?true:cmpGroup(s)===String(sel);
+  const inGroup=s=>(sel===null||sel==='all')?true:cmpGroup(s)===String(sel);
   const showScore=DASH_MODE!=='arrows',showArr=DASH_MODE!=='score';
   // entries: scored ones for the lines; all (incl. arrows-only) when arrows are shown
   const pool=getD().scores.filter(s=>inGroup(s)).filter(s=>showArr?((s.arrows||0)>0):(!s.no_points&&s.points>0));
@@ -827,15 +829,24 @@ function drawLineChart(){
   if(showArr){
     const maxA=Math.max(1,...all.map(s=>+s.arrows||0));
     const bw=Math.max(4,Math.min(26,slot*0.55));
+    const LBL=11;               // headroom reserved for the value label
+    const barMax=Math.max(6,cH-LBL);
     all.forEach((s,i)=>{const a=+s.arrows||0;if(!a)return;
-      const h=Math.max(2,(a/maxA)*cH);
+      const h=Math.max(2,(a/maxA)*barMax);
       let x=toX(i)-bw/2;
       x=Math.max(ml+1,Math.min(x,W-mr-bw-1)); // keep bars inside the plot area
       const y=mt+cH-h;
       ctx.fillStyle=s.no_points?'rgba(74,158,255,0.45)':'rgba(74,158,255,0.22)';
       ctx.fillRect(x,y,bw,h);
-      ctx.fillStyle='rgba(74,158,255,0.9)';ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
-      if(!showScore||s.no_points)ctx.fillText(a,x+bw/2,Math.max(mt+7,y-3));
+      if(!showScore||s.no_points){
+        ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
+        const wide=bw>=15;
+        if(h>=20&&wide){ // tall enough: label sits inside the bar, never on top of it
+          ctx.fillStyle='rgba(230,240,255,0.95)';ctx.fillText(a,x+bw/2,y+10);
+        } else {          // short bar: label above, always inside the plot
+          ctx.fillStyle='rgba(74,158,255,0.95)';ctx.fillText(a,x+bw/2,Math.max(mt+8,y-3));
+        }
+      }
     });
     if(!showScore){ // arrows axis labels on the left
       for(let i=0;i<=4;i++){const y=mt+i*cH/4;ctx.fillStyle='rgba(106,112,144,0.55)';ctx.font='9px Inter,sans-serif';ctx.textAlign='right';ctx.fillText(Math.round(maxA*(1-i/4)),ml-3,y+3);}
@@ -856,9 +867,19 @@ function drawLineChart(){
     ctx.stroke();ctx.shadowBlur=0;
     pts.forEach(p=>{
       ctx.fillStyle=color;ctx.beginPath();ctx.arc(p.x,p.y,3.5,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='rgba(240,240,240,0.9)';ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
-      ctx.fillText(avgArr(p.s.points,p.s.arrows),p.x,p.y-9);
-      if(p.s.placement&&p.s.placement<=3){ctx.font='10px Arial';ctx.fillText(medal(p.s.placement),p.x,p.y-19);}
+      ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
+      const above=p.y-9>=mt+8;               // enough room above the dot?
+      const ly=above?p.y-9:p.y+13;
+      // faint backing so the number stays readable over a bar
+      const txt=String(avgArr(p.s.points,p.s.arrows));
+      const tw=ctx.measureText(txt).width;
+      ctx.fillStyle='rgba(15,17,23,0.55)';ctx.fillRect(p.x-tw/2-2,ly-8,tw+4,10);
+      ctx.fillStyle='rgba(240,240,240,0.95)';ctx.fillText(txt,p.x,ly);
+      if(p.s.placement&&p.s.placement<=3){
+        ctx.font='10px Arial';
+        const my=above?(p.y-19>=mt+8?p.y-19:p.y+25):p.y+25;
+        ctx.fillText(medal(p.s.placement),p.x,my);
+      }
     });
   }
   if(showScore){
