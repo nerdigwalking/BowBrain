@@ -220,7 +220,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.10 &middot; &ldquo;Andrés Temiño&rdquo;</div>
+  <div class="lver">v1.0.0.11 &middot; &ldquo;Ki Bo-bae&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -238,7 +238,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v0.1.7.11 &middot; &ldquo;Steve Wijler&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.0.11 &middot; &ldquo;Ki Bo-bae&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -264,7 +264,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.10 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.0.11 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -303,7 +303,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.10',VNAME='Andrés Temiño';
+const VER='1.0.0.11',VNAME='Ki Bo-bae';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -313,12 +313,14 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.10 · "Andrés Temiño"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.10 · "Andrés Temiño"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.0.11 · "Ki Bo-bae"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.0.11 · "Ki Bo-bae"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
   version_names:[],
+  gl_labels:[{id:1,de:'Equipment',en:'Equipment'},{id:2,de:'Tuning',en:'Tuning'},{id:3,de:'Wettkampfformate',en:'Competition formats'},{id:4,de:'Technik',en:'Technique'}],
+  gl_item_labels:{1:[1],2:[4],3:[2],4:[2],5:[2],6:[1,2],7:[1],8:[1],9:[1,4],10:[3],11:[3]},
   contact_email:'sportleiter@bogenschiessen-hoehenkirchen.de',
   privacy_de:'Datenschutzerklärung\n\n(Dieser Text wurde noch nicht hinterlegt. Als Administrator kannst du ihn unter Hilfe & Support → Impressum → Datenschutzerklärung bearbeiten.)',
   privacy_en:'Privacy Policy\n\n(This text has not been added yet. As an administrator you can edit it under Help & Support → Imprint → Privacy Policy.)',
@@ -326,6 +328,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.0.11',name:'Ki Bo-bae',
+    de:['Glossar: Einträge lassen sich mit Labels versehen (Equipment, Tuning, Wettkampfformate, Technik)','Glossar: Standardansicht ist nach Labels gruppiert, die vom Admin festgelegte Reihenfolge bleibt innerhalb jeder Gruppe erhalten','Glossar: Filterleiste zum Eingrenzen auf ein einzelnes Label (inkl. „Ohne Label")','Admin kann im Glossar neue Labels anlegen, umbenennen und löschen (zweisprachig)'],
+    en:['Glossary: entries can be tagged with labels (equipment, tuning, competition formats, technique)','Glossary: default view is grouped by label; the admin-defined order is preserved within each group','Glossary: filter bar to narrow down to a single label (incl. "No label")','Admin can create, rename and delete labels directly in the glossary (bilingual)']},
   {ver:'1.0.0.10',name:'Andrés Temiño',
     de:['Admin kann eine Mitteilung an alle Nutzer schalten (erscheint dezent nach dem Login, einmal ausblendbar)','Mitteilung zweisprachig pflegbar; Bearbeiten zeigt sie erneut an','Admin erhält nach dem Login optional eine Zusammenfassung: neue Registrierungen und ungelesenes Feedback','Login-Zusammenfassung im Admin-Bereich abschaltbar','Login-Zusammenfassung jetzt geräteübergreifend (Zeitpunkt im Profil gespeichert)','Admin kann Namensvorschläge für künftige Versionen hinterlegen (z. B. als Dank für Feedback)'],
     en:['Admin can post an announcement to all users (appears discreetly after login, dismissible)','Announcement editable in both languages; editing shows it again','Admin optionally receives a post-login summary: new signups and unread feedback','Login summary can be switched off in the admin area','Login summary now works across devices (timestamp stored in the profile)','Admin can store codename suggestions for future versions (e.g. to thank contributors)']},
@@ -480,14 +485,14 @@ async function bootstrapUser(session){
 async function loadShared(){
   try{
     const {data:sc}=await sbc.from('shared_content').select('content').eq('id',1).maybeSingle();
-    if(sc&&sc.content){const x=sc.content;if(x.faq)SHARED.faq=x.faq;if(x.impressum_de)SHARED.impressum_de=x.impressum_de;if(x.impressum_en)SHARED.impressum_en=x.impressum_en;if(x.privacy_de)SHARED.privacy_de=x.privacy_de;if(x.privacy_en)SHARED.privacy_en=x.privacy_en;if(x.contact_email)SHARED.contact_email=x.contact_email;if(x.announcement)SHARED.announcement=x.announcement;if(Array.isArray(x.version_names))SHARED.version_names=x.version_names;if(x.tuning)SHARED.tuning=x.tuning;if(x.roadmap)SHARED.roadmap=x.roadmap;if(x.glossary){if(x.glossary.de)GL.de=x.glossary.de;if(x.glossary.en)GL.en=x.glossary.en;}if(x.maintenance)SHARED.maintenance=x.maintenance;if(Array.isArray(x.changelog)){SHARED.changelog=mergeChangelog(CHANGELOG,x.changelog);}}
+    if(sc&&sc.content){const x=sc.content;if(x.faq)SHARED.faq=x.faq;if(x.impressum_de)SHARED.impressum_de=x.impressum_de;if(x.impressum_en)SHARED.impressum_en=x.impressum_en;if(x.privacy_de)SHARED.privacy_de=x.privacy_de;if(x.privacy_en)SHARED.privacy_en=x.privacy_en;if(x.contact_email)SHARED.contact_email=x.contact_email;if(x.announcement)SHARED.announcement=x.announcement;if(Array.isArray(x.version_names))SHARED.version_names=x.version_names;if(Array.isArray(x.gl_labels))SHARED.gl_labels=x.gl_labels;if(x.gl_item_labels&&typeof x.gl_item_labels==='object')SHARED.gl_item_labels=x.gl_item_labels;if(x.tuning)SHARED.tuning=x.tuning;if(x.roadmap)SHARED.roadmap=x.roadmap;if(x.glossary){if(x.glossary.de)GL.de=x.glossary.de;if(x.glossary.en)GL.en=x.glossary.en;}if(x.maintenance)SHARED.maintenance=x.maintenance;if(Array.isArray(x.changelog)){SHARED.changelog=mergeChangelog(CHANGELOG,x.changelog);}}
     else if(CU&&CU.role==='admin'){await saveShared();}
     const {data:fb}=await sbc.from('feedback').select('*').order('id');
     if(fb)SHARED.feedback=fb.map(f=>({id:f.id,type:f.type,text:f.text,userName:f.user_name,date:f.created_at?new Date(f.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'',read:f.read}));
   }catch(e){console.error('loadShared',e);}
 }
 async function saveShared(){
-  const content={faq:SHARED.faq,impressum_de:SHARED.impressum_de,impressum_en:SHARED.impressum_en,privacy_de:SHARED.privacy_de,privacy_en:SHARED.privacy_en,contact_email:SHARED.contact_email,announcement:SHARED.announcement,version_names:SHARED.version_names,tuning:SHARED.tuning,roadmap:SHARED.roadmap,glossary:{de:GL.de,en:GL.en},maintenance:SHARED.maintenance,changelog:SHARED.changelog};
+  const content={faq:SHARED.faq,impressum_de:SHARED.impressum_de,impressum_en:SHARED.impressum_en,privacy_de:SHARED.privacy_de,privacy_en:SHARED.privacy_en,contact_email:SHARED.contact_email,announcement:SHARED.announcement,version_names:SHARED.version_names,gl_labels:SHARED.gl_labels,gl_item_labels:SHARED.gl_item_labels,tuning:SHARED.tuning,roadmap:SHARED.roadmap,glossary:{de:GL.de,en:GL.en},maintenance:SHARED.maintenance,changelog:SHARED.changelog};
   const {error}=await sbc.from('shared_content').upsert({id:1,content});
   if(error){console.error('saveShared',error);toast(error.message);}
 }
@@ -1123,45 +1128,147 @@ function saveLangPref(l){
 function chLTopbar(nl){lang=nl;saveLangPref(nl);const sel=document.getElementById('lang-topbar');if(sel)sel.value=nl;buildNav();navigate(currentPage);}
 // ─── GLOSSAR DATA (mutable) ───────────────────────────────────────────────
 const GL={de:[{id:1,t:'Spine',d:'Maß für Biegsamkeit. Niedrigerer Wert = steiferer Pfeil.'},{id:2,t:'Auszuglänge',d:'Distanz, die der Schütze den Bogen auszieht, in Zoll.'},{id:3,t:'Blankschaft-Tuning',d:'Unbefiederte Pfeile: Links/Rechts = Spine; Oben/Unten = Nockpunkt.'},{id:4,t:'Walkback-Tuning',d:'Pfeile auf senkrechten Streifen aus verschiedenen Entfernungen.'},{id:5,t:'Paper Tuning',d:'Pfeil durch Papier – Rissbild zeigt Korrekturen.'},{id:6,t:'Nockpunkt',d:'Punkt auf der Sehne, wo der Pfeil eingenocht wird.'},{id:7,t:'Standhöhe (Brace Height)',d:'Abstand Sehne–Griffstück. Typisch 8–9,5 Zoll.'},{id:8,t:'Tiller',d:'Abstand Wurfarmende–Sehne. Oberer Tiller typisch 2–4mm größer.'},{id:9,t:'Clicker',d:'Metallblättchen: klickt bei optimaler Auszuglänge.'},{id:10,t:'WA 720',d:'Outdoor-Format. 72 Pfeile, max. 720 Punkte (50m+30m).'},{id:11,t:'WA 600',d:'Indoor-Format. 60 Pfeile, max. 600 Punkte auf 18m oder 25m.'}],en:[{id:1,t:'Spine',d:'Measure of arrow stiffness. Lower = stiffer arrow.'},{id:2,t:'Draw Length',d:'Distance the archer draws the bow, in inches.'},{id:3,t:'Bare Shaft Tuning',d:'Bare shafts: Left/Right = spine; Up/Down = nocking point.'},{id:4,t:'Walkback Tuning',d:'Arrows on a vertical strip from different distances.'},{id:5,t:'Paper Tuning',d:'Arrow through paper – tear pattern shows corrections.'},{id:6,t:'Nocking Point',d:'Point on string where arrow is nocked.'},{id:7,t:'Brace Height',d:'String to grip distance. Typical 8–9.5 inches.'},{id:8,t:'Tiller',d:'Limb tip to string distance. Upper typically 2–4mm larger.'},{id:9,t:'Clicker',d:'Metal blade: clicks at optimal draw length.'},{id:10,t:'WA 720',d:'Outdoor format. 72 arrows, max 720 points (50m+30m).'},{id:11,t:'WA 600',d:'Indoor format. 60 arrows, max 600 points at 18m/25m.'}]};
-function rGlossar(){
-  const items=GL[lang]||GL.de,isAdmin=CU&&CU.role==='admin';
-  return`<div class="stitle">${t('glossar')}</div>
-  <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center">
-    <input type="text" placeholder="🔍 ${lang==='de'?'Suchen...':'Search...'}" id="g-s" oninput="filtG()" style="max-width:280px">
-    ${isAdmin?`<button class="btn bp btn-sm" onclick="editGlossarItem(null)">+ ${lang==='de'?'Begriff hinzufügen':'Add term'}</button>`:''}
-  </div>
-  <div class="card" id="g-l">${items.map((g,i)=>`<div class="gi" id="gi-${g.id}">
+let GL_FILTER_LABEL=null;
+function glArgLit(v){return v===null?'null':(typeof v==='number'?v:`'${v}'`);}
+function glItemLabelIds(id){const m=SHARED.gl_item_labels||{};return m[id]||[];}
+function glGroupMatches(id,labelId){const ids=glItemLabelIds(id);return labelId==='none'?ids.length===0:ids.includes(labelId);}
+function glossaryFilterBarHTML(){
+  const labels=SHARED.gl_labels||[];
+  if(!labels.length)return'';
+  return`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px" id="g-filterbar">
+    <button class="btn ${GL_FILTER_LABEL===null?'bp':'bg'} btn-sm" onclick="setGLFilter(null)">${lang==='de'?'Alle':'All'}</button>
+    ${labels.map(lb=>`<button class="btn ${GL_FILTER_LABEL===lb.id?'bp':'bg'} btn-sm" onclick="setGLFilter(${lb.id})">${lang==='de'?lb.de:lb.en}</button>`).join('')}
+    <button class="btn ${GL_FILTER_LABEL==='none'?'bp':'bg'} btn-sm" onclick="setGLFilter('none')">${lang==='de'?'Ohne Label':'No label'}</button>
+  </div>`;
+}
+function glossaryItemHTML(g,isAdmin,showArrows,groupLabelId,idx,groupLen){
+  return`<div class="gi" id="gi-${g.id}">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
       <div><div class="gterm">${g.t}</div><div class="gdef">${g.d}</div></div>
       ${isAdmin?`<div style="display:flex;gap:5px;flex-shrink:0;margin-top:2px">
-        <button class="btn bg btn-sm" onclick="moveGL(${g.id},-1)" ${i===0?'disabled':''} title="${lang==='de'?'Nach oben':'Move up'}" style="padding:2px 6px">▲</button>
-        <button class="btn bg btn-sm" onclick="moveGL(${g.id},1)" ${i===items.length-1?'disabled':''} title="${lang==='de'?'Nach unten':'Move down'}" style="padding:2px 6px">▼</button>
+        ${showArrows?`<button class="btn bg btn-sm" onclick="moveGLInGroup(${g.id},-1,${glArgLit(groupLabelId)})" ${idx===0?'disabled':''} title="${lang==='de'?'Nach oben':'Move up'}" style="padding:2px 6px">▲</button>
+        <button class="btn bg btn-sm" onclick="moveGLInGroup(${g.id},1,${glArgLit(groupLabelId)})" ${idx===groupLen-1?'disabled':''} title="${lang==='de'?'Nach unten':'Move down'}" style="padding:2px 6px">▼</button>`:''}
         <button class="btn bg btn-sm" onclick="editGlossarItem(${g.id})" style="padding:2px 7px">✏️</button>
         <button class="btn bd btn-sm" onclick="delGlossarItem(${g.id})" style="padding:2px 7px">🗑</button>
       </div>`:''}
     </div>
-  </div>`).join('')}</div>`;
+  </div>`;
+}
+function glossaryListHTML(){
+  const q=(document.getElementById('g-s')?.value||'').trim().toLowerCase();
+  const isAdmin=CU&&CU.role==='admin';
+  const allItems=GL[lang]||GL.de;
+  const matchesQ=g=>!q||g.t.toLowerCase().includes(q)||g.d.toLowerCase().includes(q);
+  if(!q&&GL_FILTER_LABEL===null){
+    const labels=SHARED.gl_labels||[];
+    const groups=[];
+    labels.forEach(lb=>{const gi=allItems.filter(g=>glGroupMatches(g.id,lb.id));if(gi.length)groups.push({id:lb.id,name:lang==='de'?lb.de:lb.en,items:gi});});
+    const noneItems=allItems.filter(g=>glGroupMatches(g.id,'none'));
+    if(noneItems.length)groups.push({id:'none',name:lang==='de'?'Ohne Label':'No label',items:noneItems});
+    if(!groups.length)return`<div class="card"><div style="padding:12px;color:var(--text3)">${lang==='de'?'Noch keine Einträge.':'No entries yet.'}</div></div>`;
+    if(groups.length===1){
+      const items=groups[0].items;
+      return`<div class="card">${items.map((g,idx)=>glossaryItemHTML(g,isAdmin,isAdmin,null,idx,items.length)).join('')}</div>`;
+    }
+    return groups.map((grp,gidx)=>`<div style="margin:${gidx?'18px':'0'} 0 8px;font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.04em">${grp.name}</div><div class="card" style="margin-bottom:0">${grp.items.map((g,idx)=>glossaryItemHTML(g,isAdmin,isAdmin,grp.id,idx,grp.items.length)).join('')}</div>`).join('');
+  }
+  const pool=allItems.filter(g=>(GL_FILTER_LABEL===null||glGroupMatches(g.id,GL_FILTER_LABEL))&&matchesQ(g));
+  const showArrows=isAdmin&&!q&&GL_FILTER_LABEL!==null;
+  return`<div class="card">${pool.length?pool.map((g,idx)=>glossaryItemHTML(g,isAdmin,showArrows,GL_FILTER_LABEL,idx,pool.length)).join(''):`<div style="padding:12px;color:var(--text3)">${lang==='de'?'Kein Ergebnis.':'No results.'}</div>`}</div>`;
+}
+function rGlossar(){
+  const isAdmin=CU&&CU.role==='admin';
+  return`<div class="stitle">${t('glossar')}</div>
+  <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center;flex-wrap:wrap">
+    <input type="text" placeholder="🔍 ${lang==='de'?'Suchen...':'Search...'}" id="g-s" oninput="filtG()" style="max-width:280px">
+    ${isAdmin?`<button class="btn bp btn-sm" onclick="editGlossarItem(null)">+ ${lang==='de'?'Begriff hinzufügen':'Add term'}</button>`:''}
+    ${isAdmin?`<button class="btn bg btn-sm" onclick="manageLabelsModal()">🏷 ${lang==='de'?'Labels verwalten':'Manage labels'}</button>`:''}
+  </div>
+  ${glossaryFilterBarHTML()}
+  <div id="g-l">${glossaryListHTML()}</div>`;
 }
 function filtG(){
-  const q=(document.getElementById('g-s')?.value||'').toLowerCase();
-  const items=(GL[lang]||GL.de).filter(g=>!q||g.t.toLowerCase().includes(q)||g.d.toLowerCase().includes(q));
   const el=document.getElementById('g-l');if(!el)return;
-  const isAdmin=CU&&CU.role==='admin';
-  const showArrows=isAdmin&&!q;
-  el.innerHTML=items.length?items.map((g,i)=>`<div class="gi"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px"><div><div class="gterm">${g.t}</div><div class="gdef">${g.d}</div></div>${isAdmin?`<div style="display:flex;gap:5px;flex-shrink:0;margin-top:2px">${showArrows?`<button class="btn bg btn-sm" onclick="moveGL(${g.id},-1)" ${i===0?'disabled':''} style="padding:2px 6px">▲</button><button class="btn bg btn-sm" onclick="moveGL(${g.id},1)" ${i===items.length-1?'disabled':''} style="padding:2px 6px">▼</button>`:''}<button class="btn bg btn-sm" onclick="editGlossarItem(${g.id})" style="padding:2px 7px">✏️</button><button class="btn bd btn-sm" onclick="delGlossarItem(${g.id})" style="padding:2px 7px">🗑</button></div>`:''}</div></div>`).join(''):`<div style="padding:12px;color:var(--text3)">${lang==='de'?'Kein Ergebnis.':'No results.'}</div>`;
+  el.innerHTML=glossaryListHTML();
 }
-async function moveGL(id,dir){
-  const de=GL.de,en=GL.en;
-  const i=de.findIndex(g=>g.id===id);if(i<0)return;
-  const j=i+dir;if(j<0||j>=de.length)return;
-  const tmp=de[i];de[i]=de[j];de[j]=tmp;
+function setGLFilter(id){
+  GL_FILTER_LABEL=id;
+  const fb=document.getElementById('g-filterbar');if(fb)fb.outerHTML=glossaryFilterBarHTML();
+  const el=document.getElementById('g-l');if(el)el.innerHTML=glossaryListHTML();
+}
+async function moveGLInGroup(id,dir,labelId){
+  const de=GL.de;
+  const groupIds=(labelId===null?de:de.filter(g=>glGroupMatches(g.id,labelId))).map(g=>g.id);
+  const gi=groupIds.indexOf(id),gj=gi+dir;
+  if(gi<0||gj<0||gj>=groupIds.length)return;
+  const otherId=groupIds[gj];
+  const i1=de.findIndex(g=>g.id===id),i2=de.findIndex(g=>g.id===otherId);
+  const tmp=de[i1];de[i1]=de[i2];de[i2]=tmp;
   const order=de.map(g=>g.id);
-  GL.en=order.map(oid=>en.find(g=>g.id===oid)).filter(Boolean).concat(en.filter(g=>!order.includes(g.id)));
+  GL.en=order.map(oid=>GL.en.find(g=>g.id===oid)).filter(Boolean).concat(GL.en.filter(g=>!order.includes(g.id)));
   await saveShared();navigate('glossar');
+}
+function manageLabelsModal(){
+  document.body.insertAdjacentHTML('beforeend',`
+  <div class="mo" id="lbl-mo" onclick="closeMo(event,'lbl-mo')"><div class="md" style="width:440px">
+    <div class="mh"><div class="mt2">🏷 ${lang==='de'?'Labels verwalten':'Manage Labels'}</div><button class="btn bg btn-sm" onclick="document.getElementById('lbl-mo').remove()">✕</button></div>
+    <div id="lbl-list" style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">${renderLabelListItems()}</div>
+    <div class="g2" style="gap:10px">
+      <div class="fg" style="margin-bottom:0"><label>Deutsch</label><input id="lbl-new-de" placeholder="${lang==='de'?'z. B. Sicherheit':'e.g. Safety'}"></div>
+      <div class="fg" style="margin-bottom:0"><label>English</label><input id="lbl-new-en" placeholder="e.g. Safety"></div>
+    </div>
+    <button class="btn bp btn-sm" style="margin-top:10px" onclick="addGLLabel()">+ ${lang==='de'?'Label hinzufügen':'Add label'}</button>
+  </div></div>`);
+}
+function renderLabelListItems(){
+  const labels=SHARED.gl_labels||[];
+  if(!labels.length)return`<div style="font-size:12px;color:var(--text3)">${lang==='de'?'Noch keine Labels.':'No labels yet.'}</div>`;
+  return labels.map(lb=>`<div style="display:flex;align-items:center;gap:8px;background:var(--bg3);border-radius:8px;padding:7px 10px">
+    <span style="flex:1;min-width:0;font-size:13px;font-weight:600;color:var(--text)">${lb.de}<span style="color:var(--text3);font-weight:400"> / ${lb.en}</span></span>
+    <button class="btn bg btn-sm" onclick="renameGLLabel(${lb.id})" style="padding:2px 7px">✏️</button>
+    <button class="btn bd btn-sm" onclick="delGLLabel(${lb.id})" style="padding:2px 7px">🗑</button>
+  </div>`).join('');
+}
+async function addGLLabel(){
+  const de=document.getElementById('lbl-new-de')?.value?.trim();
+  const en=document.getElementById('lbl-new-en')?.value?.trim();
+  if(!de){toast(lang==='de'?'Bitte einen deutschen Namen angeben.':'Please enter a German name.');return;}
+  if(!Array.isArray(SHARED.gl_labels))SHARED.gl_labels=[];
+  if(SHARED.gl_labels.some(l=>l.de.toLowerCase()===de.toLowerCase())){toast(lang==='de'?'Dieses Label gibt es schon.':'This label already exists.');return;}
+  const nid=Math.max(0,...SHARED.gl_labels.map(l=>l.id))+1;
+  SHARED.gl_labels.push({id:nid,de,en:en||de});
+  const ld=document.getElementById('lbl-new-de');if(ld)ld.value='';
+  const le=document.getElementById('lbl-new-en');if(le)le.value='';
+  const ll=document.getElementById('lbl-list');if(ll)ll.innerHTML=renderLabelListItems();
+  const fb=document.getElementById('g-filterbar');if(fb)fb.outerHTML=glossaryFilterBarHTML();
+  await saveShared();
+}
+async function renameGLLabel(id){
+  const lb=(SHARED.gl_labels||[]).find(l=>l.id===id);if(!lb)return;
+  const nde=prompt(lang==='de'?'Deutscher Name:':'German name:',lb.de);if(nde===null||!nde.trim())return;
+  const nen=prompt('English name:',lb.en);if(nen===null)return;
+  lb.de=nde.trim();lb.en=(nen||'').trim()||nde.trim();
+  const ll=document.getElementById('lbl-list');if(ll)ll.innerHTML=renderLabelListItems();
+  const fb=document.getElementById('g-filterbar');if(fb)fb.outerHTML=glossaryFilterBarHTML();
+  const gl=document.getElementById('g-l');if(gl)gl.innerHTML=glossaryListHTML();
+  await saveShared();
+}
+async function delGLLabel(id){
+  if(!confirm(t('confirm_del')))return;
+  SHARED.gl_labels=(SHARED.gl_labels||[]).filter(l=>l.id!==id);
+  const m=SHARED.gl_item_labels||{};
+  Object.keys(m).forEach(k=>{m[k]=(m[k]||[]).filter(lid=>lid!==id);});
+  if(GL_FILTER_LABEL===id)GL_FILTER_LABEL=null;
+  const ll=document.getElementById('lbl-list');if(ll)ll.innerHTML=renderLabelListItems();
+  const fb=document.getElementById('g-filterbar');if(fb)fb.outerHTML=glossaryFilterBarHTML();
+  const gl=document.getElementById('g-l');if(gl)gl.innerHTML=glossaryListHTML();
+  await saveShared();
 }
 function editGlossarItem(id){
   const de=id?GL.de.find(g=>g.id===id):null;
   const en=id?GL.en.find(g=>g.id===id):null;
+  const labels=SHARED.gl_labels||[];
+  const assigned=id?glItemLabelIds(id):[];
   document.body.insertAdjacentHTML('beforeend',`
   <div class="mo" id="gl-mo" onclick="closeMo(event,'gl-mo')"><div class="md" style="width:480px">
     <div class="mh"><div class="mt2">${id?(lang==='de'?'Begriff bearbeiten':'Edit Term'):(lang==='de'?'Neuer Begriff':'New Term')}</div><button class="btn bg btn-sm" onclick="document.getElementById('gl-mo').remove()">✕</button></div>
@@ -1169,6 +1276,7 @@ function editGlossarItem(id){
     <div class="fg"><label>Deutsch – Definition</label><textarea id="gl-de-d" style="min-height:70px">${de?.d||''}</textarea></div>
     <div class="fg"><label>English – Term</label><input id="gl-en-t" value="${en?.t||''}"></div>
     <div class="fg"><label>English – Definition</label><textarea id="gl-en-d" style="min-height:70px">${en?.d||''}</textarea></div>
+    ${labels.length?`<div class="fg"><label>${lang==='de'?'Labels':'Labels'}</label><div style="display:flex;gap:10px;flex-wrap:wrap;padding:4px 0">${labels.map(lb=>`<label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12.5px;color:var(--text)"><input type="checkbox" class="gl-lbl-cb" value="${lb.id}" style="width:auto" ${assigned.includes(lb.id)?'checked':''}> ${lang==='de'?lb.de:lb.en}</label>`).join('')}</div></div>`:''}
     <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px">
       <button class="btn bg" onclick="document.getElementById('gl-mo').remove()">${t('cancel')}</button>
       <button class="btn bp" onclick="saveGlossarItem(${id||'null'})">${t('save')}</button>
@@ -1179,19 +1287,24 @@ async function saveGlossarItem(id){
   const deT=document.getElementById('gl-de-t')?.value?.trim();const deD=document.getElementById('gl-de-d')?.value?.trim();
   const enT=document.getElementById('gl-en-t')?.value?.trim();const enD=document.getElementById('gl-en-d')?.value?.trim();
   if(!deT||!deD)return;
+  const checked=[...document.querySelectorAll('.gl-lbl-cb:checked')].map(cb=>parseInt(cb.value,10));
+  let nid=id;
   if(id){
     GL.de=GL.de.map(g=>g.id===id?{...g,t:deT,d:deD}:g);
     GL.en=GL.en.map(g=>g.id===id?{...g,t:enT||deT,d:enD||deD}:g);
   } else {
-    const nid=Math.max(...GL.de.map(g=>g.id),0)+1;
+    nid=Math.max(...GL.de.map(g=>g.id),0)+1;
     GL.de.push({id:nid,t:deT,d:deD});
     GL.en.push({id:nid,t:enT||deT,d:enD||deD});
   }
+  if(!SHARED.gl_item_labels)SHARED.gl_item_labels={};
+  if(checked.length){SHARED.gl_item_labels[nid]=checked;}else{delete SHARED.gl_item_labels[nid];}
   document.getElementById('gl-mo').remove();navigate('glossar');saveShared();
 }
 async function delGlossarItem(id){
   if(!confirm(t('confirm_del')))return;
   GL.de=GL.de.filter(g=>g.id!==id);GL.en=GL.en.filter(g=>g.id!==id);
+  if(SHARED.gl_item_labels)delete SHARED.gl_item_labels[id];
   navigate('glossar');saveShared();
 }
 
