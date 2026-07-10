@@ -220,7 +220,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.9 &middot; &ldquo;Sjef van den Berg&rdquo;</div>
+  <div class="lver">v1.0.0.10 &middot; &ldquo;Andrés Temiño&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -264,7 +264,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.9 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.0.10 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -303,7 +303,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.9',VNAME='Sjef van den Berg';
+const VER='1.0.0.10',VNAME='Andrés Temiño';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -313,10 +313,12 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.9 · "Sjef van den Berg"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.9 · "Sjef van den Berg"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.0.10 · "Andrés Temiño"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.0.10 · "Andrés Temiño"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
+  announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
+  version_names:[],
   contact_email:'sportleiter@bogenschiessen-hoehenkirchen.de',
   privacy_de:'Datenschutzerklärung\n\n(Dieser Text wurde noch nicht hinterlegt. Als Administrator kannst du ihn unter Hilfe & Support → Impressum → Datenschutzerklärung bearbeiten.)',
   privacy_en:'Privacy Policy\n\n(This text has not been added yet. As an administrator you can edit it under Help & Support → Imprint → Privacy Policy.)',
@@ -324,6 +326,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.0.10',name:'Andrés Temiño',
+    de:['Admin kann eine Mitteilung an alle Nutzer schalten (erscheint dezent nach dem Login, einmal ausblendbar)','Mitteilung zweisprachig pflegbar; Bearbeiten zeigt sie erneut an','Admin erhält nach dem Login optional eine Zusammenfassung: neue Registrierungen und ungelesenes Feedback','Login-Zusammenfassung im Admin-Bereich abschaltbar','Login-Zusammenfassung jetzt geräteübergreifend (Zeitpunkt im Profil gespeichert)','Admin kann Namensvorschläge für künftige Versionen hinterlegen (z. B. als Dank für Feedback)'],
+    en:['Admin can post an announcement to all users (appears discreetly after login, dismissible)','Announcement editable in both languages; editing shows it again','Admin optionally receives a post-login summary: new signups and unread feedback','Login summary can be switched off in the admin area','Login summary now works across devices (timestamp stored in the profile)','Admin can store codename suggestions for future versions (e.g. to thank contributors)']},
   {ver:'1.0.0.9',name:'Sjef van den Berg',
     de:['Glossar: Admin kann die Reihenfolge per ▲▼ ändern (beide Sprachen synchron)','Weltrekorde: pro Kategorie und Event ist nur noch der tatsächlich gültige Rekord als „aktuell" markiert','Weltrekorde: 70m/72 Pfeile ist der Standard-Filter','Weltrekorde: Kategorien nach Relevanz sortiert (Einzel → Team → Jugend → Para)','Tuning: Skizzen auf dem Handy deutlich größer und horizontal scrollbar','Mobile: Navigationsleiste bleibt fixiert und wird nicht mehr weggeschoben','Dashboard: Direkt-Links zum Anlegen von Ergebnis und Setup','Dashboard: „Punkte + Pfeile" ist die Standardansicht','Dashboard: neue Auswahl „Alle Entfernungen" – zeigt alle Trainings und Wettkämpfe (Standardansicht)','Dashboard: Balken überlagern keine Beschriftungen mehr; Werte sitzen sauber im oder über dem Balken'],
     en:['Glossary: admin can reorder entries with ▲▼ (both languages in sync)','World records: only the genuinely standing record per category and event is marked as current','World records: 70m/72 arrows is the default filter','World records: categories sorted by relevance (individual → team → youth → para)','Tuning: diagrams noticeably larger and horizontally scrollable on phones','Mobile: bottom navigation stays fixed and can no longer slide away','Dashboard: direct links to add a result or a setup','Dashboard: "Points + arrows" is the default view','Dashboard: new "All distances" option – shows all trainings and competitions (default view)','Dashboard: bars no longer overlap any labels; values sit cleanly inside or above the bar']},
@@ -452,6 +457,7 @@ async function bootstrapUser(session){
   if(prof&&prof.lang){lang=prof.lang;try{localStorage.setItem('bb_lang',prof.lang);}catch(e){}}
   PREFS[uid]={name:(prof&&prof.name)||email.split('@')[0],email:(prof&&prof.email)||email,club:(prof&&prof.club)||'',handedness:(prof&&prof.handedness)||'right',draw_length:(prof&&prof.draw_length)||28,bow_class:(prof&&prof.bow_class)||'Recurve',cc:(prof&&prof.cc)||'',country:(prof&&prof.country)||'',avatar_url:(prof&&prof.avatar_url)||null,disciplines:(prof&&prof.disciplines)||''};
   try{WA_FAVS=(prof&&Array.isArray(prof.wa_favorites))?prof.wa_favorites:JSON.parse(localStorage.getItem('bb_wa_favs')||'[]');}catch(e){WA_FAVS=[];}
+  ADMIN_LAST_SEEN=(prof&&prof.admin_last_seen)||null;   // null → column missing or first visit
   let {data:st}=await sbc.from('user_settings').select('*').eq('user_id',uid).maybeSingle();
   SETTINGS[uid]={dark_mode:st?st.dark_mode:true,animations:st?st.animations:true,compact:st?st.compact:false,large_font:st?st.large_font:false};
   const [setupsR,scoresR,sightR,tuningR,photosR]=await Promise.all([
@@ -474,14 +480,14 @@ async function bootstrapUser(session){
 async function loadShared(){
   try{
     const {data:sc}=await sbc.from('shared_content').select('content').eq('id',1).maybeSingle();
-    if(sc&&sc.content){const x=sc.content;if(x.faq)SHARED.faq=x.faq;if(x.impressum_de)SHARED.impressum_de=x.impressum_de;if(x.impressum_en)SHARED.impressum_en=x.impressum_en;if(x.privacy_de)SHARED.privacy_de=x.privacy_de;if(x.privacy_en)SHARED.privacy_en=x.privacy_en;if(x.contact_email)SHARED.contact_email=x.contact_email;if(x.tuning)SHARED.tuning=x.tuning;if(x.roadmap)SHARED.roadmap=x.roadmap;if(x.glossary){if(x.glossary.de)GL.de=x.glossary.de;if(x.glossary.en)GL.en=x.glossary.en;}if(x.maintenance)SHARED.maintenance=x.maintenance;if(Array.isArray(x.changelog)){SHARED.changelog=mergeChangelog(CHANGELOG,x.changelog);}}
+    if(sc&&sc.content){const x=sc.content;if(x.faq)SHARED.faq=x.faq;if(x.impressum_de)SHARED.impressum_de=x.impressum_de;if(x.impressum_en)SHARED.impressum_en=x.impressum_en;if(x.privacy_de)SHARED.privacy_de=x.privacy_de;if(x.privacy_en)SHARED.privacy_en=x.privacy_en;if(x.contact_email)SHARED.contact_email=x.contact_email;if(x.announcement)SHARED.announcement=x.announcement;if(Array.isArray(x.version_names))SHARED.version_names=x.version_names;if(x.tuning)SHARED.tuning=x.tuning;if(x.roadmap)SHARED.roadmap=x.roadmap;if(x.glossary){if(x.glossary.de)GL.de=x.glossary.de;if(x.glossary.en)GL.en=x.glossary.en;}if(x.maintenance)SHARED.maintenance=x.maintenance;if(Array.isArray(x.changelog)){SHARED.changelog=mergeChangelog(CHANGELOG,x.changelog);}}
     else if(CU&&CU.role==='admin'){await saveShared();}
     const {data:fb}=await sbc.from('feedback').select('*').order('id');
     if(fb)SHARED.feedback=fb.map(f=>({id:f.id,type:f.type,text:f.text,userName:f.user_name,date:f.created_at?new Date(f.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'',read:f.read}));
   }catch(e){console.error('loadShared',e);}
 }
 async function saveShared(){
-  const content={faq:SHARED.faq,impressum_de:SHARED.impressum_de,impressum_en:SHARED.impressum_en,privacy_de:SHARED.privacy_de,privacy_en:SHARED.privacy_en,contact_email:SHARED.contact_email,tuning:SHARED.tuning,roadmap:SHARED.roadmap,glossary:{de:GL.de,en:GL.en},maintenance:SHARED.maintenance,changelog:SHARED.changelog};
+  const content={faq:SHARED.faq,impressum_de:SHARED.impressum_de,impressum_en:SHARED.impressum_en,privacy_de:SHARED.privacy_de,privacy_en:SHARED.privacy_en,contact_email:SHARED.contact_email,announcement:SHARED.announcement,version_names:SHARED.version_names,tuning:SHARED.tuning,roadmap:SHARED.roadmap,glossary:{de:GL.de,en:GL.en},maintenance:SHARED.maintenance,changelog:SHARED.changelog};
   const {error}=await sbc.from('shared_content').upsert({id:1,content});
   if(error){console.error('saveShared',error);toast(error.message);}
 }
@@ -634,6 +640,7 @@ async function afterAuth(session,showOnboard){
   document.getElementById('login-page').style.display='none';
   document.getElementById('app-shell').style.display='';
   buildNav();navigate('dashboard');startHeartbeat();
+  setTimeout(showLoginNotices,600);
   if(showOnboard)setTimeout(startOnboarding,400);
 }
 async function logout(){stopHeartbeat();try{await sbc.auth.signOut();}catch(e){}CU=null;location.reload();}
@@ -1206,6 +1213,27 @@ function miniBars(data,key,fmt,color){const max=Math.max(1,...data.map(d=>+d[key
 function rAdmin(){if(!CU||CU.role!=='admin'){navigate('dashboard');return'';}
   const stats=getRealStats(),fb=SHARED.feedback,unread=fb.filter(f=>!f.read).length;
   return`<div class="stitle">${t('admin')}</div><div class="g3" style="margin-bottom:14px">${[[stats.totalUsers,lang==='de'?'Nutzer gesamt':'Total users','var(--text)'],[stats.newW,lang==='de'?'Neu (7 T.)':'New (7d)','var(--green)'],[stats.actW,lang==='de'?'Aktiv (7 T.)':'Active (7d)','var(--blue)'],[stats.newM,lang==='de'?'Neu (30 T.)':'New (30d)','var(--green)'],[stats.totalArrows,lang==='de'?'Pfeile ges.':'Total arrows','var(--accent)'],[stats.totalFeedback,'Feedback','var(--accent)']].map(([n,l,c])=>`<div class="card-sm" style="text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:26px;color:${c};line-height:1.2">${n}</div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;margin-top:2px">${l}</div></div>`).join('')}</div><div class="g2" style="margin-bottom:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Neuanmeldungen (14 T.)':'Signups (14d)'}</div></div>${miniBars(ADMIN_SIGNUPS,'count',v=>v,'var(--green)')}</div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Nutzungszeit/Tag (14 T.)':'Usage/day (14d)'}</div></div>${miniBars(ADMIN_USAGE,'seconds',fmtDur,'var(--blue)')}</div></div>
+  <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">📣 ${lang==='de'?'Mitteilung an alle Nutzer':'Announcement to all users'}</div><div class="toggle ${SHARED.announcement&&SHARED.announcement.active?'on':''}" onclick="toggleAnnouncement()"></div></div>
+    <p style="font-size:12.5px;color:var(--text2);margin-bottom:10px;line-height:1.6">${SHARED.announcement&&SHARED.announcement.active?(lang==='de'?'<b style="color:var(--accent)">Aktiv</b> – Nutzer sehen die Mitteilung einmal nach dem Login und können sie ausblenden.':'<b style="color:var(--accent)">Active</b> – users see it once after login and can dismiss it.'):(lang==='de'?'Inaktiv – es wird keine Mitteilung angezeigt.':'Inactive – no announcement is shown.')}</p>
+    <div class="g2" style="gap:10px"><div class="fg"><label>${lang==='de'?'Titel (Deutsch)':'Title (German)'}</label><input id="ann-tde" value="${(SHARED.announcement&&SHARED.announcement.title_de)||''}"></div><div class="fg"><label>${lang==='de'?'Titel (Englisch)':'Title (English)'}</label><input id="ann-ten" value="${(SHARED.announcement&&SHARED.announcement.title_en)||''}"></div></div>
+    <div class="fg"><label>${lang==='de'?'Text (Deutsch)':'Text (German)'}</label><textarea id="ann-xde" style="min-height:70px">${(SHARED.announcement&&SHARED.announcement.text_de)||''}</textarea></div>
+    <div class="fg"><label>${lang==='de'?'Text (Englisch)':'Text (English)'}</label><textarea id="ann-xen" style="min-height:70px">${(SHARED.announcement&&SHARED.announcement.text_en)||''}</textarea></div>
+    <button class="btn bp btn-sm" onclick="saveAnnouncement()">${lang==='de'?'Mitteilung speichern':'Save announcement'}</button>
+    <div style="font-size:11px;color:var(--text3);margin-top:8px">${lang==='de'?'Beim Speichern wird die Mitteilung für alle erneut eingeblendet – auch für Nutzer, die sie schon ausgeblendet hatten.':'Saving shows the announcement again to everyone – including users who already dismissed it.'}</div>
+  </div>
+  <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">🏷 ${lang==='de'?'Namensvorschläge für Versionen':'Codename suggestions'}</div><span class="badge bbl">${(SHARED.version_names||[]).filter(v=>!v.used).length} ${lang==='de'?'offen':'open'}</span></div>
+    <p style="font-size:12.5px;color:var(--text2);margin-bottom:10px;line-height:1.6">${lang==='de'?'Vorschläge für kommende Versions-Spitznamen – z. B. um Nutzer zu würdigen, deren Feedback die App verbessert hat.':'Suggestions for upcoming version codenames – e.g. to honour users whose feedback improved the app.'}</p>
+    <div class="g2" style="gap:10px"><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Name':'Name'}</label><input id="vn-name" placeholder="${lang==='de'?'z. B. Ki Bo-bae':'e.g. Ki Bo-bae'}"></div><div class="fg" style="margin-bottom:0"><label>${lang==='de'?'Anlass (optional)':'Reason (optional)'}</label><input id="vn-note" placeholder="${lang==='de'?'z. B. Danke für Bug-Report':'e.g. thanks for bug report'}"></div></div>
+    <button class="btn bp btn-sm" style="margin-top:10px" onclick="addVName()">+ ${lang==='de'?'Vorschlag hinzufügen':'Add suggestion'}</button>
+    ${(SHARED.version_names||[]).length?`<div style="margin-top:12px;display:flex;flex-direction:column;gap:6px">${SHARED.version_names.map((v,i)=>`<div style="display:flex;align-items:center;gap:8px;background:var(--bg3);border-radius:8px;padding:7px 10px;${v.used?'opacity:0.55':''}">
+      <span style="flex:1;min-width:0"><span style="font-size:13px;font-weight:600;color:var(--text);${v.used?'text-decoration:line-through':''}">${v.name}</span>${v.note?`<span style="font-size:11px;color:var(--text3)"> · ${v.note}</span>`:''}${v.used?`<span class="badge bgr" style="margin-left:6px;font-size:10px">${lang==='de'?'verwendet in v'+(v.usedIn||'?'):'used in v'+(v.usedIn||'?')}</span>`:''}</span>
+      ${!v.used?`<button class="btn bg btn-sm" onclick="moveVName(${i},-1)" ${i===0?'disabled':''} style="padding:2px 6px">▲</button><button class="btn bg btn-sm" onclick="moveVName(${i},1)" ${i===SHARED.version_names.length-1?'disabled':''} style="padding:2px 6px">▼</button><button class="btn bg btn-sm" onclick="markVNameUsed(${i})" title="${lang==='de'?'Als verwendet markieren':'Mark as used'}" style="padding:2px 7px">✓</button>`:''}
+      <button class="btn bd btn-sm" onclick="delVName(${i})" style="padding:2px 7px">🗑</button>
+    </div>`).join('')}</div>`:`<div style="margin-top:10px;font-size:12px;color:var(--text3)">${lang==='de'?'Noch keine Vorschläge.':'No suggestions yet.'}</div>`}
+  </div>
+  <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">🔔 ${lang==='de'?'Login-Zusammenfassung':'Login summary'}</div><div class="toggle ${adminDigestOn()?'on':''}" onclick="setAdminDigest(!adminDigestOn())"></div></div>
+    <p style="font-size:12.5px;color:var(--text2);line-height:1.6;margin:0">${lang==='de'?'Zeigt dir nach dem Login neue Registrierungen und ungelesenes Feedback seit deinem letzten Besuch – geräteübergreifend, da der Zeitpunkt im Profil gespeichert wird.':'Shows new signups and unread feedback since your last visit, right after login – across devices, since the timestamp is stored in your profile.'}</p>
+  </div>
   <div class="card" style="margin-bottom:14px;border:1px solid ${SHARED.maintenance&&SHARED.maintenance.active?'var(--accent)':'var(--border)'}"><div class="ch"><div class="ct">🔧 ${lang==='de'?'Wartungsmodus':'Maintenance Mode'}</div><div class="toggle ${SHARED.maintenance&&SHARED.maintenance.active?'on':''}" onclick="toggleMaintenance()"></div></div>
     <p style="font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.6">${SHARED.maintenance&&SHARED.maintenance.active?(lang==='de'?'<b style="color:var(--accent)">Aktiv</b> – normale Nutzer können sich nicht einloggen und sehen den Hinweis unten. Nur Admins haben Zugriff.':'<b style="color:var(--accent)">Active</b> – regular users cannot log in and see the notice below. Only admins have access.'):(lang==='de'?'Inaktiv – alle Nutzer haben normalen Zugriff.':'Inactive – all users have normal access.')}</p>
     <div class="fg"><label>${lang==='de'?'Hinweistext (Deutsch)':'Notice text (German)'}</label><textarea id="maint-de" style="min-height:60px">${(SHARED.maintenance&&SHARED.maintenance.msg_de)||''}</textarea></div>
@@ -1253,6 +1281,53 @@ function rHelp(){
   </div></div>`;
 }
 function swH(id){['faq','fb','rm','do','im'].forEach(k=>{const el=document.getElementById('hc-'+k);if(el)el.style.display=k===id?'':'none';const tab=document.getElementById('ht-'+k);if(tab)tab.classList.toggle('active',k===id);});}
+async function addVName(){
+  const name=document.getElementById('vn-name')?.value?.trim();
+  const note=document.getElementById('vn-note')?.value?.trim()||'';
+  if(!name){toast(lang==='de'?'Bitte einen Namen eingeben.':'Please enter a name.');return;}
+  if(!Array.isArray(SHARED.version_names))SHARED.version_names=[];
+  if(SHARED.version_names.some(v=>v.name.toLowerCase()===name.toLowerCase())){toast(lang==='de'?'Dieser Name steht schon auf der Liste.':'That name is already on the list.');return;}
+  SHARED.version_names.push({name,note,used:false,added:new Date().toISOString().slice(0,10)});
+  await saveShared();navigate('admin');
+}
+async function delVName(i){
+  if(!confirm(t('confirm_del')))return;
+  SHARED.version_names.splice(i,1);await saveShared();navigate('admin');
+}
+async function markVNameUsed(i){
+  const v=SHARED.version_names[i];if(!v)return;
+  const ver=prompt(lang==='de'?'In welcher Version verwendet?':'Used in which version?',VER);
+  if(ver===null)return;
+  v.used=true;v.usedIn=ver.trim()||VER;
+  await saveShared();navigate('admin');
+}
+async function moveVName(i,dir){
+  const j=i+dir;const a=SHARED.version_names;
+  if(!a||j<0||j>=a.length)return;
+  const tmp=a[i];a[i]=a[j];a[j]=tmp;
+  await saveShared();navigate('admin');
+}
+async function toggleAnnouncement(){
+  if(!SHARED.announcement)SHARED.announcement={active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''};
+  SHARED.announcement.active=!SHARED.announcement.active;
+  if(SHARED.announcement.active&&!SHARED.announcement.id)SHARED.announcement.id=Date.now();
+  await saveShared();
+  toast(SHARED.announcement.active?(lang==='de'?'Mitteilung aktiviert.':'Announcement enabled.'):(lang==='de'?'Mitteilung deaktiviert.':'Announcement disabled.'),true);
+  navigate('admin');
+}
+async function saveAnnouncement(){
+  if(!SHARED.announcement)SHARED.announcement={active:false,id:0};
+  const a=SHARED.announcement;
+  a.title_de=document.getElementById('ann-tde')?.value?.trim()||'';
+  a.title_en=document.getElementById('ann-ten')?.value?.trim()||'';
+  a.text_de=document.getElementById('ann-xde')?.value||'';
+  a.text_en=document.getElementById('ann-xen')?.value||'';
+  if(!a.title_de&&!a.title_en&&!a.text_de&&!a.text_en){toast(lang==='de'?'Bitte Titel oder Text eingeben.':'Please enter a title or text.');return;}
+  a.id=Date.now();          // new id → everyone sees it again
+  await saveShared();
+  toast(lang==='de'?'Mitteilung gespeichert.':'Announcement saved.',true);
+  navigate('admin');
+}
 async function toggleMaintenance(){
   if(!SHARED.maintenance)SHARED.maintenance={active:false,msg_de:'',msg_en:''};
   const willActivate=!SHARED.maintenance.active;
@@ -1681,6 +1756,73 @@ function waFetchNationalRecords(){
   }).catch(e=>{area.innerHTML=`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Fehler':'Error'}: ${e.message}</div></div>`;console.error('NR',e);});
 }
 
+// ── Login notices: announcement for everyone, digest for admins ──
+function annDismissed(id){try{return String(localStorage.getItem('bb_ann_seen')||'')===String(id);}catch(e){return false;}}
+function dismissAnn(id){try{localStorage.setItem('bb_ann_seen',String(id));}catch(e){}document.getElementById('ann-card')?.remove();}
+let ADMIN_LAST_SEEN=null;
+async function readAdminLastSeen(){
+  // Preferred: profile column (works across devices). Fallback: this browser.
+  if(ADMIN_LAST_SEEN)return ADMIN_LAST_SEEN;
+  try{const v=localStorage.getItem('bb_admin_last_seen');return v||null;}catch(e){return null;}
+}
+async function writeAdminLastSeen(iso){
+  ADMIN_LAST_SEEN=iso;
+  try{localStorage.setItem('bb_admin_last_seen',iso);}catch(e){}
+  try{
+    const {error}=await sbc.from('profiles').update({admin_last_seen:iso}).eq('id',CU.id);
+    if(error)console.warn('admin_last_seen not stored centrally (run the SQL migration):',error.message);
+  }catch(e){console.warn('admin_last_seen',e);}
+}
+function adminDigestOn(){try{return localStorage.getItem('bb_admin_digest')!=='off';}catch(e){return true;}}
+function setAdminDigest(on){try{localStorage.setItem('bb_admin_digest',on?'on':'off');}catch(e){}toast(on?(lang==='de'?'Login-Zusammenfassung aktiviert.':'Login summary enabled.'):(lang==='de'?'Login-Zusammenfassung deaktiviert.':'Login summary disabled.'),true);navigate('admin');}
+function noticeCard(id,icon,title,body,accent){
+  return `<div class="card fade-in" id="${id}" style="margin-bottom:14px;border-left:3px solid ${accent}">
+    <div style="display:flex;align-items:flex-start;gap:10px">
+      <div style="font-size:19px;line-height:1.2;flex-shrink:0">${icon}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">${title}</div>
+        <div style="font-size:12.5px;color:var(--text2);line-height:1.6">${body}</div>
+      </div>
+      <button onclick="document.getElementById('${id}')?.remove()" title="${lang==='de'?'Ausblenden':'Dismiss'}" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:15px;line-height:1;padding:2px 4px;flex-shrink:0">✕</button>
+    </div>
+  </div>`;
+}
+async function showLoginNotices(){
+  const host=document.getElementById('content');
+  if(!host||currentPage!=='dashboard')return;
+  let html='';
+  // 1) Announcement from the admin (everyone, once per announcement)
+  const a=SHARED.announcement;
+  if(a&&a.active&&!annDismissed(a.id)){
+    const title=(lang==='en'?(a.title_en||a.title_de):(a.title_de||a.title_en))||(lang==='de'?'Neuigkeit':'Announcement');
+    const text=(lang==='en'?(a.text_en||a.text_de):(a.text_de||a.text_en))||'';
+    html+=`<div class="card fade-in" id="ann-card" style="margin-bottom:14px;border-left:3px solid var(--accent)">
+      <div style="display:flex;align-items:flex-start;gap:10px">
+        <div style="font-size:19px;flex-shrink:0">📣</div>
+        <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">${title}</div>
+        <div style="font-size:12.5px;color:var(--text2);line-height:1.6;white-space:pre-wrap">${text}</div></div>
+        <button onclick="dismissAnn('${a.id}')" title="${lang==='de'?'Nicht mehr anzeigen':'Do not show again'}" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:15px;line-height:1;padding:2px 4px;flex-shrink:0">✕</button>
+      </div></div>`;
+  }
+  // 2) Admin digest (private, optional)
+  if(CU&&CU.role==='admin'&&adminDigestOn()){
+    try{
+      const since=await readAdminLastSeen();
+      const {data:profs}=await sbc.from('profiles').select('created_at');
+      const newUsers=since?(profs||[]).filter(p=>p.created_at&&new Date(p.created_at)>new Date(since)).length:0;
+      const unread=(SHARED.feedback||[]).filter(f=>!f.read).length;
+      if(newUsers||unread){
+        const parts=[];
+        if(newUsers)parts.push(lang==='de'?`<strong>${newUsers}</strong> neue Registrierung${newUsers>1?'en':''}`:`<strong>${newUsers}</strong> new signup${newUsers>1?'s':''}`);
+        if(unread)parts.push(lang==='de'?`<strong>${unread}</strong> ungelesene${unread>1?' Feedbacks':'s Feedback'}`:`<strong>${unread}</strong> unread feedback`);
+        const body=parts.join(lang==='de'?' · ':' · ')+` <a onclick="navigate('admin')" style="color:var(--accent);cursor:pointer;text-decoration:underline">${lang==='de'?'Zum Admin-Bereich':'Open admin area'}</a>`;
+        html+=noticeCard('digest-card','🔔',(lang==='de'?'Seit deinem letzten Besuch':'Since your last visit'),body,'var(--blue)');
+      }
+      await writeAdminLastSeen(new Date().toISOString());
+    }catch(e){console.warn('digest',e);}
+  }
+  if(html)host.insertAdjacentHTML('afterbegin',html);
+}
 // ── Session bootstrap + password-recovery handling ──
 let _recovering=false;
 try{const _l=localStorage.getItem('bb_lang');if(_l==='de'||_l==='en')lang=_l;}catch(e){}
