@@ -220,7 +220,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.12 &middot; &ldquo;Lim Sihyeon&rdquo;</div>
+  <div class="lver">v1.0.0.13 &middot; &ldquo;Lisa Barbelin&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -238,7 +238,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.0.12 &middot; &ldquo;Lim Sihyeon&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.0.13 &middot; &ldquo;Lisa Barbelin&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -264,7 +264,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.12 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.0.13 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -303,7 +303,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.12',VNAME='Lim Sihyeon';
+const VER='1.0.0.13',VNAME='Lisa Barbelin';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -313,8 +313,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.12 · "Lim Sihyeon"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.12 · "Lim Sihyeon"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.0.13 · "Lisa Barbelin"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.0.13 · "Lisa Barbelin"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -328,6 +328,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.0.13',name:'Lisa Barbelin',
+    de:['Neuer Bereich „Zähler": Pfeil- und Materialzähler für Sehnen, Pfeile, Wurfarme & Co. – mit optionaler Verschleiß-Warnung','Zähler: Schnell-Buttons (+6/+12/+30/+60), individueller Wert, Zurücksetzen (mit Datum) und Bearbeiten','Zähler: automatische Gesamt-Pfeilzahl je Setup aus den Ergebnissen','Dashboard-Diagramm: zeigt jetzt zusätzlich den Event-Namen (Achse gekürzt, voller Name per Tooltip beim Überfahren/Antippen)'],
+    en:['New "Counters" section: arrow & material counters for strings, arrows, limbs etc. – with optional wear warning','Counters: quick buttons (+6/+12/+30/+60), custom value, reset (with date) and edit','Counters: automatic total arrow count per setup from your results','Dashboard chart: now also shows the event name (axis shortened, full name via tooltip on hover/tap)']},
   {ver:'1.0.0.12',name:'Lim Sihyeon',
     de:['Visiereinstellungen: Marken-Interpolation – berechnet Klick-Werte für beliebige Zieldistanzen aus deinen gespeicherten Marken','Kennzeichnung als exakt, interpoliert oder Schätzung (extrapoliert außerhalb des bekannten Bereichs)','Sichtband-Generator mit frei wählbarem Bereich/Schritt und Druckansicht'],
     en:['Sight settings: sight-mark interpolation – computes click values for any target distance from your stored marks','Flags each value as exact, interpolated or estimate (extrapolated beyond the known range)','Sight-tape generator with adjustable range/step and a print view']},
@@ -440,12 +443,13 @@ function normalizeCL(dbE,biE){return {ver:dbE.ver,name:dbE.name||(biE?biE.name:'
 function mergeChangelog(builtin,db){if(!Array.isArray(db)||!db.length)return builtin;const dbMap={};db.forEach(e=>{if(e&&e.ver)dbMap[e.ver]=e;});const biVers=new Set(builtin.map(e=>e.ver));const merged=builtin.map(e=>dbMap[e.ver]?normalizeCL(dbMap[e.ver],e):e);const extra=db.filter(e=>e&&e.ver&&!biVers.has(e.ver)).map(e=>normalizeCL(e,null));return [...extra,...merged];}
 
 const L={
-  de:{dashboard:'Dashboard',setups:'Setups',sight:'Visiereinstellungen',scores:'Ergebnisse',tuning:'Tuning',glossar:'Glossar',wa:'World Archery Daten',profil:'Profil',einstellungen:'Einstellungen',admin:'Admin',hilfe:'Hilfe & Support',nav_main:'Hauptmenü',nav_acc:'Konto',save:'Speichern',cancel:'Abbrechen',edit:'Bearbeiten',del:'Löschen',active:'Aktiv',bow:'Bogen / Mittelstück',limbs:'Wurfarme',dw:'Zuggewicht (lbs)',string:'Sehne',am:'Pfeilmodell',spine:'Spine',tip:'Spitzengewicht (Grain)',dl:'Auszuglänge (Zoll)',nock:'Nockenfarbe',fletch:'Federfarbe',setup_name:'Setup-Name',brace:'Standhöhe (Zoll)',tiller_u:'Oberer Tiller (mm)',tiller_l:'Unterer Tiller (mm)',new_setup:'Neues Setup',new_score:'Ergebnis eintragen',new_sight:'Einstellung hinzufügen',dist:'Distanz (m)',click:'Klick-Wert',notes:'Notizen',setup:'Setup',date:'Datum',type:'Typ',points:'Punkte',arrows:'Pfeile',avg_arrow:'Ø pro Pfeil',total_arrows:'Pfeile gesamt',best_score:'Beste Punktzahl',trainings:'Trainings',tournaments:'Turniere',active_setup:'Aktives Setup',last_act:'Letzte Aktivitäten',all:'Alle',stats:'Statistik',timeline:'Zeitleiste',rh:'Rechtshänder',lh:'Linkshänder',bow_class:'Bogenklasse',cc:'Wettkampfklasse',personal:'Persönliche Daten',archer:'Bogenschützen-Einstellungen',name:'Name',email:'E-Mail',club:'Verein',country:'Land / Region',language:'Sprache',dark_mode:'Dark Mode',animations:'Animationen',compact:'Kompaktansicht',large_font:'Große Schrift',faq:'Häufig gestellte Fragen',imprint:'Impressum',role:'Rolle',status:'Status',last_seen:'Letzte Aktivität',actions:'Aktionen',flight_diagram:'Flugkurven-Diagramm',sight_by_dist:'Einstellungen nach Distanz',spine_calc:'Spine-Rechner',spine_rec:'Empfohlener Spine',no_setups:'Noch keine Setups.',no_scores:'Noch keine Ergebnisse.',no_sight:'Noch keine Visiereinstellungen.',confirm_del:'Wirklich löschen?',set_active:'Als aktiv setzen',tuning_notes:'Tuning-Notizen',tuning_photos:'Fotos',add_photo:'Foto hochladen',spine_compat:'Spine-Kompatibilität',visier:'Visier',location:'Ort (optional)',placement:'Platz',participants:'Teilnehmer',bezeichnung:'Bezeichnung',arrows_only:'Nur Pfeile (kein Score)',per_week:'Pfeile diese Woche',per_month:'Pfeile diesen Monat',score_chart:'Ergebnis-Verlauf',feedback:'Feedback & Vorschläge',roadmap:'Roadmap',donate:'Unterstützen',changelog:'Änderungshistorie',send:'Absenden',feature_req:'Funktionswunsch',bug_rep:'Fehler melden',predict:'Vorschlag basierend auf Flugkurve',user_mgmt:'Nutzerverwaltung'},
-  en:{dashboard:'Dashboard',setups:'Setups',sight:'Sight Settings',scores:'Results',tuning:'Tuning',glossar:'Glossary',wa:'World Archery Data',profil:'Profile',einstellungen:'Settings',admin:'Admin',hilfe:'Help & Support',nav_main:'Main Menu',nav_acc:'Account',save:'Save',cancel:'Cancel',edit:'Edit',del:'Delete',active:'Active',bow:'Bow / Riser',limbs:'Limbs',dw:'Draw Weight (lbs)',string:'String',am:'Arrow Model',spine:'Spine',tip:'Point Weight (Grain)',dl:'Draw Length (in)',nock:'Nock Color',fletch:'Fletching Color',setup_name:'Setup Name',brace:'Brace Height (in)',tiller_u:'Upper Tiller (mm)',tiller_l:'Lower Tiller (mm)',new_setup:'New Setup',new_score:'Add Result',new_sight:'Add Setting',dist:'Distance (m)',click:'Click Value',notes:'Notes',setup:'Setup',date:'Date',type:'Type',points:'Points',arrows:'Arrows',avg_arrow:'Avg per Arrow',total_arrows:'Total Arrows',best_score:'Best Score',trainings:'Trainings',tournaments:'Tournaments',active_setup:'Active Setup',last_act:'Recent Activity',all:'All',stats:'Statistics',timeline:'Timeline',rh:'Right-handed',lh:'Left-handed',bow_class:'Bow Class',cc:'Competition Class',personal:'Personal Data',archer:'Archer Settings',name:'Name',email:'E-Mail',club:'Club',country:'Country / Region',language:'Language',dark_mode:'Dark Mode',animations:'Animations',compact:'Compact View',large_font:'Large Font',faq:'Frequently Asked Questions',imprint:'Imprint / Legal',role:'Role',status:'Status',last_seen:'Last Active',actions:'Actions',flight_diagram:'Arrow Flight Diagram',sight_by_dist:'Settings by Distance',spine_calc:'Spine Calculator',spine_rec:'Recommended Spine',no_setups:'No setups yet.',no_scores:'No results yet.',no_sight:'No sight settings yet.',confirm_del:'Really delete?',set_active:'Set as Active',tuning_notes:'Tuning Notes',tuning_photos:'Photos',add_photo:'Upload Photo',spine_compat:'Spine Compatibility',visier:'Sight Unit',location:'Location (optional)',placement:'Placement',participants:'Participants',bezeichnung:'Description',arrows_only:'Arrows only (no score)',per_week:'Arrows this week',per_month:'Arrows this month',score_chart:'Score Progress',feedback:'Feedback & Suggestions',roadmap:'Roadmap',donate:'Support',changelog:'Changelog',send:'Submit',feature_req:'Feature Request',bug_rep:'Report Bug',predict:'Suggested by trajectory',user_mgmt:'User Management'}
+  de:{dashboard:'Dashboard',setups:'Setups',counter:'Zähler',sight:'Visiereinstellungen',scores:'Ergebnisse',tuning:'Tuning',glossar:'Glossar',wa:'World Archery Daten',profil:'Profil',einstellungen:'Einstellungen',admin:'Admin',hilfe:'Hilfe & Support',nav_main:'Hauptmenü',nav_acc:'Konto',save:'Speichern',cancel:'Abbrechen',edit:'Bearbeiten',del:'Löschen',active:'Aktiv',bow:'Bogen / Mittelstück',limbs:'Wurfarme',dw:'Zuggewicht (lbs)',string:'Sehne',am:'Pfeilmodell',spine:'Spine',tip:'Spitzengewicht (Grain)',dl:'Auszuglänge (Zoll)',nock:'Nockenfarbe',fletch:'Federfarbe',setup_name:'Setup-Name',brace:'Standhöhe (Zoll)',tiller_u:'Oberer Tiller (mm)',tiller_l:'Unterer Tiller (mm)',new_setup:'Neues Setup',new_score:'Ergebnis eintragen',new_sight:'Einstellung hinzufügen',dist:'Distanz (m)',click:'Klick-Wert',notes:'Notizen',setup:'Setup',date:'Datum',type:'Typ',points:'Punkte',arrows:'Pfeile',avg_arrow:'Ø pro Pfeil',total_arrows:'Pfeile gesamt',best_score:'Beste Punktzahl',trainings:'Trainings',tournaments:'Turniere',active_setup:'Aktives Setup',last_act:'Letzte Aktivitäten',all:'Alle',stats:'Statistik',timeline:'Zeitleiste',rh:'Rechtshänder',lh:'Linkshänder',bow_class:'Bogenklasse',cc:'Wettkampfklasse',personal:'Persönliche Daten',archer:'Bogenschützen-Einstellungen',name:'Name',email:'E-Mail',club:'Verein',country:'Land / Region',language:'Sprache',dark_mode:'Dark Mode',animations:'Animationen',compact:'Kompaktansicht',large_font:'Große Schrift',faq:'Häufig gestellte Fragen',imprint:'Impressum',role:'Rolle',status:'Status',last_seen:'Letzte Aktivität',actions:'Aktionen',flight_diagram:'Flugkurven-Diagramm',sight_by_dist:'Einstellungen nach Distanz',spine_calc:'Spine-Rechner',spine_rec:'Empfohlener Spine',no_setups:'Noch keine Setups.',no_scores:'Noch keine Ergebnisse.',no_sight:'Noch keine Visiereinstellungen.',confirm_del:'Wirklich löschen?',set_active:'Als aktiv setzen',tuning_notes:'Tuning-Notizen',tuning_photos:'Fotos',add_photo:'Foto hochladen',spine_compat:'Spine-Kompatibilität',visier:'Visier',location:'Ort (optional)',placement:'Platz',participants:'Teilnehmer',bezeichnung:'Bezeichnung',arrows_only:'Nur Pfeile (kein Score)',per_week:'Pfeile diese Woche',per_month:'Pfeile diesen Monat',score_chart:'Ergebnis-Verlauf',feedback:'Feedback & Vorschläge',roadmap:'Roadmap',donate:'Unterstützen',changelog:'Änderungshistorie',send:'Absenden',feature_req:'Funktionswunsch',bug_rep:'Fehler melden',predict:'Vorschlag basierend auf Flugkurve',user_mgmt:'Nutzerverwaltung'},
+  en:{dashboard:'Dashboard',setups:'Setups',counter:'Counters',sight:'Sight Settings',scores:'Results',tuning:'Tuning',glossar:'Glossary',wa:'World Archery Data',profil:'Profile',einstellungen:'Settings',admin:'Admin',hilfe:'Help & Support',nav_main:'Main Menu',nav_acc:'Account',save:'Save',cancel:'Cancel',edit:'Edit',del:'Delete',active:'Active',bow:'Bow / Riser',limbs:'Limbs',dw:'Draw Weight (lbs)',string:'String',am:'Arrow Model',spine:'Spine',tip:'Point Weight (Grain)',dl:'Draw Length (in)',nock:'Nock Color',fletch:'Fletching Color',setup_name:'Setup Name',brace:'Brace Height (in)',tiller_u:'Upper Tiller (mm)',tiller_l:'Lower Tiller (mm)',new_setup:'New Setup',new_score:'Add Result',new_sight:'Add Setting',dist:'Distance (m)',click:'Click Value',notes:'Notes',setup:'Setup',date:'Date',type:'Type',points:'Points',arrows:'Arrows',avg_arrow:'Avg per Arrow',total_arrows:'Total Arrows',best_score:'Best Score',trainings:'Trainings',tournaments:'Tournaments',active_setup:'Active Setup',last_act:'Recent Activity',all:'All',stats:'Statistics',timeline:'Timeline',rh:'Right-handed',lh:'Left-handed',bow_class:'Bow Class',cc:'Competition Class',personal:'Personal Data',archer:'Archer Settings',name:'Name',email:'E-Mail',club:'Club',country:'Country / Region',language:'Language',dark_mode:'Dark Mode',animations:'Animations',compact:'Compact View',large_font:'Large Font',faq:'Frequently Asked Questions',imprint:'Imprint / Legal',role:'Role',status:'Status',last_seen:'Last Active',actions:'Actions',flight_diagram:'Arrow Flight Diagram',sight_by_dist:'Settings by Distance',spine_calc:'Spine Calculator',spine_rec:'Recommended Spine',no_setups:'No setups yet.',no_scores:'No results yet.',no_sight:'No sight settings yet.',confirm_del:'Really delete?',set_active:'Set as Active',tuning_notes:'Tuning Notes',tuning_photos:'Photos',add_photo:'Upload Photo',spine_compat:'Spine Compatibility',visier:'Sight Unit',location:'Location (optional)',placement:'Placement',participants:'Participants',bezeichnung:'Description',arrows_only:'Arrows only (no score)',per_week:'Arrows this week',per_month:'Arrows this month',score_chart:'Score Progress',feedback:'Feedback & Suggestions',roadmap:'Roadmap',donate:'Support',changelog:'Changelog',send:'Submit',feature_req:'Feature Request',bug_rep:'Report Bug',predict:'Suggested by trajectory',user_mgmt:'User Management'}
 };
 // ─── STATE ────────────────────────────────────────────────────────────────
 let CU=null,lang='en',sbOpen=true,currentPage='dashboard',forceMobile=false;
 const DATA={},SETTINGS={},PREFS={};
+let COUNTERS_TABLE=true;
 // ─── SUPABASE CLIENT ──────────────────────────────────────────────────────
 const SUPABASE_URL='https://vpbucrdmexnmaznikevw.supabase.co';
 const SUPABASE_KEY='sb_publishable_WdJ1GFigVVfl6t0ATAjQAA_jV-h2ov2';
@@ -468,19 +472,22 @@ async function bootstrapUser(session){
   ADMIN_LAST_SEEN=(prof&&prof.admin_last_seen)||null;   // null → column missing or first visit
   let {data:st}=await sbc.from('user_settings').select('*').eq('user_id',uid).maybeSingle();
   SETTINGS[uid]={dark_mode:st?st.dark_mode:true,animations:st?st.animations:true,compact:st?st.compact:false,large_font:st?st.large_font:false};
-  const [setupsR,scoresR,sightR,tuningR,photosR]=await Promise.all([
+  const [setupsR,scoresR,sightR,tuningR,photosR,countersR]=await Promise.all([
     sbc.from('setups').select('*').eq('user_id',uid).order('id'),
     sbc.from('scores').select('*').eq('user_id',uid).order('date'),
     sbc.from('sight_settings').select('*').eq('user_id',uid).order('id'),
     sbc.from('tuning').select('*').eq('user_id',uid).maybeSingle(),
-    sbc.from('tuning_photos').select('*').eq('user_id',uid).order('id')
+    sbc.from('tuning_photos').select('*').eq('user_id',uid).order('id'),
+    sbc.from('counters').select('*').eq('user_id',uid).order('id')
   ]);
+  COUNTERS_TABLE=!(countersR&&countersR.error);
   DATA[uid]={
     setups:(setupsR.data||[]),
     scores:(scoresR.data||[]),
     sight:(sightR.data||[]),
     tuning_notes:(tuningR.data&&tuningR.data.notes)||'',
-    tuning_photos:(photosR.data||[]).map(p=>({id:p.id,dataUrl:p.data_url,date:p.date,comment:p.comment}))
+    tuning_photos:(photosR.data||[]).map(p=>({id:p.id,dataUrl:p.data_url,date:p.date,comment:p.comment})),
+    counters:(countersR.data||[])
   };
   try{sbc.from('profiles').update({last_login:new Date().toISOString(),login_count:((prof&&prof.login_count)||0)+1}).eq('id',uid).then(()=>{},e=>console.warn('login track',e));}catch(e){}
   await loadShared();
@@ -736,7 +743,7 @@ async function saveOnboarding(){const p2=getP();const row={club:document.getElem
 function skipOnboarding(){document.getElementById('onboarding-mo').style.display='none';buildNav();}
 // ─── NAV ─────────────────────────────────────────────────────────────────
 function buildNav(){
-  const pages=[{id:'dashboard',ic:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},{id:'setups',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="3" x2="12" y2="10"/><line x1="12" y1="14" x2="12" y2="21"/>'},{id:'sight',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/>'},{id:'scores',ic:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},{id:'tuning',ic:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'},{id:'glossar',ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'},{id:'wa',ic:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'}];
+  const pages=[{id:'dashboard',ic:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},{id:'setups',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="3" x2="12" y2="10"/><line x1="12" y1="14" x2="12" y2="21"/>'},{id:'counter',ic:'<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>'},{id:'sight',ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/>'},{id:'scores',ic:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},{id:'tuning',ic:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'},{id:'glossar',ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'},{id:'wa',ic:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'}];
   const acct=[{id:'profil',ic:'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'},{id:'einstellungen',ic:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>'}];
   const unread=SHARED.feedback.filter(f=>!f.read).length;
   if(CU&&CU.role==='admin')acct.push({id:'admin',ic:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',notif:unread>0});
@@ -757,7 +764,7 @@ function buildNav(){
 function navigate(page){
   currentPage=page;buildNav();placeVtag();
   const el=document.getElementById('content');
-  el.innerHTML=(({dashboard:rDash,setups:rSetups,sight:rSight,scores:rScores,tuning:rTuning,glossar:rGlossar,wa:rWA,profil:rProfil,einstellungen:rSettings,admin:rAdmin,hilfe:rHelp})[page]||rDash)();
+  el.innerHTML=(({dashboard:rDash,setups:rSetups,counter:rCounter,sight:rSight,scores:rScores,tuning:rTuning,glossar:rGlossar,wa:rWA,profil:rProfil,einstellungen:rSettings,admin:rAdmin,hilfe:rHelp})[page]||rDash)();
   el.querySelectorAll('.card,.card-sm,.stitle,.ti').forEach((c,i)=>{c.style.animationDelay=`${i*0.03}s`;c.classList.add('fade-in');});
   if(page==='setups')calcSpineAuto();
   if(page==='sight')setTimeout(drawSightChart,50);
@@ -830,6 +837,18 @@ const opts=allOpt+keys.sort((a,b)=>{const ra=rank(a),rb=rank(b);if(ra!==rb)retur
   </div>`;
 }
 
+function fitLabel(ctx,text,maxW){if(maxW<=2)return'';if(ctx.measureText(text).width<=maxW)return text;let s=text;while(s.length>1&&ctx.measureText(s+'…').width>maxW)s=s.slice(0,-1);return s+'…';}
+function hideDashTip(){const tp=document.getElementById('dash-tip');if(tp)tp.style.display='none';}
+function dashTip(ev){const cv=document.getElementById('score-canvas'),C=window.__dashChart;if(!cv||!C||!C.all||!C.all.length){hideDashTip();return;}
+  const rect=cv.getBoundingClientRect();const cx=(ev.touches&&ev.touches[0]?ev.touches[0].clientX:ev.clientX);const cy=(ev.touches&&ev.touches[0]?ev.touches[0].clientY:ev.clientY);
+  let i=Math.round((cx-rect.left-C.x0)/C.slot-0.5);i=Math.max(0,Math.min(C.all.length-1,i));const s=C.all[i];if(!s){hideDashTip();return;}
+  const mx=maxScore(s.type);let tp=document.getElementById('dash-tip');
+  if(!tp){tp=document.createElement('div');tp.id='dash-tip';tp.style.cssText='position:fixed;z-index:600;pointer-events:none;background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:8px 11px;font-size:12px;color:var(--text);box-shadow:0 6px 22px rgba(0,0,0,0.45);max-width:220px';document.body.appendChild(tp);}
+  const title=s.name||(s.type==='training'?'Training':(TT[s.type]?.[lang]||s.type));
+  const val=s.no_points?`${s.arrows} ${t('arrows')}`:`${s.points}${mx?'/'+mx:''} · ${s.arrows} ${t('arrows')}`;
+  tp.innerHTML=`<div style="font-weight:600;margin-bottom:2px">${title}${medal(s.placement)?' '+medal(s.placement):''}</div><div style="color:var(--text3);font-size:11px">${fd(s.date)}${s.location?' · '+s.location:''}</div><div style="color:var(--text2);font-size:11px;margin-top:3px">${val} · ${getSName(s.setup_id)}</div>`;
+  tp.style.display='block';
+  let tx=cx+13,ty=cy+13;tx=Math.min(tx,window.innerWidth-tp.offsetWidth-8);ty=Math.min(ty,window.innerHeight-tp.offsetHeight-8);tp.style.left=tx+'px';tp.style.top=ty+'px';}
 function drawLineChart(){
   const cv=document.getElementById('score-canvas');if(!cv)return;
   const sel=DASH_DIST;
@@ -839,7 +858,7 @@ function drawLineChart(){
   const pool=getD().scores.filter(s=>inGroup(s)).filter(s=>showArr?((s.arrows||0)>0):(!s.no_points&&s.points>0));
   const all=pool.slice().sort((a,b)=>a.date.localeCompare(b.date)).slice(-12);
   const W=cv.offsetWidth||600,H=150;cv.width=W*2;cv.height=H*2;const ctx=cv.getContext('2d');if(!ctx)return;ctx.scale(2,2);ctx.clearRect(0,0,W,H);
-  const ml=38,mr=showArr&&showScore?34:16,mt=28,mb=22,cW=W-ml-mr,cH=H-mt-mb;
+  const hasNm=all.some(s=>(s.name||'').trim());const ml=38,mr=showArr&&showScore?34:16,mt=28,mb=hasNm?31:22,cW=W-ml-mr,cH=H-mt-mb;
   ctx.strokeStyle='rgba(255,255,255,0.05)';ctx.lineWidth=1;
   for(let i=0;i<=4;i++){const y=mt+i*cH/4;ctx.beginPath();ctx.moveTo(ml,y);ctx.lineTo(W-mr,y);ctx.stroke();
     if(showScore){ctx.fillStyle='rgba(106,112,144,0.55)';ctx.font='9px Inter,sans-serif';ctx.textAlign='right';ctx.fillText((100-i*25)+'%',ml-3,y+3);}}
@@ -851,6 +870,7 @@ function drawLineChart(){
   const x0=ml+(cW-groupW)/2;          // centre the group horizontally
   const toX=idx=>x0+slot*(idx+0.5);   // centre of the slot (never on the axis)
   const toY=pct=>mt+(1-pct)*cH;
+  window.__dashChart={x0,slot,all};cv.onmousemove=dashTip;cv.onmouseleave=hideDashTip;cv.ontouchstart=dashTip;cv.ontouchmove=dashTip;cv.style.cursor='crosshair';
   // ── arrows as bars (own scale) ──
   if(showArr){
     const maxA=Math.max(1,...all.map(s=>+s.arrows||0));
@@ -914,7 +934,7 @@ function drawLineChart(){
     drawSeries(scored.filter(s=>s.type==='training'),'#2dd4a0');
   }
   ctx.fillStyle='rgba(106,112,144,0.6)';ctx.font='8px Inter,sans-serif';ctx.textAlign='center';
-  all.forEach((s,i)=>ctx.fillText(fd(s.date).substring(0,5),toX(i),mt+cH+13));
+  all.forEach((s,i)=>{const x=toX(i);ctx.textAlign='center';ctx.font='8px Inter,sans-serif';ctx.fillStyle='rgba(106,112,144,0.6)';ctx.fillText(fd(s.date).substring(0,5),x,mt+cH+11);const nm=(s.name||'').trim();if(nm){ctx.fillStyle='rgba(154,160,184,0.85)';ctx.fillText(fitLabel(ctx,nm,slot-4),x,mt+cH+20);}});
   ctx.strokeStyle='rgba(255,255,255,0.1)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(ml,mt+cH);ctx.lineTo(W-mr,mt+cH);ctx.stroke();
 }
 
@@ -1099,6 +1119,64 @@ async function saveScore(id){
   const nop=document.getElementById('sco-nop')?.checked||false,arrVal=nop?parseInt(document.getElementById('sco-arr2')?.value||36):parseInt(document.getElementById('sco-arr')?.value||36),place=parseInt(document.getElementById('sco-place')?.value)||null,d=getD();
   if(!arrVal||arrVal<1){toast(lang==='de'?'Bitte eine gültige Pfeilanzahl eingeben.':'Please enter a valid number of arrows.');return;}
   const dist=isMultiDist(typeVal)?null:(parseInt(document.getElementById('sco-dist')?.value)||null);const e={id:id||0,type:typeVal,date:dateVal,name:nm,points:nop?0:parseInt(document.getElementById('sco-pts')?.value||0),arrows:arrVal,setup_id:parseInt(document.getElementById('sco-setup')?.value)||1,notes:document.getElementById('sco-notes')?.value||'',location:document.getElementById('sco-loc')?.value||'',placement:place,participants:parseInt(document.getElementById('sco-partic')?.value)||null,no_points:nop,distance:dist};const row={user_id:CU.id,type:e.type,date:e.date,name:e.name,points:e.points,arrows:e.arrows,setup_id:e.setup_id,notes:e.notes,location:e.location,placement:e.placement,participants:e.participants,no_points:e.no_points,distance:e.distance};document.getElementById('score-mo').remove();if(id){if(!await dbUpd('scores',id,row))return;d.scores=d.scores.map(s=>s.id===id?{...e,id}:s);}else{const rec=await dbIns('scores',row);if(!rec)return;d.scores.push(rec);}if(place&&place<=3)showMedalAnim(place);navigate('scores');}
+// ─── COUNTERS ─────────────────────────────────────────────────────────────
+function counterCats(){const DE=lang==='de';return[
+  {v:'string',ic:'🧵',l:DE?'Sehne':'String'},
+  {v:'arrows',ic:'🎯',l:DE?'Pfeile':'Arrows'},
+  {v:'limbs',ic:'💪',l:DE?'Wurfarme':'Limbs'},
+  {v:'riser',ic:'🏹',l:DE?'Mittelstück':'Riser'},
+  {v:'setup',ic:'⚙️',l:DE?'Ganzes Setup':'Whole setup'},
+  {v:'other',ic:'📦',l:DE?'Sonstiges':'Other'}];}
+function catInfo(v){return counterCats().find(c=>c.v===v)||counterCats()[5];}
+function setupArrowTotals(){const m={};(getD().scores||[]).forEach(s=>{m[s.setup_id]=(m[s.setup_id]||0)+(+s.arrows||0);});return m;}
+function counterCard(c){
+  const DE=lang==='de',ci=catInfo(c.category),cnt=+c.count||0,warn=+c.warn_at||0;
+  const su=c.setup_id?getD().setups.find(s=>s.id===c.setup_id):null;
+  let bar='';
+  if(warn>0){const pct=Math.min(100,Math.round(cnt/warn*100));const col=pct>=100?'var(--red)':pct>=80?'var(--accent)':'var(--green)';const lab=pct>=100?(DE?'fällig – Austausch empfohlen':'due – replacement recommended'):(DE?`noch ${warn-cnt} Pfeile bis zur Warnschwelle`:`${warn-cnt} arrows until warning`);bar=`<div style="margin-top:10px"><div class="progress"><div class="pf" style="width:${pct}%;background:${col}"></div></div><div style="font-size:11px;color:${col};margin-top:4px">${cnt} / ${warn} · ${lab}</div></div>`;}
+  return`<div class="card" style="margin-bottom:12px"><div style="display:flex;gap:12px;align-items:flex-start"><div style="font-size:30px;line-height:1;flex-shrink:0">${ci.ic}</div><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px"><span style="font-size:15px;font-weight:700;color:var(--text)">${c.name||ci.l}</span><span class="badge bbl">${ci.l}</span>${su?`<span class="badge bgr">${sName(su)}</span>`:''}</div>${c.notes?`<div style="font-size:12px;color:var(--text3);margin-bottom:4px">${c.notes}</div>`:''}<div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:Bebas Neue,sans-serif;font-size:34px;color:var(--accent);line-height:1">${cnt}</span><span style="font-size:12px;color:var(--text3)">${DE?'Pfeile':'arrows'}</span></div>${c.last_reset?`<div style="font-size:11px;color:var(--text3);margin-top:2px">${DE?'Zurückgesetzt':'Reset'}: ${fd(c.last_reset)}</div>`:''}${bar}<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px">${[6,12,30,60].map(n=>`<button class="btn bg btn-sm" onclick="bumpCounter(${c.id},${n})">+${n}</button>`).join('')}<button class="btn bg btn-sm" onclick="bumpCounterCustom(${c.id})">+ …</button></div></div><div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0"><button class="btn bg btn-sm" onclick="openCounterModal(${c.id})">✏️</button><button class="btn bg btn-sm" onclick="resetCounter(${c.id})" title="${DE?'Zurücksetzen':'Reset'}">↺</button><button class="btn bd btn-sm" onclick="delCounter(${c.id})">🗑</button></div></div></div>`;
+}
+function rCounter(){
+  const DE=lang==='de',d=getD(),counters=(d.counters||[]).slice().sort((a,b)=>a.id-b.id),setups=d.setups,totals=setupArrowTotals();
+  const setupCard=`<div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">🏹 ${DE?'Pfeile gesamt je Setup':'Total arrows per setup'}</div><span class="badge bbl">${DE?'aus Ergebnissen':'from results'}</span></div>${setups.length?`<table class="table"><thead><tr><th>${t('setup')}</th><th style="text-align:right">${t('arrows')}</th></tr></thead><tbody>${setups.map(s=>`<tr><td>${sName(s)}</td><td style="text-align:right;font-family:monospace;font-weight:600;color:var(--accent)">${totals[s.id]||0}</td></tr>`).join('')}</tbody></table>`:`<div style="color:var(--text3);font-size:13px;padding:6px 0">${t('no_setups')}</div>`}<div style="font-size:11px;color:var(--text3);margin-top:8px">${DE?'Automatisch aus allen eingetragenen Trainings & Turnieren berechnet.':'Automatically computed from all logged trainings & tournaments.'}</div></div>`;
+  const migHint=!COUNTERS_TABLE?`<div style="background:#e8a02012;border:1px solid #e8a02040;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12.5px;color:var(--text2);line-height:1.6">⚠️ ${DE?'Die Tabelle <code>counters</code> fehlt noch in der Datenbank. Führe die SQL-Migration im Supabase-Editor aus, dann funktioniert das Anlegen von Zählern.':'The <code>counters</code> table is still missing in the database. Run the SQL migration in the Supabase editor, then counters can be created.'}</div>`:'';
+  const list=counters.length?counters.map(counterCard).join(''):`<div class="empty"><div class="ei">🔢</div><div>${DE?'Noch keine Zähler angelegt.':'No counters yet.'}</div><button class="btn bp" style="margin-top:10px" onclick="openCounterModal()">${DE?'Zähler anlegen':'Add counter'}</button></div>`;
+  return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${DE?'Zähler':'Counters'}</div><div class="ssub" style="margin-top:-14px">${DE?'Pfeil- & Materialzähler für Verschleiß':'Arrow & material wear counters'}</div></div><button class="btn bp" onclick="openCounterModal()">${DE?'Zähler anlegen':'Add counter'}</button></div>
+  ${migHint}${setupCard}${list}`;
+}
+function openCounterModal(id){
+  const DE=lang==='de',ex=id?(getD().counters||[]).find(c=>c.id===id):null;
+  const v=ex||{name:'',category:'string',setup_id:null,count:0,warn_at:null,notes:''};
+  const cats=counterCats().map(c=>`<option value="${c.v}"${v.category===c.v?' selected':''}>${c.ic} ${c.l}</option>`).join('');
+  const setupOpts=`<option value="">${DE?'— keins —':'— none —'}</option>`+getD().setups.map(s=>`<option value="${s.id}"${v.setup_id===s.id?' selected':''}>${sName(s)}</option>`).join('');
+  document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="cnt-mo" onclick="closeMo(event,'cnt-mo')"><div class="md" style="width:460px"><div class="mh"><div class="mt2">${id?t('edit'):(DE?'Neuer Zähler':'New counter')}</div><button class="btn bg btn-sm" onclick="document.getElementById('cnt-mo').remove()">✕</button></div>
+    <div class="fg"><label>${DE?'Bezeichnung':'Label'}</label><input id="cnt-name" value="${(v.name||'').replace(/"/g,'&quot;')}" placeholder="${DE?'z. B. Sehne #3 / X10 Wettkampfsatz':'e.g. String #3 / X10 match set'}"></div>
+    <div class="g2" style="gap:10px"><div class="fg"><label>${DE?'Kategorie':'Category'}</label><select id="cnt-cat">${cats}</select></div><div class="fg"><label>${t('setup')} (${DE?'optional':'optional'})</label><select id="cnt-setup">${setupOpts}</select></div></div>
+    <div class="g2" style="gap:10px"><div class="fg"><label>${DE?'Aktueller Stand (Pfeile)':'Current count (arrows)'}</label><input id="cnt-count" type="number" min="0" value="${+v.count||0}"></div><div class="fg"><label>${DE?'Warnschwelle (optional)':'Warning threshold (optional)'}</label><input id="cnt-warn" type="number" min="0" value="${v.warn_at||''}" placeholder="${DE?'z. B. 3000':'e.g. 3000'}"></div></div>
+    <div class="fg"><label>${t('notes')}</label><textarea id="cnt-notes" style="min-height:46px">${v.notes||''}</textarea></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('cnt-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveCounter(${id||'null'})">${t('save')}</button></div>
+  </div></div>`);
+}
+async function saveCounter(id){
+  const DE=lang==='de',d=getD();
+  const name=(document.getElementById('cnt-name')?.value||'').trim();
+  const category=document.getElementById('cnt-cat')?.value||'other';
+  const setup_id=parseInt(document.getElementById('cnt-setup')?.value)||null;
+  const count=Math.max(0,parseInt(document.getElementById('cnt-count')?.value)||0);
+  const warn_at=parseInt(document.getElementById('cnt-warn')?.value)||null;
+  const notes=document.getElementById('cnt-notes')?.value||'';
+  if(!name){toast(DE?'Bitte eine Bezeichnung eingeben.':'Please enter a label.');return;}
+  const row={user_id:CU.id,name,category,setup_id,count,warn_at,notes};
+  document.getElementById('cnt-mo')?.remove();
+  if(!d.counters)d.counters=[];
+  if(id){if(!await dbUpd('counters',id,row))return;d.counters=d.counters.map(c=>c.id===id?{...c,...row,id}:c);}
+  else{const rec=await dbIns('counters',row);if(!rec)return;d.counters.push(rec);}
+  navigate('counter');
+}
+async function delCounter(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('counters',id))return;getD().counters=(getD().counters||[]).filter(c=>c.id!==id);navigate('counter');}
+async function resetCounter(id){const DE=lang==='de';if(!confirm(DE?'Zähler auf 0 zurücksetzen? (z. B. bei neuem Material)':'Reset counter to 0? (e.g. for new material)'))return;const row={count:0,last_reset:new Date().toISOString().slice(0,10)};if(!await dbUpd('counters',id,row))return;getD().counters=(getD().counters||[]).map(c=>c.id===id?{...c,...row}:c);navigate('counter');}
+async function bumpCounter(id,delta){const c=(getD().counters||[]).find(x=>x.id===id);if(!c)return;const nc=Math.max(0,(+c.count||0)+delta);if(!await dbUpd('counters',id,{count:nc}))return;c.count=nc;navigate('counter');}
+function bumpCounterCustom(id){const DE=lang==='de';const v=prompt(DE?'Wie viele Pfeile hinzufügen? (negativ zum Abziehen)':'How many arrows to add? (negative to subtract)','30');if(v===null)return;const n=parseInt(v);if(isNaN(n)){toast(DE?'Bitte eine Zahl eingeben.':'Please enter a number.');return;}bumpCounter(id,n);}
 // ─── TUNING ───────────────────────────────────────────────────────────────
 function rTuning(){
   const p2=getP(),isLeft=p2.handedness==='left',d=getD(),photos=d.tuning_photos||[],isAdmin=CU&&CU.role==='admin';
