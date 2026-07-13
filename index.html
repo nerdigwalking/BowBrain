@@ -220,7 +220,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.11 &middot; &ldquo;Ki Bo-bae&rdquo;</div>
+  <div class="lver">v1.0.0.12 &middot; &ldquo;Lim Sihyeon&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -238,7 +238,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.0.11 &middot; &ldquo;Ki Bo-bae&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.0.12 &middot; &ldquo;Lim Sihyeon&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -264,7 +264,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.11 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.0.12 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -303,7 +303,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.11',VNAME='Ki Bo-bae';
+const VER='1.0.0.12',VNAME='Lim Sihyeon';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -313,8 +313,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.11 · "Ki Bo-bae"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.11 · "Ki Bo-bae"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.0.12 · "Lim Sihyeon"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.0.12 · "Lim Sihyeon"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -328,6 +328,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.0.12',name:'Lim Sihyeon',
+    de:['Visiereinstellungen: Marken-Interpolation – berechnet Klick-Werte für beliebige Zieldistanzen aus deinen gespeicherten Marken','Kennzeichnung als exakt, interpoliert oder Schätzung (extrapoliert außerhalb des bekannten Bereichs)','Sichtband-Generator mit frei wählbarem Bereich/Schritt und Druckansicht'],
+    en:['Sight settings: sight-mark interpolation – computes click values for any target distance from your stored marks','Flags each value as exact, interpolated or estimate (extrapolated beyond the known range)','Sight-tape generator with adjustable range/step and a print view']},
   {ver:'1.0.0.11',name:'Ki Bo-bae',
     de:['Glossar: Einträge lassen sich mit Labels versehen (Equipment, Tuning, Wettkampfformate, Technik)','Glossar: Standardansicht ist nach Labels gruppiert, die vom Admin festgelegte Reihenfolge bleibt innerhalb jeder Gruppe erhalten','Glossar: Filterleiste zum Eingrenzen auf ein einzelnes Label (inkl. „Ohne Label")','Admin kann im Glossar neue Labels anlegen, umbenennen und löschen (zweisprachig)'],
     en:['Glossary: entries can be tagged with labels (equipment, tuning, competition formats, technique)','Glossary: default view is grouped by label; the admin-defined order is preserved within each group','Glossary: filter bar to narrow down to a single label (incl. "No label")','Admin can create, rename and delete labels directly in the glossary (bilingual)']},
@@ -526,6 +529,17 @@ function spineChk(spine,dw,dl,tip){const rec=recSpine(dw||36,dl||28,tip||100),di
 function applySettings(s){const B=document.body;B.classList.toggle('light',!s.dark_mode);B.classList.toggle('large-font',!!s.large_font);B.classList.toggle('compact',!!s.compact);B.classList.toggle('no-anim',!s.animations);}
 function arrowsInDays(days){const cut=new Date();cut.setDate(cut.getDate()-days);return getD().scores.filter(s=>new Date(s.date)>=cut).reduce((sum,s)=>sum+(+s.arrows||0),0);}
 function predictClick(newDist,pts){if(pts.length<2)return null;const n=pts.length,sx=pts.reduce((s,p)=>s+p.dist,0),sy=pts.reduce((s,p)=>s+p.click,0),sxy=pts.reduce((s,p)=>s+p.dist*p.click,0),sx2=pts.reduce((s,p)=>s+p.dist*p.dist,0),den=n*sx2-sx*sx;if(!den)return null;const slope=(n*sxy-sx*sy)/den,int=(sy-slope*sx)/n,pred=Math.round(slope*newDist+int);return pred>0?pred:null;}
+function interpMark(dist,pts){
+  if(!pts||!pts.length)return null;
+  const P=pts.slice().sort((a,b)=>a.dist-b.dist);
+  const ex=P.find(p=>p.dist===dist);if(ex)return{value:ex.click,mode:'exact'};
+  if(P.length===1)return{value:P[0].click,mode:'single'};
+  const mn=P[0],mx=P[P.length-1];
+  if(dist<mn.dist){const a=P[0],b=P[1],sl=(b.click-a.click)/(b.dist-a.dist);return{value:a.click+sl*(dist-a.dist),mode:'extrap'};}
+  if(dist>mx.dist){const a=P[P.length-2],b=P[P.length-1],sl=(b.click-a.click)/(b.dist-a.dist);return{value:b.click+sl*(dist-b.dist),mode:'extrap'};}
+  for(let i=0;i<P.length-1;i++){const a=P[i],b=P[i+1];if(dist>=a.dist&&dist<=b.dist){const sl=(b.click-a.click)/(b.dist-a.dist);return{value:a.click+sl*(dist-a.dist),mode:'interp'};}}
+  return null;
+}
 function isMobile(){return forceMobile||window.innerWidth<768;}
 function toggleMobMode(){forceMobile=!forceMobile;applyMobile();}
 function applyMobile(){document.getElementById('main')?.classList.toggle('exp',!sbOpen&&!isMobile());placeVtag();const btn=document.getElementById('mob-toggle');if(btn)btn.style.color=forceMobile?'var(--accent)':'var(--text2)';}
@@ -940,8 +954,21 @@ function rSight(){
   const allS=as?d.sight.filter(s=>s.setup_id===as.id).sort((a,b)=>a.dist-b.dist):[];
   const visiere=[...new Set(allS.map(s=>s.visier||'Standard'))];
   const opts=setups.map(s=>`<option value="${s.id}"${as&&s.id===as.id?' selected':''}>${sName(s)}</option>`).join('');
+  const DE=lang==='de';
+  const ipVis0=as?[...new Set(d.sight.filter(s=>s.setup_id===as.id).map(s=>s.visier||'Standard'))]:[];
+  const ipVisOpts=(ipVis0.length?ipVis0:['Standard']).map(v=>`<option value="${v}">${v}</option>`).join('');
   return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('sight')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Einstellungen nach Distanz und Visier':'Settings by distance and sight unit'}</div></div><button class="btn bp" onclick="openSightModal()">${t('new_sight')}</button></div>
   <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">${t('flight_diagram')} · ${as?sName(as):'—'}</div><span class="badge bbl">${lang==='de'?'Aktives Setup':'Active'}</span></div><canvas id="sight-canvas" height="200" style="width:100%;border-radius:8px;background:var(--bg3)"></canvas></div>
+  <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">🎯 ${DE?'Marken-Interpolation':'Sight Mark Interpolation'}</div><span class="badge bbl">${as?sName(as):'—'}</span></div>
+    <div class="ssub" style="margin:-6px 0 12px">${DE?'Berechnet Visiermarken für beliebige Zieldistanzen aus deinen gespeicherten Werten – stückweise linear zwischen den nächsten bekannten Marken.':'Computes sight marks for any target distance from your stored values – piecewise linear between the nearest known marks.'}</div>
+    <div class="g3" style="gap:10px"><div class="fg"><label>${t('setup')}</label><select id="ip-setup" onchange="refreshInterpVis()">${opts||'<option>—</option>'}</select></div><div class="fg"><label>${t('visier')}</label><select id="ip-vis" onchange="updateInterp()">${ipVisOpts}</select></div><div class="fg"><label>${DE?'Zieldistanz (m)':'Target distance (m)'}</label><input id="ip-dist" type="number" min="1" max="120" step="0.5" oninput="updateInterp()" placeholder="${DE?'z. B. 32':'e.g. 32'}"></div></div>
+    <div id="ip-result" style="margin-top:2px"></div>
+    <div style="border-top:1px solid var(--bd,rgba(255,255,255,0.08));margin:14px 0 12px"></div>
+    <div class="ct" style="font-size:13px;margin-bottom:8px">${DE?'Sichtband erzeugen':'Generate sight tape'}</div>
+    <div class="g3" style="gap:10px"><div class="fg"><label>${DE?'von (m)':'from (m)'}</label><input id="ip-from" type="number" min="1" max="120" value="10"></div><div class="fg"><label>${DE?'bis (m)':'to (m)'}</label><input id="ip-to" type="number" min="1" max="120" value="70"></div><div class="fg"><label>${DE?'Schritt (m)':'step (m)'}</label><input id="ip-step" type="number" min="0.5" max="20" step="0.5" value="5"></div></div>
+    <div style="display:flex;gap:8px"><button class="btn bp btn-sm" onclick="genSightBand()">${DE?'Tabelle erzeugen':'Generate table'}</button><button class="btn bg btn-sm" onclick="printSightBand()">🖨 ${DE?'Drucken':'Print'}</button></div>
+    <div id="ip-band" style="margin-top:10px"></div>
+  </div>
   ${visiere.map(vn=>{const vs=allS.filter(s=>(s.visier||'Standard')===vn);return`<div class="card" style="margin-bottom:12px"><div class="ch"><div class="ct">🔭 ${vn}</div><div style="display:flex;align-items:center;gap:6px"><span class="badge bbl">${vs.length}</span><button class="btn bg btn-sm" title="${lang==='de'?'Visier umbenennen':'Rename sight'}" onclick="renameVisier('${(vn+'').replace(/'/g,"\\'")}')">✏️</button><button class="btn bd btn-sm" title="${lang==='de'?'Visier löschen':'Delete sight'}" onclick="delVisier('${(vn+'').replace(/'/g,"\\'")}')">🗑</button></div></div><table class="table"><thead><tr><th>${t('dist')}</th><th>${t('click')}</th><th>${t('notes')}</th><th></th></tr></thead><tbody>${vs.map(s=>`<tr><td><strong style="color:var(--accent);font-size:15px">${s.dist}m</strong></td><td style="font-family:monospace;color:var(--text);font-size:15px;font-weight:600">${s.click}</td><td style="color:var(--text3)">${s.notes||'—'}</td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="openSightModal(${s.id})">✏️</button><button class="btn bd btn-sm" onclick="delSight(${s.id})">🗑</button></div></td></tr>`).join('')}</tbody></table></div>`;}).join('')}
   ${allS.length===0?`<div class="empty"><div class="ei">🎯</div><div>${t('no_sight')}</div></div>`:''}
   <div class="card"><div class="ch"><div class="ct">${lang==='de'?'Schnell-Eingabe':'Quick Entry'}</div></div><div class="g3" style="gap:10px"><div class="fg"><label>${t('visier')}</label><input type="text" id="qi-vis" value="${visiere[0]||'Standard'}" list="vl-list"><datalist id="vl-list">${visiere.map(v=>`<option value="${v}">`).join('')}</datalist></div><div class="fg"><label>${t('dist')}</label><input type="number" id="qi-dist" value="18" min="5" max="90" oninput="updateQuickPred()"></div><div class="fg"><label>${t('click')}</label><input type="number" id="qi-click" value="80" min="1" max="999"></div></div><div id="qi-pred" style="font-size:12px;color:var(--blue);margin-top:-4px;margin-bottom:10px;display:none"></div><div class="fg"><label>${t('setup')}</label><select id="qi-setup" onchange="updateQuickPred()">${opts||'<option>—</option>'}</select></div><div class="fg"><label>${t('notes')}</label><textarea id="qi-notes" style="min-height:46px"></textarea></div><button class="btn bp" style="width:100%" onclick="quickAddSight()">${t('save')}</button></div>`;
@@ -954,6 +981,37 @@ function updateQuickPred(){
   else if(el)el.style.display='none';
 }
 async function quickAddSight(){const row={user_id:CU.id,setup_id:parseInt(document.getElementById('qi-setup')?.value)||1,dist:parseInt(document.getElementById('qi-dist')?.value)||18,click:parseInt(document.getElementById('qi-click')?.value)||80,notes:document.getElementById('qi-notes')?.value||'',visier:document.getElementById('qi-vis')?.value||'Standard'};const rec=await dbIns('sight_settings',row);if(!rec)return;getD().sight.push(rec);navigate('sight');}
+function ipVisOptions(setupId){const vs=[...new Set(getD().sight.filter(s=>s.setup_id===setupId).map(s=>s.visier||'Standard'))];return vs.length?vs:['Standard'];}
+function refreshInterpVis(){const sel=document.getElementById('ip-vis');if(!sel)return;const setupId=parseInt(document.getElementById('ip-setup')?.value||0),cur=sel.value,vs=ipVisOptions(setupId);sel.innerHTML=vs.map(v=>`<option value="${v}">${v}</option>`).join('');if(vs.includes(cur))sel.value=cur;updateInterp();}
+function ipPts(){const setupId=parseInt(document.getElementById('ip-setup')?.value||0),vis=document.getElementById('ip-vis')?.value||'Standard';return getD().sight.filter(s=>s.setup_id===setupId&&(s.visier||'Standard')===vis).map(s=>({dist:s.dist,click:s.click}));}
+function updateInterp(){const DE=lang==='de',el=document.getElementById('ip-result');if(!el)return;const pts=ipPts(),dist=parseFloat(document.getElementById('ip-dist')?.value||0);
+  if(pts.length<1){el.innerHTML=`<div style="font-size:12px;color:var(--text3);padding:8px 0">${DE?'Für dieses Setup/Visier sind noch keine Marken hinterlegt.':'No marks stored for this setup/sight yet.'}</div>`;return;}
+  if(!dist||dist<=0){el.innerHTML='';return;}
+  const r=interpMark(dist,pts);if(!r){el.innerHTML='';return;}
+  const val=Math.round(r.value*10)/10,P=pts.slice().sort((a,b)=>a.dist-b.dist),range=`${P[0].dist}–${P[P.length-1].dist} m`;
+  const ok='display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;background:rgba(45,212,160,0.15);color:#2dd4a0';
+  const warn='display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;background:rgba(232,160,32,0.16);color:#e8a020';
+  let badge,note;
+  if(r.mode==='exact'){badge=`<span style="${ok}">${DE?'exakt':'exact'}</span>`;note=DE?'Direkt hinterlegter Wert.':'Directly stored value.';}
+  else if(r.mode==='interp'){badge=`<span style="${ok}">${DE?'interpoliert':'interpolated'}</span>`;note=DE?`Zwischen den nächsten bekannten Marken berechnet (Bereich ${range}).`:`Computed between the nearest known marks (range ${range}).`;}
+  else if(r.mode==='single'){badge=`<span style="${warn}">${DE?'nur 1 Marke':'only 1 mark'}</span>`;note=DE?'Nur eine Marke vorhanden – Wert übernommen, keine echte Interpolation möglich.':'Only one mark available – value copied, no real interpolation possible.';}
+  else{badge=`<span style="${warn}">${DE?'Schätzung':'estimate'}</span>`;note=DE?`Außerhalb des bekannten Bereichs ${range} – linear extrapoliert, bitte am Stand verifizieren.`:`Outside the known range ${range} – linearly extrapolated, please verify on the range.`;}
+  el.innerHTML=`<div style="display:flex;align-items:center;gap:16px;background:var(--bg3);border-radius:10px;padding:12px 16px;margin-top:4px"><div style="font-size:30px;font-weight:700;color:var(--accent);font-family:monospace;line-height:1">${val}<span style="font-size:13px;color:var(--text3);font-weight:500;margin-left:5px">${DE?'Klick':'clicks'}</span></div><div style="flex:1">${badge}<div style="font-size:12px;color:var(--text3);margin-top:4px">${note}</div></div></div>`;}
+function genSightBand(){const DE=lang==='de',el=document.getElementById('ip-band');if(!el)return;const pts=ipPts();
+  if(pts.length<1){el.innerHTML='';toast(DE?'Keine Marken vorhanden.':'No marks available.');return;}
+  const from=parseFloat(document.getElementById('ip-from')?.value||0),to=parseFloat(document.getElementById('ip-to')?.value||0);let step=parseFloat(document.getElementById('ip-step')?.value||0);
+  if(!(from>0&&to>0&&step>0)||to<from){toast(DE?'Bitte gültigen Bereich eingeben.':'Please enter a valid range.');return;}
+  if(step<0.5)step=0.5;if((to-from)/step>200){toast(DE?'Bereich/Schritt zu fein.':'Range/step too fine.');return;}
+  const P=pts.slice().sort((a,b)=>a.dist-b.dist),mn=P[0].dist,mx=P[P.length-1].dist,rows=[];
+  for(let dd=from;dd<=to+1e-9;dd+=step){const d=Math.round(dd*10)/10,r=interpMark(d,pts);if(!r)continue;rows.push({d,v:Math.round(r.value*10)/10,est:(d<mn||d>mx)});}
+  const setupId=parseInt(document.getElementById('ip-setup')?.value||0),vis=document.getElementById('ip-vis')?.value||'Standard';
+  window.__bbBand={setupId,vis,rows};
+  const warn='display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:5px;background:rgba(232,160,32,0.16);color:#e8a020';
+  el.innerHTML=`<table class="table"><thead><tr><th>${DE?'Distanz':'Distance'}</th><th>${DE?'Marke (Klick)':'Mark (clicks)'}</th><th></th></tr></thead><tbody>${rows.map(r=>`<tr><td><strong style="color:var(--accent)">${r.d} m</strong></td><td style="font-family:monospace;font-weight:600">${r.v}</td><td>${r.est?`<span style="${warn}">${DE?'Schätzung':'est.'}</span>`:''}</td></tr>`).join('')}</tbody></table>`;}
+function printSightBand(){const DE=lang==='de',b=window.__bbBand;if(!b||!b.rows||!b.rows.length){toast(DE?'Bitte zuerst ein Sichtband erzeugen.':'Please generate a sight tape first.');return;}
+  const su=getD().setups.find(s=>s.id===b.setupId),sn=su?sName(su):'—',w=window.open('','_blank');if(!w){toast(DE?'Popup blockiert – bitte erlauben.':'Popup blocked – please allow.');return;}
+  const rows=b.rows.map(r=>`<tr><td>${r.d} m</td><td>${r.v}${r.est?' *':''}</td></tr>`).join(''),anyEst=b.rows.some(r=>r.est);
+  w.document.write(`<html><head><meta charset="utf-8"><title>BowBrain – ${DE?'Sichtband':'Sight tape'}</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:24px;color:#111}h1{font-size:16px;margin:0}h2{font-size:13px;font-weight:normal;color:#555;margin:2px 0 0}table{border-collapse:collapse;margin-top:14px}th,td{border:1px solid #999;padding:5px 16px;text-align:center;font-size:14px}th{background:#eee}.note{margin-top:10px;font-size:11px;color:#666}button{margin-top:16px;padding:8px 16px;font-size:13px}@media print{button{display:none}}</style></head><body><h1>BowBrain – ${DE?'Sichtband':'Sight tape'}</h1><h2>${sn} · ${DE?'Visier':'Sight'}: ${b.vis}</h2><table><thead><tr><th>${DE?'Distanz':'Distance'}</th><th>${DE?'Klick':'Clicks'}</th></tr></thead><tbody>${rows}</tbody></table>${anyEst?`<div class="note">* ${DE?'Schätzung (außerhalb des bekannten Bereichs)':'estimate (outside the known range)'}</div>`:''}<button onclick="window.print()">${DE?'Drucken':'Print'}</button></body></html>`);w.document.close();}
 async function delSight(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('sight_settings',id))return;getD().sight=getD().sight.filter(s=>s.id!==id);navigate('sight');}
 function renameVisier(oldName){const isDE=lang==='de';const on=(oldName+'').replace(/'/g,"\\'");document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="rv-mo" onclick="closeMo(event,'rv-mo')"><div class="md" style="width:400px"><div class="mh"><div class="mt2">${isDE?'Visier umbenennen':'Rename sight'}</div><button class="btn bg btn-sm" onclick="document.getElementById('rv-mo').remove()">✕</button></div><div class="fg"><label>${isDE?'Neuer Name':'New name'}</label><input id="rv-name" value="${oldName}"></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('rv-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="doRenameVisier('${on}')">${t('save')}</button></div></div></div>`);setTimeout(()=>document.getElementById('rv-name')?.focus(),50);}
 async function doRenameVisier(oldName){const nn=(document.getElementById('rv-name')?.value||'').trim();if(!nn){toast(lang==='de'?'Bitte einen Namen eingeben.':'Please enter a name.');return;}const ids=getD().sight.filter(s=>(s.visier||'Standard')===oldName).map(s=>s.id);if(!ids.length){document.getElementById('rv-mo')?.remove();return;}const {error}=await sbc.from('sight_settings').update({visier:nn}).in('id',ids);if(error){toast(error.message);return;}getD().sight.forEach(s=>{if((s.visier||'Standard')===oldName)s.visier=nn;});document.getElementById('rv-mo')?.remove();toast(lang==='de'?'Visier umbenannt.':'Sight renamed.',true);navigate('sight');}
