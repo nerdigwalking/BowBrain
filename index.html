@@ -220,7 +220,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.1.0 &middot; &ldquo;Tang Chih-chun&rdquo;</div>
+  <div class="lver">v1.0.1.1 &middot; &ldquo;Wu Jiaxin&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -238,7 +238,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.0 &middot; &ldquo;Tang Chih-chun&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.1 &middot; &ldquo;Wu Jiaxin&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -264,7 +264,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.1.0 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.1.1 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -303,7 +303,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.1.0',VNAME='Tang Chih-chun';
+const VER='1.0.1.1',VNAME='Wu Jiaxin';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -313,8 +313,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.1.0 · "Tang Chih-chun"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.1.0 · "Tang Chih-chun"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.1.1 · "Wu Jiaxin"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.1.1 · "Wu Jiaxin"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -328,6 +328,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.1.1',name:'Wu Jiaxin',
+    de:['Neu: Analyse-Bereich für Schießzettel – Gruppenanalyse und ausführungs-gewichtete Auswertung','Gruppenplot mit Gruppenmittelpunkt und Streuung (in Ringen); die Mittelpunktverschiebung zeigt die Aim-/Tuning-Tendenz','Ausführungs-gewichtet: Ø Ringwert je Bewertungsstufe, Filter „nur gut ausgeführte (★4+)", Vergleich der Streuung (Form vs. Material)','Trends über mehrere Schießzettel: 10+X-Anteil und Ø Ausführung; Filter nach Setup, Distanz und Anzahl'],
+    en:['New: analysis view for scorecards – group analysis and execution-weighted evaluation','Group plot with group centre and dispersion (in rings); the centre shift reveals the aiming/tuning tendency','Execution-weighted: avg ring per rating level, "well-executed only (★4+)" filter, dispersion comparison (form vs. equipment)','Trends across scorecards: 10+X share and avg execution; filter by setup, distance and count']},
   {ver:'1.0.1.0',name:'Tang Chih-chun',
     de:['Neu: Schießzettel mit Trefferbild – Pfeile direkt auf der Zielscheibe eintragen (immer optional)','Pro Pfeil: Ringwert automatisch aus der Trefferlage, plus Pfeilnummer und Ausführungs-Bewertung (1–5) zur Gewichtung des Schusses','Schießzettel mit 6er-Passen im Freien und 3er-Passen in der Halle – Passen- und Gesamtsumme, 10/X-Zähler und Ø-Ausführung','Gespeicherte Schießzettel lassen sich aus der Ergebnisliste wieder öffnen und ansehen'],
     en:['New: scorecard with hit plot – place arrows directly on the target face (always optional)','Per arrow: ring value derived automatically from the impact position, plus arrow number and execution rating (1–5) to weight the shot','Scorecard with 6-arrow ends outdoors and 3-arrow ends indoors – end & running totals, 10/X counters and average execution','Saved scorecards can be reopened and reviewed from the results list']},
@@ -1095,7 +1098,7 @@ function rScores(){
   const totalArrows=scores.reduce((a,s)=>a+(+s.arrows||0),0);
   const sc2={};scored.forEach(s=>{const n=getSName(s.setup_id);sc2[n]=(sc2[n]||0)+1;});
   const topSetup=Object.entries(sc2).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—';
-  return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('scores')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Trainings- und Turnierergebnisse':'Training and tournament results'}</div></div><div style="display:flex;gap:8px"><button class="btn bg" onclick="openScorecard()">📝 ${lang==='de'?'Schießzettel':'Scorecard'}</button><button class="btn bp" onclick="openScoreModal()">${t('new_score')}</button></div></div>
+  return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('scores')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Trainings- und Turnierergebnisse':'Training and tournament results'}</div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn bg" onclick="openAnalysis()">📊 ${lang==='de'?'Analyse':'Analysis'}</button><button class="btn bg" onclick="openScorecard()">📝 ${lang==='de'?'Schießzettel':'Scorecard'}</button><button class="btn bp" onclick="openScoreModal()">${t('new_score')}</button></div></div>
   <div class="g2" style="margin-bottom:14px">
     <div class="card"><div class="ch"><div class="ct">${lang==='de'?'Bestleistungen':'Best Scores'}</div></div>${top3.length?top3.map((s,i)=>{const mx=maxScore(s.type),pct=mx?`${Math.round(s.points/mx*100)}%`:'';return`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="width:26px;height:26px;border-radius:50%;background:${i===0?'var(--accent)':'var(--bg4)'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:${i===0?'#0f1117':'var(--text3)'};flex-shrink:0">${i+1}</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.placement?` ${medal(s.placement)}`:''}</div><div style="font-size:11px;color:var(--text3)">${TT[s.type]?.[lang]||s.type}${s.location?` · ${s.location}`:''} · ${fd(s.date)}</div></div><div style="text-align:right"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:var(--accent)">${s.points}${mx?`<span style="font-size:13px;color:var(--text3)">/${mx}</span>`:''}</div>${pct?`<div style="font-size:11px;color:var(--text3)">${pct}</div>`:''}</div></div>`;}).join(''):`<div style="color:var(--text3);font-size:13px;padding:8px 0">${lang==='de'?'Noch keine Turnierergebnisse.':'No tournament results yet.'}</div>`}</div>
     <div class="card"><div class="ch"><div class="ct">${t('stats')}</div></div>${[[lang==='de'?'Ø/Pfeil Turnier':'Avg/arrow tourn.',avgT],[lang==='de'?'Ø/Pfeil Training':'Avg/arrow train.',avgTr],[lang==='de'?'Top Setup':'Top Setup',topSetup],[t('total_arrows'),totalArrows],[t('tournaments'),tourn.length],[t('trainings'),train.length]].map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--text3)">${k}</span><span style="color:var(--text);font-weight:600">${v}</span></div>`).join('')}</div>
@@ -1222,7 +1225,7 @@ function szRenderModal(){
       <div style="flex:0 0 auto;text-align:center;min-width:220px">${szTargetHTML()}${vo?'':`<div style="display:flex;gap:6px;justify-content:center;margin-top:8px"><button class="btn bg btn-sm" onclick="szMiss()">${DE?'Fehler (M)':'Miss (M)'}</button><button class="btn bg btn-sm" onclick="szUndo()">↶ ${DE?'Zurück':'Undo'}</button></div><div style="font-size:11px;color:var(--text3);margin-top:6px;max-width:240px">${DE?'Tippe auf die Scheibe, um Pfeile einzutragen.':'Tap the target to place arrows.'}</div>`}</div>
       <div style="flex:1;min-width:250px"><div id="sz-totals"></div><div id="sz-card" style="margin-top:8px;max-height:46vh;overflow-y:auto"></div></div>
     </div>
-    ${vo?`<div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szClose()">${DE?'Schließen':'Close'}</button></div>`:`<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szClose()">${t('cancel')}</button><button class="btn bp" onclick="saveScorecard()">${DE?'Schießzettel speichern':'Save scorecard'}</button></div>`}
+    ${vo?`<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szAnalyse()">📊 ${DE?'Analyse':'Analysis'}</button><button class="btn bg" onclick="szClose()">${DE?'Schließen':'Close'}</button></div>`:`<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szClose()">${t('cancel')}</button><button class="btn bp" onclick="saveScorecard()">${DE?'Schießzettel speichern':'Save scorecard'}</button></div>`}
   </div></div>`);
   szRefresh();
 }
@@ -1251,8 +1254,130 @@ async function openScorecardView(scoreId){
   const cnts={};data2.forEach(r=>{cnts[r.end_no]=(cnts[r.end_no]||0)+1;});
   const es=Math.max(3,...Object.values(cnts).length?Object.values(cnts):[6]);
   const shots=data2.map(r=>({nx:r.nx,ny:r.ny,ring:r.ring,isX:r.is_x,arrow_no:r.arrow_no,rating:r.rating}));
-  SZ={viewOnly:true,indoor:es<=3,dist:sc?sc.distance:null,setup_id:sc?sc.setup_id:null,date:sc?sc.date:'',type:sc?sc.type:'training',name:sc?sc.name:'',location:sc?sc.location:'',arrowNumbers:shots.some(s=>s.arrow_no!=null),shots};
+  SZ={viewOnly:true,scoreId:scoreId,indoor:es<=3,dist:sc?sc.distance:null,setup_id:sc?sc.setup_id:null,date:sc?sc.date:'',type:sc?sc.type:'training',name:sc?sc.name:'',location:sc?sc.location:'',arrowNumbers:shots.some(s=>s.arrow_no!=null),shots};
   szRenderModal();
+}
+// ─── ANALYSE (Gruppen- & Ausführungsauswertung) ───────────────────────────
+let AN=null;
+function szAnalyse(){const id=SZ&&SZ.scoreId;szClose();if(id)openAnalysis(id);}
+function anShotXY(s){return (s.nx!=null&&s.ny!=null);}
+function groupStats(shots){
+  const plotted=shots.filter(anShotXY),n=shots.length,np=plotted.length;
+  let cx=0,cy=0;if(np){plotted.forEach(s=>{cx+=s.nx;cy+=s.ny;});cx/=np;cy/=np;}
+  let meanR=0,maxR=0;if(np){let sum=0;plotted.forEach(s=>{const dr=Math.hypot(s.nx-cx,s.ny-cy);sum+=dr;if(dr>maxR)maxR=dr;});meanR=sum/np;}
+  const avgRing=n?shots.reduce((a,s)=>a+(s.ring||0),0)/n:0;
+  const tens=shots.filter(s=>s.ring===10).length,xs=shots.filter(s=>s.isX).length;
+  const rated=shots.filter(s=>s.rating),avgExec=rated.length?rated.reduce((a,s)=>a+s.rating,0)/rated.length:null;
+  return {n,np,cx,cy,meanR,maxR,avgRing,tens,xs,avgExec};
+}
+function execBreakdown(shots){const b={};for(let k=1;k<=5;k++){const g=shots.filter(s=>s.rating===k);b[k]={count:g.length,avgRing:g.length?g.reduce((a,s)=>a+(s.ring||0),0)/g.length:null};}return b;}
+function anOffsetText(st){
+  const DE=lang==='de';if(!st.np)return '—';
+  const h=st.cx*10,v=st.cy*10;
+  const parts=[];
+  if(Math.abs(h)>=0.15)parts.push(Math.abs(h).toFixed(1)+' '+(DE?'R.':'r.')+' '+(h>0?(DE?'rechts':'right'):(DE?'links':'left')));
+  if(Math.abs(v)>=0.15)parts.push(Math.abs(v).toFixed(1)+' '+(DE?'R.':'r.')+' '+(v>0?(DE?'tief':'low'):(DE?'hoch':'high')));
+  return parts.length?parts.join(' · '):(DE?'mittig':'centred');
+}
+function anRingsSVG(C,R){let r='';for(let v=1;v<=10;v++){const rad=R*(11-v)/10;r+=`<circle cx="${C}" cy="${C}" r="${rad.toFixed(1)}" fill="${szRingColor(v)}" stroke="rgba(0,0,0,0.3)" stroke-width="0.6"/>`;}return r;}
+function anPlotSVG(shots,st){
+  const S=300,C=150,R=140;let dots='';
+  shots.filter(anShotXY).forEach(s=>{const x=C+s.nx*R,y=C+s.ny*R,good=(s.rating||0)>=4;dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.3" fill="${good?'rgba(232,160,32,0.95)':'rgba(18,18,18,0.72)'}" stroke="#fff" stroke-width="0.8"/>`;});
+  let ov='';
+  if(st.np){const cx=C+st.cx*R,cy=C+st.cy*R,dr=Math.max(3,st.meanR*R);
+    ov+=`<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${dr.toFixed(1)}" fill="none" stroke="#4a9eff" stroke-width="1.4" stroke-dasharray="4,3"/>`;
+    ov+=`<line x1="${(cx-6).toFixed(1)}" y1="${cy.toFixed(1)}" x2="${(cx+6).toFixed(1)}" y2="${cy.toFixed(1)}" stroke="#4a9eff" stroke-width="1.7"/><line x1="${cx.toFixed(1)}" y1="${(cy-6).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${(cy+6).toFixed(1)}" stroke="#4a9eff" stroke-width="1.7"/>`;}
+  return`<svg viewBox="0 0 ${S} ${S}" width="300" height="300" style="max-width:min(74vw,300px);height:auto;background:var(--bg3);border-radius:10px;display:block;margin:0 auto">${anRingsSVG(C,R)}<g>${dots}</g>${ov}</svg>`;
+}
+function anBars(items,color){
+  if(!items.length)return '';
+  const max=Math.max(1,...items.map(i=>i.val));
+  return`<div style="display:flex;align-items:flex-end;gap:3px;height:70px;padding-top:6px">${items.map(i=>{const h=Math.max(2,Math.round(i.val/max*54));return`<div style="flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px"><div title="${i.title||''}" style="width:100%;max-width:22px;height:${h}px;background:${color};border-radius:3px 3px 0 0;opacity:${i.val?0.9:0.25}"></div><div style="font-size:8px;color:var(--text3);white-space:nowrap">${i.label}</div></div>`;}).join('')}</div>`;
+}
+function openAnalysis(scoreId){
+  if(!SHOTS_TABLE){toast(lang==='de'?'Bitte zuerst die SQL-Migration (Tabelle „shots") ausführen.':'Please run the SQL migration (table "shots") first.');return;}
+  AN={scoreId:scoreId||null,setup:'all',dist:'all',limit:'all',wellOnly:false,loading:true,err:null,sessions:[]};
+  anRenderModal();anLoad();
+}
+function anMapShot(r){return {nx:r.nx,ny:r.ny,ring:r.ring,isX:r.is_x,arrow_no:r.arrow_no,rating:r.rating,score_id:r.score_id,end_no:r.end_no,pos:r.pos};}
+async function anLoad(){
+  let q=sbc.from('shots').select('*').eq('user_id',CU.id);
+  if(AN.scoreId)q=q.eq('score_id',AN.scoreId);
+  const {data,error}=await q;
+  if(error){AN.loading=false;AN.err=error.message;anRefreshContent();return;}
+  const byId={};(data||[]).forEach(r=>{(byId[r.score_id]=byId[r.score_id]||[]).push(r);});
+  const scoreById={};getD().scores.forEach(s=>{scoreById[s.id]=s;});
+  const sessions=Object.keys(byId).map(id=>({id:+id,score:scoreById[+id]||{},shots:byId[id].sort((a,b)=>(a.end_no-b.end_no)||(a.pos-b.pos)).map(anMapShot)})).filter(x=>x.shots.length);
+  sessions.sort((a,b)=>((a.score.date||'')+'').localeCompare((b.score.date||'')));
+  AN.sessions=sessions;AN.loading=false;anRefreshContent();
+}
+function anFiltered(){
+  let ss=AN.sessions.slice();
+  if(!AN.scoreId){
+    if(AN.setup!=='all')ss=ss.filter(x=>String(x.score.setup_id)===String(AN.setup));
+    if(AN.dist!=='all')ss=ss.filter(x=>String(x.score.distance||'')===String(AN.dist));
+    if(AN.limit!=='all'){const k=parseInt(AN.limit)||ss.length;ss=ss.slice(-k);}
+  }
+  return ss;
+}
+function anFilterHTML(){
+  const DE=lang==='de',setups=getD().setups;
+  const setupOpts=`<option value="all">${DE?'Alle Setups':'All setups'}</option>`+setups.map(s=>`<option value="${s.id}"${String(AN.setup)===String(s.id)?' selected':''}>${sName(s)}</option>`).join('');
+  const dists=[...new Set(AN.sessions.map(s=>s.score.distance).filter(d=>d!=null))].sort((a,b)=>a-b);
+  const distOpts=`<option value="all">${DE?'Alle Distanzen':'All distances'}</option>`+dists.map(d=>`<option value="${d}"${String(AN.dist)===String(d)?' selected':''}>${d} m</option>`).join('');
+  const limOpts=[['all',DE?'Alle':'All'],['5',DE?'Letzte 5':'Last 5'],['10',DE?'Letzte 10':'Last 10']].map(([v,l])=>`<option value="${v}"${AN.limit===v?' selected':''}>${l}</option>`).join('');
+  const dis=AN.scoreId?'disabled':'';
+  return`<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+    <select onchange="anSet('setup',this.value)" ${dis} style="width:auto;flex:none;${AN.scoreId?'opacity:0.5':''}">${setupOpts}</select>
+    <select onchange="anSet('dist',this.value)" ${dis} style="width:auto;flex:none;${AN.scoreId?'opacity:0.5':''}">${distOpts}</select>
+    <select onchange="anSet('limit',this.value)" ${dis} style="width:auto;flex:none;${AN.scoreId?'opacity:0.5':''}">${limOpts}</select>
+    <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);cursor:pointer;text-transform:none"><input type="checkbox" ${AN.wellOnly?'checked':''} onchange="anSet('wellOnly',this.checked)" style="width:auto"> ${DE?'nur gut ausgeführte (★4+)':'well-executed only (★4+)'}</label>
+    ${AN.scoreId?`<span class="badge bbl">${DE?'einzelner Schießzettel':'single scorecard'}</span>`:''}
+  </div>`;
+}
+function anBodyHTML(){
+  const DE=lang==='de';
+  if(AN.loading)return `<div style="text-align:center;padding:30px;color:var(--text3)">⏳ ${DE?'Lade Trefferdaten…':'Loading shot data…'}</div>`;
+  if(AN.err)return `<div style="color:var(--text3);padding:20px">${DE?'Fehler':'Error'}: ${AN.err}</div>`;
+  const sessions=anFiltered(),allShots=sessions.flatMap(s=>s.shots);
+  if(!allShots.length)return `<div class="empty"><div class="ei">📊</div><div>${DE?'Keine Schießzettel-Daten für diese Auswahl.':'No scorecard data for this selection.'}</div><div style="font-size:12px;color:var(--text3);margin-top:6px">${DE?'Lege zuerst über „Schießzettel" ein Trefferbild an.':'Create a hit plot via "Scorecard" first.'}</div></div>`;
+  const wellShots=allShots.filter(s=>(s.rating||0)>=4);
+  const allStats=groupStats(allShots),wellStats=groupStats(wellShots);
+  const curShots=AN.wellOnly?wellShots:allShots,curStats=AN.wellOnly?wellStats:allStats;
+  const plot=anPlotSVG(curShots,curStats);
+  const tile=(v,l,c)=>`<div style="flex:1;min-width:88px;background:var(--bg3);border-radius:8px;padding:8px 10px;text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:19px;color:${c};line-height:1.1">${v}</div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-top:2px">${l}</div></div>`;
+  const wAvg=(function(){const rated=allShots.filter(s=>s.rating),wsum=rated.reduce((a,s)=>a+s.rating,0),wr=rated.reduce((a,s)=>a+(s.ring||0)*s.rating,0);return wsum?(wr/wsum).toFixed(1):'—';})();
+  const stats=`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+    ${tile(curStats.n,DE?'Pfeile':'Arrows','var(--text)')}
+    ${tile(anOffsetText(curStats),DE?'Mittelpunkt':'Group centre','var(--blue)')}
+    ${tile((curStats.meanR*10).toFixed(1)+' '+(DE?'R.':'r.'),DE?'Streuung Ø':'Dispersion avg','var(--accent)')}
+    ${tile(curStats.avgRing.toFixed(1),DE?'Ø Ringwert':'Avg ring','var(--text)')}
+    ${tile(curStats.avgExec!=null?curStats.avgExec.toFixed(1):'—',DE?'Ø Ausführung':'Avg exec.','var(--blue)')}
+    ${tile(wAvg,DE?'Ausf.-gew. Ø':'Exec-wtd avg','var(--accent)')}
+  </div>`;
+  let insight='';
+  if(allStats.np>=3&&wellStats.np>=3){
+    const da=allStats.meanR*10,dw=wellStats.meanR*10,better=dw<da-0.1;
+    insight=`<div style="background:var(--bg3);border-radius:9px;padding:10px 12px;font-size:12.5px;color:var(--text2);line-height:1.6;margin-bottom:12px">💡 ${DE?`Gut ausgeführte Pfeile (★4+) streuen im Schnitt <b>${dw.toFixed(1)} Ringe</b> gegenüber <b>${da.toFixed(1)} Ringen</b> bei allen Pfeilen.`:`Well-executed arrows (★4+) disperse <b>${dw.toFixed(1)} rings</b> on average vs <b>${da.toFixed(1)} rings</b> for all arrows.`} ${better?(DE?'Der Unterschied deutet darauf hin, dass ein Teil der Streuung aus der Ausführung (Form) stammt.':'The gap suggests part of the dispersion comes from execution (form).'):(DE?'Die Streuung bleibt auch bei guter Ausführung ähnlich – spricht eher für Material/Visier als für die Ausführung.':'Dispersion stays similar even with good execution – points more to equipment/sight than execution.')}</div>`;
+  }
+  const bd=execBreakdown(allShots),anyRated=allShots.some(s=>s.rating);
+  const rows=[5,4,3,2,1].map(k=>{const b=bd[k];return `<tr><td style="white-space:nowrap;color:var(--accent)">${'●'.repeat(k)}<span style="color:var(--text3)">${'○'.repeat(5-k)}</span></td><td style="text-align:right">${b.count}</td><td style="text-align:right;font-weight:600;color:var(--accent)">${b.avgRing!=null?b.avgRing.toFixed(1):'—'}</td></tr>`;}).join('');
+  const execTable=anyRated?`<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:6px">${DE?'Ø Ringwert je Ausführung':'Avg ring per execution'}</div><table class="table"><thead><tr><th>${DE?'Ausführung':'Execution'}</th><th style="text-align:right">${DE?'Pfeile':'Arrows'}</th><th style="text-align:right">${DE?'Ø Ring':'Avg ring'}</th></tr></thead><tbody>${rows}</tbody></table></div>`:`<div style="font-size:12px;color:var(--text3);margin-bottom:12px">${DE?'Für diese Auswahl wurden keine Ausführungs-Bewertungen erfasst.':'No execution ratings recorded for this selection.'}</div>`;
+  let trends='';
+  if(sessions.length>=2){
+    const tenX=sessions.map(s=>{const arr=s.shots.length,tt=s.shots.filter(x=>x.ring>=10).length;return {label:(s.score.date?fd(s.score.date).slice(0,5):''),val:arr?Math.round(tt/arr*100):0,title:tt+'/'+arr};});
+    const exc=sessions.map(s=>{const r=s.shots.filter(x=>x.rating),v=r.length?r.reduce((a,x)=>a+x.rating,0)/r.length:0;return {label:(s.score.date?fd(s.score.date).slice(0,5):''),val:+v.toFixed(2),title:v.toFixed(1)};});
+    trends=`<div class="g2" style="gap:12px"><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'10+X-Anteil %':'10+X share %'}</div>${anBars(tenX,'var(--accent)')}</div><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'Ø Ausführung':'Avg execution'}</div>${anBars(exc,'var(--blue)')}</div></div>`;
+  }
+  const legend=`<div style="font-size:11px;color:var(--text3);margin-top:6px;text-align:center"><span style="color:#4a9eff">✚</span> ${DE?'Mittelpunkt':'Centre'} · <span style="color:#4a9eff">◌</span> ${DE?'Streuung':'Dispersion'} · <span style="color:var(--accent)">●</span> ★4+</div>`;
+  return`<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start"><div style="flex:0 0 auto;min-width:220px">${plot}${legend}</div><div style="flex:1;min-width:250px">${stats}${insight}${execTable}${trends}</div></div>`;
+}
+function anSet(f,v){if(!AN)return;AN[f]=v;anRefresh();}
+function anRefresh(){const el=document.getElementById('an-body');if(el)el.innerHTML=anBodyHTML();}
+function anRefreshContent(){const el=document.getElementById('an-content');if(el)el.innerHTML=anFilterHTML()+'<div id="an-body">'+anBodyHTML()+'</div>';}
+function anRenderModal(){
+  const DE=lang==='de';
+  document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="an-mo" onclick="closeMo(event,'an-mo')"><div class="md" style="width:680px"><div class="mh"><div class="mt2">📊 ${DE?'Analyse':'Analysis'}</div><button class="btn bg btn-sm" onclick="document.getElementById('an-mo').remove()">✕</button></div><div id="an-content"><div style="text-align:center;padding:30px;color:var(--text3)">⏳ …</div></div></div></div>`);
 }
 // ─── COUNTERS ─────────────────────────────────────────────────────────────
 function counterCats(){const DE=lang==='de';return[
