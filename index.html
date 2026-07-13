@@ -220,7 +220,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.0.13 &middot; &ldquo;Lisa Barbelin&rdquo;</div>
+  <div class="lver">v1.0.1.0 &middot; &ldquo;Tang Chih-chun&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -238,7 +238,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.0.13 &middot; &ldquo;Lisa Barbelin&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.0 &middot; &ldquo;Tang Chih-chun&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -264,7 +264,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.0.13 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.1.0 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -303,7 +303,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.0.13',VNAME='Lisa Barbelin';
+const VER='1.0.1.0',VNAME='Tang Chih-chun';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -313,8 +313,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.0.13 · "Lisa Barbelin"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.0.13 · "Lisa Barbelin"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.1.0 · "Tang Chih-chun"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.1.0 · "Tang Chih-chun"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -328,6 +328,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.1.0',name:'Tang Chih-chun',
+    de:['Neu: Schießzettel mit Trefferbild – Pfeile direkt auf der Zielscheibe eintragen (immer optional)','Pro Pfeil: Ringwert automatisch aus der Trefferlage, plus Pfeilnummer und Ausführungs-Bewertung (1–5) zur Gewichtung des Schusses','Schießzettel mit 6er-Passen im Freien und 3er-Passen in der Halle – Passen- und Gesamtsumme, 10/X-Zähler und Ø-Ausführung','Gespeicherte Schießzettel lassen sich aus der Ergebnisliste wieder öffnen und ansehen'],
+    en:['New: scorecard with hit plot – place arrows directly on the target face (always optional)','Per arrow: ring value derived automatically from the impact position, plus arrow number and execution rating (1–5) to weight the shot','Scorecard with 6-arrow ends outdoors and 3-arrow ends indoors – end & running totals, 10/X counters and average execution','Saved scorecards can be reopened and reviewed from the results list']},
   {ver:'1.0.0.13',name:'Lisa Barbelin',
     de:['Neuer Bereich „Zähler": Pfeil- und Materialzähler für Sehnen, Pfeile, Wurfarme & Co. – mit optionaler Verschleiß-Warnung','Zähler: Schnell-Buttons (+6/+12/+30/+60), individueller Wert, Zurücksetzen (mit Datum) und Bearbeiten','Zähler: automatische Gesamt-Pfeilzahl je Setup aus den Ergebnissen','Dashboard-Diagramm: zeigt jetzt zusätzlich den Event-Namen (Achse gekürzt, voller Name per Tooltip beim Überfahren/Antippen)'],
     en:['New "Counters" section: arrow & material counters for strings, arrows, limbs etc. – with optional wear warning','Counters: quick buttons (+6/+12/+30/+60), custom value, reset (with date) and edit','Counters: automatic total arrow count per setup from your results','Dashboard chart: now also shows the event name (axis shortened, full name via tooltip on hover/tap)']},
@@ -450,6 +453,7 @@ const L={
 let CU=null,lang='en',sbOpen=true,currentPage='dashboard',forceMobile=false;
 const DATA={},SETTINGS={},PREFS={};
 let COUNTERS_TABLE=true;
+let SHOTS_TABLE=true;
 // ─── SUPABASE CLIENT ──────────────────────────────────────────────────────
 const SUPABASE_URL='https://vpbucrdmexnmaznikevw.supabase.co';
 const SUPABASE_KEY='sb_publishable_WdJ1GFigVVfl6t0ATAjQAA_jV-h2ov2';
@@ -472,22 +476,25 @@ async function bootstrapUser(session){
   ADMIN_LAST_SEEN=(prof&&prof.admin_last_seen)||null;   // null → column missing or first visit
   let {data:st}=await sbc.from('user_settings').select('*').eq('user_id',uid).maybeSingle();
   SETTINGS[uid]={dark_mode:st?st.dark_mode:true,animations:st?st.animations:true,compact:st?st.compact:false,large_font:st?st.large_font:false};
-  const [setupsR,scoresR,sightR,tuningR,photosR,countersR]=await Promise.all([
+  const [setupsR,scoresR,sightR,tuningR,photosR,countersR,shotsR]=await Promise.all([
     sbc.from('setups').select('*').eq('user_id',uid).order('id'),
     sbc.from('scores').select('*').eq('user_id',uid).order('date'),
     sbc.from('sight_settings').select('*').eq('user_id',uid).order('id'),
     sbc.from('tuning').select('*').eq('user_id',uid).maybeSingle(),
     sbc.from('tuning_photos').select('*').eq('user_id',uid).order('id'),
-    sbc.from('counters').select('*').eq('user_id',uid).order('id')
+    sbc.from('counters').select('*').eq('user_id',uid).order('id'),
+    sbc.from('shots').select('score_id').eq('user_id',uid)
   ]);
   COUNTERS_TABLE=!(countersR&&countersR.error);
+  SHOTS_TABLE=!(shotsR&&shotsR.error);
   DATA[uid]={
     setups:(setupsR.data||[]),
     scores:(scoresR.data||[]),
     sight:(sightR.data||[]),
     tuning_notes:(tuningR.data&&tuningR.data.notes)||'',
     tuning_photos:(photosR.data||[]).map(p=>({id:p.id,dataUrl:p.data_url,date:p.date,comment:p.comment})),
-    counters:(countersR.data||[])
+    counters:(countersR.data||[]),
+    cardScoreIds:new Set((((shotsR&&shotsR.data)||[]).map(x=>x.score_id)))
   };
   try{sbc.from('profiles').update({last_login:new Date().toISOString(),login_count:((prof&&prof.login_count)||0)+1}).eq('id',uid).then(()=>{},e=>console.warn('login track',e));}catch(e){}
   await loadShared();
@@ -1088,13 +1095,13 @@ function rScores(){
   const totalArrows=scores.reduce((a,s)=>a+(+s.arrows||0),0);
   const sc2={};scored.forEach(s=>{const n=getSName(s.setup_id);sc2[n]=(sc2[n]||0)+1;});
   const topSetup=Object.entries(sc2).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—';
-  return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('scores')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Trainings- und Turnierergebnisse':'Training and tournament results'}</div></div><button class="btn bp" onclick="openScoreModal()">${t('new_score')}</button></div>
+  return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('scores')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Trainings- und Turnierergebnisse':'Training and tournament results'}</div></div><div style="display:flex;gap:8px"><button class="btn bg" onclick="openScorecard()">📝 ${lang==='de'?'Schießzettel':'Scorecard'}</button><button class="btn bp" onclick="openScoreModal()">${t('new_score')}</button></div></div>
   <div class="g2" style="margin-bottom:14px">
     <div class="card"><div class="ch"><div class="ct">${lang==='de'?'Bestleistungen':'Best Scores'}</div></div>${top3.length?top3.map((s,i)=>{const mx=maxScore(s.type),pct=mx?`${Math.round(s.points/mx*100)}%`:'';return`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="width:26px;height:26px;border-radius:50%;background:${i===0?'var(--accent)':'var(--bg4)'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:${i===0?'#0f1117':'var(--text3)'};flex-shrink:0">${i+1}</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.placement?` ${medal(s.placement)}`:''}</div><div style="font-size:11px;color:var(--text3)">${TT[s.type]?.[lang]||s.type}${s.location?` · ${s.location}`:''} · ${fd(s.date)}</div></div><div style="text-align:right"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:var(--accent)">${s.points}${mx?`<span style="font-size:13px;color:var(--text3)">/${mx}</span>`:''}</div>${pct?`<div style="font-size:11px;color:var(--text3)">${pct}</div>`:''}</div></div>`;}).join(''):`<div style="color:var(--text3);font-size:13px;padding:8px 0">${lang==='de'?'Noch keine Turnierergebnisse.':'No tournament results yet.'}</div>`}</div>
     <div class="card"><div class="ch"><div class="ct">${t('stats')}</div></div>${[[lang==='de'?'Ø/Pfeil Turnier':'Avg/arrow tourn.',avgT],[lang==='de'?'Ø/Pfeil Training':'Avg/arrow train.',avgTr],[lang==='de'?'Top Setup':'Top Setup',topSetup],[t('total_arrows'),totalArrows],[t('tournaments'),tourn.length],[t('trainings'),train.length]].map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--text3)">${k}</span><span style="color:var(--text);font-weight:600">${v}</span></div>`).join('')}</div>
   </div>
   <div class="card"><div class="ch"><div class="ct">${t('timeline')}</div></div>${scores.length===0?`<div class="empty"><div class="ei">📊</div><div>${t('no_scores')}</div><button class="btn bp" style="margin-top:10px" onclick="openScoreModal()">${t('new_score')}</button></div>`
-  :`<div class="tl">${scores.map(s=>{const isT=s.type!=='training',tt2=TT[s.type]||TT.training,mx=maxScore(s.type),pct=mx&&!s.no_points?` <span style="font-size:11px;color:var(--text3)">(${Math.round(s.points/mx*100)}% / ${mx})</span>`:'',plc=s.placement?` ${medal(s.placement)}${s.participants?` / ${s.participants} ${lang==='de'?'TN':'part.'}`:''}`:'';return`<div class="ti"><div class="tdot ${isT?'dg':'dgr'}"></div><div class="tc"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--text3);margin-bottom:2px">${fd(s.date)} · <span class="badge ${isT?'ba':'bgr'}">${isT?'🏆 '+tt2[lang]:'Training'}</span>${plc}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.location?` <span style="font-size:12px;font-weight:400;color:var(--text3)">· ${s.location}</span>`:''}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${s.no_points?`<span class="badge bbl">${lang==='de'?'Nur Pfeile':'Arrows only'}</span> ${s.arrows} ${t('arrows')}`:`${s.points}${mx?`/${mx}`:''}${pct} · ${s.arrows} ${t('arrows')} · ⌀ ${avgArr(s.points,s.arrows)}`} · ${getSName(s.setup_id)}${s.distance?` · ${s.distance} m`:''}${s.notes?` · <em style="color:var(--text3)">"${s.notes}"</em>`:''}</div></div><div style="display:flex;align-items:center;gap:6px;flex-shrink:0">${!s.no_points?`<div style="font-family:Bebas Neue,sans-serif;font-size:24px;color:${isT?'var(--accent)':'var(--green)'}">${s.points}</div>`:`<div style="font-size:20px">${s.arrows}🏹</div>`}<div style="display:flex;flex-direction:column;gap:4px"><button class="btn bg btn-sm" onclick="openScoreModal(${s.id})">✏️</button><button class="btn bd btn-sm" onclick="delScore(${s.id})">🗑</button></div></div></div></div></div>`;}).join('')}</div>`}</div>`;
+  :`<div class="tl">${scores.map(s=>{const isT=s.type!=='training',tt2=TT[s.type]||TT.training,mx=maxScore(s.type),pct=mx&&!s.no_points?` <span style="font-size:11px;color:var(--text3)">(${Math.round(s.points/mx*100)}% / ${mx})</span>`:'',plc=s.placement?` ${medal(s.placement)}${s.participants?` / ${s.participants} ${lang==='de'?'TN':'part.'}`:''}`:'';return`<div class="ti"><div class="tdot ${isT?'dg':'dgr'}"></div><div class="tc"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--text3);margin-bottom:2px">${fd(s.date)} · <span class="badge ${isT?'ba':'bgr'}">${isT?'🏆 '+tt2[lang]:'Training'}</span>${plc}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.location?` <span style="font-size:12px;font-weight:400;color:var(--text3)">· ${s.location}</span>`:''}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${s.no_points?`<span class="badge bbl">${lang==='de'?'Nur Pfeile':'Arrows only'}</span> ${s.arrows} ${t('arrows')}`:`${s.points}${mx?`/${mx}`:''}${pct} · ${s.arrows} ${t('arrows')} · ⌀ ${avgArr(s.points,s.arrows)}`} · ${getSName(s.setup_id)}${s.distance?` · ${s.distance} m`:''}${s.notes?` · <em style="color:var(--text3)">"${s.notes}"</em>`:''}</div></div><div style="display:flex;align-items:center;gap:6px;flex-shrink:0">${!s.no_points?`<div style="font-family:Bebas Neue,sans-serif;font-size:24px;color:${isT?'var(--accent)':'var(--green)'}">${s.points}</div>`:`<div style="font-size:20px">${s.arrows}🏹</div>`}<div style="display:flex;flex-direction:column;gap:4px">${getD().cardScoreIds&&getD().cardScoreIds.has(s.id)?`<button class="btn bg btn-sm" onclick="openScorecardView(${s.id})" title="${lang==='de'?'Schießzettel ansehen':'View scorecard'}">📝</button>`:''}<button class="btn bg btn-sm" onclick="openScoreModal(${s.id})">✏️</button><button class="btn bd btn-sm" onclick="delScore(${s.id})">🗑</button></div></div></div></div></div>`;}).join('')}</div>`}</div>`;
 }
 async function delScore(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('scores',id))return;getD().scores=getD().scores.filter(s=>s.id!==id);navigate('scores');}
 function openScoreModal(id){
@@ -1119,6 +1126,134 @@ async function saveScore(id){
   const nop=document.getElementById('sco-nop')?.checked||false,arrVal=nop?parseInt(document.getElementById('sco-arr2')?.value||36):parseInt(document.getElementById('sco-arr')?.value||36),place=parseInt(document.getElementById('sco-place')?.value)||null,d=getD();
   if(!arrVal||arrVal<1){toast(lang==='de'?'Bitte eine gültige Pfeilanzahl eingeben.':'Please enter a valid number of arrows.');return;}
   const dist=isMultiDist(typeVal)?null:(parseInt(document.getElementById('sco-dist')?.value)||null);const e={id:id||0,type:typeVal,date:dateVal,name:nm,points:nop?0:parseInt(document.getElementById('sco-pts')?.value||0),arrows:arrVal,setup_id:parseInt(document.getElementById('sco-setup')?.value)||1,notes:document.getElementById('sco-notes')?.value||'',location:document.getElementById('sco-loc')?.value||'',placement:place,participants:parseInt(document.getElementById('sco-partic')?.value)||null,no_points:nop,distance:dist};const row={user_id:CU.id,type:e.type,date:e.date,name:e.name,points:e.points,arrows:e.arrows,setup_id:e.setup_id,notes:e.notes,location:e.location,placement:e.placement,participants:e.participants,no_points:e.no_points,distance:e.distance};document.getElementById('score-mo').remove();if(id){if(!await dbUpd('scores',id,row))return;d.scores=d.scores.map(s=>s.id===id?{...e,id}:s);}else{const rec=await dbIns('scores',row);if(!rec)return;d.scores.push(rec);}if(place&&place<=3)showMedalAnim(place);navigate('scores');}
+// ─── SCORECARD (Schießzettel + Trefferbild) ───────────────────────────────
+let SZ=null;
+function szRingColor(v){if(v>=9)return '#F2C230';if(v>=7)return '#E5544B';if(v>=5)return '#3B7DD8';if(v>=3)return '#232323';return '#F2F2F2';}
+function szChipText(v){return (v>=9||v<3)?'#141414':'#ffffff';}
+function szValLabel(s){return s.isX?'X':(s.ring>0?String(s.ring):'M');}
+function szValueFromR(r){if(r<=0.05)return{ring:10,isX:true};if(r>=1)return{ring:0,isX:false};return{ring:Math.max(1,Math.min(10,10-Math.floor(r*10))),isX:false};}
+function szEndSize(){return SZ&&SZ.indoor?3:6;}
+function openScorecard(){
+  if(!SHOTS_TABLE){toast(lang==='de'?'Bitte zuerst die SQL-Migration (Tabelle „shots") ausführen.':'Please run the SQL migration (table "shots") first.');return;}
+  const as=getAS(),today=new Date().toISOString().split('T')[0];
+  SZ={viewOnly:false,indoor:false,dist:70,setup_id:as?as.id:null,date:today,type:'training',name:'',location:'',arrowNumbers:false,shots:[]};
+  szRenderModal();
+}
+function szClose(){document.getElementById('sz-mo')?.remove();SZ=null;}
+function szSet(field,val){if(!SZ)return;SZ[field]=val;szRefresh();}
+function szSetIndoor(v){if(!SZ)return;SZ.indoor=v;const st=document.getElementById('sz-settings');if(st)st.innerHTML=szSettingsHTML();szRefresh();}
+function szSettingsHTML(){
+  const DE=lang==='de',setups=getD().setups;
+  const setupOpts=setups.map(s=>`<option value="${s.id}"${SZ.setup_id===s.id?' selected':''}>${sName(s)}</option>`).join('')||'<option value="">—</option>';
+  const ttOpts=Object.entries(TT).map(([k,v])=>`<option value="${k}"${SZ.type===k?' selected':''}>${v[lang]}</option>`).join('');
+  return`<div style="background:var(--bg3);border-radius:10px;padding:12px;margin-bottom:14px">
+    <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">
+      <button class="btn ${!SZ.indoor?'bp':'bg'} btn-sm" onclick="szSetIndoor(false)">${DE?'Freien · 6er Passe':'Outdoor · 6/end'}</button>
+      <button class="btn ${SZ.indoor?'bp':'bg'} btn-sm" onclick="szSetIndoor(true)">${DE?'Halle · 3er Passe':'Indoor · 3/end'}</button>
+    </div>
+    <div class="g3" style="gap:10px">
+      <div class="fg" style="margin-bottom:0"><label>${DE?'Distanz (m)':'Distance (m)'}</label><input type="number" value="${SZ.dist||''}" min="1" max="200" onchange="szSet('dist',parseInt(this.value)||null)"></div>
+      <div class="fg" style="margin-bottom:0"><label>${t('setup')}</label><select onchange="szSet('setup_id',parseInt(this.value)||null)">${setupOpts}</select></div>
+      <div class="fg" style="margin-bottom:0"><label>${t('date')}</label><input type="date" value="${SZ.date}" onchange="szSet('date',this.value)"></div>
+      <div class="fg" style="margin-bottom:0"><label>${t('type')}</label><select onchange="szSet('type',this.value)">${ttOpts}</select></div>
+      <div class="fg" style="margin-bottom:0"><label>${t('bezeichnung')}</label><input type="text" value="${(SZ.name||'').replace(/"/g,'&quot;')}" placeholder="${DE?'z. B. Training 70m':'e.g. Training 70m'}" onchange="szSet('name',this.value)"></div>
+      <div class="fg" style="margin-bottom:0"><label>${t('location')}</label><input type="text" value="${(SZ.location||'').replace(/"/g,'&quot;')}" onchange="szSet('location',this.value)"></div>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;margin-top:10px;cursor:pointer;text-transform:none;font-size:13px;color:var(--text)"><input type="checkbox" ${SZ.arrowNumbers?'checked':''} onchange="szSet('arrowNumbers',this.checked)" style="width:auto"> ${DE?'Pfeilnummern erfassen':'Track arrow numbers'}</label>
+  </div>`;
+}
+function szTargetHTML(){
+  const S=300,C=150,R=140;let rings='';
+  for(let v=1;v<=10;v++){const rad=R*(11-v)/10;rings+=`<circle cx="${C}" cy="${C}" r="${rad.toFixed(1)}" fill="${szRingColor(v)}" stroke="rgba(0,0,0,0.32)" stroke-width="0.7"/>`;}
+  rings+=`<line x1="${C-4}" y1="${C}" x2="${C+4}" y2="${C}" stroke="rgba(0,0,0,0.55)" stroke-width="1"/><line x1="${C}" y1="${C-4}" x2="${C}" y2="${C+4}" stroke="rgba(0,0,0,0.55)" stroke-width="1"/>`;
+  let marks='';
+  (SZ.shots||[]).forEach((s,i)=>{if(s.nx==null||s.ny==null)return;const x=C+s.nx*R,y=C+s.ny*R;marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="rgba(18,18,18,0.92)" stroke="#fff" stroke-width="1.3"/><text x="${x.toFixed(1)}" y="${(y+2.6).toFixed(1)}" text-anchor="middle" font-size="6.5" fill="#fff" font-family="Inter,sans-serif">${i+1}</text>`;});
+  const clickAttr=SZ.viewOnly?'':'onclick="szTargetClick(event)" style="cursor:crosshair;touch-action:manipulation"';
+  const styleAttr=SZ.viewOnly?'style="touch-action:manipulation"':'';
+  return`<svg id="sz-target" viewBox="0 0 ${S} ${S}" width="300" height="300" ${clickAttr} ${styleAttr} style="max-width:min(74vw,300px);height:auto;background:var(--bg3);border-radius:10px;display:block;margin:0 auto">${rings}<g id="sz-marks">${marks}</g></svg>`;
+}
+function szTargetClick(ev){
+  const svg=document.getElementById('sz-target');if(!svg||!SZ||SZ.viewOnly)return;
+  const rect=svg.getBoundingClientRect(),S=300,C=150,R=140;
+  const cx=(ev.touches&&ev.touches[0]?ev.touches[0].clientX:ev.clientX),cy=(ev.touches&&ev.touches[0]?ev.touches[0].clientY:ev.clientY);
+  const vx=(cx-rect.left)/rect.width*S,vy=(cy-rect.top)/rect.height*S;
+  const nx=(vx-C)/R,ny=(vy-C)/R,r=Math.hypot(nx,ny),val=szValueFromR(r);
+  SZ.shots.push({nx,ny,ring:val.ring,isX:val.isX,arrow_no:null,rating:null});szRefresh();
+}
+function szMiss(){if(!SZ||SZ.viewOnly)return;SZ.shots.push({nx:null,ny:null,ring:0,isX:false,arrow_no:null,rating:null});szRefresh();}
+function szUndo(){if(!SZ||SZ.viewOnly||!SZ.shots.length)return;SZ.shots.pop();szRefresh();}
+function szRemove(i){if(!SZ||SZ.viewOnly)return;SZ.shots.splice(i,1);szRefresh();}
+function szSetNo(i,v){if(!SZ||!SZ.shots[i])return;const n=parseInt(v);SZ.shots[i].arrow_no=isNaN(n)?null:n;}
+function szSetRating(i,k){if(!SZ||!SZ.shots[i]||SZ.viewOnly)return;SZ.shots[i].rating=(SZ.shots[i].rating===k?null:k);szRefresh();}
+function szStat(v,l,col){return`<div style="flex:1;min-width:66px;background:var(--bg3);border-radius:8px;padding:7px 9px;text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:${col};line-height:1">${v}</div><div style="font-size:10px;color:var(--text3);text-transform:uppercase">${l}</div></div>`;}
+function szTotalsHTML(){
+  const DE=lang==='de',sh=SZ.shots;
+  const total=sh.reduce((a,s)=>a+(s.ring||0),0),tens=sh.filter(s=>s.ring===10&&!s.isX).length,xs=sh.filter(s=>s.isX).length;
+  const rated=sh.filter(s=>s.rating);const avgR=rated.length?(rated.reduce((a,s)=>a+s.rating,0)/rated.length).toFixed(1):'—';
+  return`<div style="display:flex;gap:8px;flex-wrap:wrap">${szStat(total,DE?'Punkte':'Points','var(--accent)')}${szStat(sh.length,DE?'Pfeile':'Arrows','var(--text)')}${szStat((tens+xs)+' / '+xs,'10 / X','var(--text)')}${szStat(avgR,DE?'Ø Ausführung':'Avg exec.','var(--blue)')}</div>`;
+}
+function szShotHTML(s,gi,vo,showNo){
+  const DE=lang==='de',lbl=szValLabel(s),cv=s.isX?10:s.ring,bg=s.ring>0?szRingColor(cv):'var(--bg4)',tc=s.ring>0?szChipText(cv):'var(--text3)';
+  const chip=`<span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:26px;border-radius:6px;background:${bg};color:${tc};font-weight:700;font-size:13px;border:1px solid rgba(0,0,0,0.2);flex-shrink:0">${lbl}</span>`;
+  const no=showNo?(vo?`<span style="font-size:11px;color:var(--text3)">${s.arrow_no?('#'+s.arrow_no):'–'}</span>`:`<input type="number" value="${s.arrow_no||''}" onchange="szSetNo(${gi},this.value)" placeholder="#" title="${DE?'Pfeilnummer':'Arrow no.'}" style="width:50px;padding:3px 6px;font-size:12px">`):'';
+  const rating=vo?(s.rating?`<span style="color:var(--accent);font-size:12px;letter-spacing:1px" title="${DE?'Ausführung':'Execution'} ${s.rating}/5">${'●'.repeat(s.rating)}<span style="color:var(--text3)">${'○'.repeat(5-s.rating)}</span></span>`:`<span style="color:var(--text3);font-size:11px">–</span>`):`<span style="display:inline-flex;gap:2px" title="${DE?'Ausführung bewerten':'Rate execution'}">${[1,2,3,4,5].map(k=>`<span onclick="szSetRating(${gi},${k})" style="cursor:pointer;font-size:14px;color:${(s.rating||0)>=k?'var(--accent)':'var(--text3)'}">●</span>`).join('')}</span>`;
+  const rm=vo?'':`<button class="btn bd btn-sm" onclick="szRemove(${gi})" style="padding:2px 7px;margin-left:auto">✕</button>`;
+  return`<div style="display:flex;align-items:center;gap:8px">${chip}${no}${rating}${rm}</div>`;
+}
+function szCardHTML(){
+  const DE=lang==='de',es=szEndSize(),sh=SZ.shots,vo=SZ.viewOnly;
+  if(!sh.length)return`<div style="font-size:12px;color:var(--text3);padding:8px 0">${DE?'Noch keine Pfeile – tippe auf die Scheibe oder nutze „Fehler (M)".':'No arrows yet – tap the target or use "Miss (M)".'}</div>`;
+  const ends=[];for(let i=0;i<sh.length;i+=es)ends.push(sh.slice(i,i+es));let running=0;
+  return ends.map((end,ei)=>{const sum=end.reduce((a,s)=>a+(s.ring||0),0);running+=sum;const arrows=end.map((s,j)=>szShotHTML(s,ei*es+j,vo,SZ.arrowNumbers)).join('');
+    return`<div style="border:1px solid var(--border);border-radius:9px;padding:8px 10px;margin-bottom:8px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase">${DE?'Passe':'End'} ${ei+1}</span><span style="font-size:12px;color:var(--text2)">${DE?'Summe':'Sum'} <b style="color:var(--text)">${sum}</b> · ${DE?'gesamt':'total'} <b style="color:var(--accent)">${running}</b></span></div><div style="display:flex;flex-direction:column;gap:6px">${arrows}</div></div>`;
+  }).join('');
+}
+function szRefresh(){
+  const tg=document.getElementById('sz-target');if(tg)tg.outerHTML=szTargetHTML();
+  const tot=document.getElementById('sz-totals');if(tot)tot.innerHTML=szTotalsHTML();
+  const card=document.getElementById('sz-card');if(card)card.innerHTML=szCardHTML();
+}
+function szRenderModal(){
+  const DE=lang==='de',vo=SZ.viewOnly;
+  const settings=vo?`<div style="background:var(--bg3);border-radius:10px;padding:10px 12px;margin-bottom:14px;font-size:12.5px;color:var(--text2)">${[SZ.date?fd(SZ.date):null,SZ.dist?SZ.dist+' m':null,SZ.indoor?(DE?'Halle · 3er':'Indoor · 3/end'):(DE?'Freien · 6er':'Outdoor · 6/end'),SZ.location||null].filter(Boolean).join(' · ')}</div>`:`<div id="sz-settings">${szSettingsHTML()}</div>`;
+  document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="sz-mo" onclick="closeMo(event,'sz-mo')"><div class="md" style="width:640px"><div class="mh"><div class="mt2">📝 ${DE?'Schießzettel':'Scorecard'}${vo&&SZ.name?' · '+SZ.name:''}</div><button class="btn bg btn-sm" onclick="szClose()">✕</button></div>
+    ${settings}
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+      <div style="flex:0 0 auto;text-align:center;min-width:220px">${szTargetHTML()}${vo?'':`<div style="display:flex;gap:6px;justify-content:center;margin-top:8px"><button class="btn bg btn-sm" onclick="szMiss()">${DE?'Fehler (M)':'Miss (M)'}</button><button class="btn bg btn-sm" onclick="szUndo()">↶ ${DE?'Zurück':'Undo'}</button></div><div style="font-size:11px;color:var(--text3);margin-top:6px;max-width:240px">${DE?'Tippe auf die Scheibe, um Pfeile einzutragen.':'Tap the target to place arrows.'}</div>`}</div>
+      <div style="flex:1;min-width:250px"><div id="sz-totals"></div><div id="sz-card" style="margin-top:8px;max-height:46vh;overflow-y:auto"></div></div>
+    </div>
+    ${vo?`<div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szClose()">${DE?'Schließen':'Close'}</button></div>`:`<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szClose()">${t('cancel')}</button><button class="btn bp" onclick="saveScorecard()">${DE?'Schießzettel speichern':'Save scorecard'}</button></div>`}
+  </div></div>`);
+  szRefresh();
+}
+async function saveScorecard(){
+  const DE=lang==='de';if(!SZ)return;
+  const arrows=SZ.shots.length;
+  if(arrows<1){toast(DE?'Bitte mindestens einen Pfeil eintragen.':'Please enter at least one arrow.');return;}
+  const total=SZ.shots.reduce((a,s)=>a+(s.ring||0),0);
+  let nm=(SZ.name||'').trim();if(!nm){const tt=TT[SZ.type]||TT.training;nm=(tt[lang]||tt.de)+' · '+fd(SZ.date);}
+  const es=szEndSize();
+  const row={user_id:CU.id,type:SZ.type,date:SZ.date,name:nm,points:total,arrows,setup_id:SZ.setup_id||(getAS()?getAS().id:1),notes:'',location:SZ.location||'',placement:null,participants:null,no_points:false,distance:SZ.dist||null};
+  const rec=await dbIns('scores',row);if(!rec)return;
+  const shotRows=SZ.shots.map((s,i)=>({user_id:CU.id,score_id:rec.id,end_no:Math.floor(i/es)+1,pos:(i%es)+1,arrow_no:s.arrow_no||null,ring:s.ring||0,is_x:!!s.isX,nx:(s.nx==null?null:+s.nx.toFixed(4)),ny:(s.ny==null?null:+s.ny.toFixed(4)),rating:s.rating||null}));
+  const {error}=await sbc.from('shots').insert(shotRows);
+  if(error){toast(error.message);}
+  getD().scores.push(rec);
+  if(!getD().cardScoreIds)getD().cardScoreIds=new Set();
+  getD().cardScoreIds.add(rec.id);
+  szClose();toast(DE?'Schießzettel gespeichert.':'Scorecard saved.',true);navigate('scores');
+}
+async function openScorecardView(scoreId){
+  const DE=lang==='de',sc=getD().scores.find(s=>s.id===scoreId);
+  const {data,error}=await sbc.from('shots').select('*').eq('score_id',scoreId).order('end_no').order('pos');
+  if(error){toast(error.message);return;}
+  const data2=data||[];
+  const cnts={};data2.forEach(r=>{cnts[r.end_no]=(cnts[r.end_no]||0)+1;});
+  const es=Math.max(3,...Object.values(cnts).length?Object.values(cnts):[6]);
+  const shots=data2.map(r=>({nx:r.nx,ny:r.ny,ring:r.ring,isX:r.is_x,arrow_no:r.arrow_no,rating:r.rating}));
+  SZ={viewOnly:true,indoor:es<=3,dist:sc?sc.distance:null,setup_id:sc?sc.setup_id:null,date:sc?sc.date:'',type:sc?sc.type:'training',name:sc?sc.name:'',location:sc?sc.location:'',arrowNumbers:shots.some(s=>s.arrow_no!=null),shots};
+  szRenderModal();
+}
 // ─── COUNTERS ─────────────────────────────────────────────────────────────
 function counterCats(){const DE=lang==='de';return[
   {v:'string',ic:'🧵',l:DE?'Sehne':'String'},
