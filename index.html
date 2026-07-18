@@ -73,8 +73,10 @@ body{background:var(--bg);color:var(--text);min-height:100vh}
 .tb-logo{display:none;width:28px;height:28px;border-radius:8px;background:var(--accent);padding:3px;flex-shrink:0}
 .tb-logo svg{width:100%;height:100%}
 @media(max-width:767px){.tb-logo{display:block}.tbt{font-size:17px}}
+body.force-mobile .tb-logo{display:block}body.force-mobile .tbt{font-size:17px}
 .tbb{background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--text2);font-weight:500}
 .mb{background:none;border:none;color:var(--text2);cursor:pointer;padding:5px;border-radius:6px;display:flex;transition:background .15s}
+@media(max-width:767px){#mob-toggle{display:none}}
 .mb:hover{background:var(--bg3);color:var(--text)}
 .content{padding:20px;max-width:1200px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;transition:border-color .15s}
@@ -141,6 +143,7 @@ textarea{min-height:70px;resize:vertical}
 .ndot{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-left:auto;animation:pulse 1.5s ease-in-out infinite}
 .vtag{position:fixed;bottom:10px;right:10px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--text3);z-index:300}
 @media(max-width:767px){.vtag{position:static;display:block;margin:18px auto 4px;width:fit-content;font-size:9px;padding:2px 8px;opacity:0.75;z-index:auto}}
+body.force-mobile .vtag{position:static;display:block;margin:18px auto 4px;width:fit-content;font-size:9px;padding:2px 8px;opacity:0.75;z-index:auto}
 .tcard{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:12px}
 .tcti{font-weight:700;color:var(--accent);font-size:14px;margin-bottom:8px}
 .gi{padding:10px 0;border-bottom:1px solid var(--border)}
@@ -201,6 +204,35 @@ textarea{min-height:70px;resize:vertical}
   .tcard>svg{min-width:520px;height:auto}
   .tsvg-hint{display:block}
 }
+/* Manual mobile layout toggle (mirrors the media query) */
+body.force-mobile{}
+  body.force-mobile .sidebar{width:100%;height:auto;min-height:58px;flex-direction:row;position:fixed!important;bottom:0!important;top:auto!important;left:0;right:0;transform:none!important;border-right:none;border-top:1px solid var(--border);z-index:200;padding-bottom:env(safe-area-inset-bottom,0px)}
+  body.force-mobile .sidebar.collapsed{transform:none!important}
+  body.force-mobile .logo, body.force-mobile .sf{display:none}
+  body.force-mobile .nav{display:flex;flex-direction:row;overflow-x:auto;padding:4px 2px;align-items:center;justify-content:space-around;width:100%}
+  body.force-mobile .nav{scrollbar-width:none}
+  body.force-mobile .nav::-webkit-scrollbar{display:none}
+  body.force-mobile .nav-item{flex-direction:column;gap:1px;font-size:9px;padding:4px 6px;min-width:44px;max-width:54px;border-radius:8px;text-align:center;overflow:hidden}
+  body.force-mobile .nav-item span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-size:9px;line-height:1.1}
+  body.force-mobile .nav-item svg{width:18px;height:18px;flex-shrink:0}
+  body.force-mobile .nav-lbl, body.force-mobile .nav-sep{display:none}
+  body.force-mobile .ndot{position:absolute;top:2px;right:2px;margin-left:0}
+  body.force-mobile .nav-item{position:relative}
+  body.force-mobile .main{margin-left:0!important;padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))}
+  body.force-mobile .g4{grid-template-columns:1fr 1fr!important}
+  body.force-mobile .g3{grid-template-columns:1fr 1fr!important}
+  body.force-mobile .g2{grid-template-columns:1fr!important}
+  body.force-mobile .stitle{font-size:22px!important;margin-bottom:12px!important}
+  body.force-mobile .content{padding:12px!important}
+  body.force-mobile .topbar{padding:0 12px;gap:8px}
+  body.force-mobile .md{max-height:85vh;padding:16px}
+  body.force-mobile .tabs{flex-wrap:wrap}
+  body.force-mobile .tab{min-width:calc(50% - 4px);flex:none}
+  body.force-mobile .photo-grid{grid-template-columns:1fr 1fr}
+  body.force-mobile /* Tuning diagrams: keep them legible instead of squeezing them into 340px */
+  .tcard{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  body.force-mobile .tcard>svg{min-width:520px;height:auto}
+  body.force-mobile .tsvg-hint{display:block}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
 </style>
 </head>
@@ -227,7 +259,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.1.5 &middot; &ldquo;Marcus D'Almeida&rdquo;</div>
+  <div class="lver">v1.0.1.6 &middot; &ldquo;Oh Jin-hyek&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -245,7 +277,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.5 &middot; &ldquo;Marcus D'Almeida&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.6 &middot; &ldquo;Oh Jin-hyek&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -262,16 +294,13 @@ textarea{min-height:70px;resize:vertical}
     <div class="tb-logo" id="tb-logo" title="BowBrain"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#0f1117" stroke-width="1.8"/><circle cx="14" cy="14" r="7" stroke="#0f1117" stroke-width="1.4"/><circle cx="14" cy="14" r="3" stroke="#0f1117" stroke-width="1.3"/><path d="M14,4 Q17,9 14,14 Q11,9 14,4" fill="none" stroke="#0f1117" stroke-width="1.6"/><path d="M7,7 Q10,12 8,18" stroke="#0f1117" stroke-width="1" opacity="0.7"/><path d="M21,7 Q18,12 20,18" stroke="#0f1117" stroke-width="1" opacity="0.7"/></svg></div>
     <div class="tbt" id="tbt">Dashboard</div>
     <span class="tbb" id="tbb">Recurve &middot; 28"</span>
-    <button class="mb" id="mob-toggle" onclick="toggleMobMode()" title="Ansicht wechseln" style="margin-left:4px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></button>
-    <select id="lang-topbar" onchange="chLTopbar(this.value)" style="width:auto;flex:none;margin-left:auto;background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--text2);font-weight:500;cursor:pointer;outline:none;font-family:'Inter',sans-serif;transition:border .15s" title="Language / Sprache">
-      <option value="de">🇩🇪 DE</option>
-      <option value="en">🇬🇧 EN</option>
-    </select>
+    <button class="mb" id="mob-toggle" onclick="toggleMobMode()" title="Mobile-/Desktop-Ansicht" style="margin-left:4px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></button>
+    <button id="lang-topbar" onclick="chLTopbar(lang==='de'?'en':'de')" style="width:auto;flex:none;margin-left:auto;background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:4px 11px;font-size:12px;color:var(--text2);font-weight:600;cursor:pointer;outline:none;font-family:'Inter',sans-serif;transition:border .15s;display:inline-flex;align-items:center;gap:6px" title="Language / Sprache"></button>
   </div>
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.1.5 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.1.6 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -310,7 +339,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.1.5',VNAME='Marcus D\'Almeida';
+const VER='1.0.1.6',VNAME='Oh Jin-hyek';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -320,8 +349,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.1.5 · "Marcus D\'Almeida"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.1.5 · "Marcus D\'Almeida"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.1.6 · "Oh Jin-hyek"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.1.6 · "Oh Jin-hyek"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -335,6 +364,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.1.6',name:'Oh Jin-hyek',
+    de:['Sprachflaggen als SVG – werden jetzt auch unter Windows korrekt angezeigt statt als „DE“/„GB“','Mobile-Ansicht: der Umschalter in der Kopfzeile schaltet das Handy-Layout jetzt tatsächlich auch am Desktop (auf echten Handys ausgeblendet)','Windrichtung: neue Option „wechselnd/böig“'],
+    en:['Language flags rendered as SVG – now shown correctly on Windows too instead of "DE"/"GB"','Mobile view: the header toggle now really switches the phone layout on desktop as well (hidden on real phones)','Wind direction: new "variable/gusty" option']},
   {ver:'1.0.1.5',name:'Marcus D\'Almeida',
     de:['Analyse: Gruppenbild jetzt pro Event statt über alle jemals geschossenen Pfeile – Visierwechsel und Wind an anderen Tagen verfälschen die Streuung nicht mehr','Analyse: Event-Auswahl plus optionale Überlagerung mehrerer Events (je Event auf den eigenen Mittelpunkt zentriert)','Wetter wird als Icon ausgewählt, Wind als Windstärke in Beaufort – Richtung optional und relativ zur Schussrichtung (Gegenwind, von links, von hinten rechts …)','Dashboard: aktives Setup und die letzten Aktivitäten sind direkt anklickbar und bearbeitbar','Visiereinstellungen: „Sichtband“ heißt jetzt „Empfehlungstabelle“','Neu: vollständiger Datenexport als JSON-Sicherung und als CSV je Bereich','Ergebnisse: Filter nach Typ, Entfernung, Setup und Zeitraum','Schießzettel: Pfeile lassen sich ziehen und feinjustieren, der zählende Ring leuchtet auf, Lupe und Zoom erleichtern die Eingabe; Liner werden nach WA-Regel dem höheren Ring zugeordnet'],
     en:['Analysis: group plot is now per event instead of across every arrow ever shot – sight changes and wind on other days no longer distort the dispersion','Analysis: event selector plus optional overlay of several events (each event centred on its own group centre)','Weather is picked as an icon, wind as a Beaufort force – direction optional and relative to the shooting direction (headwind, from the left, from back right …)','Dashboard: the active setup and recent activities are directly clickable and editable','Sight settings: "sight tape" is now called "recommendation table"','New: full data export as a JSON backup and as CSV per section','Results: filter by type, distance, setup and period','Scorecard: arrows can be dragged and fine-tuned, the scoring ring lights up, a magnifier and zoom make entry easier; line-cutters score the higher ring per WA rule']},
@@ -593,7 +625,8 @@ const WDIRS=[
   {k:'T', de:'Rückenwind',        en:'Tailwind'},
   {k:'TL',de:'von hinten links',  en:'From back left'},
   {k:'L', de:'von links',         en:'From the left'},
-  {k:'HL',de:'von vorne links',   en:'From front left'}
+  {k:'HL',de:'von vorne links',   en:'From front left'},
+  {k:'V', de:'wechselnd/böig',    en:'Variable/gusty'}
 ];
 const WDIR_KEYS=WDIRS.map(d=>d.k);
 function dirOpt(k){return WDIRS.find(d=>d.k===k)||null;}
@@ -642,7 +675,15 @@ function interpMark(dist,pts){
 }
 function isMobile(){return forceMobile||window.innerWidth<768;}
 function toggleMobMode(){forceMobile=!forceMobile;applyMobile();}
-function applyMobile(){document.getElementById('main')?.classList.toggle('exp',!sbOpen&&!isMobile());placeVtag();const btn=document.getElementById('mob-toggle');if(btn)btn.style.color=forceMobile?'var(--accent)':'var(--text2)';}
+function applyMobile(){
+  document.body.classList.toggle('force-mobile',forceMobile);
+  document.getElementById('main')?.classList.toggle('exp',!sbOpen&&!isMobile());
+  // move the visual element into/out of the mobile flow, then re-render the page
+  navigate(currentPage);
+  placeVtag();
+  const btn=document.getElementById('mob-toggle');
+  if(btn){btn.style.color=forceMobile?'var(--accent)':'var(--text2)';btn.title=forceMobile?(lang==='de'?'Zur Desktop-Ansicht':'Switch to desktop view'):(lang==='de'?'Zur mobilen Ansicht':'Switch to mobile view');}
+}
 let ADMIN_USERS=[],ADMIN_STATS=null;
 function getRealStats(){return ADMIN_STATS||{totalUsers:'…',activeUsers:'…',totalScores:'…',totalArrows:'…',totalSetups:'…',totalFeedback:SHARED.feedback.length};}
 let ADMIN_SIGNUPS=[],ADMIN_USAGE=[],ADMIN_USAGE_BY_USER={};
@@ -690,8 +731,8 @@ let loginTab='login';
 function loginBodyHTML(){
   const de=lang==='de';
   return`<div style="display:flex;justify-content:center;gap:5px;margin-bottom:14px">
-    <button class="btn ${lang==='en'?'bp':'bg'} btn-sm" onclick="setLoginLang('en')" style="padding:4px 12px">🇬🇧 EN</button>
-    <button class="btn ${lang==='de'?'bp':'bg'} btn-sm" onclick="setLoginLang('de')" style="padding:4px 12px">🇩🇪 DE</button>
+    <button class="btn ${lang==='en'?'bp':'bg'} btn-sm" onclick="setLoginLang('en')" style="padding:4px 12px;display:inline-flex;align-items:center;gap:6px">${flagSVG('en',16)} EN</button>
+    <button class="btn ${lang==='de'?'bp':'bg'} btn-sm" onclick="setLoginLang('de')" style="padding:4px 12px;display:inline-flex;align-items:center;gap:6px">${flagSVG('de',16)} DE</button>
   </div>
   <div class="ltabs">
     <button class="ltab${loginTab==='login'?' active':''}" id="lt-login" onclick="swLTab('login')">${de?'Anmelden':'Log in'}</button>
@@ -714,7 +755,7 @@ function loginBodyHTML(){
       <div class="fg"><label>${de?'Passwort *':'Password *'}</label><input id="r-pw" type="password" placeholder="${de?'Mindestens 6 Zeichen':'At least 6 characters'}"></div>
       <div class="fg"><label>${de?'Bogenklasse':'Bow class'}</label><select id="r-bow"><option>Recurve</option><option>Compound</option><option>${de?'Blankbogen':'Barebow'}</option><option>${de?'Traditionell':'Traditional'}</option></select></div>
     </div>
-    <div class="fg"><label>Sprache / Language</label><select id="r-lang"><option value="en"${lang==='en'?' selected':''}>🇬🇧 English</option><option value="de"${lang==='de'?' selected':''}>🇩🇪 Deutsch</option></select></div>
+    <div class="fg"><label>Sprache / Language</label><select id="r-lang"><option value="en"${lang==='en'?' selected':''}>English</option><option value="de"${lang==='de'?' selected':''}>Deutsch</option></select></div>
     <button class="btn bp" style="width:100%;justify-content:center;padding:10px" onclick="doRegister()">${de?'Konto erstellen':'Create account'}</button>
   </div>`;
 }
@@ -755,7 +796,7 @@ async function afterAuth(session,showOnboard){
     return;
   }
   applySettings(getS());
-  const sel=document.getElementById('lang-topbar');if(sel)sel.value=lang;
+  paintLangBtn();
   document.getElementById('login-page').style.display='none';
   document.getElementById('app-shell').style.display='';
   buildNav();navigate('dashboard');startHeartbeat();
@@ -851,7 +892,7 @@ function buildNav(){
   document.getElementById('tbt').textContent=t(currentPage||'dashboard');
   document.getElementById('tbb').textContent=as?`${p2.bow_class||'Recurve'} · ${as.dl||p2.draw_length||28}"`:'—';
   document.getElementById('nav-menu').innerHTML=`<div class="nav-lbl">${t('nav_main')}</div>${pages.map(item).join('')}<div class="nav-sep"></div><div class="nav-lbl">${t('nav_acc')}</div>${acct.map(item).join('')}`;
-  const ls=document.getElementById('lang-topbar');if(ls)ls.value=lang;
+  paintLangBtn();
   const lgv=document.getElementById('logo-ver');if(lgv)lgv.textContent='v'+VER+' · "'+VNAME+'"';
 }
 function navigate(page){
@@ -865,6 +906,16 @@ function navigate(page){
   if(page==='admin')setTimeout(loadAdminData,10);
   if(page==='wa')setTimeout(waEnter,30);
 }
+// ─── FLAGS (inline SVG so Windows/Chrome shows them, not "DE"/"GB") ────────
+function flagSVG(cc,w){
+  w=w||18;const h=(w*3/4).toFixed(1);
+  if(cc==='de'){
+    return `<svg viewBox="0 0 5 3" width="${w}" height="${h}" style="border-radius:2px;vertical-align:-2px;display:inline-block;flex:none" aria-label="DE"><rect width="5" height="3" y="0" fill="#000"/><rect width="5" height="2" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>`;
+  }
+  // Union Jack (GB) – simplified but recognisable
+  return `<svg viewBox="0 0 60 30" width="${w}" height="${(w/2).toFixed(1)}" style="border-radius:2px;vertical-align:-2px;display:inline-block;flex:none" aria-label="EN"><clipPath id="ukc"><rect width="60" height="30"/></clipPath><g clip-path="url(#ukc)"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#ukc)"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></g></svg>`;
+}
+
 // ─── DEEP LINKS ───────────────────────────────────────────────────────────
 function goEditScore(id){navigate('scores');setTimeout(()=>openScoreModal(id),60);}
 function goEditSetup(id){navigate('setups');setTimeout(()=>openSetupModal(id),60);}
@@ -2041,7 +2092,9 @@ function saveLangPref(l){
   try{localStorage.setItem('bb_lang',l);}catch(e){}
   if(sbc&&CU){sbc.from('profiles').update({lang:l}).eq('id',CU.id).then(({error})=>{if(error)console.warn('lang save',error);},e=>console.warn('lang save',e));}
 }
-function chLTopbar(nl){lang=nl;saveLangPref(nl);const sel=document.getElementById('lang-topbar');if(sel)sel.value=nl;buildNav();navigate(currentPage);}
+function langBtnHTML(){return flagSVG(lang,16)+'<span>'+(lang==='de'?'DE':'EN')+'</span>';}
+function paintLangBtn(){const b=document.getElementById('lang-topbar');if(b)b.innerHTML=langBtnHTML();}
+function chLTopbar(nl){lang=nl;saveLangPref(nl);paintLangBtn();buildNav();navigate(currentPage);}
 // ─── GLOSSAR DATA (mutable) ───────────────────────────────────────────────
 const GL={de:[{id:1,t:'Spine',d:'Maß für Biegsamkeit. Niedrigerer Wert = steiferer Pfeil.'},{id:2,t:'Auszuglänge',d:'Distanz, die der Schütze den Bogen auszieht, in Zoll.'},{id:3,t:'Blankschaft-Tuning',d:'Unbefiederte Pfeile: Links/Rechts = Spine; Oben/Unten = Nockpunkt.'},{id:4,t:'Walkback-Tuning',d:'Pfeile auf senkrechten Streifen aus verschiedenen Entfernungen.'},{id:5,t:'Paper Tuning',d:'Pfeil durch Papier – Rissbild zeigt Korrekturen.'},{id:6,t:'Nockpunkt',d:'Punkt auf der Sehne, wo der Pfeil eingenocht wird.'},{id:7,t:'Standhöhe (Brace Height)',d:'Abstand Sehne–Griffstück. Typisch 8–9,5 Zoll.'},{id:8,t:'Tiller',d:'Abstand Wurfarmende–Sehne. Oberer Tiller typisch 2–4mm größer.'},{id:9,t:'Clicker',d:'Metallblättchen: klickt bei optimaler Auszuglänge.'},{id:10,t:'WA 720',d:'Outdoor-Format. 72 Pfeile, max. 720 Punkte (50m+30m).'},{id:11,t:'WA 600',d:'Indoor-Format. 60 Pfeile, max. 600 Punkte auf 18m oder 25m.'}],en:[{id:1,t:'Spine',d:'Measure of arrow stiffness. Lower = stiffer arrow.'},{id:2,t:'Draw Length',d:'Distance the archer draws the bow, in inches.'},{id:3,t:'Bare Shaft Tuning',d:'Bare shafts: Left/Right = spine; Up/Down = nocking point.'},{id:4,t:'Walkback Tuning',d:'Arrows on a vertical strip from different distances.'},{id:5,t:'Paper Tuning',d:'Arrow through paper – tear pattern shows corrections.'},{id:6,t:'Nocking Point',d:'Point on string where arrow is nocked.'},{id:7,t:'Brace Height',d:'String to grip distance. Typical 8–9.5 inches.'},{id:8,t:'Tiller',d:'Limb tip to string distance. Upper typically 2–4mm larger.'},{id:9,t:'Clicker',d:'Metal blade: clicks at optimal draw length.'},{id:10,t:'WA 720',d:'Outdoor format. 72 arrows, max 720 points (50m+30m).'},{id:11,t:'WA 600',d:'Indoor format. 60 arrows, max 600 points at 18m/25m.'}]};
 let GL_FILTER_LABEL=null;
@@ -2375,7 +2428,7 @@ function expCardHTML(){
     <div style="display:flex;gap:6px;flex-wrap:wrap">${EXP_KINDS.map(e=>`<button class="btn bg btn-sm" onclick="exportCSV('${e.k}')">${e[lang]}</button>`).join('')}</div>
   </div>`;
 }
-function rSettings(){const s=getS();return`<div class="stitle">${t('einstellungen')}</div><div class="g2" style="gap:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Design & Darstellung':'Design & Display'}</div></div>${[['dark_mode',t('dark_mode'),lang==='de'?'Dunkles Design':'Dark theme'],['animations',t('animations'),lang==='de'?'UI-Animationen':'UI animations'],['compact',t('compact'),lang==='de'?'Reduzierte Abstände':'Reduced spacing'],['large_font',t('large_font'),lang==='de'?'Größere Schrift':'Larger text']].map(([k,n,d2])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--text3);margin-top:1px">${d2}</div></div><div class="toggle ${s[k]?'on':''}" onclick="togS('${k}')"></div></div>`).join('')}<div class="fg" style="margin-top:14px"><label>${t('language')}</label><select onchange="chL(this.value)"><option value="de"${lang==='de'?' selected':''}>🇩🇪 Deutsch</option><option value="en"${lang==='en'?' selected':''}>🇬🇧 English</option></select></div></div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Einheiten & Sonstiges':'Units & Other'}</div></div><div class="fg"><label>${lang==='de'?'Entfernungseinheit':'Distance Unit'}</label><select><option>${lang==='de'?'Meter (m)':'Meters (m)'}</option><option>Yards (yd)</option></select></div><div class="fg"><label>${lang==='de'?'Gewichtseinheit':'Weight Unit'}</label><select><option>${lang==='de'?'Pfund (lbs)':'Pounds (lbs)'}</option><option>Kilogramm (kg)</option></select></div><div style="margin-top:14px;border:1px dashed var(--border);border-radius:10px;padding:12px"><div class="notif-planned">${[['training_remind',lang==='de'?'Training-Erinnerungen':'Training Reminders'],['tournament_hints',lang==='de'?'Turnier-Hinweise':'Tournament Alerts']].map(([k,n])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div></div><div class="toggle ${s[k]?'on':''}"></div></div>`).join('')}</div><div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:6px"><span>🔮</span> ${lang==='de'?'Benachrichtigungen – geplantes Feature':'Notifications – planned feature'}</div></div></div></div>${expCardHTML()}<div style="margin-top:12px;font-size:12px;color:var(--text3)">💡 ${lang==='de'?'Alle Schalter wirken sofort.':'All toggles apply immediately.'}</div>`;}
+function rSettings(){const s=getS();return`<div class="stitle">${t('einstellungen')}</div><div class="g2" style="gap:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Design & Darstellung':'Design & Display'}</div></div>${[['dark_mode',t('dark_mode'),lang==='de'?'Dunkles Design':'Dark theme'],['animations',t('animations'),lang==='de'?'UI-Animationen':'UI animations'],['compact',t('compact'),lang==='de'?'Reduzierte Abstände':'Reduced spacing'],['large_font',t('large_font'),lang==='de'?'Größere Schrift':'Larger text']].map(([k,n,d2])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--text3);margin-top:1px">${d2}</div></div><div class="toggle ${s[k]?'on':''}" onclick="togS('${k}')"></div></div>`).join('')}<div class="fg" style="margin-top:14px"><label>${t('language')}</label><select onchange="chL(this.value)"><option value="de"${lang==='de'?' selected':''}>Deutsch</option><option value="en"${lang==='en'?' selected':''}>English</option></select></div></div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Einheiten & Sonstiges':'Units & Other'}</div></div><div class="fg"><label>${lang==='de'?'Entfernungseinheit':'Distance Unit'}</label><select><option>${lang==='de'?'Meter (m)':'Meters (m)'}</option><option>Yards (yd)</option></select></div><div class="fg"><label>${lang==='de'?'Gewichtseinheit':'Weight Unit'}</label><select><option>${lang==='de'?'Pfund (lbs)':'Pounds (lbs)'}</option><option>Kilogramm (kg)</option></select></div><div style="margin-top:14px;border:1px dashed var(--border);border-radius:10px;padding:12px"><div class="notif-planned">${[['training_remind',lang==='de'?'Training-Erinnerungen':'Training Reminders'],['tournament_hints',lang==='de'?'Turnier-Hinweise':'Tournament Alerts']].map(([k,n])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div></div><div class="toggle ${s[k]?'on':''}"></div></div>`).join('')}</div><div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:6px"><span>🔮</span> ${lang==='de'?'Benachrichtigungen – geplantes Feature':'Notifications – planned feature'}</div></div></div></div>${expCardHTML()}<div style="margin-top:12px;font-size:12px;color:var(--text3)">💡 ${lang==='de'?'Alle Schalter wirken sofort.':'All toggles apply immediately.'}</div>`;}
 async function togS(key){const s=getS();s[key]=!s[key];applySettings(s);navigate('einstellungen');const {error}=await sbc.from('user_settings').upsert({user_id:CU.id,dark_mode:s.dark_mode,animations:s.animations,compact:s.compact,large_font:s.large_font},{onConflict:'user_id'});if(error)toast(error.message);}
 function chL(nl){lang=nl;saveLangPref(nl);buildNav();navigate('einstellungen');}
 
