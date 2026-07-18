@@ -336,8 +336,8 @@ const SHARED={
 };
 const CHANGELOG=[
   {ver:'1.0.1.5',name:'Marcus D\'Almeida',
-    de:['Analyse: Gruppenbild jetzt pro Event statt über alle jemals geschossenen Pfeile – Visierwechsel und Wind an anderen Tagen verfälschen die Streuung nicht mehr','Analyse: Event-Auswahl plus optionale Überlagerung mehrerer Events (je Event auf den eigenen Mittelpunkt zentriert)','Wetter wird als Icon ausgewählt, Wind als Windstärke in Beaufort – Richtung optional und relativ zur Schussrichtung (Gegenwind, von links, von hinten rechts …)','Dashboard: aktives Setup und die letzten Aktivitäten sind direkt anklickbar und bearbeitbar','Visiereinstellungen: „Sichtband“ heißt jetzt „Empfehlungstabelle“','Neu: vollständiger Datenexport als JSON-Sicherung und als CSV je Bereich','Ergebnisse: Filter nach Typ, Entfernung, Setup und Zeitraum'],
-    en:['Analysis: group plot is now per event instead of across every arrow ever shot – sight changes and wind on other days no longer distort the dispersion','Analysis: event selector plus optional overlay of several events (each event centred on its own group centre)','Weather is picked as an icon, wind as a Beaufort force – direction optional and relative to the shooting direction (headwind, from the left, from back right …)','Dashboard: the active setup and recent activities are directly clickable and editable','Sight settings: "sight tape" is now called "recommendation table"','New: full data export as a JSON backup and as CSV per section','Results: filter by type, distance, setup and period']},
+    de:['Analyse: Gruppenbild jetzt pro Event statt über alle jemals geschossenen Pfeile – Visierwechsel und Wind an anderen Tagen verfälschen die Streuung nicht mehr','Analyse: Event-Auswahl plus optionale Überlagerung mehrerer Events (je Event auf den eigenen Mittelpunkt zentriert)','Wetter wird als Icon ausgewählt, Wind als Windstärke in Beaufort – Richtung optional und relativ zur Schussrichtung (Gegenwind, von links, von hinten rechts …)','Dashboard: aktives Setup und die letzten Aktivitäten sind direkt anklickbar und bearbeitbar','Visiereinstellungen: „Sichtband“ heißt jetzt „Empfehlungstabelle“','Neu: vollständiger Datenexport als JSON-Sicherung und als CSV je Bereich','Ergebnisse: Filter nach Typ, Entfernung, Setup und Zeitraum','Schießzettel: Pfeile lassen sich ziehen und feinjustieren, der zählende Ring leuchtet auf, Lupe und Zoom erleichtern die Eingabe; Liner werden nach WA-Regel dem höheren Ring zugeordnet'],
+    en:['Analysis: group plot is now per event instead of across every arrow ever shot – sight changes and wind on other days no longer distort the dispersion','Analysis: event selector plus optional overlay of several events (each event centred on its own group centre)','Weather is picked as an icon, wind as a Beaufort force – direction optional and relative to the shooting direction (headwind, from the left, from back right …)','Dashboard: the active setup and recent activities are directly clickable and editable','Sight settings: "sight tape" is now called "recommendation table"','New: full data export as a JSON backup and as CSV per section','Results: filter by type, distance, setup and period','Scorecard: arrows can be dragged and fine-tuned, the scoring ring lights up, a magnifier and zoom make entry easier; line-cutters score the higher ring per WA rule']},
   {ver:'1.0.1.4',name:'Kim Woo-jin',
     de:['Pfeilset kann jetzt mehreren Setups gleichzeitig zugeordnet werden – Auswahl direkt im Pfeilset','Zielscheibe: eigener X-Ring im Gold – 10 und X sind sichtbar unterscheidbar und werden getrennt gezählt (X zählt WA-konform als 10)','Spine-Empfehlung berücksichtigt jetzt die Pfeillänge (aus dem verknüpften Pfeilset bzw. manuell im Rechner)','Schießzettel mit den konkreten Pfeilen eines Sets verknüpfbar → Auswertung je Einzelpfeil (beste Gruppierung, Ausreißer)','Neuer FOC-/GPI-Rechner im Pfeilset (Gesamtgewicht & Balancepunkt)','Schießzettel-Ansicht im offiziellen WA-Format (Passen, Pfeilwerte, 10/X, End- und Laufsumme)','Wetter und Wind bei Training/Turnier pflegbar'],
     en:['An arrow set can now be linked to several setups at once – chosen right in the arrow set','Target face: dedicated X-ring in the gold – 10 and X are visually distinct and counted separately (X scores 10, WA-compliant)','Spine recommendation now factors in arrow length (from the linked arrow set or entered in the calculator)','Scorecards can be linked to the actual arrows of a set → per-arrow evaluation (best grouping, outliers)','New FOC/GPI calculator in the arrow set (total weight & balance point)','Scorecard view in official WA format (ends, arrow values, 10/X, end & running totals)','Weather and wind can be recorded for training/tournaments']},
@@ -1384,7 +1384,18 @@ let SZ=null;
 function szRingColor(v){if(v>=9)return '#F2C230';if(v>=7)return '#E5544B';if(v>=5)return '#3B7DD8';if(v>=3)return '#232323';return '#F2F2F2';}
 function szChipText(v){return (v>=9||v<3)?'#141414':'#ffffff';}
 function szValLabel(s){return s.isX?'X':(s.ring>0?String(s.ring):'M');}
-function szValueFromR(r){if(r<=0.05)return{ring:10,isX:true};if(r>=1)return{ring:0,isX:false};return{ring:Math.max(1,Math.min(10,10-Math.floor(r*10))),isX:false};}
+// Physical shaft radius as a fraction of the target-face radius (approx. an
+// 18/64" ACE at 40 cm outdoor). Scoring uses the shaft's inner edge so that a
+// line-cutter counts as the higher ring (World Archery rule).
+const SZ_ARROW_R=0.018;
+function szValueFromR(r,useEdge){
+  const rr=(useEdge===false)?r:Math.max(0,r-SZ_ARROW_R); // inner edge toward centre
+  if(rr<=0.05)return{ring:10,isX:true};
+  if(rr>=1)return{ring:0,isX:false};
+  return{ring:Math.max(1,Math.min(10,10-Math.floor(rr*10))),isX:false};
+}
+// Boundary radius (face fraction) between ring v and v-1, for highlighting.
+function szRingOuterR(v){return (11-v)/10;}
 function szEndSize(){return SZ&&SZ.indoor?3:6;}
 function szSetupArrowNos(){if(!SZ)return null;const s=(getD().setups||[]).find(x=>x.id===SZ.setup_id);if(!s)return null;const a=arrowSetById(s.arrow_set_id);if(!a||!Array.isArray(a.arrows))return null;const arr=a.arrows.filter(x=>x&&x.no!=null&&x.no!=='');return arr.length?arr:null;}
 function openScorecard(){
@@ -1420,24 +1431,161 @@ function szSettingsHTML(){
     <label style="display:flex;align-items:center;gap:8px;margin-top:10px;cursor:pointer;text-transform:none;font-size:13px;color:var(--text)"><input type="checkbox" ${SZ.arrowNumbers?'checked':''} onchange="szSet('arrowNumbers',this.checked)" style="width:auto"> ${DE?'Pfeilnummern erfassen':'Track arrow numbers'}</label>
   </div>`;
 }
-function szTargetHTML(){
-  const S=300,C=150,R=140;let rings='';
+const SZ_S=300,SZ_C=150,SZ_R=140;
+function szZoom(){return (SZ&&SZ.zoom)?SZ.zoom:1;}
+function szView(){
+  // viewBox that zooms toward the target centre; clamped inside the face
+  const z=szZoom(),S=SZ_S;const w=S/z;const off=(S-w)/2;
+  return {x:off,y:off,w:w,vb:`${off.toFixed(1)} ${off.toFixed(1)} ${w.toFixed(1)} ${w.toFixed(1)}`};
+}
+function szRingsSVG(){
+  const C=SZ_C,R=SZ_R;let rings='';
   for(let v=1;v<=10;v++){const rad=R*(11-v)/10;rings+=`<circle cx="${C}" cy="${C}" r="${rad.toFixed(1)}" fill="${szRingColor(v)}" stroke="rgba(0,0,0,0.32)" stroke-width="0.7"/>`;}
-  rings+=`<circle cx="${C}" cy="${C}" r="${(R*0.05).toFixed(1)}" fill="none" stroke="rgba(0,0,0,0.62)" stroke-width="0.7"/>`;rings+=`<line x1="${C-4}" y1="${C}" x2="${C+4}" y2="${C}" stroke="rgba(0,0,0,0.55)" stroke-width="1"/><line x1="${C}" y1="${C-4}" x2="${C}" y2="${C+4}" stroke="rgba(0,0,0,0.55)" stroke-width="1"/>`;
-  let marks='';const _es=szEndSize(),_cs=Math.max(0,SZ.curEnd||0),_a=_cs*_es,_b=_a+_es;
-  (SZ.shots||[]).forEach((s,i)=>{if(s.nx==null||s.ny==null)return;const x=C+s.nx*R,y=C+s.ny*R;if(i>=_a&&i<_b){marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="rgba(18,18,18,0.92)" stroke="#fff" stroke-width="1.3"/><text x="${x.toFixed(1)}" y="${(y+2.6).toFixed(1)}" text-anchor="middle" font-size="6.5" fill="#fff" font-family="Inter,sans-serif">${i-_a+1}</text>`;}else{marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.6" fill="rgba(120,124,150,0.45)"/>`;}});
-  const clickAttr=SZ.viewOnly?'':'onclick="szTargetClick(event)" style="cursor:crosshair;touch-action:manipulation"';
-  const styleAttr=SZ.viewOnly?'style="touch-action:manipulation"':'';
-  return`<svg id="sz-target" viewBox="0 0 ${S} ${S}" width="300" height="300" ${clickAttr} ${styleAttr} style="max-width:min(74vw,300px);height:auto;background:var(--bg3);border-radius:10px;display:block;margin:0 auto">${rings}<g id="sz-marks">${marks}</g></svg>`;
+  rings+=`<circle cx="${C}" cy="${C}" r="${(R*0.05).toFixed(1)}" fill="none" stroke="rgba(0,0,0,0.62)" stroke-width="0.7"/>`;
+  rings+=`<line x1="${C-4}" y1="${C}" x2="${C+4}" y2="${C}" stroke="rgba(0,0,0,0.55)" stroke-width="1"/><line x1="${C}" y1="${C-4}" x2="${C}" y2="${C+4}" stroke="rgba(0,0,0,0.55)" stroke-width="1"/>`;
+  return rings;
 }
-function szTargetClick(ev){
-  const svg=document.getElementById('sz-target');if(!svg||!SZ||SZ.viewOnly)return;
-  const rect=svg.getBoundingClientRect(),S=300,C=150,R=140;
-  const cx=(ev.touches&&ev.touches[0]?ev.touches[0].clientX:ev.clientX),cy=(ev.touches&&ev.touches[0]?ev.touches[0].clientY:ev.clientY);
-  const vx=(cx-rect.left)/rect.width*S,vy=(cy-rect.top)/rect.height*S;
-  const nx=(vx-C)/R,ny=(vy-C)/R,r=Math.hypot(nx,ny),val=szValueFromR(r);
-  SZ.shots.push({nx,ny,ring:val.ring,isX:val.isX,arrow_no:null,rating:null});SZ.curEnd=Math.floor((SZ.shots.length-1)/szEndSize());szRefresh();
+function szHighlightSVG(){
+  // glowing outline of the ring the active point currently scores
+  if(SZ_ACT==null)return '';
+  const s=SZ.shots&&SZ.shots[SZ_ACT];if(!s||s.nx==null)return '';
+  const C=SZ_C,R=SZ_R,r=Math.hypot(s.nx,s.ny),val=szValueFromR(r);
+  if(val.ring<=0)return '';
+  const outer=R*szRingOuterR(val.ring),inner=R*szRingOuterR(val.ring+1);
+  const ro=(val.isX?R*0.05:outer);
+  const ri=(val.ring>=10?0:inner);
+  let g=`<circle cx="${C}" cy="${C}" r="${ro.toFixed(1)}" fill="none" stroke="#12E0C0" stroke-width="1.6" opacity="0.95" style="filter:drop-shadow(0 0 3px #12E0C0)"/>`;
+  if(ri>0)g+=`<circle cx="${C}" cy="${C}" r="${ri.toFixed(1)}" fill="none" stroke="#12E0C0" stroke-width="1.2" opacity="0.6"/>`;
+  return g;
 }
+function szMarksSVG(){
+  const C=SZ_C,R=SZ_R,z=szZoom();const _es=szEndSize(),_cs=Math.max(0,SZ.curEnd||0),_a=_cs*_es,_b=_a+_es;
+  const k=1/z; // keep marks a constant screen size while zoomed
+  let marks='';
+  (SZ.shots||[]).forEach((s,i)=>{
+    if(s.nx==null||s.ny==null)return;
+    const x=C+s.nx*R,y=C+s.ny*R,cur=(i>=_a&&i<_b),act=(i===SZ_ACT);
+    if(cur){
+      const rr=(5*k).toFixed(2);
+      const edge=(SZ_ARROW_R*R).toFixed(2);
+      marks+=`<g class="sz-hit" data-i="${i}" style="cursor:grab">`;
+      // faint shaft-size ring so the liner geometry is visible
+      marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${edge}" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="${(0.6*k).toFixed(2)}"/>`;
+      marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${rr}" fill="${act?'#12E0C0':'rgba(18,18,18,0.92)'}" stroke="#fff" stroke-width="${(1.3*k).toFixed(2)}"/>`;
+      marks+=`<text x="${x.toFixed(1)}" y="${(y+2.6*k).toFixed(1)}" text-anchor="middle" font-size="${(6.5*k).toFixed(2)}" fill="${act?'#08201d':'#fff'}" font-family="Inter,sans-serif" style="pointer-events:none">${i-_a+1}</text>`;
+      marks+=`</g>`;
+    }else{
+      marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(2.6*k).toFixed(2)}" fill="rgba(120,124,150,0.45)"/>`;
+    }
+  });
+  return marks;
+}
+function szTargetHTML(){
+  const vo=SZ.viewOnly;
+  const vb=szView().vb;
+  const handlers=vo?'':'onpointerdown="szPointerDown(event)" onpointermove="szPointerMove(event)" onpointerup="szPointerUp(event)" onpointercancel="szPointerUp(event)" style="cursor:crosshair;touch-action:none"';
+  const styleAttr=vo?'style="touch-action:manipulation"':'';
+  return`<svg id="sz-target" viewBox="${vb}" width="300" height="300" ${handlers} ${styleAttr} style="max-width:min(84vw,300px);height:auto;background:var(--bg3);border-radius:10px;display:block;margin:0 auto;user-select:none;-webkit-user-select:none">`
+    +`<g id="sz-rings">${szRingsSVG()}</g>`
+    +`<g id="sz-hl">${szHighlightSVG()}</g>`
+    +`<g id="sz-marks">${szMarksSVG()}</g>`
+    +`</svg>`;
+}
+let SZ_ACT=null,SZ_DRAG=false,SZ_MOVED=false,SZ_PID=null,SZ_DOWNXY=null;
+// screen coords -> normalised face coords, honouring the zoom viewBox
+function szEvToN(ev){
+  const svg=document.getElementById('sz-target');if(!svg)return null;
+  const rect=svg.getBoundingClientRect();
+  if(!rect.width||!rect.height)return null;
+  const v=szView();
+  const vx=v.x+(ev.clientX-rect.left)/rect.width*v.w;
+  const vy=v.y+(ev.clientY-rect.top)/rect.height*v.w;
+  return {nx:(vx-SZ_C)/SZ_R, ny:(vy-SZ_C)/SZ_R};
+}
+function szNearestCurrent(n){
+  const _es=szEndSize(),_cs=Math.max(0,SZ.curEnd||0),_a=_cs*_es,_b=_a+_es;
+  let best=null,bd=1e9;
+  (SZ.shots||[]).forEach((s,i)=>{
+    if(i<_a||i>=_b||s.nx==null)return;
+    const d=Math.hypot(s.nx-n.nx,s.ny-n.ny);
+    if(d<bd){bd=d;best=i;}
+  });
+  // grab radius scales with zoom (~14 view units on screen)
+  const grab=(14/szZoom())/SZ_R;
+  return (best!=null&&bd<=grab)?best:null;
+}
+function szApplyShot(i,n){
+  const r=Math.hypot(n.nx,n.ny),val=szValueFromR(r);
+  const s=SZ.shots[i];s.nx=n.nx;s.ny=n.ny;s.ring=val.ring;s.isX=val.isX;
+}
+function szLightRefresh(){
+  // cheap redraw of just the target while dragging (keeps totals live too)
+  const hl=document.getElementById('sz-hl');if(hl)hl.innerHTML=szHighlightSVG();
+  const mk=document.getElementById('sz-marks');if(mk)mk.innerHTML=szMarksSVG();
+  const tot=document.getElementById('sz-totals');if(tot)tot.innerHTML=szTotalsHTML();
+  szMagnify();
+}
+function szPointerDown(ev){
+  if(!SZ||SZ.viewOnly)return;
+  ev.preventDefault();
+  const n=szEvToN(ev);if(!n)return;
+  SZ_PID=ev.pointerId;SZ_MOVED=false;SZ_DOWNXY=n;
+  const hit=szNearestCurrent(n);
+  if(hit!=null){ SZ_ACT=hit;SZ_DRAG=true; }
+  else{
+    // place a new arrow; curEnd follows the newest arrow (auto-advances ends)
+    const r=Math.hypot(n.nx,n.ny),val=szValueFromR(r);
+    SZ.shots.push({nx:n.nx,ny:n.ny,ring:val.ring,isX:val.isX,arrow_no:null,rating:null});
+    SZ.curEnd=Math.floor((SZ.shots.length-1)/szEndSize());
+    SZ_ACT=SZ.shots.length-1;SZ_DRAG=true;
+  }
+  try{ev.target.setPointerCapture&&ev.target.setPointerCapture(ev.pointerId);}catch(e){}
+  szLightRefresh();
+}
+function szPointerMove(ev){
+  if(!SZ_DRAG||SZ_ACT==null||ev.pointerId!==SZ_PID)return;
+  ev.preventDefault();
+  const n=szEvToN(ev);if(!n)return;
+  if(SZ_DOWNXY&&Math.hypot(n.nx-SZ_DOWNXY.nx,n.ny-SZ_DOWNXY.ny)>0.004)SZ_MOVED=true;
+  szApplyShot(SZ_ACT,n);
+  szLightRefresh();
+}
+function szPointerUp(ev){
+  if(!SZ_DRAG)return;
+  SZ_DRAG=false;SZ_PID=null;
+  szHideMagnify();
+  szRefresh(); // full redraw rebuilds the shot list / arrow-number rows
+  // keep the just-edited arrow highlighted briefly, then clear
+  setTimeout(()=>{SZ_ACT=null;const hl=document.getElementById('sz-hl');if(hl)hl.innerHTML='';const mk=document.getElementById('sz-marks');if(mk)mk.innerHTML=szMarksSVG();},900);
+}
+function szSetZoom(z){
+  if(!SZ)return;SZ.zoom=Math.max(1,Math.min(3,+z||1));
+  const svg=document.getElementById('sz-target');if(svg)svg.setAttribute('viewBox',szView().vb);
+  const hl=document.getElementById('sz-hl');if(hl)hl.innerHTML=szHighlightSVG();
+  const mk=document.getElementById('sz-marks');if(mk)mk.innerHTML=szMarksSVG();
+  const lab=document.getElementById('sz-zoom-lab');if(lab)lab.textContent=SZ.zoom.toFixed(1)+'×';
+}
+// ── Magnifier: a small SVG loupe that follows the active point while dragging ─
+function szMagnify(){
+  if(SZ_ACT==null||!SZ_DRAG)return szHideMagnify();
+  const s=SZ.shots&&SZ.shots[SZ_ACT];if(!s||s.nx==null)return;
+  const host=document.getElementById('sz-target-wrap');if(!host)return;
+  let loupe=document.getElementById('sz-loupe');
+  const MAG=2.6,LS=118; // magnification and loupe size in px
+  const cx=SZ_C+s.nx*SZ_R,cy=SZ_C+s.ny*SZ_R;
+  const half=(LS/2)/MAG; // half view-window in face units
+  const vb=`${(cx-half).toFixed(1)} ${(cy-half).toFixed(1)} ${(2*half).toFixed(1)} ${(2*half).toFixed(1)}`;
+  const val=szValueFromR(Math.hypot(s.nx,s.ny));
+  const inner=`<svg viewBox="${vb}" width="${LS}" height="${LS}">${szRingsSVG()}${szHighlightSVG()}`
+    +`<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${(SZ_ARROW_R*SZ_R).toFixed(2)}" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="0.5"/>`
+    +`<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="2" fill="#12E0C0" stroke="#fff" stroke-width="0.5"/>`
+    +`<line x1="${cx-4}" y1="${cy}" x2="${cx+4}" y2="${cy}" stroke="#fff" stroke-width="0.5" opacity="0.7"/><line x1="${cx}" y1="${cy-4}" x2="${cx}" y2="${cy+4}" stroke="#fff" stroke-width="0.5" opacity="0.7"/></svg>`;
+  const badge=`<div style="position:absolute;top:4px;right:6px;background:#12E0C0;color:#08201d;font-weight:800;font-size:15px;border-radius:6px;padding:1px 7px;font-family:Inter,sans-serif">${val.isX?'X':(val.ring>0?val.ring:'M')}</div>`;
+  if(!loupe){loupe=document.createElement('div');loupe.id='sz-loupe';host.appendChild(loupe);}
+  loupe.style.cssText='position:absolute;top:6px;left:6px;width:'+LS+'px;height:'+LS+'px;border-radius:12px;overflow:hidden;background:var(--bg3);border:2px solid #12E0C0;box-shadow:0 6px 20px rgba(0,0,0,0.45);pointer-events:none;z-index:5';
+  loupe.innerHTML=inner+badge;
+}
+function szHideMagnify(){const l=document.getElementById('sz-loupe');if(l)l.remove();}
 function szMiss(){if(!SZ||SZ.viewOnly)return;SZ.shots.push({nx:null,ny:null,ring:0,isX:false,arrow_no:null,rating:null});SZ.curEnd=Math.floor((SZ.shots.length-1)/szEndSize());szRefresh();}
 function szUndo(){if(!SZ||SZ.viewOnly||!SZ.shots.length)return;SZ.shots.pop();const es=szEndSize();SZ.curEnd=SZ.shots.length?Math.floor((SZ.shots.length-1)/es):0;szRefresh();}
 function szRemove(i){if(!SZ||SZ.viewOnly)return;SZ.shots.splice(i,1);const es=szEndSize();SZ.curEnd=Math.min(SZ.curEnd||0,Math.max(0,Math.ceil(SZ.shots.length/es)-1));szRefresh();}
@@ -1502,12 +1650,13 @@ function szRefresh(){
   const card=document.getElementById('sz-card');if(card)card.innerHTML=szCardHTML();
 }
 function szRenderModal(){
+  SZ_ACT=null;SZ_DRAG=false;SZ_PID=null;
   const DE=lang==='de',vo=SZ.viewOnly;
-  const settings=vo?`<div style="background:var(--bg3);border-radius:10px;padding:10px 12px;margin-bottom:14px;font-size:12.5px;color:var(--text2)">${[SZ.date?fd(SZ.date):null,SZ.dist?SZ.dist+' m':null,SZ.indoor?(DE?'Halle · 3er':'Indoor · 3/end'):(DE?'Freien · 6er':'Outdoor · 6/end'),SZ.location||null,SZ.weather?('🌤 '+SZ.weather):null,SZ.wind?('🌬 '+SZ.wind):null].filter(Boolean).join(' · ')}</div>`:`<div id="sz-settings">${szSettingsHTML()}</div>`;
+  const settings=vo?`<div style="background:var(--bg3);border-radius:10px;padding:10px 12px;margin-bottom:14px;font-size:12.5px;color:var(--text2)">${[SZ.date?fd(SZ.date):null,SZ.dist?SZ.dist+' m':null,SZ.indoor?(DE?'Halle · 3er':'Indoor · 3/end'):(DE?'Freien · 6er':'Outdoor · 6/end'),SZ.location||null,SZ.weather?wxLabel(SZ.weather):null,SZ.wind?windLabel(SZ.wind):null].filter(Boolean).join(' · ')}</div>`:`<div id="sz-settings">${szSettingsHTML()}</div>`;
   document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="sz-mo" onclick="closeMo(event,'sz-mo')"><div class="md" style="width:640px"><div class="mh"><div class="mt2">📝 ${DE?'Schießzettel':'Scorecard'}${vo&&SZ.name?' · '+SZ.name:''}</div><button class="btn bg btn-sm" onclick="szClose()">✕</button></div>
     ${settings}
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
-      <div style="flex:0 0 auto;text-align:center;min-width:220px">${szTargetHTML()}${vo?'':`<div style="display:flex;gap:6px;justify-content:center;margin-top:8px"><button class="btn bg btn-sm" onclick="szMiss()">${DE?'Fehler (M)':'Miss (M)'}</button><button class="btn bg btn-sm" onclick="szUndo()">↶ ${DE?'Zurück':'Undo'}</button></div><div style="font-size:11px;color:var(--text3);margin-top:6px;max-width:240px">${DE?'Tippe auf die Scheibe, um Pfeile einzutragen.':'Tap the target to place arrows.'}</div>`}</div>
+      <div style="flex:0 0 auto;text-align:center;min-width:220px"><div id="sz-target-wrap" style="position:relative;display:inline-block">${szTargetHTML()}</div>${vo?'':`<div style="display:flex;gap:8px;align-items:center;justify-content:center;margin-top:8px;max-width:300px;margin-left:auto;margin-right:auto"><span style="font-size:13px">🔍</span><input type="range" min="1" max="3" step="0.5" value="${szZoom()}" oninput="szSetZoom(this.value)" style="flex:1;accent-color:var(--accent)"><span id="sz-zoom-lab" style="font-size:11px;color:var(--text3);min-width:28px">${szZoom().toFixed(1)}×</span></div><div style="display:flex;gap:6px;justify-content:center;margin-top:8px"><button class="btn bg btn-sm" onclick="szMiss()">${DE?'Fehler (M)':'Miss (M)'}</button><button class="btn bg btn-sm" onclick="szUndo()">↶ ${DE?'Zurück':'Undo'}</button></div><div style="font-size:11px;color:var(--text3);margin-top:6px;max-width:250px;line-height:1.5">${DE?'Tippe auf die Scheibe, um Pfeile zu setzen. Gesetzte Pfeile lassen sich ziehen – der zählende Ring leuchtet auf.':'Tap the target to place arrows. Drag placed arrows to adjust – the scoring ring lights up.'}</div>`}</div>
       <div style="flex:1;min-width:250px"><div id="sz-totals"></div><div id="sz-card" style="margin-top:8px;max-height:46vh;overflow-y:auto"></div></div>
     </div>
     ${vo?`<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szAnalyse()">📊 ${DE?'Analyse':'Analysis'}</button><button class="btn bg" onclick="szClose()">${DE?'Schließen':'Close'}</button></div>`:`<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn bg" onclick="szClose()">${t('cancel')}</button><button class="btn bp" onclick="saveScorecard()">${DE?'Schießzettel speichern':'Save scorecard'}</button></div>`}
