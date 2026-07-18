@@ -92,6 +92,13 @@ body{background:var(--bg);color:var(--text);min-height:100vh}
 .btn-sm{padding:4px 9px;font-size:12px;border-radius:6px}
 .bd{background:transparent;color:var(--red);border:1px solid #e8505030}.bd:hover{background:#e8505018}
 .badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:11px;font-weight:600}
+.wxchip{background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:4px 7px;font-size:17px;line-height:1;cursor:pointer;transition:all .12s;filter:grayscale(0.65);opacity:0.65}
+.wxchip:hover{filter:grayscale(0);opacity:1;border-color:var(--accent)}
+.wxchip.on{filter:grayscale(0);opacity:1;border-color:var(--accent);background:#e8a02024;box-shadow:0 0 0 1px var(--accent)}
+.wxrow{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:2px}
+.lnk{cursor:pointer}
+.lnk:hover .lnkt{color:var(--accent);text-decoration:underline}
+.ti.lnk:hover .tc{background:var(--bg4)}
 .ba{background:#e8a02030;color:var(--accent);border:1px solid #e8a02050}
 .bgr{background:#2dd4a020;color:var(--green);border:1px solid #2dd4a030}
 .brd{background:#e8505020;color:var(--red);border:1px solid #e8505030}
@@ -220,7 +227,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.1.4 &middot; &ldquo;Kim Woo-jin&rdquo;</div>
+  <div class="lver">v1.0.1.5 &middot; &ldquo;Marcus D'Almeida&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -238,7 +245,7 @@ textarea{min-height:70px;resize:vertical}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.4 &middot; &ldquo;Kim Woo-jin&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.5 &middot; &ldquo;Marcus D'Almeida&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -264,7 +271,7 @@ textarea{min-height:70px;resize:vertical}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.1.4 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.1.5 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -303,7 +310,7 @@ textarea{min-height:70px;resize:vertical}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.1.4',VNAME='Kim Woo-jin';
+const VER='1.0.1.5',VNAME='Marcus D\'Almeida';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -313,8 +320,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.1.4 · "Kim Woo-jin"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.1.4 · "Kim Woo-jin"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.1.5 · "Marcus D\'Almeida"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.1.5 · "Marcus D\'Almeida"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -328,6 +335,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.1.5',name:'Marcus D\'Almeida',
+    de:['Analyse: Gruppenbild jetzt pro Event statt über alle jemals geschossenen Pfeile – Visierwechsel und Wind an anderen Tagen verfälschen die Streuung nicht mehr','Analyse: Event-Auswahl plus optionale Überlagerung mehrerer Events (je Event auf den eigenen Mittelpunkt zentriert)','Wetter wird als Icon ausgewählt, Wind als Windstärke in Beaufort – Richtung optional und relativ zur Schussrichtung (Gegenwind, von links, von hinten rechts …)','Dashboard: aktives Setup und die letzten Aktivitäten sind direkt anklickbar und bearbeitbar','Visiereinstellungen: „Sichtband“ heißt jetzt „Empfehlungstabelle“','Neu: vollständiger Datenexport als JSON-Sicherung und als CSV je Bereich','Ergebnisse: Filter nach Typ, Entfernung, Setup und Zeitraum'],
+    en:['Analysis: group plot is now per event instead of across every arrow ever shot – sight changes and wind on other days no longer distort the dispersion','Analysis: event selector plus optional overlay of several events (each event centred on its own group centre)','Weather is picked as an icon, wind as a Beaufort force – direction optional and relative to the shooting direction (headwind, from the left, from back right …)','Dashboard: the active setup and recent activities are directly clickable and editable','Sight settings: "sight tape" is now called "recommendation table"','New: full data export as a JSON backup and as CSV per section','Results: filter by type, distance, setup and period']},
   {ver:'1.0.1.4',name:'Kim Woo-jin',
     de:['Pfeilset kann jetzt mehreren Setups gleichzeitig zugeordnet werden – Auswahl direkt im Pfeilset','Zielscheibe: eigener X-Ring im Gold – 10 und X sind sichtbar unterscheidbar und werden getrennt gezählt (X zählt WA-konform als 10)','Spine-Empfehlung berücksichtigt jetzt die Pfeillänge (aus dem verknüpften Pfeilset bzw. manuell im Rechner)','Schießzettel mit den konkreten Pfeilen eines Sets verknüpfbar → Auswertung je Einzelpfeil (beste Gruppierung, Ausreißer)','Neuer FOC-/GPI-Rechner im Pfeilset (Gesamtgewicht & Balancepunkt)','Schießzettel-Ansicht im offiziellen WA-Format (Passen, Pfeilwerte, 10/X, End- und Laufsumme)','Wetter und Wind bei Training/Turnier pflegbar'],
     en:['An arrow set can now be linked to several setups at once – chosen right in the arrow set','Target face: dedicated X-ring in the gold – 10 and X are visually distinct and counted separately (X scores 10, WA-compliant)','Spine recommendation now factors in arrow length (from the linked arrow set or entered in the calculator)','Scorecards can be linked to the actual arrows of a set → per-arrow evaluation (best grouping, outliers)','New FOC/GPI calculator in the arrow set (total weight & balance point)','Scorecard view in official WA format (ends, arrow values, 10/X, end & running totals)','Weather and wind can be recorded for training/tournaments']},
@@ -560,6 +570,60 @@ const getAS=()=>{const d=getD();return d.setups.find(s=>s.active)||d.setups[0]||
 const maxScore=type=>TT[type]?.max||null;
 const avgArr=(p,a)=>(!a||a===0)?'—':(p/a).toFixed(1);
 const medal=p=>p===1?'🥇':p===2?'🥈':p===3?'🥉':'';
+// ─── WETTER & WIND (strukturiert, in den bestehenden Textspalten) ─────────
+const WX_OPTS=[
+  {k:'sunny',   i:'\u2600\ufe0f', de:'Sonnig',      en:'Sunny'},
+  {k:'partly',  i:'\ud83c\udf24', de:'Heiter',      en:'Fair'},
+  {k:'cloudy',  i:'\u26c5',       de:'Bewölkt',     en:'Cloudy'},
+  {k:'overcast',i:'\u2601\ufe0f', de:'Bedeckt',     en:'Overcast'},
+  {k:'drizzle', i:'\ud83c\udf26', de:'Nieselregen', en:'Drizzle'},
+  {k:'rain',    i:'\ud83c\udf27', de:'Regen',       en:'Rain'},
+  {k:'storm',   i:'\u26c8',       de:'Gewitter',    en:'Thunderstorm'},
+  {k:'fog',     i:'\ud83c\udf2b', de:'Nebel',       en:'Fog'},
+  {k:'snow',    i:'\ud83c\udf28', de:'Schnee',      en:'Snow'},
+  {k:'hot',     i:'\ud83c\udf21', de:'Heiß',        en:'Hot'},
+  {k:'cold',    i:'\u2744\ufe0f', de:'Kalt',        en:'Cold'}
+];
+const BFT_SC=[{de:'Windstille',en:'Calm'},{de:'Leiser Zug',en:'Light air'},{de:'Leichte Brise',en:'Light breeze'},{de:'Schwache Brise',en:'Gentle breeze'},{de:'Mäßige Brise',en:'Moderate breeze'},{de:'Frische Brise',en:'Fresh breeze'},{de:'Starker Wind',en:'Strong breeze'},{de:'Steifer Wind',en:'High wind'},{de:'Stürmischer Wind',en:'Gale'},{de:'Sturm',en:'Strong gale'},{de:'Schwerer Sturm',en:'Storm'},{de:'Orkanartiger Sturm',en:'Violent storm'},{de:'Orkan',en:'Hurricane'}];
+const WDIRS=[
+  {k:'H', de:'Gegenwind',         en:'Headwind'},
+  {k:'HR',de:'von vorne rechts',  en:'From front right'},
+  {k:'R', de:'von rechts',        en:'From the right'},
+  {k:'TR',de:'von hinten rechts', en:'From back right'},
+  {k:'T', de:'Rückenwind',        en:'Tailwind'},
+  {k:'TL',de:'von hinten links',  en:'From back left'},
+  {k:'L', de:'von links',         en:'From the left'},
+  {k:'HL',de:'von vorne links',   en:'From front left'}
+];
+const WDIR_KEYS=WDIRS.map(d=>d.k);
+function dirOpt(k){return WDIRS.find(d=>d.k===k)||null;}
+function wxOpt(k){return WX_OPTS.find(o=>o.k===k)||null;}
+function wxIsKey(v){return !!wxOpt(v);}
+function wxLabel(v){if(!v)return '';const o=wxOpt(v);return o?(o.i+' '+o[lang]):('\ud83c\udf24 '+v);}
+function dirLabel(d){if(!d)return '';const o=dirOpt(d);return o?o[lang]:d;}
+function windParse(v){if(v==null||v==='')return null;const m=String(v).match(/^(\d{1,2})(?:\|([A-Z]{1,2}))?$/);if(!m)return null;const b=parseInt(m[1],10);if(isNaN(b)||b<0||b>12)return null;const d=m[2]||'';return {bft:b,dir:(WDIR_KEYS.indexOf(d)>=0?d:'')};}
+function windEnc(bft,dir){if(bft===''||bft==null)return '';const b=parseInt(bft,10);if(isNaN(b)||b<0||b>12)return '';return String(b)+(dir?('|'+dir):'');}
+function windLabel(v){if(!v)return '';const w=windParse(v);if(!w)return '\ud83c\udf2c '+v;const sc=BFT_SC[w.bft];let s=w.bft+' Bft';if(sc)s+=' · '+sc[lang];if(w.dir)s+=' · '+dirLabel(w.dir);return '\ud83c\udf2c '+s;}
+function wxChipsHTML(id,cur,cb){
+  return `<div class="wxrow" id="${id}-chips">${WX_OPTS.map(o=>`<button type="button" class="wxchip${cur===o.k?' on':''}" data-k="${o.k}" title="${o[lang]}" onclick="wxPick('${id}','${o.k}'${cb?`,'${cb}'`:''})">${o.i}</button>`).join('')}</div><input type="hidden" id="${id}" value="${wxIsKey(cur)?cur:''}"><div id="${id}-lab" style="font-size:11px;color:var(--text3);min-height:14px">${wxIsKey(cur)?wxOpt(cur)[lang]:''}</div>`;
+}
+function wxPick(id,k,cb){
+  const h=document.getElementById(id);if(!h)return;
+  const nv=(h.value===k)?'':k;h.value=nv;
+  const wrap=document.getElementById(id+'-chips');
+  if(wrap)wrap.querySelectorAll('.wxchip').forEach(b=>b.classList.toggle('on',!!nv&&b.getAttribute('data-k')===nv));
+  const lb=document.getElementById(id+'-lab');if(lb)lb.textContent=nv?wxOpt(nv)[lang]:'';
+  if(cb&&typeof window[cb]==='function')window[cb](nv);
+}
+function bftOptsHTML(cur){const DE=lang==='de';let o=`<option value=""${cur===''||cur==null?' selected':''}>${DE?'– keine Angabe –':'– not specified –'}</option>`;for(let b=0;b<=12;b++){o+=`<option value="${b}"${String(cur)===String(b)?' selected':''}>${b} Bft · ${BFT_SC[b][lang]}</option>`;}return o;}
+function dirOptsHTML(cur){const DE=lang==='de';return `<option value=""${!cur?' selected':''}>${DE?'– Richtung –':'– direction –'}</option>`+WDIRS.map(d=>`<option value="${d.k}"${cur===d.k?' selected':''}>${d[lang]}</option>`).join('');}
+function wxLegacyNote(v,isWind){
+  if(!v)return '';
+  const legacy=isWind?(windParse(v)===null):(!wxIsKey(v));
+  if(!legacy)return '';
+  const DE=lang==='de';
+  return `<div style="font-size:11px;color:var(--text3);margin-top:2px">${DE?'bisher':'previously'}: „${String(v).replace(/</g,'&lt;')}“</div>`;
+}
 function recSpine(dw,dl,tip,alen){var L=(alen!=null&&alen>0)?alen:((dl||28)+1.5);return Math.round((1600-((dw||36)*27)-(L-29.5)*30-((tip||100)-100)*1.5)/50)*50;}
 function spineChk(spine,dw,dl,tip,alen){const rec=recSpine(dw||36,dl||28,tip||100,alen),diff=spine-rec;if(Math.abs(diff)<75)return{c:'var(--green)',tx:`✅ ${lang==='de'?'Passend':'Good match'} (~${rec})`};if(diff<0)return{c:'var(--blue)',tx:`ℹ️ ${lang==='de'?'Eher steif':'Rather stiff'} (~${rec})`};return{c:'var(--accent)',tx:`⚠️ ${lang==='de'?'Eher schwach':'Rather weak'} (~${rec})`};}
 function applySettings(s){const B=document.body;B.classList.toggle('light',!s.dark_mode);B.classList.toggle('large-font',!!s.large_font);B.classList.toggle('compact',!!s.compact);B.classList.toggle('no-anim',!s.animations);}
@@ -801,6 +865,10 @@ function navigate(page){
   if(page==='admin')setTimeout(loadAdminData,10);
   if(page==='wa')setTimeout(waEnter,30);
 }
+// ─── DEEP LINKS ───────────────────────────────────────────────────────────
+function goEditScore(id){navigate('scores');setTimeout(()=>openScoreModal(id),60);}
+function goEditSetup(id){navigate('setups');setTimeout(()=>openSetupModal(id),60);}
+function goEditArrowSet(id){navigate('setups');setTimeout(()=>openArrowSetModal(id),60);}
 function placeVtag(){
   const v=document.getElementById('vtag'),main=document.getElementById('main'),shell=document.getElementById('app-shell');
   if(!v||!main||!shell)return;
@@ -842,7 +910,7 @@ function rDash(){
     <div class="card-sm"><div class="ct">${t('total_arrows')}</div><div class="cv">${totalArrows}</div></div>
     <div class="card-sm"><div class="ct">${t('per_week')}</div><div class="cv">${wkArr}</div><div class="cs">${lang==='de'?'letzte 7 Tage':'last 7 days'}</div></div>
     <div class="card-sm"><div class="ct">${t('per_month')}</div><div class="cv">${moArr}</div><div class="cs">${lang==='de'?'letzte 30 Tage':'last 30 days'}</div></div>
-    <div class="card-sm"><div class="ct">${t('best_score')}</div><div class="cv">${bestE?bestE.points:'—'}</div>${bestE?`<div class="cs">${medal(bestE.placement)||'🏆'} ${maxScore(bestE.type)?`${bestE.points}/${maxScore(bestE.type)} (${Math.round(bestE.points/maxScore(bestE.type)*100)}%)`:bestE.points} · ${fd(bestE.date)}</div>`:''}</div>
+    <div class="card-sm${bestE?' lnk':''}"${bestE?` onclick="goEditScore(${bestE.id})" title="${bestE.name.replace(/"/g,'&quot;')}"`:''}><div class="ct">${t('best_score')}</div><div class="cv lnkt">${bestE?bestE.points:'—'}</div>${bestE?`<div class="cs">${medal(bestE.placement)||'🏆'} ${maxScore(bestE.type)?`${bestE.points}/${maxScore(bestE.type)} (${Math.round(bestE.points/maxScore(bestE.type)*100)}%)`:bestE.points} · ${fd(bestE.date)}</div>`:''}</div>
   </div>
   <div class="card" style="margin-bottom:14px">
     <div class="ch"><div class="ct">${t('score_chart')}</div><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="display:flex;gap:12px;font-size:11px;color:var(--text3)">${DASH_MODE!=='arrows'?`<span style="color:var(--accent)">●</span> ${lang==='de'?'Turnier':'Tourn.'} &nbsp;<span style="color:var(--green)">●</span> Training`:''}${DASH_MODE!=='score'?` &nbsp;<span style="color:var(--blue)">▬</span> ${lang==='de'?'Pfeile':'Arrows'}`:''}</div><select onchange="setDashMode(this.value)" style="width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:3px 9px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif"><option value="score"${DASH_MODE==='score'?' selected':''}>${lang==='de'?'Punkte':'Points'}</option><option value="arrows"${DASH_MODE==='arrows'?' selected':''}>${lang==='de'?'Pfeile':'Arrows'}</option><option value="both"${DASH_MODE==='both'?' selected':''}>${lang==='de'?'Punkte + Pfeile':'Points + arrows'}</option></select>${(function(){const m=dashDistances();const keys=Object.keys(m);if(!keys.length)return '';if(DASH_DIST===null)DASH_DIST='all';const rank=k=>k==='none'?2:(k.startsWith('fmt:')?1:0);
@@ -855,12 +923,13 @@ const opts=allOpt+keys.sort((a,b)=>{const ra=rank(a),rb=rank(b);if(ra!==rb)retur
   <div class="g2">
     <div class="card">
       <div class="ch"><div class="ct">${t('last_act')}</div><div style="display:flex;gap:6px"><button class="btn bp btn-sm" onclick="navigate('scores');setTimeout(()=>openScoreModal(),60)">+ ${lang==='de'?'Neu':'New'}</button><button class="btn bg btn-sm" onclick="navigate('scores')">${t('all')}</button></div></div>
-      ${recent.length?`<div class="tl">${recent.map(s=>{const tt2=TT[s.type]||TT.training;const mx=maxScore(s.type);const pct=mx&&!s.no_points?` <span style="font-size:11px;color:var(--text3)">${Math.round(s.points/mx*100)}%</span>`:'';return`<div class="ti"><div class="tdot ${s.type==='training'?'dgr':'dg'}"></div><div class="tc"><div style="font-size:11px;color:var(--text3);margin-bottom:2px">${fd(s.date)} · <span class="badge ${s.type==='training'?'bgr':'ba'}">${s.type==='training'?'Training':'🏆 '+tt2[lang]}</span>${medal(s.placement)?` ${medal(s.placement)}`:''}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.location?` <span style="font-weight:400;font-size:12px;color:var(--text3)">· ${s.location}</span>`:''}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${s.no_points?`${s.arrows} ${t('arrows')}`:`${s.points}${mx?`/${mx}`:''}${pct} · ${s.arrows} ${t('arrows')} · ⌀ ${avgArr(s.points,s.arrows)}`} · ${getSName(s.setup_id)}</div></div></div>`;}).join('')}</div>`
+      ${recent.length?`<div class="tl">${recent.map(s=>{const tt2=TT[s.type]||TT.training;const mx=maxScore(s.type);const pct=mx&&!s.no_points?` <span style="font-size:11px;color:var(--text3)">${Math.round(s.points/mx*100)}%</span>`:'';return`<div class="ti lnk" onclick="goEditScore(${s.id})" title="${lang==='de'?'Bearbeiten':'Edit'}"><div class="tdot ${s.type==='training'?'dgr':'dg'}"></div><div class="tc"><div style="font-size:11px;color:var(--text3);margin-bottom:2px">${fd(s.date)} · <span class="badge ${s.type==='training'?'bgr':'ba'}">${s.type==='training'?'Training':'🏆 '+tt2[lang]}</span>${medal(s.placement)?` ${medal(s.placement)}`:''}</div><div class="lnkt" style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.location?` <span style="font-weight:400;font-size:12px;color:var(--text3)">· ${s.location}</span>`:''}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${s.no_points?`${s.arrows} ${t('arrows')}`:`${s.points}${mx?`/${mx}`:''}${pct} · ${s.arrows} ${t('arrows')} · ⌀ ${avgArr(s.points,s.arrows)}`} · ${getSName(s.setup_id)}</div></div></div>`;}).join('')}</div>`
       :`<div class="empty"><div class="ei">📋</div><div>${t('no_scores')}</div></div>`}
     </div>
     <div class="card">
       <div class="ch"><div class="ct">${t('active_setup')}</div><div style="display:flex;align-items:center;gap:6px">${as?`<span class="badge bgr">${t('active')}</span>`:''}<button class="btn bp btn-sm" onclick="navigate('setups');setTimeout(()=>openSetupModal(),60)">+ ${lang==='de'?'Neu':'New'}</button></div></div>
-      ${as?`<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">${as.photo_url?`<img src="${as.photo_url}" style="width:52px;height:52px;border-radius:8px;object-fit:cover">`:`<div style="text-align:center;width:52px"><div style="font-size:32px;line-height:1">${getSetupEmoji(as)}</div>${arrowSVG(asAI.nock,asAI.fletch,44)}</div>`}<div><div style="font-size:14px;font-weight:700;color:var(--text)">${sName(as)}</div><div style="font-size:12px;color:var(--text3);margin-top:2px">${as.dw} lbs${asAI.am?' · '+asAI.am:''}${asAI.spine!=null?' '+asAI.spine:''}</div><div style="margin-top:5px">${arrowSVG(asAI.nock,asAI.fletch,44)}</div></div></div>${[[t('brace'),(as.brace?as.brace+'" ('+Math.round(as.brace*25.4)+' mm)':'—')],[t('tiller_u')+'/L',`${as.tiller_u||'—'}/${as.tiller_l||'—'} mm`]].map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px"><span style="color:var(--text3)">${k}</span><span style="color:var(--text);font-weight:500">${v}</span></div>`).join('')}<div style="margin-top:10px"><div style="font-size:11px;color:var(--text3);text-transform:uppercase;margin-bottom:4px">${t('spine_compat')}</div><div class="progress"><div class="pf" style="width:${asAI.spine!=null?Math.min(100,Math.max(20,100-Math.abs(asAI.spine-recSpine(as.dw,as.dl,asAI.tip!=null?asAI.tip:100,asAI.length))/8)):20}%;background:${sc.c}"></div></div><div style="font-size:11px;color:${sc.c};margin-top:4px">${sc.tx}</div></div>`
+      ${as?`<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">${as.photo_url?`<img src="${as.photo_url}" style="width:52px;height:52px;border-radius:8px;object-fit:cover">`:`<div style="text-align:center;width:52px"><div style="font-size:32px;line-height:1">${getSetupEmoji(as)}</div>${arrowSVG(asAI.nock,asAI.fletch,44)}</div>`}<div><div class="lnk" onclick="goEditSetup(${as.id})" title="${lang==='de'?'Setup bearbeiten':'Edit setup'}"><div class="lnkt" style="font-size:14px;font-weight:700;color:var(--text)">${sName(as)} <span style="font-size:11px;color:var(--text3)">✏️</span></div></div><div style="font-size:12px;color:var(--text3);margin-top:2px">${as.dw} lbs${asAI.am?' · '+asAI.am:''}${asAI.spine!=null?' '+asAI.spine:''}</div><div style="margin-top:5px">${arrowSVG(asAI.nock,asAI.fletch,44)}</div></div></div>${[[t('brace'),(as.brace?as.brace+'" ('+Math.round(as.brace*25.4)+' mm)':'—')],[t('tiller_u')+'/L',`${as.tiller_u||'—'}/${as.tiller_l||'—'} mm`]].map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px"><span style="color:var(--text3)">${k}</span><span style="color:var(--text);font-weight:500">${v}</span></div>`).join('')}<div style="margin-top:10px"><div style="font-size:11px;color:var(--text3);text-transform:uppercase;margin-bottom:4px">${t('spine_compat')}</div><div class="progress"><div class="pf" style="width:${asAI.spine!=null?Math.min(100,Math.max(20,100-Math.abs(asAI.spine-recSpine(as.dw,as.dl,asAI.tip!=null?asAI.tip:100,asAI.length))/8)):20}%;background:${sc.c}"></div></div><div style="font-size:11px;color:${sc.c};margin-top:4px">${sc.tx}</div></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px"><button class="btn bg btn-sm" onclick="goEditSetup(${as.id})">✏️ ${t('edit')}</button><button class="btn bg btn-sm" onclick="navigate('sight')">🎯 ${t('sight')}</button>${asAI.set?`<button class="btn bg btn-sm" onclick="goEditArrowSet(${asAI.set.id})">🏹 ${lang==='de'?'Pfeilset':'Arrow set'}</button>`:''}</div>`
       :`<div class="empty"><div class="ei">🏹</div><div>${t('no_setups')}</div><button class="btn bp" style="margin-top:10px" onclick="navigate('setups')">${t('new_setup')}</button></div>`}
     </div>
   </div>`;
@@ -1125,7 +1194,7 @@ function rSight(){
     <div class="g3" style="gap:10px"><div class="fg"><label>${t('setup')}</label><select id="ip-setup" onchange="refreshInterpVis()">${opts||'<option>—</option>'}</select></div><div class="fg"><label>${t('visier')}</label><select id="ip-vis" onchange="updateInterp()">${ipVisOpts}</select></div><div class="fg"><label>${DE?'Zieldistanz (m)':'Target distance (m)'}</label><input id="ip-dist" type="number" min="1" max="120" step="0.5" oninput="updateInterp()" placeholder="${DE?'z. B. 32':'e.g. 32'}"></div></div>
     <div id="ip-result" style="margin-top:2px"></div>
     <div style="border-top:1px solid var(--bd,rgba(255,255,255,0.08));margin:14px 0 12px"></div>
-    <div class="ct" style="font-size:13px;margin-bottom:8px">${DE?'Sichtband erzeugen':'Generate sight tape'}</div>
+    <div class="ct" style="font-size:13px;margin-bottom:8px">${DE?'Empfehlungstabelle erzeugen':'Generate recommendation table'}</div>
     <div class="g3" style="gap:10px"><div class="fg"><label>${DE?'von (m)':'from (m)'}</label><input id="ip-from" type="number" min="1" max="120" value="10"></div><div class="fg"><label>${DE?'bis (m)':'to (m)'}</label><input id="ip-to" type="number" min="1" max="120" value="70"></div><div class="fg"><label>${DE?'Schritt (m)':'step (m)'}</label><input id="ip-step" type="number" min="0.5" max="20" step="0.5" value="5"></div></div>
     <div style="display:flex;gap:8px"><button class="btn bp btn-sm" onclick="genSightBand()">${DE?'Tabelle erzeugen':'Generate table'}</button><button class="btn bg btn-sm" onclick="printSightBand()">🖨 ${DE?'Drucken':'Print'}</button></div>
     <div id="ip-band" style="margin-top:10px"></div>
@@ -1169,10 +1238,10 @@ function genSightBand(){const DE=lang==='de',el=document.getElementById('ip-band
   window.__bbBand={setupId,vis,rows};
   const warn='display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:5px;background:rgba(232,160,32,0.16);color:#e8a020';
   el.innerHTML=`<table class="table"><thead><tr><th>${DE?'Distanz':'Distance'}</th><th>${DE?'Visiereinstellung (Klick)':'Mark (clicks)'}</th><th></th></tr></thead><tbody>${rows.map(r=>`<tr><td><strong style="color:var(--accent)">${r.d} m</strong></td><td style="font-family:monospace;font-weight:600">${r.v}</td><td>${r.est?`<span style="${warn}">${DE?'Schätzung':'est.'}</span>`:''}</td></tr>`).join('')}</tbody></table>`;}
-function printSightBand(){const DE=lang==='de',b=window.__bbBand;if(!b||!b.rows||!b.rows.length){toast(DE?'Bitte zuerst ein Sichtband erzeugen.':'Please generate a sight tape first.');return;}
+function printSightBand(){const DE=lang==='de',b=window.__bbBand;if(!b||!b.rows||!b.rows.length){toast(DE?'Bitte zuerst eine Empfehlungstabelle erzeugen.':'Please generate a recommendation table first.');return;}
   const su=getD().setups.find(s=>s.id===b.setupId),sn=su?sName(su):'—',w=window.open('','_blank');if(!w){toast(DE?'Popup blockiert – bitte erlauben.':'Popup blocked – please allow.');return;}
   const rows=b.rows.map(r=>`<tr><td>${r.d} m</td><td>${r.v}${r.est?' *':''}</td></tr>`).join(''),anyEst=b.rows.some(r=>r.est);
-  w.document.write(`<html><head><meta charset="utf-8"><title>BowBrain – ${DE?'Sichtband':'Sight tape'}</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:24px;color:#111}h1{font-size:16px;margin:0}h2{font-size:13px;font-weight:normal;color:#555;margin:2px 0 0}table{border-collapse:collapse;margin-top:14px}th,td{border:1px solid #999;padding:5px 16px;text-align:center;font-size:14px}th{background:#eee}.note{margin-top:10px;font-size:11px;color:#666}button{margin-top:16px;padding:8px 16px;font-size:13px}@media print{button{display:none}}</style></head><body><h1>BowBrain – ${DE?'Sichtband':'Sight tape'}</h1><h2>${sn} · ${DE?'Visier':'Sight'}: ${b.vis}</h2><table><thead><tr><th>${DE?'Distanz':'Distance'}</th><th>${DE?'Klick':'Clicks'}</th></tr></thead><tbody>${rows}</tbody></table>${anyEst?`<div class="note">* ${DE?'Schätzung (außerhalb des bekannten Bereichs)':'estimate (outside the known range)'}</div>`:''}<button onclick="window.print()">${DE?'Drucken':'Print'}</button></body></html>`);w.document.close();}
+  w.document.write(`<html><head><meta charset="utf-8"><title>BowBrain – ${DE?'Empfehlungstabelle':'Recommendation table'}</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:24px;color:#111}h1{font-size:16px;margin:0}h2{font-size:13px;font-weight:normal;color:#555;margin:2px 0 0}table{border-collapse:collapse;margin-top:14px}th,td{border:1px solid #999;padding:5px 16px;text-align:center;font-size:14px}th{background:#eee}.note{margin-top:10px;font-size:11px;color:#666}button{margin-top:16px;padding:8px 16px;font-size:13px}@media print{button{display:none}}</style></head><body><h1>BowBrain – ${DE?'Empfehlungstabelle':'Recommendation table'}</h1><h2>${sn} · ${DE?'Visier':'Sight'}: ${b.vis}</h2><table><thead><tr><th>${DE?'Distanz':'Distance'}</th><th>${DE?'Klick':'Clicks'}</th></tr></thead><tbody>${rows}</tbody></table>${anyEst?`<div class="note">* ${DE?'Schätzung (außerhalb des bekannten Bereichs)':'estimate (outside the known range)'}</div>`:''}<button onclick="window.print()">${DE?'Drucken':'Print'}</button></body></html>`);w.document.close();}
 async function delSight(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('sight_settings',id))return;getD().sight=getD().sight.filter(s=>s.id!==id);navigate('sight');}
 function renameVisier(oldName){const isDE=lang==='de';const on=(oldName+'').replace(/'/g,"\\'");document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="rv-mo" onclick="closeMo(event,'rv-mo')"><div class="md" style="width:400px"><div class="mh"><div class="mt2">${isDE?'Visier umbenennen':'Rename sight'}</div><button class="btn bg btn-sm" onclick="document.getElementById('rv-mo').remove()">✕</button></div><div class="fg"><label>${isDE?'Neuer Name':'New name'}</label><input id="rv-name" value="${oldName}"></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('rv-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="doRenameVisier('${on}')">${t('save')}</button></div></div></div>`);setTimeout(()=>document.getElementById('rv-name')?.focus(),50);}
 async function doRenameVisier(oldName){const nn=(document.getElementById('rv-name')?.value||'').trim();if(!nn){toast(lang==='de'?'Bitte einen Namen eingeben.':'Please enter a name.');return;}const ids=getD().sight.filter(s=>(s.visier||'Standard')===oldName).map(s=>s.id);if(!ids.length){document.getElementById('rv-mo')?.remove();return;}const {error}=await sbc.from('sight_settings').update({visier:nn}).in('id',ids);if(error){toast(error.message);return;}getD().sight.forEach(s=>{if((s.visier||'Standard')===oldName)s.visier=nn;});document.getElementById('rv-mo')?.remove();toast(lang==='de'?'Visier umbenannt.':'Sight renamed.',true);navigate('sight');}
@@ -1219,8 +1288,57 @@ function drawSightChart(){
 // ─── SCORES ───────────────────────────────────────────────────────────────
 function showMedalAnim(p){if(!p||p>3)return;const ms=['🥇','🥈','🥉'],cs=['#FFD700','#C0C0C0','#CD7F32'],div=document.createElement('div');div.style.cssText='position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:500;pointer-events:none;background:rgba(0,0,0,0.35)';div.innerHTML=`<div style="font-size:110px;animation:medalPop 0.9s cubic-bezier(0.34,1.56,0.64,1) forwards;filter:drop-shadow(0 0 28px ${cs[p-1]})">${ms[p-1]}</div>`;document.body.appendChild(div);setTimeout(()=>div.remove(),1800);}
 
+// ─── ERGEBNIS-FILTER ──────────────────────────────────────────────────────
+let SCF={type:'all',dist:'all',setup:'all',period:'all'};
+function scfActive(){return SCF.type!=='all'||SCF.dist!=='all'||SCF.setup!=='all'||SCF.period!=='all';}
+function scfReset(){SCF={type:'all',dist:'all',setup:'all',period:'all'};navigate('scores');}
+function scfSet(f,v){SCF[f]=v;navigate('scores');}
+function scfPeriodStart(p){
+  if(p==='all')return null;
+  const now=new Date();
+  if(p==='ytd')return new Date(now.getFullYear(),0,1);
+  const days={'30':30,'90':90,'365':365}[p];
+  if(!days)return null;
+  const d=new Date(now.getTime()-days*86400000);return d;
+}
+function scfMatch(s){
+  if(SCF.type==='training'&&s.type!=='training')return false;
+  if(SCF.type==='comp'&&s.type==='training')return false;
+  if(SCF.type!=='all'&&SCF.type!=='training'&&SCF.type!=='comp'&&s.type!==SCF.type)return false;
+  if(SCF.setup!=='all'&&String(s.setup_id)!==String(SCF.setup))return false;
+  if(SCF.dist!=='all'&&cmpGroup(s)!==SCF.dist)return false;
+  if(SCF.period!=='all'){const st=scfPeriodStart(SCF.period);if(st&&(!s.date||new Date(s.date)<st))return false;}
+  return true;
+}
+function scfBarHTML(all,shown){
+  const DE=lang==='de',d=getD();
+  const tOpts=`<option value="all"${SCF.type==='all'?' selected':''}>${DE?'Alle Typen':'All types'}</option>`
+    +`<option value="training"${SCF.type==='training'?' selected':''}>${DE?'Nur Training':'Training only'}</option>`
+    +`<option value="comp"${SCF.type==='comp'?' selected':''}>${DE?'Nur Wettkampf':'Competition only'}</option>`
+    +`<optgroup label="${DE?'Format':'Format'}">`+Object.entries(TT).filter(([k])=>k!=='training').map(([k,v])=>`<option value="${k}"${SCF.type===k?' selected':''}>${v[lang]}</option>`).join('')+`</optgroup>`;
+  const gm={};all.forEach(s=>{const k=cmpGroup(s);gm[k]=(gm[k]||0)+1;});
+  const gKeys=Object.keys(gm).sort((a,b)=>{const na=/^\d+$/.test(a),nb=/^\d+$/.test(b);if(na&&nb)return (+a)-(+b);if(na!==nb)return na?-1:1;return a.localeCompare(b);});
+  const dOpts=`<option value="all"${SCF.dist==='all'?' selected':''}>${DE?'Alle Entfernungen':'All distances'}</option>`
+    +gKeys.map(k=>`<option value="${k}"${SCF.dist===k?' selected':''}>${cmpGroupLabel(k)} (${gm[k]})</option>`).join('');
+  const sOpts=`<option value="all"${SCF.setup==='all'?' selected':''}>${DE?'Alle Setups':'All setups'}</option>`
+    +d.setups.map(s=>`<option value="${s.id}"${String(SCF.setup)===String(s.id)?' selected':''}>${sName(s)}</option>`).join('');
+  const pOpts=[['all',DE?'Gesamter Zeitraum':'All time'],['30',DE?'Letzte 30 Tage':'Last 30 days'],['90',DE?'Letzte 90 Tage':'Last 90 days'],['365',DE?'Letzte 12 Monate':'Last 12 months'],['ytd',DE?'Laufendes Jahr':'This year']]
+    .map(([v,l])=>`<option value="${v}"${SCF.period===v?' selected':''}>${l}</option>`).join('');
+  const st='width:auto;flex:none;background:var(--bg4);border:1px solid var(--border);border-radius:16px;padding:4px 9px;font-size:11.5px;color:var(--text2);cursor:pointer;font-family:\'Inter\',sans-serif';
+  return`<div class="card" style="margin-bottom:14px;padding:11px 13px">
+    <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase">${DE?'Filter':'Filter'}</span>
+      <select onchange="scfSet('type',this.value)" style="${st}">${tOpts}</select>
+      <select onchange="scfSet('dist',this.value)" style="${st}">${dOpts}</select>
+      <select onchange="scfSet('setup',this.value)" style="${st}">${sOpts}</select>
+      <select onchange="scfSet('period',this.value)" style="${st}">${pOpts}</select>
+      ${scfActive()?`<button class="btn bg btn-sm" onclick="scfReset()">✕ ${DE?'Zurücksetzen':'Reset'}</button><span class="badge ba">${shown} ${DE?'von':'of'} ${all.length}</span>`:`<span style="font-size:11px;color:var(--text3)">${all.length} ${DE?'Ergebnisse':'results'}</span>`}
+    </div>
+  </div>`;
+}
 function rScores(){
-  const scores=getD().scores.slice().sort((a,b)=>b.date.localeCompare(a.date));
+  const allScores=getD().scores.slice().sort((a,b)=>b.date.localeCompare(a.date));
+  const scores=allScores.filter(scfMatch);
   const scored=scores.filter(s=>!s.no_points&&s.points>0);
   const tourn=scored.filter(s=>s.type!=='training'),train=scored.filter(s=>s.type==='training');
   const top3=tourn.slice().sort((a,b)=>{const ra=a.points/(maxScore(a.type)||a.points),rb=b.points/(maxScore(b.type)||b.points);return rb-ra;}).slice(0,3);
@@ -1230,12 +1348,13 @@ function rScores(){
   const sc2={};scored.forEach(s=>{const n=getSName(s.setup_id);sc2[n]=(sc2[n]||0)+1;});
   const topSetup=Object.entries(sc2).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—';
   return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('scores')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Trainings- und Turnierergebnisse':'Training and tournament results'}</div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn bg" onclick="openAnalysis()">📊 ${lang==='de'?'Analyse':'Analysis'}</button><button class="btn bg" onclick="openScorecard()">📝 ${lang==='de'?'Schießzettel':'Scorecard'}</button><button class="btn bp" onclick="openScoreModal()">${t('new_score')}</button></div></div>
+  ${scfBarHTML(allScores,scores.length)}
   <div class="g2" style="margin-bottom:14px">
     <div class="card"><div class="ch"><div class="ct">${lang==='de'?'Bestleistungen':'Best Scores'}</div></div>${top3.length?top3.map((s,i)=>{const mx=maxScore(s.type),pct=mx?`${Math.round(s.points/mx*100)}%`:'';return`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="width:26px;height:26px;border-radius:50%;background:${i===0?'var(--accent)':'var(--bg4)'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:${i===0?'#0f1117':'var(--text3)'};flex-shrink:0">${i+1}</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.placement?` ${medal(s.placement)}`:''}</div><div style="font-size:11px;color:var(--text3)">${TT[s.type]?.[lang]||s.type}${s.location?` · ${s.location}`:''} · ${fd(s.date)}</div></div><div style="text-align:right"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:var(--accent)">${s.points}${mx?`<span style="font-size:13px;color:var(--text3)">/${mx}</span>`:''}</div>${pct?`<div style="font-size:11px;color:var(--text3)">${pct}</div>`:''}</div></div>`;}).join(''):`<div style="color:var(--text3);font-size:13px;padding:8px 0">${lang==='de'?'Noch keine Turnierergebnisse.':'No tournament results yet.'}</div>`}</div>
     <div class="card"><div class="ch"><div class="ct">${t('stats')}</div></div>${[[lang==='de'?'Ø/Pfeil Turnier':'Avg/arrow tourn.',avgT],[lang==='de'?'Ø/Pfeil Training':'Avg/arrow train.',avgTr],[lang==='de'?'Top Setup':'Top Setup',topSetup],[t('total_arrows'),totalArrows],[t('tournaments'),tourn.length],[t('trainings'),train.length]].map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--text3)">${k}</span><span style="color:var(--text);font-weight:600">${v}</span></div>`).join('')}</div>
   </div>
-  <div class="card"><div class="ch"><div class="ct">${t('timeline')}</div></div>${scores.length===0?`<div class="empty"><div class="ei">📊</div><div>${t('no_scores')}</div><button class="btn bp" style="margin-top:10px" onclick="openScoreModal()">${t('new_score')}</button></div>`
-  :`<div class="tl">${scores.map(s=>{const isT=s.type!=='training',tt2=TT[s.type]||TT.training,mx=maxScore(s.type),pct=mx&&!s.no_points?` <span style="font-size:11px;color:var(--text3)">(${Math.round(s.points/mx*100)}% / ${mx})</span>`:'',plc=s.placement?` ${medal(s.placement)}${s.participants?` / ${s.participants} ${lang==='de'?'TN':'part.'}`:''}`:'';return`<div class="ti"><div class="tdot ${isT?'dg':'dgr'}"></div><div class="tc"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--text3);margin-bottom:2px">${fd(s.date)} · <span class="badge ${isT?'ba':'bgr'}">${isT?'🏆 '+tt2[lang]:'Training'}</span>${plc}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.location?` <span style="font-size:12px;font-weight:400;color:var(--text3)">· ${s.location}</span>`:''}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${s.no_points?`<span class="badge bbl">${lang==='de'?'Nur Pfeile':'Arrows only'}</span> ${s.arrows} ${t('arrows')}`:`${s.points}${mx?`/${mx}`:''}${pct} · ${s.arrows} ${t('arrows')} · ⌀ ${avgArr(s.points,s.arrows)}`} · ${getSName(s.setup_id)}${s.distance?` · ${s.distance} m`:''}${s.weather?` · 🌤 ${s.weather}`:''}${s.wind?` · 🌬 ${s.wind}`:''}${s.notes?` · <em style="color:var(--text3)">"${s.notes}"</em>`:''}</div></div><div style="display:flex;align-items:center;gap:6px;flex-shrink:0">${!s.no_points?`<div style="font-family:Bebas Neue,sans-serif;font-size:24px;color:${isT?'var(--accent)':'var(--green)'}">${s.points}</div>`:`<div style="font-size:20px">${s.arrows}🏹</div>`}<div style="display:flex;flex-direction:column;gap:4px">${getD().cardScoreIds&&getD().cardScoreIds.has(s.id)?`<button class="btn bg btn-sm" onclick="openScorecardView(${s.id})" title="${lang==='de'?'Schießzettel ansehen':'View scorecard'}">📝</button>`:''}<button class="btn bg btn-sm" onclick="openScoreModal(${s.id})">✏️</button><button class="btn bd btn-sm" onclick="delScore(${s.id})">🗑</button></div></div></div></div></div>`;}).join('')}</div>`}</div>`;
+  <div class="card"><div class="ch"><div class="ct">${t('timeline')}</div></div>${scores.length===0?(scfActive()?`<div class="empty"><div class="ei">🔍</div><div>${lang==='de'?'Keine Ergebnisse für diesen Filter.':'No results match this filter.'}</div><button class="btn bg" style="margin-top:10px" onclick="scfReset()">${lang==='de'?'Filter zurücksetzen':'Reset filter'}</button></div>`:`<div class="empty"><div class="ei">📊</div><div>${t('no_scores')}</div><button class="btn bp" style="margin-top:10px" onclick="openScoreModal()">${t('new_score')}</button></div>`)
+  :`<div class="tl">${scores.map(s=>{const isT=s.type!=='training',tt2=TT[s.type]||TT.training,mx=maxScore(s.type),pct=mx&&!s.no_points?` <span style="font-size:11px;color:var(--text3)">(${Math.round(s.points/mx*100)}% / ${mx})</span>`:'',plc=s.placement?` ${medal(s.placement)}${s.participants?` / ${s.participants} ${lang==='de'?'TN':'part.'}`:''}`:'';return`<div class="ti"><div class="tdot ${isT?'dg':'dgr'}"></div><div class="tc"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--text3);margin-bottom:2px">${fd(s.date)} · <span class="badge ${isT?'ba':'bgr'}">${isT?'🏆 '+tt2[lang]:'Training'}</span>${plc}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.location?` <span style="font-size:12px;font-weight:400;color:var(--text3)">· ${s.location}</span>`:''}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${s.no_points?`<span class="badge bbl">${lang==='de'?'Nur Pfeile':'Arrows only'}</span> ${s.arrows} ${t('arrows')}`:`${s.points}${mx?`/${mx}`:''}${pct} · ${s.arrows} ${t('arrows')} · ⌀ ${avgArr(s.points,s.arrows)}`} · ${getSName(s.setup_id)}${s.distance?` · ${s.distance} m`:''}${s.weather?` · ${wxLabel(s.weather)}`:''}${s.wind?` · ${windLabel(s.wind)}`:''}${s.notes?` · <em style="color:var(--text3)">"${s.notes}"</em>`:''}</div></div><div style="display:flex;align-items:center;gap:6px;flex-shrink:0">${!s.no_points?`<div style="font-family:Bebas Neue,sans-serif;font-size:24px;color:${isT?'var(--accent)':'var(--green)'}">${s.points}</div>`:`<div style="font-size:20px">${s.arrows}🏹</div>`}<div style="display:flex;flex-direction:column;gap:4px">${getD().cardScoreIds&&getD().cardScoreIds.has(s.id)?`<button class="btn bg btn-sm" onclick="openScorecardView(${s.id})" title="${lang==='de'?'Schießzettel ansehen':'View scorecard'}">📝</button>`:''}<button class="btn bg btn-sm" onclick="openScoreModal(${s.id})">✏️</button><button class="btn bd btn-sm" onclick="delScore(${s.id})">🗑</button></div></div></div></div></div>`;}).join('')}</div>`}</div>`;
 }
 async function delScore(id){if(!confirm(t('confirm_del')))return;if(!await dbDel('scores',id))return;getD().scores=getD().scores.filter(s=>s.id!==id);navigate('scores');}
 function openScoreModal(id){
@@ -1243,7 +1362,7 @@ function openScoreModal(id){
   const v=ex||{date:today2,type:'training',name:'',points:300,arrows:36,setup_id:getAS()?.id||1,notes:'',location:'',placement:null,participants:null,no_points:false,distance:null,weather:'',wind:''};
   const setups=getD().setups,sOpts=setups.map(s=>`<option value="${s.id}"${v.setup_id===s.id?' selected':''}>${sName(s)}</option>`).join('');
   const ttOpts=Object.entries(TT).map(([k,vt])=>`<option value="${k}"${v.type===k?' selected':''}>${vt[lang]}</option>`).join('');
-  document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="score-mo" onclick="closeMo(event,'score-mo')"><div class="md"><div class="mh"><div class="mt2">${id?t('edit'):t('new_score')}</div><button class="btn bg btn-sm" onclick="document.getElementById('score-mo').remove()">✕</button></div><div class="g2" style="gap:10px"><div class="fg"><label>${t('type')}</label><select id="sco-type" onchange="onTTC()">${ttOpts}</select></div><div class="fg"><label>${t('date')}</label><input id="sco-date" type="date" value="${v.date}"></div></div><div class="fg"><label>${t('bezeichnung')}</label><input id="sco-name" type="text" value="${v.name||''}" placeholder="${lang==='de'?'z.B. LM Bayern 2025':'e.g. State Championship'}"></div><div class="fg"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none"><input type="checkbox" id="sco-nop" ${v.no_points?'checked':''} style="width:auto" onchange="onNoP()"><span style="font-size:13px;font-weight:500;color:var(--text)">${t('arrows_only')}</span></label></div><div id="sco-pts-row" class="g2" style="gap:10px;${v.no_points?'display:none':''}"><div class="fg"><label>${t('points')}</label><input id="sco-pts" type="number" value="${v.points||0}" min="0" max="1440"></div><div class="fg"><label>${t('arrows')}</label><input id="sco-arr" type="number" value="${v.arrows||36}" min="1" max="360"></div></div><div id="sco-arr-only" style="${v.no_points?'':'display:none'}" class="fg"><label>${t('arrows')}</label><input id="sco-arr2" type="number" value="${v.arrows||36}" min="1" max="360"></div><div id="sco-info" style="font-size:12px;color:var(--text3);margin-top:-6px;margin-bottom:8px"></div><div class="fg"><label>${t('setup')}</label><select id="sco-setup">${sOpts||'<option>—</option>'}</select></div><div id="sco-tourn-x" style="${v.type==='training'?'display:none':''}"><div class="g2" style="gap:10px"><div class="fg"><label>${t('placement')} (opt.)</label><input id="sco-place" type="number" value="${v.placement||''}" min="1" placeholder="3"></div><div class="fg"><label>${t('participants')} (opt.)</label><input id="sco-partic" type="number" value="${v.participants||''}" min="1" placeholder="48"></div></div></div><div class="g2" style="gap:10px"><div class="fg" id="sco-dist-wrap"><label>${lang==='de'?'Entfernung (m)':'Distance (m)'}</label><input id="sco-dist" type="number" min="1" max="200" value="${v.distance||''}" placeholder="${lang==='de'?'z.B. 18':'e.g. 18'}" list="dist-list"><datalist id="dist-list"><option value="18"><option value="25"><option value="30"><option value="50"><option value="60"><option value="70"><option value="90"></datalist></div><div class="fg"><label>${t('location')}</label><input id="sco-loc" type="text" value="${v.location||''}" placeholder="${lang==='de'?'z.B. München':'e.g. Munich'}"></div></div><div id="sco-multi-note" style="display:none;font-size:12px;color:var(--text2);background:#4a9eff12;border:1px solid #4a9eff30;border-radius:8px;padding:8px 11px;margin-bottom:10px"></div>${WX_COLS?`<div class="g2" style="gap:10px"><div class="fg"><label>${lang==='de'?'Wetter':'Weather'}</label><input id="sco-wx" type="text" value="${(v.weather||'').replace(/"/g,'&quot;')}" list="wx-list" placeholder="${lang==='de'?'z.B. Sonnig, 18°C':'e.g. Sunny, 18°C'}"><datalist id="wx-list">${(lang==='de'?['Sonnig','Heiter','Bewölkt','Regen','Nieselregen','Nebel','Schnee','Schwül','Kalt']:['Sunny','Fair','Cloudy','Rain','Drizzle','Fog','Snow','Humid','Cold']).map(o=>`<option value="${o}">`).join('')}</datalist></div><div class="fg"><label>${lang==='de'?'Wind':'Wind'}</label><input id="sco-wind" type="text" value="${(v.wind||'').replace(/"/g,'&quot;')}" list="wind-list" placeholder="${lang==='de'?'z.B. Böig, Gegenwind':'e.g. Gusty, headwind'}"><datalist id="wind-list">${(lang==='de'?['Windstill','Leichte Brise','Böig','Gegenwind','Rückenwind','Seitenwind','Stark']:['Calm','Light breeze','Gusty','Headwind','Tailwind','Crosswind','Strong']).map(o=>`<option value="${o}">`).join('')}</datalist></div></div>`:`<div style="font-size:11.5px;color:var(--text3);margin-bottom:8px">${lang==='de'?'ℹ️ Wetter/Wind aktivierst du mit der einmaligen SQL-Migration.':'ℹ️ Enable weather/wind with the one-time SQL migration.'}</div>`}<div class="fg"><label>${t('notes')}</label><textarea id="sco-notes">${v.notes||''}</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('score-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveScore(${id||'null'})">${t('save')}</button></div></div></div>`);
+  document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="score-mo" onclick="closeMo(event,'score-mo')"><div class="md"><div class="mh"><div class="mt2">${id?t('edit'):t('new_score')}</div><button class="btn bg btn-sm" onclick="document.getElementById('score-mo').remove()">✕</button></div><div class="g2" style="gap:10px"><div class="fg"><label>${t('type')}</label><select id="sco-type" onchange="onTTC()">${ttOpts}</select></div><div class="fg"><label>${t('date')}</label><input id="sco-date" type="date" value="${v.date}"></div></div><div class="fg"><label>${t('bezeichnung')}</label><input id="sco-name" type="text" value="${v.name||''}" placeholder="${lang==='de'?'z.B. LM Bayern 2025':'e.g. State Championship'}"></div><div class="fg"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none"><input type="checkbox" id="sco-nop" ${v.no_points?'checked':''} style="width:auto" onchange="onNoP()"><span style="font-size:13px;font-weight:500;color:var(--text)">${t('arrows_only')}</span></label></div><div id="sco-pts-row" class="g2" style="gap:10px;${v.no_points?'display:none':''}"><div class="fg"><label>${t('points')}</label><input id="sco-pts" type="number" value="${v.points||0}" min="0" max="1440"></div><div class="fg"><label>${t('arrows')}</label><input id="sco-arr" type="number" value="${v.arrows||36}" min="1" max="360"></div></div><div id="sco-arr-only" style="${v.no_points?'':'display:none'}" class="fg"><label>${t('arrows')}</label><input id="sco-arr2" type="number" value="${v.arrows||36}" min="1" max="360"></div><div id="sco-info" style="font-size:12px;color:var(--text3);margin-top:-6px;margin-bottom:8px"></div><div class="fg"><label>${t('setup')}</label><select id="sco-setup">${sOpts||'<option>—</option>'}</select></div><div id="sco-tourn-x" style="${v.type==='training'?'display:none':''}"><div class="g2" style="gap:10px"><div class="fg"><label>${t('placement')} (opt.)</label><input id="sco-place" type="number" value="${v.placement||''}" min="1" placeholder="3"></div><div class="fg"><label>${t('participants')} (opt.)</label><input id="sco-partic" type="number" value="${v.participants||''}" min="1" placeholder="48"></div></div></div><div class="g2" style="gap:10px"><div class="fg" id="sco-dist-wrap"><label>${lang==='de'?'Entfernung (m)':'Distance (m)'}</label><input id="sco-dist" type="number" min="1" max="200" value="${v.distance||''}" placeholder="${lang==='de'?'z.B. 18':'e.g. 18'}" list="dist-list"><datalist id="dist-list"><option value="18"><option value="25"><option value="30"><option value="50"><option value="60"><option value="70"><option value="90"></datalist></div><div class="fg"><label>${t('location')}</label><input id="sco-loc" type="text" value="${v.location||''}" placeholder="${lang==='de'?'z.B. München':'e.g. Munich'}"></div></div><div id="sco-multi-note" style="display:none;font-size:12px;color:var(--text2);background:#4a9eff12;border:1px solid #4a9eff30;border-radius:8px;padding:8px 11px;margin-bottom:10px"></div>${WX_COLS?`<div class="fg"><label>${lang==='de'?'Wetter':'Weather'}</label>${wxChipsHTML('sco-wx',v.weather||'')}${wxLegacyNote(v.weather,false)}</div><div class="g2" style="gap:10px"><div class="fg"><label>${lang==='de'?'Windstärke':'Wind force'}</label><select id="sco-wind-bft">${bftOptsHTML(windParse(v.wind)?String(windParse(v.wind).bft):'')}</select></div><div class="fg"><label>${lang==='de'?'Windrichtung (optional)':'Wind direction (optional)'}</label><select id="sco-wind-dir">${dirOptsHTML(windParse(v.wind)?windParse(v.wind).dir:'')}</select></div></div>${wxLegacyNote(v.wind,true)}`:`<div style="font-size:11.5px;color:var(--text3);margin-bottom:8px">${lang==='de'?'ℹ️ Wetter/Wind aktivierst du mit der einmaligen SQL-Migration.':'ℹ️ Enable weather/wind with the one-time SQL migration.'}</div>`}<div class="fg"><label>${t('notes')}</label><textarea id="sco-notes">${v.notes||''}</textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px"><button class="btn bg" onclick="document.getElementById('score-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveScore(${id||'null'})">${t('save')}</button></div></div></div>`);
   setTimeout(onTTC,50);
 }
 function onNoP(){const nop=document.getElementById('sco-nop')?.checked;if(document.getElementById('sco-pts-row'))document.getElementById('sco-pts-row').style.display=nop?'none':'';if(document.getElementById('sco-arr-only'))document.getElementById('sco-arr-only').style.display=nop?'':'none';}
@@ -1259,7 +1378,7 @@ async function saveScore(id){
   if(!nm){const tt2=TT[typeVal]||TT.training;nm=(tt2[lang]||tt2.de)+' · '+fd(dateVal);}
   const nop=document.getElementById('sco-nop')?.checked||false,arrVal=nop?parseInt(document.getElementById('sco-arr2')?.value||36):parseInt(document.getElementById('sco-arr')?.value||36),place=parseInt(document.getElementById('sco-place')?.value)||null,d=getD();
   if(!arrVal||arrVal<1){toast(lang==='de'?'Bitte eine gültige Pfeilanzahl eingeben.':'Please enter a valid number of arrows.');return;}
-  const dist=isMultiDist(typeVal)?null:(parseInt(document.getElementById('sco-dist')?.value)||null);const e={id:id||0,type:typeVal,date:dateVal,name:nm,points:nop?0:parseInt(document.getElementById('sco-pts')?.value||0),arrows:arrVal,setup_id:parseInt(document.getElementById('sco-setup')?.value)||1,notes:document.getElementById('sco-notes')?.value||'',location:document.getElementById('sco-loc')?.value||'',placement:place,participants:parseInt(document.getElementById('sco-partic')?.value)||null,no_points:nop,distance:dist,weather:(document.getElementById('sco-wx')?.value||''),wind:(document.getElementById('sco-wind')?.value||'')};const row={user_id:CU.id,type:e.type,date:e.date,name:e.name,points:e.points,arrows:e.arrows,setup_id:e.setup_id,notes:e.notes,location:e.location,placement:e.placement,participants:e.participants,no_points:e.no_points,distance:e.distance};if(WX_COLS){row.weather=e.weather;row.wind=e.wind;}document.getElementById('score-mo').remove();if(id){if(!await dbUpd('scores',id,row))return;d.scores=d.scores.map(s=>s.id===id?{...e,id}:s);}else{const rec=await dbIns('scores',row);if(!rec)return;d.scores.push(rec);}if(place&&place<=3)showMedalAnim(place);navigate('scores');}
+  const dist=isMultiDist(typeVal)?null:(parseInt(document.getElementById('sco-dist')?.value)||null);const e={id:id||0,type:typeVal,date:dateVal,name:nm,points:nop?0:parseInt(document.getElementById('sco-pts')?.value||0),arrows:arrVal,setup_id:parseInt(document.getElementById('sco-setup')?.value)||1,notes:document.getElementById('sco-notes')?.value||'',location:document.getElementById('sco-loc')?.value||'',placement:place,participants:parseInt(document.getElementById('sco-partic')?.value)||null,no_points:nop,distance:dist,weather:(document.getElementById('sco-wx')?.value||''),wind:windEnc(document.getElementById('sco-wind-bft')?.value||'',document.getElementById('sco-wind-dir')?.value||'')};const row={user_id:CU.id,type:e.type,date:e.date,name:e.name,points:e.points,arrows:e.arrows,setup_id:e.setup_id,notes:e.notes,location:e.location,placement:e.placement,participants:e.participants,no_points:e.no_points,distance:e.distance};if(WX_COLS){row.weather=e.weather;row.wind=e.wind;}document.getElementById('score-mo').remove();if(id){if(!await dbUpd('scores',id,row))return;d.scores=d.scores.map(s=>s.id===id?{...e,id}:s);}else{const rec=await dbIns('scores',row);if(!rec)return;d.scores.push(rec);}if(place&&place<=3)showMedalAnim(place);navigate('scores');}
 // ─── SCORECARD (Schießzettel + Trefferbild) ───────────────────────────────
 let SZ=null;
 function szRingColor(v){if(v>=9)return '#F2C230';if(v>=7)return '#E5544B';if(v>=5)return '#3B7DD8';if(v>=3)return '#232323';return '#F2F2F2';}
@@ -1276,6 +1395,8 @@ function openScorecard(){
 }
 function szClose(){document.getElementById('sz-mo')?.remove();SZ=null;}
 function szSet(field,val){if(!SZ)return;SZ[field]=val;szRefresh();}
+function szWxSet(v){if(SZ)SZ.weather=v;}
+function szWindSet(){if(!SZ)return;SZ.wind=windEnc(document.getElementById('sz-wind-bft')?.value||'',document.getElementById('sz-wind-dir')?.value||'');}
 function szSetIndoor(v){if(!SZ)return;SZ.indoor=v;const st=document.getElementById('sz-settings');if(st)st.innerHTML=szSettingsHTML();szRefresh();}
 function szSettingsHTML(){
   const DE=lang==='de',setups=getD().setups;
@@ -1293,8 +1414,9 @@ function szSettingsHTML(){
       <div class="fg" style="margin-bottom:0"><label>${t('type')}</label><select onchange="szSet('type',this.value)">${ttOpts}</select></div>
       <div class="fg" style="margin-bottom:0"><label>${t('bezeichnung')}</label><input type="text" value="${(SZ.name||'').replace(/"/g,'&quot;')}" placeholder="${DE?'z. B. Training 70m':'e.g. Training 70m'}" onchange="szSet('name',this.value)"></div>
       <div class="fg" style="margin-bottom:0"><label>${t('location')}</label><input type="text" value="${(SZ.location||'').replace(/"/g,'&quot;')}" onchange="szSet('location',this.value)"></div>
-      ${WX_COLS?`<div class="fg" style="margin-bottom:0"><label>${DE?'Wetter':'Weather'}</label><input type="text" value="${(SZ.weather||'').replace(/"/g,'&quot;')}" list="sz-wx-list" placeholder="${DE?'z.B. Sonnig':'e.g. Sunny'}" onchange="szSet('weather',this.value)"><datalist id="sz-wx-list">${(DE?['Sonnig','Heiter','Bewölkt','Regen','Nieselregen','Nebel','Schnee','Schwül','Kalt']:['Sunny','Fair','Cloudy','Rain','Drizzle','Fog','Snow','Humid','Cold']).map(o=>`<option value="${o}">`).join('')}</datalist></div><div class="fg" style="margin-bottom:0"><label>${DE?'Wind':'Wind'}</label><input type="text" value="${(SZ.wind||'').replace(/"/g,'&quot;')}" list="sz-wind-list" placeholder="${DE?'z.B. Böig':'e.g. Gusty'}" onchange="szSet('wind',this.value)"><datalist id="sz-wind-list">${(DE?['Windstill','Leichte Brise','Böig','Gegenwind','Rückenwind','Seitenwind','Stark']:['Calm','Light breeze','Gusty','Headwind','Tailwind','Crosswind','Strong']).map(o=>`<option value="${o}">`).join('')}</datalist></div>`:''}
+      ${WX_COLS?`<div class="fg" style="margin-bottom:0"><label>${DE?'Windstärke':'Wind force'}</label><select id="sz-wind-bft" onchange="szWindSet()">${bftOptsHTML(windParse(SZ.wind)?String(windParse(SZ.wind).bft):'')}</select></div><div class="fg" style="margin-bottom:0"><label>${DE?'Windrichtung (optional)':'Wind direction (optional)'}</label><select id="sz-wind-dir" onchange="szWindSet()">${dirOptsHTML(windParse(SZ.wind)?windParse(SZ.wind).dir:'')}</select></div>`:''}
     </div>
+    ${WX_COLS?`<div class="fg" style="margin:10px 0 0"><label>${DE?'Wetter':'Weather'}</label>${wxChipsHTML('sz-wx',SZ.weather||'','szWxSet')}${wxLegacyNote(SZ.weather,false)}${wxLegacyNote(SZ.wind,true)}</div>`:''}
     <label style="display:flex;align-items:center;gap:8px;margin-top:10px;cursor:pointer;text-transform:none;font-size:13px;color:var(--text)"><input type="checkbox" ${SZ.arrowNumbers?'checked':''} onchange="szSet('arrowNumbers',this.checked)" style="width:auto"> ${DE?'Pfeilnummern erfassen':'Track arrow numbers'}</label>
   </div>`;
 }
@@ -1473,7 +1595,7 @@ function anBars(items,color){
 }
 function openAnalysis(scoreId){
   if(!SHOTS_TABLE){toast(lang==='de'?'Bitte zuerst die SQL-Migration (Tabelle „shots") ausführen.':'Please run the SQL migration (table "shots") first.');return;}
-  AN={scoreId:scoreId||null,setup:'all',dist:'all',limit:'all',wellOnly:false,loading:true,err:null,sessions:[]};
+  AN={scoreId:scoreId||null,setup:'all',dist:'all',limit:'all',event:null,wellOnly:false,loading:true,err:null,sessions:[]};
   anRenderModal();anLoad();
 }
 function anMapShot(r){return {nx:r.nx,ny:r.ny,ring:r.ring,isX:r.is_x,arrow_no:r.arrow_no,rating:r.rating,score_id:r.score_id,end_no:r.end_no,pos:r.pos};}
@@ -1487,6 +1609,41 @@ async function anLoad(){
   const sessions=Object.keys(byId).map(id=>({id:+id,score:scoreById[+id]||{},shots:byId[id].sort((a,b)=>(a.end_no-b.end_no)||(a.pos-b.pos)).map(anMapShot)})).filter(x=>x.shots.length);
   sessions.sort((a,b)=>((a.score.date||'')+'').localeCompare((b.score.date||'')));
   AN.sessions=sessions;AN.loading=false;anRefreshContent();
+}
+function anEffEvent(){
+  if(AN.scoreId)return String(AN.scoreId);
+  if(AN.event==='overlay')return 'overlay';
+  const ss=anFiltered();
+  if(!ss.length)return '';
+  const hit=ss.find(x=>String(x.id)===String(AN.event));
+  return hit?String(hit.id):String(ss[ss.length-1].id);
+}
+function anEventSessions(){
+  const ss=anFiltered();
+  if(AN.scoreId)return ss;
+  const ev=anEffEvent();
+  if(ev==='overlay')return ss;
+  const one=ss.filter(x=>String(x.id)===ev);
+  return one.length?one:(ss.length?[ss[ss.length-1]]:[]);
+}
+// Overlay: every event is shifted onto its own group centre, so that a sight
+// change or a different wind day cannot inflate the dispersion.
+function anCentredShots(sessions,overlay){
+  if(!overlay)return sessions.flatMap(s=>s.shots);
+  const out=[];
+  sessions.forEach(s=>{
+    const st=groupStats(s.shots);
+    s.shots.forEach(x=>{
+      out.push((st.np&&anShotXY(x))?Object.assign({},x,{nx:x.nx-st.cx,ny:x.ny-st.cy}):x);
+    });
+  });
+  return out;
+}
+function anEventLabel(s){
+  const dt=s.score.date?fd(s.score.date):'—';
+  const nm=(s.score.name||'').slice(0,34);
+  const di=s.score.distance?` · ${s.score.distance} m`:'';
+  return `${dt}${nm?' · '+nm:''}${di} (${s.shots.length})`;
 }
 function anFiltered(){
   let ss=AN.sessions.slice();
@@ -1504,7 +1661,13 @@ function anFilterHTML(){
   const distOpts=`<option value="all">${DE?'Alle Distanzen':'All distances'}</option>`+dists.map(d=>`<option value="${d}"${String(AN.dist)===String(d)?' selected':''}>${d} m</option>`).join('');
   const limOpts=[['all',DE?'Alle':'All'],['5',DE?'Letzte 5':'Last 5'],['10',DE?'Letzte 10':'Last 10']].map(([v,l])=>`<option value="${v}"${AN.limit===v?' selected':''}>${l}</option>`).join('');
   const dis=AN.scoreId?'disabled':'';
-  return`<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+  const effEv=anEffEvent();
+  const evList=anFiltered().slice().reverse();
+  const evOpts=evList.map(s=>`<option value="${s.id}"${effEv===String(s.id)?' selected':''}>${anEventLabel(s)}</option>`).join('')
+    +(evList.length>1?`<option value="overlay"${effEv==='overlay'?' selected':''}>${DE?'▦ Alle Events überlagert (je Event zentriert)':'▦ All events overlaid (each centred)'}</option>`:'');
+  const evSel=AN.scoreId?'':`<div class="fg" style="margin-bottom:0;flex:1;min-width:230px"><label style="font-size:10px">${DE?'Event (Gruppenbild)':'Event (group plot)'}</label><select onchange="anSet('event',this.value)">${evOpts||`<option>—</option>`}</select></div>`;
+  return`<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">${evSel}</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
     <select onchange="anSet('setup',this.value)" ${dis} style="width:auto;flex:none;${AN.scoreId?'opacity:0.5':''}">${setupOpts}</select>
     <select onchange="anSet('dist',this.value)" ${dis} style="width:auto;flex:none;${AN.scoreId?'opacity:0.5':''}">${distOpts}</select>
     <select onchange="anSet('limit',this.value)" ${dis} style="width:auto;flex:none;${AN.scoreId?'opacity:0.5':''}">${limOpts}</select>
@@ -1516,7 +1679,10 @@ function anBodyHTML(){
   const DE=lang==='de';
   if(AN.loading)return `<div style="text-align:center;padding:30px;color:var(--text3)">⏳ ${DE?'Lade Trefferdaten…':'Loading shot data…'}</div>`;
   if(AN.err)return `<div style="color:var(--text3);padding:20px">${DE?'Fehler':'Error'}: ${AN.err}</div>`;
-  const sessions=anFiltered(),allShots=sessions.flatMap(s=>s.shots);
+  const sessions=anFiltered();
+  const overlay=(!AN.scoreId&&anEffEvent()==='overlay');
+  const evSessions=anEventSessions();
+  const allShots=anCentredShots(evSessions,overlay);
   if(!allShots.length)return `<div class="empty"><div class="ei">📊</div><div>${DE?'Keine Schießzettel-Daten für diese Auswahl.':'No scorecard data for this selection.'}</div><div style="font-size:12px;color:var(--text3);margin-top:6px">${DE?'Lege zuerst über „Schießzettel" ein Trefferbild an.':'Create a hit plot via "Scorecard" first.'}</div></div>`;
   const wellShots=allShots.filter(s=>(s.rating||0)>=4);
   const allStats=groupStats(allShots),wellStats=groupStats(wellShots);
@@ -1526,7 +1692,7 @@ function anBodyHTML(){
   const wAvg=(function(){const rated=allShots.filter(s=>s.rating),wsum=rated.reduce((a,s)=>a+s.rating,0),wr=rated.reduce((a,s)=>a+(s.ring||0)*s.rating,0);return wsum?(wr/wsum).toFixed(1):'—';})();
   const stats=`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
     ${tile(curStats.n,DE?'Pfeile':'Arrows','var(--text)')}
-    ${tile(anOffsetText(curStats),DE?'Mittelpunkt':'Group centre','var(--blue)')}
+    ${tile(overlay?'—':anOffsetText(curStats),DE?'Mittelpunkt':'Group centre','var(--blue)')}
     ${tile((curStats.meanR*10).toFixed(1)+' '+(DE?'R.':'r.'),DE?'Streuung Ø':'Dispersion avg','var(--accent)')}
     ${tile(curStats.avgRing.toFixed(1),DE?'Ø Ringwert':'Avg ring','var(--text)')}
     ${tile(curStats.avgExec!=null?curStats.avgExec.toFixed(1):'—',DE?'Ø Ausführung':'Avg exec.','var(--blue)')}
@@ -1544,7 +1710,7 @@ function anBodyHTML(){
   if(sessions.length>=2){
     const tenX=sessions.map(s=>{const arr=s.shots.length,tt=s.shots.filter(x=>x.ring>=10).length;return {label:(s.score.date?fd(s.score.date).slice(0,5):''),val:arr?Math.round(tt/arr*100):0,title:tt+'/'+arr};});
     const exc=sessions.map(s=>{const r=s.shots.filter(x=>x.rating),v=r.length?r.reduce((a,x)=>a+x.rating,0)/r.length:0;return {label:(s.score.date?fd(s.score.date).slice(0,5):''),val:+v.toFixed(2),title:v.toFixed(1)};});
-    trends=`<div class="g2" style="gap:12px"><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'10+X-Anteil %':'10+X share %'}</div>${anBars(tenX,'var(--accent)')}</div><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'Ø Ausführung':'Avg execution'}</div>${anBars(exc,'var(--blue)')}</div></div>`;
+    trends=`<div style="font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;margin:4px 0 6px">${DE?`Verlauf über ${sessions.length} Events`:`Trend across ${sessions.length} events`}</div><div class="g2" style="gap:12px"><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'10+X-Anteil %':'10+X share %'}</div>${anBars(tenX,'var(--accent)')}</div><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'Ø Ausführung':'Avg execution'}</div>${anBars(exc,'var(--blue)')}</div></div>`;
   }
   let perArrow='';
   const paRows=anPerArrow(allShots,allStats.cx,allStats.cy);
@@ -1556,8 +1722,18 @@ function anBodyHTML(){
       return `<tr${isBest?' style="background:var(--green)15"':(isOut?' style="background:var(--accent)12"':'')}><td style="font-weight:700;color:var(--text)">#${r.no}${isBest?` <span style="color:var(--green);font-size:10px">▲ ${DE?'beste Gruppe':'best group'}</span>`:''}${isOut?` <span style="color:var(--accent);font-size:10px">⚠ ${DE?'Ausreißer':'outlier'}</span>`:''}</td><td style="text-align:right">${r.n}</td><td style="text-align:right;font-weight:600">${r.avgRing.toFixed(1)}</td><td style="text-align:right">${r.offC!=null?r.offC.toFixed(1):'—'}</td><td style="text-align:right">${r.own!=null?r.own.toFixed(1):'—'}</td></tr>`;}).join('');
     perArrow=`<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:6px">${DE?'Auswertung je Pfeil':'Per-arrow evaluation'}</div><table class="table"><thead><tr><th>${DE?'Pfeil':'Arrow'}</th><th style="text-align:right">n</th><th style="text-align:right">${DE?'Ø Ring':'Avg ring'}</th><th style="text-align:right" title="${DE?'Ø Abstand zum Gruppenmittelpunkt (Ringe)':'avg distance to group centre (rings)'}">${DE?'Ø z. Mitte':'to centre'}</th><th style="text-align:right" title="${DE?'eigene Streuung (Ringe)':'own dispersion (rings)'}">${DE?'eig. Streu.':'own scat.'}</th></tr></thead><tbody>${trs}</tbody></table><div style="font-size:11px;color:var(--text3);margin-top:4px">${DE?'Werte in Ringen. „Ø z. Mitte" = wie weit der Pfeil im Schnitt vom Gruppenmittelpunkt landet; „eig. Streu." = wie eng der Pfeil für sich gruppiert.':'Values in rings. "to centre" = average distance of the arrow from the group centre; "own scat." = how tightly the arrow groups by itself.'}</div></div>`;
   }
+  const scope=(function(){
+    if(AN.scoreId)return '';
+    const bg='background:var(--bg3);border-radius:9px;padding:8px 11px;font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:10px';
+    if(overlay)return `<div style="${bg}">▦ ${DE?`<b>${evSessions.length} Events überlagert</b> – jedes Event ist auf seinen eigenen Mittelpunkt zentriert. Vergleichbar wird so die Streuung, nicht die Lage: eine zwischenzeitliche Visierverstellung oder anderer Wind verschiebt das Bild nicht mehr.`:`<b>${evSessions.length} events overlaid</b> – each event is centred on its own group centre. This compares dispersion, not position: a sight adjustment in between or different wind no longer shifts the picture.`}</div>`;
+    const s0=evSessions[0];
+    if(!s0)return '';
+    const meta=[s0.score.date?fd(s0.score.date):null,s0.score.distance?s0.score.distance+' m':null,s0.score.weather?wxLabel(s0.score.weather):null,s0.score.wind?windLabel(s0.score.wind):null].filter(Boolean).join(' · ');
+    const acts=s0.score.id?`<div style="display:flex;gap:6px;margin-top:7px;flex-wrap:wrap"><button class="btn bg btn-sm" onclick="document.getElementById('an-mo')?.remove();openScorecardView(${s0.score.id})">📝 ${DE?'Schießzettel':'Scorecard'}</button><button class="btn bg btn-sm" onclick="document.getElementById('an-mo')?.remove();goEditScore(${s0.score.id})">✏️ ${DE?'Ergebnis bearbeiten':'Edit result'}</button></div>`:'';
+    return `<div style="${bg}">🎯 ${DE?'Gruppenbild für':'Group plot for'} <b>${(s0.score.name||'—')}</b>${meta?`<div style="font-size:11px;color:var(--text3);margin-top:2px">${meta}</div>`:''}${acts}</div>`;
+  })();
   const legend=`<div style="font-size:11px;color:var(--text3);margin-top:6px;text-align:center"><span style="color:#4a9eff">✚</span> ${DE?'Mittelpunkt':'Centre'} · <span style="color:#4a9eff">◌</span> ${DE?'Streuung':'Dispersion'} · <span style="color:var(--accent)">●</span> ★4+</div>`;
-  return`<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start"><div style="flex:0 0 auto;min-width:220px">${plot}${legend}</div><div style="flex:1;min-width:250px">${stats}${insight}${execTable}${perArrow}${trends}</div></div>`;
+  return`${scope}<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start"><div style="flex:0 0 auto;min-width:220px">${plot}${legend}</div><div style="flex:1;min-width:250px">${stats}${insight}${execTable}${perArrow}${trends}</div></div>`;
 }
 function anSet(f,v){if(!AN)return;AN[f]=v;anRefresh();}
 function anRefresh(){const el=document.getElementById('an-body');if(el)el.innerHTML=anBodyHTML();}
@@ -1907,7 +2083,150 @@ async function saveP(){const p2=getP();const nm=document.getElementById('p-name'
 async function saveAP(){const p2=getP();const disc=['WA','Field','3D'].filter(d=>document.getElementById('p-disc-'+d)?.checked).join(',');const row={handedness:document.getElementById('p-hand')?.value,draw_length:parseFloat(document.getElementById('p-dl')?.value)||28,bow_class:document.getElementById('p-bow')?.value,cc:document.getElementById('p-cc')?.value||p2.cc,country:document.getElementById('p-country')?.value||p2.country,disciplines:disc};PREFS[CU.id]={...p2,...row};const {error}=await sbc.from('profiles').update(row).eq('id',CU.id);if(error){toast(error.message);return;}toast(lang==='de'?'Gespeichert.':'Saved.',true);navigate('profil');}
 
 // ─── SETTINGS ─────────────────────────────────────────────────────────────
-function rSettings(){const s=getS();return`<div class="stitle">${t('einstellungen')}</div><div class="g2" style="gap:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Design & Darstellung':'Design & Display'}</div></div>${[['dark_mode',t('dark_mode'),lang==='de'?'Dunkles Design':'Dark theme'],['animations',t('animations'),lang==='de'?'UI-Animationen':'UI animations'],['compact',t('compact'),lang==='de'?'Reduzierte Abstände':'Reduced spacing'],['large_font',t('large_font'),lang==='de'?'Größere Schrift':'Larger text']].map(([k,n,d2])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--text3);margin-top:1px">${d2}</div></div><div class="toggle ${s[k]?'on':''}" onclick="togS('${k}')"></div></div>`).join('')}<div class="fg" style="margin-top:14px"><label>${t('language')}</label><select onchange="chL(this.value)"><option value="de"${lang==='de'?' selected':''}>🇩🇪 Deutsch</option><option value="en"${lang==='en'?' selected':''}>🇬🇧 English</option></select></div></div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Einheiten & Sonstiges':'Units & Other'}</div></div><div class="fg"><label>${lang==='de'?'Entfernungseinheit':'Distance Unit'}</label><select><option>${lang==='de'?'Meter (m)':'Meters (m)'}</option><option>Yards (yd)</option></select></div><div class="fg"><label>${lang==='de'?'Gewichtseinheit':'Weight Unit'}</label><select><option>${lang==='de'?'Pfund (lbs)':'Pounds (lbs)'}</option><option>Kilogramm (kg)</option></select></div><div style="margin-top:14px;border:1px dashed var(--border);border-radius:10px;padding:12px"><div class="notif-planned">${[['training_remind',lang==='de'?'Training-Erinnerungen':'Training Reminders'],['tournament_hints',lang==='de'?'Turnier-Hinweise':'Tournament Alerts']].map(([k,n])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div></div><div class="toggle ${s[k]?'on':''}"></div></div>`).join('')}</div><div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:6px"><span>🔮</span> ${lang==='de'?'Benachrichtigungen – geplantes Feature':'Notifications – planned feature'}</div></div></div></div><div style="margin-top:12px;font-size:12px;color:var(--text3)">💡 ${lang==='de'?'Alle Schalter wirken sofort.':'All toggles apply immediately.'}</div>`;}
+// ─── DATENEXPORT ──────────────────────────────────────────────────────────
+const EXP_PHOTO_KEYS=['photo_url','avatar_url','dataUrl','data_url'];
+function expStamp(){return new Date().toISOString().slice(0,10);}
+function dlBlob(name,mime,text){
+  try{
+    const b=new Blob([text],{type:mime+';charset=utf-8'});
+    const u=URL.createObjectURL(b),a=document.createElement('a');
+    a.href=u;a.download=name;a.style.display='none';
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(u);a.remove();},400);
+    return true;
+  }catch(e){console.error('download',e);toast(lang==='de'?'Download fehlgeschlagen.':'Download failed.');return false;}
+}
+function csvCell(v){
+  if(v==null)return '';
+  let s=(typeof v==='object')?JSON.stringify(v):String(v);
+  if(/[";\n\r]/.test(s))s='"'+s.replace(/"/g,'""')+'"';
+  return s;
+}
+// Semicolon separated + BOM so that German Excel opens it without an import wizard.
+function toCSV(rows){
+  if(!rows||!rows.length)return '';
+  const cols=[];rows.forEach(r=>Object.keys(r).forEach(k=>{if(cols.indexOf(k)<0)cols.push(k);}));
+  const head=cols.join(';');
+  const body=rows.map(r=>cols.map(k=>csvCell(r[k])).join(';')).join('\r\n');
+  return '\ufeff'+head+'\r\n'+body+'\r\n';
+}
+function expStrip(rows){
+  return (rows||[]).map(r=>{const o={};Object.keys(r).forEach(k=>{if(EXP_PHOTO_KEYS.indexOf(k)<0)o[k]=r[k];});return o;});
+}
+function wxPlain(v){const o=wxOpt(v);return o?o[lang]:(v||'');}
+async function expShots(){
+  if(!SHOTS_TABLE)return [];
+  try{const {data,error}=await sbc.from('shots').select('*').eq('user_id',CU.id).order('id');
+    if(error){console.warn('export shots',error);return [];}
+    return data||[];
+  }catch(e){console.warn('export shots',e);return [];}
+}
+function expRows(kind,shots){
+  const d=getD();
+  if(kind==='sight')return d.sight.slice().sort((a,b)=>(a.setup_id-b.setup_id)||(a.dist-b.dist)).map(s=>({
+    id:s.id,setup:getSName(s.setup_id),setup_id:s.setup_id,visier:s.visier||'Standard',
+    distanz_m:s.dist,klick:s.click,notizen:s.notes||''}));
+  if(kind==='scores')return d.scores.slice().sort((a,b)=>(a.date||'').localeCompare(b.date||'')).map(s=>{
+    const w=windParse(s.wind);
+    return {id:s.id,datum:s.date,typ:(TT[s.type]?TT[s.type][lang]:s.type),typ_key:s.type,bezeichnung:s.name,
+      punkte:s.no_points?'':s.points,max_punkte:maxScore(s.type)||'',pfeile:s.arrows,
+      schnitt_pro_pfeil:s.no_points?'':avgArr(s.points,s.arrows),
+      setup:getSName(s.setup_id),setup_id:s.setup_id,entfernung_m:s.distance||'',
+      ort:s.location||'',platz:s.placement||'',teilnehmer:s.participants||'',
+      wetter:wxPlain(s.weather),wind_bft:w?w.bft:'',wind_richtung:w?dirLabel(w.dir):'',wind_roh:s.wind||'',
+      nur_pfeile:s.no_points?1:0,notizen:s.notes||''};});
+  if(kind==='setups')return expStrip(d.setups);
+  if(kind==='arrow_sets')return expStrip(d.arrowSets);
+  if(kind==='counters')return expStrip(d.counters);
+  if(kind==='shots'){
+    const byId={};d.scores.forEach(s=>{byId[s.id]=s;});
+    return (shots||[]).map(r=>{const sc=byId[r.score_id]||{};
+      return {id:r.id,score_id:r.score_id,event:sc.name||'',datum:sc.date||'',entfernung_m:sc.distance||'',
+        passe:r.end_no,position:r.pos,pfeil_nr:r.arrow_no||'',ring:r.ring,ist_x:r.is_x?1:0,
+        ausfuehrung:r.rating||'',x_norm:r.nx,y_norm:r.ny};});
+  }
+  return [];
+}
+const EXP_KINDS=[
+  {k:'sight',      de:'Visiereinstellungen', en:'Sight settings'},
+  {k:'scores',     de:'Ergebnisse',          en:'Results'},
+  {k:'setups',     de:'Setups',              en:'Setups'},
+  {k:'arrow_sets', de:'Pfeilsets',           en:'Arrow sets'},
+  {k:'shots',      de:'Schießzettel-Schüsse',en:'Scorecard shots'},
+  {k:'counters',   de:'Zähler',              en:'Counters'}
+];
+async function exportCSV(kind){
+  const DE=lang==='de';
+  const shots=(kind==='shots')?await expShots():null;
+  const rows=expRows(kind,shots);
+  if(!rows.length){toast(DE?'Keine Daten in diesem Bereich.':'No data in this section.');return;}
+  const csv=toCSV(rows);
+  dlBlob(`bowbrain-${kind}-${expStamp()}.csv`,'text/csv',csv);
+  toast(DE?`${rows.length} Zeilen exportiert.`:`${rows.length} rows exported.`,true);
+}
+async function exportAllCSV(){
+  const DE=lang==='de';
+  const shots=await expShots();
+  let files=0;
+  for(const e of EXP_KINDS){
+    const rows=expRows(e.k,shots);
+    if(!rows.length)continue;
+    dlBlob(`bowbrain-${e.k}-${expStamp()}.csv`,'text/csv',toCSV(rows));
+    files++;
+    await new Promise(r=>setTimeout(r,350)); // browsers throttle rapid multi-downloads
+  }
+  toast(files?(DE?`${files} CSV-Dateien exportiert.`:`${files} CSV files exported.`):(DE?'Keine Daten zum Exportieren.':'No data to export.'),!!files);
+}
+async function exportJSON(){
+  const DE=lang==='de';
+  const withPhotos=!!document.getElementById('exp-photos')?.checked;
+  const d=getD(),p=getP();
+  const btn=document.getElementById('exp-json-btn');
+  if(btn){btn.disabled=true;btn.textContent=DE?'… wird erstellt':'… building';}
+  try{
+    const shots=await expShots();
+    const prof=Object.assign({},p);
+    if(!withPhotos)delete prof.avatar_url;
+    const payload={
+      bowbrain:{format:1,version:VER,codename:VNAME,exported_at:new Date().toISOString(),
+        photos_included:withPhotos,
+        note:'Vollstaendige Datensicherung / full data backup. Feld nx/ny = normalisierte Trefferlage (-1..1).'},
+      profile:prof,
+      setups:withPhotos?d.setups:expStrip(d.setups),
+      arrow_sets:d.arrowSets||[],
+      sight_settings:d.sight||[],
+      scores:d.scores||[],
+      shots:shots,
+      counters:d.counters||[],
+      tuning:{notes:d.tuning_notes||'',photos:withPhotos?(d.tuning_photos||[]):expStrip(d.tuning_photos)}
+    };
+    const txt=JSON.stringify(payload,null,2);
+    dlBlob(`bowbrain-export-${expStamp()}.json`,'application/json',txt);
+    const kb=Math.round(txt.length/1024);
+    toast(DE?`Sicherung erstellt (${kb} KB).`:`Backup created (${kb} KB).`,true);
+  }catch(e){
+    console.error('exportJSON',e);
+    toast(DE?'Export fehlgeschlagen.':'Export failed.');
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent=DE?'⬇ Komplette Sicherung (JSON)':'⬇ Full backup (JSON)';}
+  }
+}
+function expCardHTML(){
+  const DE=lang==='de';
+  return`<div class="card" style="margin-top:14px">
+    <div class="ch"><div class="ct">${DE?'Datenexport':'Data export'}</div></div>
+    <div style="font-size:12.5px;color:var(--text2);line-height:1.6;margin-bottom:12px">${DE?'Deine Daten gehören dir. Die JSON-Datei ist eine vollständige Sicherung aller Bereiche – bewahre sie auf, falls BowBrain einmal nicht weitergeführt wird. Die CSV-Dateien lassen sich direkt in Excel oder Numbers öffnen.':'Your data is yours. The JSON file is a complete backup of every section – keep it in case BowBrain is ever discontinued. The CSV files open directly in Excel or Numbers.'}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:6px">
+      <button class="btn bp" id="exp-json-btn" onclick="exportJSON()">⬇ ${DE?'Komplette Sicherung (JSON)':'Full backup (JSON)'}</button>
+      <button class="btn bg" onclick="exportAllCSV()">⬇ ${DE?'Alle CSV-Dateien':'All CSV files'}</button>
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);cursor:pointer;text-transform:none"><input type="checkbox" id="exp-photos" checked style="width:auto"> ${DE?'Fotos einschließen':'Include photos'}</label>
+    </div>
+    <div style="font-size:11px;color:var(--text3);margin-bottom:12px">${DE?'Ohne Fotos wird die JSON-Datei deutlich kleiner. Fotos sind als Data-URL eingebettet.':'Without photos the JSON file is much smaller. Photos are embedded as data URLs.'}</div>
+    <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;margin-bottom:6px">${DE?'Einzeln als CSV':'Single CSV'}</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">${EXP_KINDS.map(e=>`<button class="btn bg btn-sm" onclick="exportCSV('${e.k}')">${e[lang]}</button>`).join('')}</div>
+  </div>`;
+}
+function rSettings(){const s=getS();return`<div class="stitle">${t('einstellungen')}</div><div class="g2" style="gap:14px"><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Design & Darstellung':'Design & Display'}</div></div>${[['dark_mode',t('dark_mode'),lang==='de'?'Dunkles Design':'Dark theme'],['animations',t('animations'),lang==='de'?'UI-Animationen':'UI animations'],['compact',t('compact'),lang==='de'?'Reduzierte Abstände':'Reduced spacing'],['large_font',t('large_font'),lang==='de'?'Größere Schrift':'Larger text']].map(([k,n,d2])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--text3);margin-top:1px">${d2}</div></div><div class="toggle ${s[k]?'on':''}" onclick="togS('${k}')"></div></div>`).join('')}<div class="fg" style="margin-top:14px"><label>${t('language')}</label><select onchange="chL(this.value)"><option value="de"${lang==='de'?' selected':''}>🇩🇪 Deutsch</option><option value="en"${lang==='en'?' selected':''}>🇬🇧 English</option></select></div></div><div class="card"><div class="ch"><div class="ct">${lang==='de'?'Einheiten & Sonstiges':'Units & Other'}</div></div><div class="fg"><label>${lang==='de'?'Entfernungseinheit':'Distance Unit'}</label><select><option>${lang==='de'?'Meter (m)':'Meters (m)'}</option><option>Yards (yd)</option></select></div><div class="fg"><label>${lang==='de'?'Gewichtseinheit':'Weight Unit'}</label><select><option>${lang==='de'?'Pfund (lbs)':'Pounds (lbs)'}</option><option>Kilogramm (kg)</option></select></div><div style="margin-top:14px;border:1px dashed var(--border);border-radius:10px;padding:12px"><div class="notif-planned">${[['training_remind',lang==='de'?'Training-Erinnerungen':'Training Reminders'],['tournament_hints',lang==='de'?'Turnier-Hinweise':'Tournament Alerts']].map(([k,n])=>`<div class="toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--text)">${n}</div></div><div class="toggle ${s[k]?'on':''}"></div></div>`).join('')}</div><div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:6px"><span>🔮</span> ${lang==='de'?'Benachrichtigungen – geplantes Feature':'Notifications – planned feature'}</div></div></div></div>${expCardHTML()}<div style="margin-top:12px;font-size:12px;color:var(--text3)">💡 ${lang==='de'?'Alle Schalter wirken sofort.':'All toggles apply immediately.'}</div>`;}
 async function togS(key){const s=getS();s[key]=!s[key];applySettings(s);navigate('einstellungen');const {error}=await sbc.from('user_settings').upsert({user_id:CU.id,dark_mode:s.dark_mode,animations:s.animations,compact:s.compact,large_font:s.large_font},{onConflict:'user_id'});if(error)toast(error.message);}
 function chL(nl){lang=nl;saveLangPref(nl);buildNav();navigate('einstellungen');}
 
