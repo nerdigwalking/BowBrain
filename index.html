@@ -259,7 +259,7 @@ body.force-mobile{}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.1.6 &middot; &ldquo;Oh Jin-hyek&rdquo;</div>
+  <div class="lver">v1.0.1.7 &middot; &ldquo;Im Dong-hyun&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -277,7 +277,7 @@ body.force-mobile{}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.6 &middot; &ldquo;Oh Jin-hyek&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.7 &middot; &ldquo;Im Dong-hyun&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -300,7 +300,7 @@ body.force-mobile{}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.1.6 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.1.7 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -339,7 +339,7 @@ body.force-mobile{}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.1.6',VNAME='Oh Jin-hyek';
+const VER='1.0.1.7',VNAME='Im Dong-hyun';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -349,8 +349,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.1.6 · "Oh Jin-hyek"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.1.6 · "Oh Jin-hyek"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.1.7 · "Im Dong-hyun"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.1.7 · "Im Dong-hyun"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -364,6 +364,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.1.7',name:'Im Dong-hyun',
+    de:['Analyse: neue Ausreißer-Pfeil-Erkennung – findet über mehrere Events hinweg Pfeile, die systematisch in eine Richtung versetzt liegen (Verdacht auf Spine, Nock, Federn oder Geradheit), mit Richtungskompass und Klartext-Empfehlung','Analyse: Tabelle je Pfeil trennt jetzt systematischen Versatz von zufälliger Streuung','Weltrekorde: doppelte Einträge werden entfernt; je Event/Kategorie ist genau ein Rekord „aktuell“ (kein Eintrag mehr gleichzeitig aktuell und überholt)','Weltrekorde: überholte Rekorde sind standardmäßig ausgeblendet, per Schalter als Historie einblendbar'],
+    en:['Analysis: new outlier-arrow detection – across multiple events it finds arrows that sit systematically off in one direction (suspect spine, nock, fletching or straightness), with a direction compass and plain-language advice','Analysis: per-arrow table now separates systematic offset from random scatter','World records: duplicate entries removed; exactly one record per event/category is marked current (no entry is both current and superseded any more)','World records: superseded records hidden by default, shown as history via a toggle']},
   {ver:'1.0.1.6',name:'Oh Jin-hyek',
     de:['Sprachflaggen als SVG – werden jetzt auch unter Windows korrekt angezeigt statt als „DE“/„GB“','Mobile-Ansicht: der Umschalter in der Kopfzeile schaltet das Handy-Layout jetzt tatsächlich auch am Desktop (auf echten Handys ausgeblendet)','Windrichtung: neue Option „wechselnd/böig“'],
     en:['Language flags rendered as SVG – now shown correctly on Windows too instead of "DE"/"GB"','Mobile view: the header toggle now really switches the phone layout on desktop as well (hidden on real phones)','Wind direction: new "variable/gusty" option']},
@@ -1757,6 +1760,72 @@ function groupStats(shots){
   return {n,np,cx,cy,meanR,maxR,avgRing,tens,xs,avgExec};
 }
 function execBreakdown(shots){const b={};for(let k=1;k<=5;k++){const g=shots.filter(s=>s.rating===k);b[k]={count:g.length,avgRing:g.length?g.reduce((a,s)=>a+(s.ring||0),0)/g.length:null};}return b;}
+// ─── AUSREISSER-PFEIL-ERKENNUNG ──────────────────────────────────────────
+// For every numbered arrow, measure its offset from its OWN event's group
+// centre in each event it appears in. A systematically bad arrow (spine, nock,
+// fletch) offsets consistently in the same direction; random spread does not.
+// We report: mean radial offset (rings), directional consistency, avg ring, and
+// a z-like score comparing an arrow's mean offset to the fleet's typical offset.
+function anArrowStats(sessions){
+  // collect per-arrow samples: each sample = offset vector from its event centre
+  const byNo={};
+  (sessions||[]).forEach(s=>{
+    const plotted=(s.shots||[]).filter(anShotXY);
+    if(plotted.length<2)return;               // need a centre to compare against
+    let cx=0,cy=0;plotted.forEach(p=>{cx+=p.nx;cy+=p.ny;});cx/=plotted.length;cy/=plotted.length;
+    plotted.forEach(p=>{
+      if(p.arrow_no==null||p.arrow_no==='')return;
+      const key=String(p.arrow_no);
+      (byNo[key]=byNo[key]||{no:(isNaN(+key)?key:+key),dx:[],dy:[],rings:[]});
+      byNo[key].dx.push(p.nx-cx);
+      byNo[key].dy.push(p.ny-cy);
+      byNo[key].rings.push(p.ring||0);
+    });
+  });
+  const keys=Object.keys(byNo);
+  if(!keys.length)return null;
+  const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
+  const rows=keys.map(k=>{
+    const o=byNo[k],n=o.dx.length;
+    const mx=mean(o.dx),my=mean(o.dy);
+    const meanOff=Math.hypot(mx,my)*10;                 // systematic offset in rings
+    // scatter of this arrow around its own mean offset (random component)
+    let sc=0;for(let i=0;i<n;i++){sc+=Math.hypot(o.dx[i]-mx,o.dy[i]-my);}sc=(n?sc/n:0)*10;
+    // directional consistency: |resultant| / mean magnitude  (1 = same way each time)
+    const mags=o.dx.map((d,i)=>Math.hypot(d,o.dy[i]));
+    const meanMag=mean(mags)*10;
+    const consist=meanMag>1e-9?Math.min(1,(meanOff)/meanMag):0;
+    const avgRing=mean(o.rings);
+    const ang=Math.atan2(my,mx); // screen angle of the systematic offset
+    return {no:o.no,n,meanOff,scatter:sc,consist,avgRing,mx,my,ang};
+  }).sort((a,b)=>((+a.no||0)-(+b.no||0))||((''+a.no).localeCompare(''+b.no)));
+  // fleet baseline: typical systematic offset + its spread across arrows
+  const offs=rows.map(r=>r.meanOff);
+  const fleetMean=mean(offs);
+  let sd=0;offs.forEach(o=>{sd+=(o-fleetMean)*(o-fleetMean);});sd=Math.sqrt(offs.length>1?sd/(offs.length-1):0);
+  rows.forEach(r=>{
+    // how far this arrow's offset stands out from the fleet (in SDs)
+    r.z=(sd>1e-6)?(r.meanOff-fleetMean)/sd:0;
+    // flag: needs enough samples, a real offset, consistent direction, and stands out
+    r.flag=(r.n>=3 && r.meanOff>=0.5 && r.consist>=0.5 && r.z>=1.2);
+    r.watch=(!r.flag && r.n>=3 && r.meanOff>=0.4 && r.z>=0.8);
+  });
+  return {rows,fleetMean,sd,events:(sessions||[]).filter(s=>(s.shots||[]).filter(anShotXY).length>=2).length};
+}
+function anCompass(ang,size){
+  // small SVG arrow pointing in the systematic-offset direction (screen coords: +y down)
+  const s=size||34,c=s/2,r=s/2-3;
+  const x=c+Math.cos(ang)*r,y=c+Math.sin(ang)*r;
+  return `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}" style="vertical-align:middle"><circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="var(--border)" stroke-width="1"/><line x1="${c}" y1="${c}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--accent)" stroke-width="2"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.4" fill="var(--accent)"/></svg>`;
+}
+function anArrowDirLabel(ang){
+  // translate the offset angle into plain language (screen: +x right, +y down)
+  const DE=lang==='de';
+  const deg=(ang*180/Math.PI+360)%360;
+  const dirs=DE?['rechts','rechts unten','unten','links unten','links','links oben','oben','rechts oben']
+               :['right','lower right','low','lower left','left','upper left','high','upper right'];
+  return dirs[Math.round(deg/45)%8];
+}
 function anPerArrow(shots,gcx,gcy){
   const withNo=shots.filter(s=>s.arrow_no!=null&&s.arrow_no!=='');
   if(!withNo.length)return null;
@@ -1913,14 +1982,31 @@ function anBodyHTML(){
     trends=`<div style="font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;margin:4px 0 6px">${DE?`Verlauf über ${sessions.length} Events`:`Trend across ${sessions.length} events`}</div><div class="g2" style="gap:12px"><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'10+X-Anteil %':'10+X share %'}</div>${anBars(tenX,'var(--accent)')}</div><div><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:2px">${DE?'Ø Ausführung':'Avg execution'}</div>${anBars(exc,'var(--blue)')}</div></div>`;
   }
   let perArrow='';
-  const paRows=anPerArrow(allShots,allStats.cx,allStats.cy);
-  if(paRows&&paRows.length){
-    const cand=paRows.filter(r=>r.np>=2&&r.own!=null);
-    const best=cand.length?cand.slice().sort((a,b)=>(a.own-b.own)||(b.avgRing-a.avgRing))[0]:null;
-    const outl=paRows.filter(r=>r.offC!=null).slice().sort((a,b)=>b.offC-a.offC)[0];
-    const trs=paRows.map(r=>{const isBest=best&&r.no===best.no;const isOut=outl&&r.no===outl.no&&(!best||r.no!==best.no)&&r.offC!=null&&paRows.length>1&&r.offC>=1;
-      return `<tr${isBest?' style="background:var(--green)15"':(isOut?' style="background:var(--accent)12"':'')}><td style="font-weight:700;color:var(--text)">#${r.no}${isBest?` <span style="color:var(--green);font-size:10px">▲ ${DE?'beste Gruppe':'best group'}</span>`:''}${isOut?` <span style="color:var(--accent);font-size:10px">⚠ ${DE?'Ausreißer':'outlier'}</span>`:''}</td><td style="text-align:right">${r.n}</td><td style="text-align:right;font-weight:600">${r.avgRing.toFixed(1)}</td><td style="text-align:right">${r.offC!=null?r.offC.toFixed(1):'—'}</td><td style="text-align:right">${r.own!=null?r.own.toFixed(1):'—'}</td></tr>`;}).join('');
-    perArrow=`<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:6px">${DE?'Auswertung je Pfeil':'Per-arrow evaluation'}</div><table class="table"><thead><tr><th>${DE?'Pfeil':'Arrow'}</th><th style="text-align:right">n</th><th style="text-align:right">${DE?'Ø Ring':'Avg ring'}</th><th style="text-align:right" title="${DE?'Ø Abstand zum Gruppenmittelpunkt (Ringe)':'avg distance to group centre (rings)'}">${DE?'Ø z. Mitte':'to centre'}</th><th style="text-align:right" title="${DE?'eigene Streuung (Ringe)':'own dispersion (rings)'}">${DE?'eig. Streu.':'own scat.'}</th></tr></thead><tbody>${trs}</tbody></table><div style="font-size:11px;color:var(--text3);margin-top:4px">${DE?'Werte in Ringen. „Ø z. Mitte" = wie weit der Pfeil im Schnitt vom Gruppenmittelpunkt landet; „eig. Streu." = wie eng der Pfeil für sich gruppiert.':'Values in rings. "to centre" = average distance of the arrow from the group centre; "own scat." = how tightly the arrow groups by itself.'}</div></div>`;
+  // Per-arrow outlier analysis across ALL filtered events (systematic offset detection)
+  const arrowAn=anArrowStats(sessions);
+  if(arrowAn&&arrowAn.rows.length){
+    const rows=arrowAn.rows;
+    const flagged=rows.filter(r=>r.flag);
+    const watch=rows.filter(r=>r.watch);
+    // headline recommendation
+    let head='';
+    if(flagged.length){
+      const worst=flagged.slice().sort((a,b)=>b.meanOff-a.meanOff)[0];
+      head=`<div style="background:#e8a02018;border:1px solid var(--accent);border-radius:10px;padding:10px 13px;margin-bottom:10px;font-size:12.5px;color:var(--text);line-height:1.55">⚠ <b>${DE?`Pfeil #${worst.no} fällt auf`:`Arrow #${worst.no} stands out`}</b> – ${DE?`liegt im Mittel ${worst.meanOff.toFixed(1)} Ringe ${anArrowDirLabel(worst.ang)} vom Gruppenzentrum, über ${worst.n} Schuss und ${arrowAn.events} Events konsistent. Prüfe Spine, Nockpassung, Federn oder Geradheit dieses Pfeils.`:`sits on average ${worst.meanOff.toFixed(1)} rings ${anArrowDirLabel(worst.ang)} of the group centre, consistent across ${worst.n} shots and ${arrowAn.events} events. Check this arrow's spine, nock fit, fletching or straightness.`}${flagged.length>1?`<br>${DE?`Weitere auffällige Pfeile: ${flagged.filter(r=>r.no!==worst.no).map(r=>'#'+r.no).join(', ')}.`:`Other flagged arrows: ${flagged.filter(r=>r.no!==worst.no).map(r=>'#'+r.no).join(', ')}.`}`:''}</div>`;
+    }else if(watch.length){
+      head=`<div style="background:var(--bg3);border-radius:10px;padding:9px 12px;margin-bottom:10px;font-size:12px;color:var(--text2);line-height:1.5">👀 ${DE?`Kein klarer Ausreißer. Im Auge behalten: ${watch.map(r=>'#'+r.no).join(', ')} (leichter Trend, noch nicht eindeutig).`:`No clear outlier. Keep an eye on: ${watch.map(r=>'#'+r.no).join(', ')} (slight trend, not conclusive yet).`}</div>`;
+    }else{
+      head=`<div style="background:var(--bg3);border-radius:10px;padding:9px 12px;margin-bottom:10px;font-size:12px;color:var(--text2)">✓ ${DE?`Kein Pfeil weicht systematisch ab – deine ${rows.length} Pfeile gruppieren gleichmäßig.`:`No arrow deviates systematically – your ${rows.length} arrows group evenly.`}</div>`;
+    }
+    const small=arrowAn.events<2||rows.some(r=>r.n<3);
+    const note=small?`<div style="font-size:11px;color:var(--text3);margin-bottom:6px">ℹ️ ${DE?'Mehr Events mit Pfeilnummern erhöhen die Aussagekraft (empfohlen: ≥3 Schuss je Pfeil über ≥2 Events).':'More events with arrow numbers improve reliability (recommended: ≥3 shots per arrow across ≥2 events).'}</div>`:'';
+    const trs=rows.map(r=>{
+      const cls=r.flag?'background:#e8a02016':(r.watch?'background:#4a9eff10':'');
+      const tag=r.flag?` <span style="color:var(--accent);font-size:10px;white-space:nowrap">⚠ ${DE?'Ausreißer':'outlier'}</span>`:(r.watch?` <span style="color:#4a9eff;font-size:10px;white-space:nowrap">👀 ${DE?'beobachten':'watch'}</span>`:'');
+      const dir=r.meanOff>=0.3?`${anCompass(r.ang,26)} <span style="font-size:11px;color:var(--text3)">${anArrowDirLabel(r.ang)}</span>`:'<span style="color:var(--text3)">—</span>';
+      return `<tr style="${cls}"><td style="font-weight:700;color:var(--text)">#${r.no}${tag}</td><td style="text-align:right">${r.n}</td><td style="text-align:right;font-weight:600">${r.avgRing.toFixed(1)}</td><td style="text-align:right" title="${DE?'systematischer Versatz vom Gruppenzentrum':'systematic offset from group centre'}">${r.meanOff.toFixed(1)}</td><td style="text-align:right" title="${DE?'zufällige Streuung um den eigenen Mittelpunkt':'random scatter around its own mean'}">${r.scatter.toFixed(1)}</td><td style="white-space:nowrap">${dir}</td></tr>`;
+    }).join('');
+    perArrow=`<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;margin-bottom:6px">${DE?'Ausreißer-Pfeil-Analyse':'Outlier arrow analysis'}</div>${head}${note}<div style="overflow-x:auto"><table class="table"><thead><tr><th>${DE?'Pfeil':'Arrow'}</th><th style="text-align:right" title="${DE?'Anzahl Schüsse':'shots'}">n</th><th style="text-align:right">${DE?'Ø Ring':'Avg ring'}</th><th style="text-align:right" title="${DE?'systematischer Versatz (Ringe)':'systematic offset (rings)'}">${DE?'Versatz':'Offset'}</th><th style="text-align:right" title="${DE?'zufällige Streuung (Ringe)':'random scatter (rings)'}">${DE?'Streuung':'Scatter'}</th><th>${DE?'Richtung':'Direction'}</th></tr></thead><tbody>${trs}</tbody></table></div><div style="font-size:10.5px;color:var(--text3);margin-top:5px">${DE?'Versatz = wohin der Pfeil im Mittel zeigt (systematisch). Streuung = wie unruhig er darum herum liegt (zufällig). Ein hoher Versatz bei geringer Streuung = Materialverdacht.':'Offset = where the arrow points on average (systematic). Scatter = how noisy it is around that (random). High offset with low scatter = suspect the arrow.'}</div></div>`;
   }
   const scope=(function(){
     if(AN.scoreId)return '';
@@ -2848,24 +2934,42 @@ function waCatRank(cat){
 }
 // The API's RecordStanding flag is unreliable (several rows report true).
 // Derive the current record per group: highest score, then most X's, then newest date.
+// Identity of a single record row, used to drop exact duplicates the API
+// sometimes returns more than once for the same record.
+function waRecKey(r){
+  const holders=(function(){const ar=r.Archers;if(Array.isArray(ar))return ar.map(a=>a&&(a.Id||a.PersonId||a.Name||'')).join('+');if(ar&&typeof ar==='object')return ar.Id||ar.PersonId||ar.Name||'';return '';})();
+  return [r.RecordDiscipline||'',r.Cat||'',r.IsTeam?1:0,waRecEvent(r),(+r.Points||0),(+r.Xs||0),r.Date||'',holders].join('§');
+}
+// Group of records that compete for the same "standing" slot (same event+cat).
+function waGrpKey(r){return [r.RecordDiscipline||'',r.Cat||'',r.IsTeam?1:0,waRecEvent(r)].join('|');}
+function waRecNewer(r,best){
+  const p=(+r.Points||0)-(+best.Points||0);
+  if(p>0)return true;
+  if(p===0){
+    const x=(+r.Xs||0)-(+best.Xs||0);
+    if(x>0)return true;
+    if(x===0&&new Date(r.Date||0)>new Date(best.Date||0))return true;
+  }
+  return false;
+}
 function waMarkStanding(items){
+  // 1) drop exact-duplicate rows
+  const seen={},dedup=[];
+  items.forEach(r=>{const k=waRecKey(r);if(seen[k])return;seen[k]=1;dedup.push(r);});
+  // 2) mark exactly one standing record per event/category group
   const groups={};
-  items.forEach(r=>{const k=[r.RecordDiscipline,r.Cat,r.IsTeam?1:0,waRecEvent(r)].join('|');(groups[k]=groups[k]||[]).push(r);r.__standing=false;});
+  dedup.forEach(r=>{(groups[waGrpKey(r)]=groups[waGrpKey(r)]||[]).push(r);r.__standing=false;});
   Object.values(groups).forEach(g=>{
     let best=null;
-    g.forEach(r=>{
-      if(!best){best=r;return;}
-      const p=(+r.Points||0)-(+best.Points||0);
-      if(p>0){best=r;return;}
-      if(p===0){
-        const x=(+r.Xs||0)-(+best.Xs||0);
-        if(x>0){best=r;return;}
-        if(x===0&&new Date(r.Date||0)>new Date(best.Date||0))best=r;
-      }
-    });
+    g.forEach(r=>{if(!best||waRecNewer(r,best))best=r;});
     if(best)best.__standing=true;
   });
-  return items;
+  return dedup;
+}
+// Hide superseded records unless the user opts to see the full history.
+function waVisibleRecords(items){
+  if(WA_STATE.recShowHistory)return items;
+  return items.filter(r=>r.__standing);
 }
 function waDiscLabel(id){return WA_DISC[id]||(id!=null?'Discipline '+id:'Records');}
 function waFmtArcher(a){if(!a)return '';const fn=a.FName||'',gn=a.GName||'';if(fn||gn)return (a.WNameOrd?fn+' '+gn:gn+' '+fn).trim();return (a.Name||'').trim();}
@@ -2932,12 +3036,15 @@ function waRecFilterBar(){
       <option value="date_desc"${s==='date_desc'?' selected':''}>${lang==='de'?'Datum – neueste zuerst':'Date – newest first'}</option>
       <option value="date_asc"${s==='date_asc'?' selected':''}>${lang==='de'?'Datum – älteste zuerst':'Date – oldest first'}</option>
     </select></div>
-  </div></div>`;
+  </div>
+  <label style="display:flex;align-items:center;gap:8px;margin-top:10px;cursor:pointer;text-transform:none;font-size:12.5px;color:var(--text2)"><input type="checkbox" ${WA_STATE.recShowHistory?'checked':''} onchange="waToggleRecHistory(this.checked)" style="width:auto"> ${lang==='de'?'Überholte Rekorde (Historie) anzeigen':'Show superseded records (history)'}</label>
+  </div>`;
 }
+function waToggleRecHistory(v){WA_STATE.recShowHistory=!!v;waRenderRecArea();}
 function waRenderRecArea(){
   const area=document.getElementById('wr-area');if(!area)return;
   if(!WA_REC_ITEMS.length){area.innerHTML=`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Keine Rekorde gefunden.':'No records found.'}</div></div>`;return;}
-  let items=WA_REC_ITEMS;
+  let items=waVisibleRecords(WA_REC_ITEMS);
   if(WA_STATE.recEvent)items=items.filter(r=>waRecEvent(r)===WA_STATE.recEvent);
   const hint=(!WA_STATE.recEvent&&items.length>300)?`<div style="background:#4a9eff12;border:1px solid #4a9eff30;border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:12.5px;color:var(--text2)">ℹ️ ${lang==='de'?`${items.length} Rekorde geladen. Wähle oben eine Event-Art (z. B. „70m Round · 72 arrows"), um die Liste einzugrenzen.`:`${items.length} records loaded. Pick an event type above (e.g. "70m Round · 72 arrows") to narrow the list.`}</div>`:'';
   area.innerHTML=waRecFilterBar()+hint+(items.length?waRenderRecTable(items,WA_STATE.recTitle||'Records'):`<div class="card"><div style="color:var(--text3);padding:20px">${lang==='de'?'Keine Rekorde für diese Event-Art.':'No records for this event type.'}</div></div>`);
