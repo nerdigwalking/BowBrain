@@ -259,7 +259,7 @@ body.force-mobile{}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.1.8 &middot; &ldquo;Miguel Alvariño&rdquo;</div>
+  <div class="lver">v1.0.1.9 &middot; &ldquo;Atanu Das&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -277,7 +277,7 @@ body.force-mobile{}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.8 &middot; &ldquo;Miguel Alvariño&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.9 &middot; &ldquo;Atanu Das&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -300,7 +300,7 @@ body.force-mobile{}
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.1.8 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.1.9 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -339,7 +339,7 @@ body.force-mobile{}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.1.8',VNAME='Miguel Alvariño';
+const VER='1.0.1.9',VNAME='Atanu Das';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -349,8 +349,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.1.8 · "Miguel Alvariño"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.1.8 · "Miguel Alvariño"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.1.9 · "Atanu Das"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.1.9 · "Atanu Das"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -364,6 +364,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.1.9',name:'Atanu Das',
+    de:['Admin: Nutzer können bei missbräuchlicher Verwendung gesperrt (und wieder entsperrt) werden – mit optionalem Sperrgrund, der dem Nutzer beim Login angezeigt wird','Admin: gesperrte Nutzer sind in der Nutzerverwaltung deutlich markiert; Administratoren und das eigene Konto lassen sich nicht sperren','Sicherheit: eine bereits laufende Sitzung eines gesperrten Nutzers wird automatisch beendet','Ergebnisse: der Schießzettel-Button ist jetzt wie „Ergebnis eintragen“ gelb hervorgehoben und heißt „Schießzettel eintragen“ – so ist diese wichtige Funktion leichter zu finden'],
+    en:['Admin: users can be blocked (and unblocked) for misuse – with an optional reason shown to the user at login','Admin: blocked users are clearly marked in user management; administrators and your own account cannot be blocked','Security: an already-running session of a blocked user is ended automatically','Results: the scorecard button is now highlighted like "Add Result" and labelled "Add Scorecard", so this key function is easier to find']},
   {ver:'1.0.1.8',name:'Miguel Alvariño',
     de:['Fehler behoben: der Sprachumschalter oben rechts wechselte die Sprache nicht mehr, sondern schien die Seite nur neu zu laden – jetzt funktioniert er wieder zuverlässig'],
     en:['Fixed: the language toggle at the top right stopped switching languages and only seemed to reload the page – it now works reliably again']},
@@ -517,6 +520,7 @@ let SHOTS_TABLE=true;
 let ARROWSETS_TABLE=true;
 let WX_COLS=true;
 let AS_FOC=true;
+let BLOCKED_COL=false;
 // ─── SUPABASE CLIENT ──────────────────────────────────────────────────────
 const SUPABASE_URL='https://vpbucrdmexnmaznikevw.supabase.co';
 const SUPABASE_KEY='sb_publishable_WdJ1GFigVVfl6t0ATAjQAA_jV-h2ov2';
@@ -532,7 +536,7 @@ async function bootstrapUser(session){
   const uid=session.user.id, email=session.user.email;
   let {data:prof}=await sbc.from('profiles').select('*').eq('id',uid).maybeSingle();
   if(!prof){await sbc.from('profiles').insert({id:uid,email,name:email.split('@')[0]});const r=await sbc.from('profiles').select('*').eq('id',uid).maybeSingle();prof=r.data;}
-  CU={id:uid,email,role:(prof&&prof.role)||'user'};
+  CU={id:uid,email,role:(prof&&prof.role)||'user',blocked:!!(prof&&prof.blocked),blocked_reason:(prof&&prof.blocked_reason)||''};
   if(prof&&prof.lang){lang=prof.lang;try{localStorage.setItem('bb_lang',prof.lang);}catch(e){}}
   PREFS[uid]={name:(prof&&prof.name)||email.split('@')[0],email:(prof&&prof.email)||email,club:(prof&&prof.club)||'',handedness:(prof&&prof.handedness)||'right',draw_length:(prof&&prof.draw_length)||28,bow_class:(prof&&prof.bow_class)||'Recurve',cc:(prof&&prof.cc)||'',country:(prof&&prof.country)||'',avatar_url:(prof&&prof.avatar_url)||null,disciplines:(prof&&prof.disciplines)||''};
   try{WA_FAVS=(prof&&Array.isArray(prof.wa_favorites))?prof.wa_favorites:JSON.parse(localStorage.getItem('bb_wa_favs')||'[]');}catch(e){WA_FAVS=[];}
@@ -556,6 +560,7 @@ async function bootstrapUser(session){
   ARROWSETS_TABLE=!(arrowSetsR&&arrowSetsR.error);
   WX_COLS=!(wxR&&wxR.error);
   AS_FOC=!(focR&&focR.error);
+  try{const bt=await sbc.from('profiles').select('blocked').limit(1);BLOCKED_COL=!(bt&&bt.error);}catch(e){BLOCKED_COL=false;}
   DATA[uid]={
     setups:(setupsR.data||[]),
     scores:(scoresR.data||[]),
@@ -791,7 +796,19 @@ async function doRegister(){
   await afterAuth(data.session,true);
 }
 let _hb=null;
-function startHeartbeat(){if(_hb||!sbc)return;_hb=setInterval(()=>{if(document.visibilityState==='visible'&&CU){sbc.rpc('add_activity',{secs:60}).then(()=>{},e=>console.warn('hb',e));}},60000);}
+function startHeartbeat(){if(_hb||!sbc)return;_hb=setInterval(()=>{if(document.visibilityState==='visible'&&CU){sbc.rpc('add_activity',{secs:60}).then(()=>{},e=>console.warn('hb',e));liveBlockCheck();}},60000);}
+function liveBlockCheck(){
+  if(!sbc||!CU||CU.role==='admin'||!BLOCKED_COL)return;
+  sbc.from('profiles').select('blocked,blocked_reason').eq('id',CU.id).maybeSingle().then(({data,error})=>{
+    if(error||!data||!data.blocked)return;
+    const isDE=lang==='de',reason=data.blocked_reason||'';
+    stopHeartbeat();
+    sbc.auth.signOut().then(()=>{
+      alert((isDE?'Dein Zugang wurde vom Administrator gesperrt.':'Your account has been blocked by the administrator.')+(reason?(isDE?'\nGrund: ':'\nReason: ')+reason:''));
+      CU=null;location.reload();
+    },()=>{CU=null;location.reload();});
+  },e=>console.warn('blockcheck',e));
+}
 function stopHeartbeat(){if(_hb){clearInterval(_hb);_hb=null;}}
 async function afterAuth(session,showOnboard){
   try{await bootstrapUser(session);}catch(e){console.error('bootstrap',e);toast((lang==='de'?'Ladefehler: ':'Load error: ')+e.message);}
@@ -800,6 +817,12 @@ async function afterAuth(session,showOnboard){
     await sbc.auth.signOut();CU=null;renderMaintBanner();
     lerr(lang==='de'?'Wartungsmodus aktiv – Login derzeit nur für Administratoren möglich.':'Maintenance mode active – login currently restricted to administrators.');
     return;
+  }
+  if(CU.blocked&&CU.role!=='admin'){
+    const reason=CU.blocked_reason;await sbc.auth.signOut();
+    const isDE=lang==='de';
+    lerr((isDE?'Dieser Zugang wurde gesperrt.':'This account has been blocked.')+(reason?(isDE?' Grund: ':' Reason: ')+reason:'')+(isDE?' Bei Fragen wende dich an den Administrator.':' Please contact the administrator.'));
+    CU=null;return;
   }
   applySettings(getS());
   paintLangBtn();
@@ -1404,7 +1427,7 @@ function rScores(){
   const totalArrows=scores.reduce((a,s)=>a+(+s.arrows||0),0);
   const sc2={};scored.forEach(s=>{const n=getSName(s.setup_id);sc2[n]=(sc2[n]||0)+1;});
   const topSetup=Object.entries(sc2).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—';
-  return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('scores')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Trainings- und Turnierergebnisse':'Training and tournament results'}</div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn bg" onclick="openAnalysis()">📊 ${lang==='de'?'Analyse':'Analysis'}</button><button class="btn bg" onclick="openScorecard()">📝 ${lang==='de'?'Schießzettel':'Scorecard'}</button><button class="btn bp" onclick="openScoreModal()">${t('new_score')}</button></div></div>
+  return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><div><div class="stitle">${t('scores')}</div><div class="ssub" style="margin-top:-14px">${lang==='de'?'Trainings- und Turnierergebnisse':'Training and tournament results'}</div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn bg" onclick="openAnalysis()">📊 ${lang==='de'?'Analyse':'Analysis'}</button><button class="btn bp" onclick="openScorecard()">📝 ${lang==='de'?'Schießzettel eintragen':'Add Scorecard'}</button><button class="btn bp" onclick="openScoreModal()">${t('new_score')}</button></div></div>
   ${scfBarHTML(allScores,scores.length)}
   <div class="g2" style="margin-bottom:14px">
     <div class="card"><div class="ch"><div class="ct">${lang==='de'?'Bestleistungen':'Best Scores'}</div></div>${top3.length?top3.map((s,i)=>{const mx=maxScore(s.type),pct=mx?`${Math.round(s.points/mx*100)}%`:'';return`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="width:26px;height:26px;border-radius:50%;background:${i===0?'var(--accent)':'var(--bg4)'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:${i===0?'#0f1117':'var(--text3)'};flex-shrink:0">${i+1}</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text)">${s.name}${s.placement?` ${medal(s.placement)}`:''}</div><div style="font-size:11px;color:var(--text3)">${TT[s.type]?.[lang]||s.type}${s.location?` · ${s.location}`:''} · ${fd(s.date)}</div></div><div style="text-align:right"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:var(--accent)">${s.points}${mx?`<span style="font-size:13px;color:var(--text3)">/${mx}</span>`:''}</div>${pct?`<div style="font-size:11px;color:var(--text3)">${pct}</div>`:''}</div></div>`;}).join(''):`<div style="color:var(--text3);font-size:13px;padding:8px 0">${lang==='de'?'Noch keine Turnierergebnisse.':'No tournament results yet.'}</div>`}</div>
@@ -2555,8 +2578,30 @@ function rAdmin(){if(!CU||CU.role!=='admin'){navigate('dashboard');return'';}
     <button class="btn bp btn-sm" onclick="saveMaintMsg()">${lang==='de'?'Hinweistext speichern':'Save notice text'}</button>
   </div>
   <div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">💬 ${t('feedback')} ${unread>0?`<span class="badge brd">${unread} neu</span>`:''}</div><button class="btn bg btn-sm" onclick="markAllFbRead()">${lang==='de'?'Alle gelesen':'Mark all read'}</button></div>${fb.length===0?`<div style="color:var(--text3);font-size:13px">${lang==='de'?'Noch kein Feedback.':'No feedback yet.'}</div>`:fb.slice().reverse().map(f=>`<div style="padding:10px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="badge ${f.type==='bug'?'brd':f.type==='feature'?'bbl':'bgr'}">${f.type==='bug'?'🐛 Bug':f.type==='feature'?'💡 Feature':'💬'}</span><span style="font-size:11px;color:var(--text3)">${f.date} · ${f.userName}</span>${!f.read?'<span class="badge brd">neu</span>':''}</div><div style="font-size:13px;color:var(--text2)">${f.text}</div></div>`).join('')}</div>
-  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div><button class="btn bg btn-sm" onclick="loadAdminData()">↻</button></div><div style="overflow-x:auto"><table class="table"><thead><tr>${admTh('name',t('name'))}${admTh('role',t('role'))}${admTh('created',lang==='de'?'Dabei seit':'Member since')}${admTh('last',lang==='de'?'Letzter Login':'Last login')}${admTh('logins',lang==='de'?'Logins':'Logins')}${admTh('usage',lang==='de'?'Nutzung':'Usage')}<th>${t('actions')}</th></tr></thead><tbody>${ADMIN_USERS.length?admSorted().map(u=>{const ll=u.last_login?new Date(u.last_login).toLocaleDateString(lang==='de'?'de-DE':'en-GB')+' '+new Date(u.last_login).toLocaleTimeString(lang==='de'?'de-DE':'en-GB',{hour:'2-digit',minute:'2-digit'}):(lang==='de'?'nie':'never');const ms=u.created_at?new Date(u.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'—';const use=fmtDur(ADMIN_USAGE_BY_USER[u.id]||0);return`<tr><td style="font-weight:600;color:var(--text)">${u.name||'—'}<div style="font-size:11px;color:var(--text3);font-weight:400">${u.email||''}</div></td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role||'user'}</span></td><td style="color:var(--text3);white-space:nowrap">${ms}</td><td style="color:var(--text2);white-space:nowrap;font-size:12px">${ll}</td><td style="text-align:center">${u.login_count||0}</td><td style="color:var(--blue);font-weight:600">${use}</td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal('${u.id}')">✏️</button><button class="btn bg btn-sm" onclick="adminResetPw('${u.id}')" title="${lang==='de'?'Reset-Mail senden':'Send reset email'}">🔑</button></div></td></tr>`;}).join(''):`<tr><td colspan="7" style="color:var(--text3)">${lang==='de'?'Lade Nutzer…':'Loading users…'}</td></tr>`}</tbody></table></div></div>`;}
+  <div class="card"><div class="ch"><div class="ct">${t('user_mgmt')}</div><button class="btn bg btn-sm" onclick="loadAdminData()">↻</button></div>${!BLOCKED_COL?`<div style="background:#e8a02012;border:1px solid var(--accent);border-radius:8px;padding:9px 12px;margin-bottom:10px;font-size:12px;color:var(--text2);line-height:1.5">ℹ️ ${lang==='de'?'Die Sperrfunktion ist erst nach der einmaligen SQL-Migration aktiv (Spalten <code>blocked</code> / <code>blocked_reason</code>).':'The block feature activates after the one-time SQL migration (columns <code>blocked</code> / <code>blocked_reason</code>).'}</div>`:''}<div style="overflow-x:auto"><table class="table"><thead><tr>${admTh('name',t('name'))}${admTh('role',t('role'))}${admTh('created',lang==='de'?'Dabei seit':'Member since')}${admTh('last',lang==='de'?'Letzter Login':'Last login')}${admTh('logins',lang==='de'?'Logins':'Logins')}${admTh('usage',lang==='de'?'Nutzung':'Usage')}<th>${t('actions')}</th></tr></thead><tbody>${ADMIN_USERS.length?admSorted().map(u=>{const ll=u.last_login?new Date(u.last_login).toLocaleDateString(lang==='de'?'de-DE':'en-GB')+' '+new Date(u.last_login).toLocaleTimeString(lang==='de'?'de-DE':'en-GB',{hour:'2-digit',minute:'2-digit'}):(lang==='de'?'nie':'never');const ms=u.created_at?new Date(u.created_at).toLocaleDateString(lang==='de'?'de-DE':'en-GB'):'—';const use=fmtDur(ADMIN_USAGE_BY_USER[u.id]||0);return`<tr${u.blocked?' style="background:#e5484d10"':''}><td style="font-weight:600;color:var(--text)">${u.name||'—'}${u.blocked?` <span class="badge" style="background:#e5484d22;color:#e5484d;border:1px solid #e5484d55;font-size:10px">${lang==='de'?'🚫 gesperrt':'🚫 blocked'}</span>`:''}<div style="font-size:11px;color:var(--text3);font-weight:400">${u.email||''}</div>${u.blocked&&u.blocked_reason?`<div style="font-size:10.5px;color:#e5484d;font-weight:400;margin-top:1px">${(u.blocked_reason||'').replace(/</g,'&lt;')}</div>`:''}</td><td><span class="badge ${u.role==='admin'?'ba':'bgr'}">${u.role||'user'}</span></td><td style="color:var(--text3);white-space:nowrap">${ms}</td><td style="color:var(--text2);white-space:nowrap;font-size:12px">${ll}</td><td style="text-align:center">${u.login_count||0}</td><td style="color:var(--blue);font-weight:600">${use}</td><td><div style="display:flex;gap:5px"><button class="btn bg btn-sm" onclick="editUserModal('${u.id}')">✏️</button><button class="btn bg btn-sm" onclick="adminResetPw('${u.id}')" title="${lang==='de'?'Reset-Mail senden':'Send reset email'}">🔑</button>${u.role!=='admin'&&u.id!==CU.id?`<button class="btn bg btn-sm" onclick="adminToggleBlock('${u.id}')" title="${u.blocked?(lang==='de'?'Sperre aufheben':'Unblock'):(lang==='de'?'Nutzer sperren':'Block user')}" style="${u.blocked?'color:#2ea043':'color:#e5484d'}">${u.blocked?'✅':'🚫'}</button>`:''}</div></td></tr>`;}).join(''):`<tr><td colspan="7" style="color:var(--text3)">${lang==='de'?'Lade Nutzer…':'Loading users…'}</td></tr>`}</tbody></table></div></div>`;}
 function editUserModal(uid){const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;const isDE=lang==='de';document.body.insertAdjacentHTML('beforeend',`<div class="mo" id="eu-mo" onclick="closeMo(event,'eu-mo')"><div class="md" style="width:440px"><div class="mh"><div class="mt2">${t('edit')}: ${u.name||u.email}</div><button class="btn bg btn-sm" onclick="document.getElementById('eu-mo').remove()">✕</button></div><div class="fg"><label>${t('name')}</label><input id="eu-name" value="${u.name||''}"></div><div class="fg"><label>${t('email')}</label><input value="${u.email||''}" disabled style="opacity:0.6"></div><div class="fg"><label>${isDE?'Rolle':'Role'}</label><select id="eu-role"><option value="user"${u.role==='user'?' selected':''}>User</option><option value="admin"${u.role==='admin'?' selected':''}>Admin</option></select></div><div style="background:#4a9eff12;border:1px solid #4a9eff30;border-radius:8px;padding:9px 12px;font-size:12px;color:var(--text2)">ℹ️ ${isDE?'E-Mail und Passwort verwaltet Supabase Auth. Zum Passwort-Reset den 🔑-Button nutzen (Reset-Mail an den Nutzer).':'Email and password are managed by Supabase Auth. Use the 🔑 button to send a reset email.'}</div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn bg" onclick="document.getElementById('eu-mo').remove()">${t('cancel')}</button><button class="btn bp" onclick="saveUserEdit('${uid}')">${t('save')}</button></div></div></div>`);}
+function adminToggleBlock(uid){
+  const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;
+  const isDE=lang==='de';
+  if(!BLOCKED_COL){toast(isDE?'Bitte zuerst die SQL-Migration für die Sperrfunktion einspielen.':'Please apply the SQL migration for the block feature first.');return;}
+  if(u.role==='admin'){toast(isDE?'Administratoren können nicht gesperrt werden.':'Administrators cannot be blocked.');return;}
+  if(u.id===CU.id){toast(isDE?'Du kannst dich nicht selbst sperren.':'You cannot block yourself.');return;}
+  if(u.blocked){
+    if(!confirm(isDE?`Sperre für ${u.email} aufheben?`:`Unblock ${u.email}?`))return;
+    sbc.from('profiles').update({blocked:false,blocked_reason:null}).eq('id',uid).then(({error})=>{
+      if(error){toast(error.message);return;}
+      toast(isDE?`${u.email} entsperrt.`:`${u.email} unblocked.`,true);loadAdminData();
+    });
+  }else{
+    const raw=prompt(isDE?`Grund für die Sperre von ${u.email} (optional, wird dem Nutzer angezeigt):`:`Reason for blocking ${u.email} (optional, shown to the user):`,'');
+    if(raw===null)return;                         // dialog cancelled → do nothing
+    const reason=raw.trim();
+    sbc.from('profiles').update({blocked:true,blocked_reason:reason||null}).eq('id',uid).then(({error})=>{
+      if(error){toast(error.message);return;}
+      toast(isDE?`${u.email} gesperrt.`:`${u.email} blocked.`,true);loadAdminData();
+    });
+  }
+}
 function adminResetPw(uid){
   const u=ADMIN_USERS.find(x=>x.id===uid);if(!u)return;
   const isDE=lang==='de';
