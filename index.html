@@ -259,7 +259,7 @@ body.force-mobile{}
   <div class="lslogan">Your Archery Companion</div>
   <div id="maint-banner" style="display:none;background:#e8a02018;border:1px solid #e8a020;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6"></div>
   <div id="login-body"></div>
-  <div class="lver">v1.0.1.7 &middot; &ldquo;Im Dong-hyun&rdquo;</div>
+  <div class="lver">v1.0.1.8 &middot; &ldquo;Miguel Alvariño&rdquo;</div>
 </div></div>
 </div>
 <!-- APP SHELL -->
@@ -277,7 +277,7 @@ body.force-mobile{}
         <path d="M21,7 Q18,12 20,18" stroke="var(--bg)" stroke-width="1" opacity="0.7"/>
       </svg>
     </div>
-    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.7 &middot; &ldquo;Im Dong-hyun&rdquo;</div></div>
+    <div><div class="logo-text">BowBrain</div><div class="logo-ver" id="logo-ver">v1.0.1.8 &middot; &ldquo;Miguel Alvariño&rdquo;</div></div>
   </div>
   <div class="nav" id="nav-menu"></div>
   <div class="sf">
@@ -295,12 +295,12 @@ body.force-mobile{}
     <div class="tbt" id="tbt">Dashboard</div>
     <span class="tbb" id="tbb">Recurve &middot; 28"</span>
     <button class="mb" id="mob-toggle" onclick="toggleMobMode()" title="Mobile-/Desktop-Ansicht" style="margin-left:4px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></button>
-    <button id="lang-topbar" onclick="chLTopbar(lang==='de'?'en':'de')" style="width:auto;flex:none;margin-left:auto;background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:4px 11px;font-size:12px;color:var(--text2);font-weight:600;cursor:pointer;outline:none;font-family:'Inter',sans-serif;transition:border .15s;display:inline-flex;align-items:center;gap:6px" title="Language / Sprache"></button>
+    <button id="lang-topbar" onclick="chLTopbar()" style="width:auto;flex:none;margin-left:auto;background:var(--bg4);border:1px solid var(--border);border-radius:20px;padding:4px 11px;font-size:12px;color:var(--text2);font-weight:600;cursor:pointer;outline:none;font-family:'Inter',sans-serif;transition:border .15s;display:inline-flex;align-items:center;gap:6px" title="Language / Sprache"></button>
   </div>
   <div class="content" id="content"></div>
 </div>
 </div>
-<div class="vtag" id="vtag">v1.0.1.7 &middot; © T. Weinzierl</div>
+<div class="vtag" id="vtag">v1.0.1.8 &middot; © T. Weinzierl</div>
 </div>
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-mo" style="display:none">
@@ -339,7 +339,7 @@ body.force-mobile{}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const VER='1.0.1.7',VNAME='Im Dong-hyun';
+const VER='1.0.1.8',VNAME='Miguel Alvariño';
 // Users are managed centrally via Supabase Auth (see profiles table).
 const TT={training:{de:'Training',en:'Training',arrows:null,max:null},wa720:{de:'WA 720 (Outdoor)',en:'WA 720 (Outdoor)',arrows:72,max:720},wa600:{de:'WA 600 (Indoor)',en:'WA 600 (Indoor)',arrows:60,max:600},r900:{de:'900er Runde',en:'900 Round',arrows:90,max:900,multi:true},wa1440:{de:'WA 1440',en:'WA 1440',arrows:144,max:1440,multi:true},field:{de:'Feldbogen',en:'Field Archery',arrows:null,max:null,multi:true},'3d':{de:'3D-Bogenschießen',en:'3D Archery',arrows:null,max:null,multi:true},custom:{de:'Sonstige',en:'Other',arrows:null,max:null}};
 const ARROW_COLORS=['#FFFFFF','#E0E0E0','#A0A8B0','#404040','#1A1A1A','#E82020','#F07020','#F0D020','#60D060','#20A040','#20C0A0','#60A8F0','#2060D0','#8040D0','#E040A0','#D4A020','#803020','#00000000'];
@@ -349,8 +349,8 @@ const SHARED={
     de:[{id:1,q:'Wie lege ich ein Setup an?',a:'Unter "Setups" → "Neues Setup". Der Name wird automatisch aus Freitext + Bogen + Zuggewicht + Pfeilmodell + Spine generiert.'},{id:2,q:'Wie funktioniert der Spine-Rechner?',a:'Easton-Formel: empfohlener Spine = 1600 − (Zuggewicht×27) − (Auszug−28)×30 − (Spitzengewicht−100)×1,5. Nur Orientierungswert.'},{id:3,q:'Kann ich Pfeile ohne Punkte eintragen?',a:'Ja – "Nur Pfeile zählen" aktivieren. Pfeile erscheinen im Dashboard, ohne Scoreangabe.'},{id:4,q:'Wie gebe ich mehrere Visiere ein?',a:'Im Bereich Visiereinstellungen den Visiernamen eintragen. Jedes Visier erhält eine eigene Tabelle.'},{id:5,q:'Wie wechsle ich die Sprache?',a:'Einstellungen → Sprache. Alle Inhalte werden sofort übersetzt.'}],
     en:[{id:1,q:'How do I create a setup?',a:'Under "Setups" → "New Setup". The name is auto-generated from label + bow + draw weight + arrow model + spine.'},{id:2,q:'How does the spine calculator work?',a:'Easton formula: recommended spine = 1600 − (DW×27) − (DL−28)×30 − (point weight−100)×1.5. Guideline only.'},{id:3,q:'Can I log arrows without a score?',a:'Yes – activate "Arrows only". Arrows appear on the dashboard without a score.'},{id:4,q:'How do I enter multiple sights?',a:'In Sight Settings, enter the sight name. Each sight unit gets its own table.'},{id:5,q:'How do I change the language?',a:'Settings → Language. All content translates immediately.'}]
   },
-  impressum_de:'BowBrain App · v1.0.1.7 · "Im Dong-hyun"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
-  impressum_en:'BowBrain App · v1.0.1.7 · "Im Dong-hyun"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_de:'BowBrain App · v1.0.1.8 · "Miguel Alvariño"\nEntwickler & Kontakt: Thomas Weinzierl\nE-Mail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nHaftungsausschluss: Tuning-Hinweise und Spine-Empfehlungen sind Orientierungswerte und ersetzen keine Fachberatung. Nutzung auf eigene Verantwortung.\n\nDatenschutz: Daten werden lokal auf dem Gerät gespeichert (Browser-Speicher). Bei aktivem Server-Backend erfolgt zentrale Speicherung. Keine Weitergabe an Dritte.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
+  impressum_en:'BowBrain App · v1.0.1.8 · "Miguel Alvariño"\nDeveloper & Contact: Thomas Weinzierl\nEmail: sportleiter@bogenschiessen-hoehenkirchen.de\n\nDisclaimer: Tuning hints and spine recommendations are guidelines only. Use at your own responsibility.\n\nPrivacy: Data is stored locally in your browser. With an active server backend, central storage applies. No sharing with third parties.\n\n© 2025 Thomas Weinzierl · BSC Höhenkirchen-Siegertsbrunn',
   tuning:{bs_de:'Unbefiederte und befiederte Pfeile auf dasselbe Ziel schießen. Links/Rechts → Spine; Oben/Unten → Nockpunkt.',bs_en:'Bare and fletched shafts at the same target. Left/Right → Spine; Up/Down → Nocking point.',wb_de:'Pfeile von verschiedenen Entfernungen auf einen senkrechten Streifen. Folgen die Einschüsse → Pfeilauflage korrekt.',wb_en:'Arrows from different distances on a vertical strip. Shots follow the line → arrow rest correct.',pp_de:'Pfeil durch gespanntes Papier (~2–3m). Das Rissbild zeigt Korrekturen an Nockpunkt oder Auflage.',pp_en:'Arrow through stretched paper (~2–3m). The tear pattern shows corrections needed.'},
   roadmap:[{id:1,title:'Freunde & Ranglisten',status:'planned',desc:'User adden, Ranglisten in Gruppen (Verein, Freundeskreis)'},{id:2,title:'Server-Backend & Sync',status:'planned',desc:'Persistente Datenspeicherung, echte Mehrbenutzer-Synchronisierung'},{id:3,title:'Export (PDF/CSV)',status:'planned',desc:'Trainings- und Turnierergebnisse exportieren'},{id:4,title:'Scheibendarstellung',status:'planned',desc:'Einschüsse auf Scheibenbild visuell eintragen'},{id:5,title:'Profilfoto & Equipment-Fotos',status:'done',desc:'Upload von Profilfotos und Setup-Fotos'},{id:6,title:'Multi-Visier-Support',status:'done',desc:'Visiereinstellungen für verschiedene Visiere'},{id:7,title:'Turnierplatz & Medaillen',status:'done',desc:'Platzzahl und Medaillen für Podiumsplätze'},{id:8,title:'Farb-Picker Nocken/Federn',status:'done',desc:'Farbige Kästchen für Pfeilfarben'},{id:9,title:'Registrierung & Onboarding',status:'done',desc:'Neue User können sich selbst registrieren'},{id:10,title:'Predictive Sight Settings',status:'done',desc:'Automatischer Klickwert-Vorschlag für neue Distanzen'}],
   announcement:{active:false,id:0,title_de:'',title_en:'',text_de:'',text_en:''},
@@ -364,6 +364,9 @@ const SHARED={
   feedback:[]
 };
 const CHANGELOG=[
+  {ver:'1.0.1.8',name:'Miguel Alvariño',
+    de:['Fehler behoben: der Sprachumschalter oben rechts wechselte die Sprache nicht mehr, sondern schien die Seite nur neu zu laden – jetzt funktioniert er wieder zuverlässig'],
+    en:['Fixed: the language toggle at the top right stopped switching languages and only seemed to reload the page – it now works reliably again']},
   {ver:'1.0.1.7',name:'Im Dong-hyun',
     de:['Analyse: neue Ausreißer-Pfeil-Erkennung – findet über mehrere Events hinweg Pfeile, die systematisch in eine Richtung versetzt liegen (Verdacht auf Spine, Nock, Federn oder Geradheit), mit Richtungskompass und Klartext-Empfehlung','Analyse: Tabelle je Pfeil trennt jetzt systematischen Versatz von zufälliger Streuung','Weltrekorde: doppelte Einträge werden entfernt; je Event/Kategorie ist genau ein Rekord „aktuell“ (kein Eintrag mehr gleichzeitig aktuell und überholt)','Weltrekorde: überholte Rekorde sind standardmäßig ausgeblendet, per Schalter als Historie einblendbar'],
     en:['Analysis: new outlier-arrow detection – across multiple events it finds arrows that sit systematically off in one direction (suspect spine, nock, fletching or straightness), with a direction compass and plain-language advice','Analysis: per-arrow table now separates systematic offset from random scatter','World records: duplicate entries removed; exactly one record per event/category is marked current (no entry is both current and superseded any more)','World records: superseded records hidden by default, shown as history via a toggle']},
@@ -2180,7 +2183,7 @@ function saveLangPref(l){
 }
 function langBtnHTML(){return flagSVG(lang,16)+'<span>'+(lang==='de'?'DE':'EN')+'</span>';}
 function paintLangBtn(){const b=document.getElementById('lang-topbar');if(b)b.innerHTML=langBtnHTML();}
-function chLTopbar(nl){lang=nl;saveLangPref(nl);paintLangBtn();buildNav();navigate(currentPage);}
+function chLTopbar(nl){const next=(nl===undefined||nl===null)?(lang==='de'?'en':'de'):nl;lang=next;saveLangPref(next);paintLangBtn();buildNav();navigate(currentPage);}
 // ─── GLOSSAR DATA (mutable) ───────────────────────────────────────────────
 const GL={de:[{id:1,t:'Spine',d:'Maß für Biegsamkeit. Niedrigerer Wert = steiferer Pfeil.'},{id:2,t:'Auszuglänge',d:'Distanz, die der Schütze den Bogen auszieht, in Zoll.'},{id:3,t:'Blankschaft-Tuning',d:'Unbefiederte Pfeile: Links/Rechts = Spine; Oben/Unten = Nockpunkt.'},{id:4,t:'Walkback-Tuning',d:'Pfeile auf senkrechten Streifen aus verschiedenen Entfernungen.'},{id:5,t:'Paper Tuning',d:'Pfeil durch Papier – Rissbild zeigt Korrekturen.'},{id:6,t:'Nockpunkt',d:'Punkt auf der Sehne, wo der Pfeil eingenocht wird.'},{id:7,t:'Standhöhe (Brace Height)',d:'Abstand Sehne–Griffstück. Typisch 8–9,5 Zoll.'},{id:8,t:'Tiller',d:'Abstand Wurfarmende–Sehne. Oberer Tiller typisch 2–4mm größer.'},{id:9,t:'Clicker',d:'Metallblättchen: klickt bei optimaler Auszuglänge.'},{id:10,t:'WA 720',d:'Outdoor-Format. 72 Pfeile, max. 720 Punkte (50m+30m).'},{id:11,t:'WA 600',d:'Indoor-Format. 60 Pfeile, max. 600 Punkte auf 18m oder 25m.'}],en:[{id:1,t:'Spine',d:'Measure of arrow stiffness. Lower = stiffer arrow.'},{id:2,t:'Draw Length',d:'Distance the archer draws the bow, in inches.'},{id:3,t:'Bare Shaft Tuning',d:'Bare shafts: Left/Right = spine; Up/Down = nocking point.'},{id:4,t:'Walkback Tuning',d:'Arrows on a vertical strip from different distances.'},{id:5,t:'Paper Tuning',d:'Arrow through paper – tear pattern shows corrections.'},{id:6,t:'Nocking Point',d:'Point on string where arrow is nocked.'},{id:7,t:'Brace Height',d:'String to grip distance. Typical 8–9.5 inches.'},{id:8,t:'Tiller',d:'Limb tip to string distance. Upper typically 2–4mm larger.'},{id:9,t:'Clicker',d:'Metal blade: clicks at optimal draw length.'},{id:10,t:'WA 720',d:'Outdoor format. 72 arrows, max 720 points (50m+30m).'},{id:11,t:'WA 600',d:'Indoor format. 60 arrows, max 600 points at 18m/25m.'}]};
 let GL_FILTER_LABEL=null;
