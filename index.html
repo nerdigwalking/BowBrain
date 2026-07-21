@@ -367,8 +367,8 @@ const SHARED={
 };
 const CHANGELOG=[
   {ver:'1.0.2.0',name:'Marquis de Taigeis',
-    de:['Setups: bei der Anlage lässt sich jetzt der Bogentyp wählen (Recurve, Compound, Langbogen, Blankbogen) – je nach Typ werden passende Felder angezeigt; Compound bietet u.a. Peep→Nockpunkt, Achslänge (ATA), IBO-Geschwindigkeit, Let-off und Zuggewicht im Vollauszug, Lang- und Blankbogen kommen mit weniger Feldern aus','Dashboard: Berechnung der besten Punktzahl korrigiert – bei Formaten ohne festes Maximum (z.B. Clout, Field) wurde bisher teils ein falsches Ergebnis als Bestwert angezeigt; jetzt zählt je Format die höchste Punktzahl und formatübergreifend der beste Pfeilschnitt','Eingabemasken schließen nicht mehr versehentlich, wenn beim Markieren von Text der Mauszeiger auf den Hintergrund gerät (betraf u.a. Roadmap-Bearbeitung)','Setups, Pfeilsets und Ergebnisse lassen sich jetzt duplizieren – bei Ergebnissen wird der Rahmen (Typ, Setup, Entfernung, Wetter/Wind) übernommen, Punkte und Platzierung bleiben leer','Entfernungen können pro Eintrag in Metern oder Yards angegeben werden (Ergebnis und Visiereinstellung); die Einheit wird mitgespeichert und überall angezeigt','Visiereinstellungen: Klickwerte erlauben jetzt drei Nachkommastellen (z.B. 4.275)'],
-    en:['Setups: you can now choose the bow type when creating a setup (recurve, compound, longbow, barebow) – fields adapt to the type; compound adds peep→nock, axle-to-axle (ATA), IBO speed, let-off and draw weight at full draw, while longbow and barebow need fewer fields','Dashboard: best-score calculation fixed – for formats without a fixed maximum (e.g. clout, field) a wrong result could be shown as best; now the highest score per format counts and, across formats, the best average per arrow','Input dialogs no longer close by accident when a text selection ends on the backdrop (affected e.g. roadmap editing)','Setups, arrow sets and results can now be duplicated – for results the frame (type, setup, distance, weather/wind) is carried over while points and placement stay empty','Distances can be entered per entry in metres or yards (result and sight settings); the unit is stored and shown everywhere','Sight settings: click values now allow three decimals (e.g. 4.275)']},
+    de:['Schießzettel: Ringwerte lassen sich jetzt auch numerisch eintippen (0–10, X, M) statt nur auf der Scheibe – bestehende Werte per Klick auf den Ring bearbeitbar','Schießzettel: auf der Scheibe wird jetzt die Pfeilnummer angezeigt, sofern vergeben (statt der Eingabereihenfolge)','Setups: bei der Anlage lässt sich jetzt der Bogentyp wählen (Recurve, Compound, Langbogen, Blankbogen) – je nach Typ werden passende Felder angezeigt; Compound bietet u.a. Peep→Nockpunkt, Achslänge (ATA), IBO-Geschwindigkeit, Let-off und Zuggewicht im Vollauszug, Lang- und Blankbogen kommen mit weniger Feldern aus','Dashboard: Berechnung der besten Punktzahl korrigiert – bei Formaten ohne festes Maximum (z.B. Clout, Field) wurde bisher teils ein falsches Ergebnis als Bestwert angezeigt; jetzt zählt je Format die höchste Punktzahl und formatübergreifend der beste Pfeilschnitt','Eingabemasken schließen nicht mehr versehentlich, wenn beim Markieren von Text der Mauszeiger auf den Hintergrund gerät (betraf u.a. Roadmap-Bearbeitung)','Setups, Pfeilsets und Ergebnisse lassen sich jetzt duplizieren – bei Ergebnissen wird der Rahmen (Typ, Setup, Entfernung, Wetter/Wind) übernommen, Punkte und Platzierung bleiben leer','Entfernungen können pro Eintrag in Metern oder Yards angegeben werden (Ergebnis und Visiereinstellung); die Einheit wird mitgespeichert und überall angezeigt','Visiereinstellungen: Klickwerte erlauben jetzt drei Nachkommastellen (z.B. 4.275)'],
+    en:['Scorecard: ring values can now be typed in numerically (0–10, X, M) instead of only placing them on the target – existing values are editable by clicking the ring','Scorecard: the target now shows the arrow number when set (instead of the entry order)','Setups: you can now choose the bow type when creating a setup (recurve, compound, longbow, barebow) – fields adapt to the type; compound adds peep→nock, axle-to-axle (ATA), IBO speed, let-off and draw weight at full draw, while longbow and barebow need fewer fields','Dashboard: best-score calculation fixed – for formats without a fixed maximum (e.g. clout, field) a wrong result could be shown as best; now the highest score per format counts and, across formats, the best average per arrow','Input dialogs no longer close by accident when a text selection ends on the backdrop (affected e.g. roadmap editing)','Setups, arrow sets and results can now be duplicated – for results the frame (type, setup, distance, weather/wind) is carried over while points and placement stay empty','Distances can be entered per entry in metres or yards (result and sight settings); the unit is stored and shown everywhere','Sight settings: click values now allow three decimals (e.g. 4.275)']},
   {ver:'1.0.1.9',name:'Atanu Das',
     de:['Admin: Nutzer können bei missbräuchlicher Verwendung gesperrt (und wieder entsperrt) werden – mit optionalem Sperrgrund, der dem Nutzer beim Login angezeigt wird','Admin: gesperrte Nutzer sind in der Nutzerverwaltung deutlich markiert; Administratoren und das eigene Konto lassen sich nicht sperren','Sicherheit: eine bereits laufende Sitzung eines gesperrten Nutzers wird automatisch beendet','Ergebnisse: der Schießzettel-Button hebt sich jetzt farblich ab (gelbe Umrandung) und heißt „Schießzettel eintragen“ – so ist diese wichtige Funktion leichter zu finden'],
     en:['Admin: users can be blocked (and unblocked) for misuse – with an optional reason shown to the user at login','Admin: blocked users are clearly marked in user management; administrators and your own account cannot be blocked','Security: an already-running session of a blocked user is ended automatically','Results: the scorecard button now stands out (accent outline) and is labelled "Add Scorecard", making this key function easier to find']},
@@ -1736,7 +1736,9 @@ function szMarksSVG(){
       // faint shaft-size ring so the liner geometry is visible
       marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${edge}" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="${(0.6*k).toFixed(2)}"/>`;
       marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${rr}" fill="${act?'#12E0C0':'rgba(18,18,18,0.92)'}" stroke="#fff" stroke-width="${(1.3*k).toFixed(2)}"/>`;
-      marks+=`<text x="${x.toFixed(1)}" y="${(y+2.6*k).toFixed(1)}" text-anchor="middle" font-size="${(6.5*k).toFixed(2)}" fill="${act?'#08201d':'#fff'}" font-family="Inter,sans-serif" style="pointer-events:none">${i-_a+1}</text>`;
+      const _lblTxt=(s.arrow_no!=null&&s.arrow_no!=='')?String(s.arrow_no):String(i-_a+1);
+      const _lblFs=(_lblTxt.length>=2?5.4:6.5)*k;
+      marks+=`<text x="${x.toFixed(1)}" y="${(y+2.6*k).toFixed(1)}" text-anchor="middle" font-size="${_lblFs.toFixed(2)}" fill="${act?'#08201d':'#fff'}" font-family="Inter,sans-serif" style="pointer-events:none">${_lblTxt}</text>`;
       marks+=`</g>`;
     }else{
       marks+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(2.6*k).toFixed(2)}" fill="rgba(120,124,150,0.45)"/>`;
@@ -1853,7 +1855,41 @@ function szHideMagnify(){const l=document.getElementById('sz-loupe');if(l)l.remo
 function szMiss(){if(!SZ||SZ.viewOnly)return;SZ.shots.push({nx:null,ny:null,ring:0,isX:false,arrow_no:null,rating:null});SZ.curEnd=Math.floor((SZ.shots.length-1)/szEndSize());szRefresh();}
 function szUndo(){if(!SZ||SZ.viewOnly||!SZ.shots.length)return;SZ.shots.pop();const es=szEndSize();SZ.curEnd=SZ.shots.length?Math.floor((SZ.shots.length-1)/es):0;szRefresh();}
 function szRemove(i){if(!SZ||SZ.viewOnly)return;SZ.shots.splice(i,1);const es=szEndSize();SZ.curEnd=Math.min(SZ.curEnd||0,Math.max(0,Math.ceil(SZ.shots.length/es)-1));szRefresh();}
-function szSetNo(i,v){if(!SZ||!SZ.shots[i])return;const n=parseInt(v);SZ.shots[i].arrow_no=isNaN(n)?null:n;}
+function szParseRing(v){
+  // accepts 0..10, "X"/"x" (=X), "M"/"m"/"" (=miss). returns {ring,isX} or null.
+  if(v==null)return null;
+  const t=String(v).trim().toUpperCase();
+  if(t===''||t==='M')return{ring:0,isX:false};
+  if(t==='X')return{ring:10,isX:true};
+  const n=parseInt(t,10);
+  if(isNaN(n)||n<0||n>10)return null;
+  return{ring:n,isX:false};
+}
+function szAddNumeric(){
+  if(!SZ||SZ.viewOnly)return;
+  const inp=document.getElementById('sz-num-input');if(!inp)return;
+  const val=szParseRing(inp.value);
+  if(val===null){inp.value='';inp.focus();return;}
+  // numeric shots have no target position (nx/ny stay null)
+  SZ.shots.push({nx:null,ny:null,ring:val.ring,isX:val.isX,arrow_no:null,rating:null});
+  SZ.curEnd=Math.floor((SZ.shots.length-1)/szEndSize());
+  szRefresh();
+  // keep focus on the numeric field for fast serial entry
+  const again=document.getElementById('sz-num-input');if(again){again.value='';again.focus();}
+}
+function szNumKey(ev){if(ev&&(ev.key==='Enter'||ev.keyCode===13)){ev.preventDefault();szAddNumeric();}}
+function szEditRing(gi){
+  if(!SZ||SZ.viewOnly||!SZ.shots[gi])return;
+  const s=SZ.shots[gi];
+  const cur=s.isX?'X':(s.ring>0?String(s.ring):'M');
+  const v=prompt(lang==='de'?'Ringwert (0–10, X oder M):':'Ring value (0–10, X or M):',cur);
+  if(v===null)return;
+  const val=szParseRing(v);
+  if(val===null){toast(lang==='de'?'Ungültiger Wert. Erlaubt: 0–10, X oder M.':'Invalid value. Allowed: 0–10, X or M.');return;}
+  s.ring=val.ring;s.isX=val.isX;
+  szRefresh();
+}
+function szSetNo(i,v){if(!SZ||!SZ.shots[i])return;const n=parseInt(v);SZ.shots[i].arrow_no=isNaN(n)?null:n;const mk=document.getElementById('sz-marks');if(mk)mk.innerHTML=szMarksSVG();}
 function szSetRating(i,k){if(!SZ||!SZ.shots[i]||SZ.viewOnly)return;SZ.shots[i].rating=(SZ.shots[i].rating===k?null:k);szRefresh();}
 function szStat(v,l,col){return`<div style="flex:1;min-width:66px;background:var(--bg3);border-radius:8px;padding:7px 9px;text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:${col};line-height:1">${v}</div><div style="font-size:10px;color:var(--text3);text-transform:uppercase">${l}</div></div>`;}
 function szTotalsHTML(){
@@ -1864,7 +1900,9 @@ function szTotalsHTML(){
 }
 function szShotHTML(s,gi,vo,showNo){
   const DE=lang==='de',lbl=szValLabel(s),cv=s.isX?10:s.ring,bg=s.ring>0?szRingColor(cv):'var(--bg4)',tc=s.ring>0?szChipText(cv):'var(--text3)';
-  const chip=`<span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:26px;border-radius:6px;background:${bg};color:${tc};font-weight:700;font-size:13px;border:1px solid rgba(0,0,0,0.2);flex-shrink:0">${lbl}</span>`;
+  const chip=vo
+    ?`<span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:26px;border-radius:6px;background:${bg};color:${tc};font-weight:700;font-size:13px;border:1px solid rgba(0,0,0,0.2);flex-shrink:0">${lbl}</span>`
+    :`<span onclick="szEditRing(${gi})" title="${DE?'Ringwert eintippen':'Type ring value'}" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:26px;border-radius:6px;background:${bg};color:${tc};font-weight:700;font-size:13px;border:1px solid rgba(0,0,0,0.2);flex-shrink:0;cursor:pointer">${lbl}</span>`;
   const setArr=szSetupArrowNos();const no=showNo?(vo?`<span style="font-size:11px;color:var(--text3)">${s.arrow_no?('#'+s.arrow_no):'–'}</span>`:(setArr?`<select onchange="szSetNo(${gi},this.value)" title="${DE?'Pfeil aus dem Set':'Arrow from set'}" style="width:66px;padding:3px 4px;font-size:12px"><option value="">#</option>${setArr.map(x=>`<option value="${x.no}"${s.arrow_no==x.no?' selected':''}>${x.bare?'▭':''}${x.no}</option>`).join('')}</select>`:`<input type="number" value="${s.arrow_no||''}" onchange="szSetNo(${gi},this.value)" placeholder="#" title="${DE?'Pfeilnummer':'Arrow no.'}" style="width:50px;padding:3px 6px;font-size:12px">`)):'';
   const rating=vo?(s.rating?`<span style="color:var(--accent);font-size:12px;letter-spacing:1px" title="${DE?'Ausführung':'Execution'} ${s.rating}/5">${'●'.repeat(s.rating)}<span style="color:var(--text3)">${'○'.repeat(5-s.rating)}</span></span>`:`<span style="color:var(--text3);font-size:11px">–</span>`):`<span style="display:inline-flex;gap:2px" title="${DE?'Ausführung bewerten':'Rate execution'}">${[1,2,3,4,5].map(k=>`<span onclick="szSetRating(${gi},${k})" style="cursor:pointer;font-size:14px;color:${(s.rating||0)>=k?'var(--accent)':'var(--text3)'}">●</span>`).join('')}</span>`;
   const rm=vo?'':`<button class="btn bd btn-sm" onclick="szRemove(${gi})" style="padding:2px 7px;margin-left:auto">✕</button>`;
@@ -1885,7 +1923,7 @@ function szEndHTML(){
   const end=ends[cs]||[],start=cs*es;let running=0;for(let i=0;i<=cs;i++)running+=(ends[i]||[]).reduce((a,s)=>a+(s.ring||0),0);
   const sum=end.reduce((a,s)=>a+(s.ring||0),0);
   const arrows=end.length?end.map((s,j)=>szShotHTML(s,start+j,vo,SZ.arrowNumbers)).join(''):`<div style="font-size:12px;color:var(--text3);padding:6px 0">${vo?(DE?'Keine Pfeile in dieser Passe.':'No arrows in this end.'):(DE?'Tippe auf die Scheibe, um Pfeile f\u00fcr diese Passe einzutragen.':'Tap the target to add arrows for this end.')}</div>`;
-  return `<div style="border:1px solid var(--border);border-radius:9px;padding:10px 12px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:12px;font-weight:700;color:var(--text);text-transform:uppercase">${DE?'Passe':'End'} ${cs+1} <span style="color:var(--text3);font-weight:500">\u00b7 ${end.length}/${es}</span></span><span style="font-size:12px;color:var(--text2)">${DE?'Summe':'Sum'} <b style="color:var(--text)">${sum}</b> \u00b7 ${DE?'gesamt':'total'} <b style="color:var(--accent)">${running}</b></span></div><div style="display:flex;flex-direction:column;gap:6px">${arrows}</div></div>`;
+  return `<div style="border:1px solid var(--border);border-radius:9px;padding:10px 12px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:12px;font-weight:700;color:var(--text);text-transform:uppercase">${DE?'Passe':'End'} ${cs+1} <span style="color:var(--text3);font-weight:500">\u00b7 ${end.length}/${es}</span></span><span style="font-size:12px;color:var(--text2)">${DE?'Summe':'Sum'} <b style="color:var(--text)">${sum}</b> \u00b7 ${DE?'gesamt':'total'} <b style="color:var(--accent)">${running}</b></span></div><div style="display:flex;flex-direction:column;gap:6px">${arrows}</div>${vo?'':`<div style="display:flex;align-items:center;gap:6px;margin-top:9px;padding-top:9px;border-top:1px dashed var(--border)"><span style="font-size:11px;color:var(--text3);text-transform:uppercase;flex-shrink:0">${DE?'Numerisch':'Numeric'}</span><input id="sz-num-input" type="text" inputmode="numeric" autocomplete="off" onkeydown="szNumKey(event)" placeholder="${DE?'0–10, X, M':'0–10, X, M'}" style="width:96px;padding:5px 8px;font-size:13px"><button class="btn bp btn-sm" onclick="szAddNumeric()">+ ${DE?'Wert':'Value'}</button><span style="font-size:11px;color:var(--text3)">${DE?'ohne Scheibenposition':'no target position'}</span></div>`}</div>`;
 }
 function szOfficialTableHTML(){
   const DE=lang==='de',{es,ends}=szEndSlices();let running=0;
